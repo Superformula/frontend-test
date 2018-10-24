@@ -10,13 +10,13 @@ Use HTML, CSS, and JavaScript to implement the following mock-up. You will need 
 
 Use this Sketch file to see button states, colors, and responsive design.
 
-> [Source Sketch file](Superformula-FE-test-ff1d5ca.sketch)
+> [Source Sketch file](Superformula-FE-test-264388d.sketch)
 
 ## Requirements
 
-### Zomato API
+### Yelp API
 
-You will need to [sign up for an API key](https://developers.zomato.com/api), or you can ask us and we will provide you ours to use for your PR.
+You can ask us and we will provide you a Yelp API Key to use for your PR.
 
 ### Page Structure
 
@@ -28,31 +28,38 @@ Main
     - Categories/Cuisines (server side search filter)
   - Section
     - Restaurant item
-      - Image (use `thumb`)
-      - Cuisine / Categories (use `cuisines` and split string to show only 1)
+      - Image (use first item in `photos`)
+      - Cuisine / Categories (use first item in `categories`)
+      - Rating
       - Price range
-      - `*`Open / Closed (based on restaurants timezone)
+      - Open / Closed
       - Restaurant name
-      - `*`Excerpt
-      - `*`Book button
       - Learn more (open modal to show more details)
+Detail View
+  - Restaurant Name & Rating
+  - Map (optional, if time allows)
+  - Section
+    - Review item
+      - Image
+      - Name
+      - Rating
+      - Text
 ```
-
-> `*` may not be available from the API
 
 ### Functionality
 
 - The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- `Categories` can be pre-filled from the [Cuisines endpoint](https://developers.zomato.com/documentation#!/common/cuisines)
+- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
+- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
 - The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Zomato documentation](https://developers.zomato.com/documentation) for more details.
+- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
 
 ### Tech stack
 
 - JS oriented
   - Use **React**.
   - _Do not_ use any React boilerplate, such as Create React App
-  - Use CSS or Less/SASS/SCSS or any **CSS** framework as you like.
+- Feel free to use a preprocessor like SASS/SCSS/Less but _do not_ use any CSS frameworks or libraries.
 
 ### Bonus
 
@@ -60,8 +67,11 @@ Main
 - Write clear **documentation** on how the app was designed and how to run the code.
 - Provide proper unit tests.
 - Provide components in [Storybook](https://storybook.js.org) with tests.
+- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
 - Write concise and clear commit messages.
 - Provide an online demo of the application.
+- Include subtle animations to focus attention
+- Describe optimization opportunities when you conclude
 
 ## What We Care About
 
