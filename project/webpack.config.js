@@ -35,5 +35,8 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     })
-  ]
+  ],
+  resolve: {
+    modules: ["src", "node_modules"]
+  }
 };
