@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import style from "./main.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import RestaurantsList from "./views/RestaurantsList"
+require("./main.css");
 
 const App = () => {
   return (
-    <div>
-      <p>React here!</p>
-    </div>
+    <Router>
+      <Route path="/" exact component={RestaurantsList} />
+    </Router>
   );
 };
-export default App;
+
 ReactDOM.render(<App />, document.getElementById("app"));
