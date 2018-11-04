@@ -11,7 +11,6 @@ require("./main.css");
 const RestaurantsList = () => {
   const appContext = useContext(AppContext);
   const { setPrice, setOpenNow, setCategory } = appContext;
-  console.log(appContext);
 
   return (
     <div>
