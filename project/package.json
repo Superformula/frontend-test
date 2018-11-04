@@ -14,16 +14,19 @@
   },
   "homepage": "https://github.com/j-gibweb/frontend-test#readme",
   "devDependencies": {
-    "@babel/core": "7.1.2",
+    "@babel/core": "^7.1.2",
     "@babel/preset-env": "7.1.0",
     "@babel/preset-react": "7.0.0",
     "@storybook/addon-actions": "^4.0.2",
     "@storybook/addon-info": "^4.0.2",
     "@storybook/addon-links": "^4.0.2",
+    "@storybook/addon-storyshots": "^4.0.2",
     "@storybook/addons": "^4.0.2",
     "@storybook/react": "^4.0.2",
     "apollo-boost": "^0.1.20",
-    "babel-loader": "8.0.4",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-require-context-hook": "^1.0.0",
     "babel-polyfill": "^6.26.0",
     "css-loader": "1.0.1",
     "graphql": "^14.0.2",
@@ -35,9 +38,18 @@
     "react-apollo": "^2.2.4",
     "react-dom": "16.7.0-alpha.0",
     "react-router-dom": "4.3.1",
+    "react-test-renderer": "^16.6.0",
     "webpack": "4.24.0",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.10"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/jestSetup/setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/jestSetup/__mocks__/styleMock.js"
+    }
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
@@ -45,6 +57,5 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
-  },
-  "dependencies": {}
+  }
 }
