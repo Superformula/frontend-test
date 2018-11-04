@@ -1,0 +1,27 @@
+.flat-button {
+  padding: 15px 35px;
+  background-color: white;
+  text-transform: uppercase;
+  border-color: #eee;
+  color: rgb(182, 182, 182);
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+.flat-button:hover {
+  background-color: rgb(243, 241, 241)
+}
+
+.flat-button.dark {
+  background-color: #002b56;
+  color: white;
+}
+
+.flat-button.dark:hover {
+  background-color: #173d63;
+}
+
+.flat-button.fullwidth {
+  width: 100%;
+}
