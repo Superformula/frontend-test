@@ -16,8 +16,8 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-        // include: path.resolve(__dirname, "../src")
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        include: path.resolve(__dirname, "../src")
       }
     ]
   }
