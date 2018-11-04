@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
-import RestaurantsList from "./views/RestaurantsList"
+import { AppContextProvider } from "AppContext";
+import RestaurantsList from "views/RestaurantsList";
 require("./main.css");
 
 const App = () => {
   return (
-    <Router>
-      <Route path="/" exact component={RestaurantsList} />
-    </Router>
+    <AppContextProvider>
+      <BrowserRouter>
+        <Route path="/" exact component={RestaurantsList} />
+      </BrowserRouter>
+    </AppContextProvider>
   );
 };
 

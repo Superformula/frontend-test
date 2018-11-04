@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "AppContext";
 
 import FilterNav from "components/FilterNav";
 require("./main.css");
 
 const RestaurantsList = () => {
+  const appContext = useContext(AppContext);
+  const { setPrice, setOpenNow, setCategory } = appContext;
+  console.log(appContext);
+
   return (
     <div>
       <div className="top-section">
@@ -14,7 +19,12 @@ const RestaurantsList = () => {
           intelligentsia occupy.
         </p>
       </div>
-      <FilterNav />
+
+      <FilterNav 
+        setPrice={setPrice} 
+        setOpenNow={setOpenNow}
+        setCategory={setCategory}
+      />
 
       <div className="grid">
         <div className="item" />
