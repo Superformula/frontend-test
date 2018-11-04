@@ -3,3 +3,8 @@
 # project specific 
 project/node_modules
 project/dist
+
+project/server/node_modules
+project/server/.env
+
+.vscode
