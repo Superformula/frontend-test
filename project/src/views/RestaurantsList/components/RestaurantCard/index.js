@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import FlatButton from "components/FlatButton";
+
 require("./main.css");
 
 const RestaurantCard = ({
@@ -36,6 +38,9 @@ const RestaurantCard = ({
         
         <p>{is_closed ? <span><span className="red-dot"/> CLOSED</span> : <span><span className="green-dot"/> OPEN NOW</span>}</p>
       </div>
+      <FlatButton theme="dark" fullWidth>
+        learn more
+      </FlatButton>
     </React.Fragment>
   );
 };
