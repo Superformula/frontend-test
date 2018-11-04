@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { AppContext } from "AppContext";
 
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
+
 import FilterNav from "components/FilterNav";
 require("./main.css");
 
@@ -20,8 +23,8 @@ const RestaurantsList = () => {
         </p>
       </div>
 
-      <FilterNav 
-        setPrice={setPrice} 
+      <FilterNav
+        setPrice={setPrice}
         setOpenNow={setOpenNow}
         setCategory={setCategory}
       />
@@ -29,6 +32,30 @@ const RestaurantsList = () => {
       <div className="grid">
         <div className="item" />
       </div>
+
+      <Query
+        query={gql`
+          {
+            search(location: "las vegas", limit: 12) {
+              total
+              business {
+                name
+              }
+            }
+          }
+        `}
+      >
+        {({ loading, error, data }) => {
+          if (loading) return <p>Loading...</p>;
+          if (error) return <p>Error :(</p>;
+
+          return data.search.business.map(({ name }) => (
+            <div key={name}>
+              <p>{name}</p>
+            </div>
+          ));
+        }}
+      </Query>
     </div>
   );
 };
