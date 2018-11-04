@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
-    polyfill: "babel-polyfill",
+    // polyfill: "babel-polyfill",
     app: "./src/index.js"
   },
   module: {
@@ -29,8 +29,8 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       }
     ]
   },
@@ -46,5 +46,8 @@ module.exports = {
   ],
   resolve: {
     modules: ["src", "node_modules"]
+  },
+  watchOptions: {
+    poll: true
   }
 };
