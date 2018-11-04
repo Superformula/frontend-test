@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-require("./main.css");
+require("./main.scss");
 
 const FlatButton = ({ children, theme, fullWidth }) => {
   const classnames = [

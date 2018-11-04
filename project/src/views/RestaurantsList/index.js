@@ -6,10 +6,12 @@ import gql from "graphql-tag";
 import FilterNav from "components/FilterNav";
 import { Grid, Item } from "components/ItemGrid";
 import RestaurantCard from "./components/RestaurantCard";
-require("./main.css");
+require("./main.scss");
 
 const RestaurantsList = () => {
   const appContext = useContext(AppContext);
+  console.log("appContext: ", appContext)
+
   const { setPrice, setOpenNow, setCategory } = appContext;
 
   return (
@@ -36,7 +38,7 @@ const RestaurantsList = () => {
         <Query
           query={gql`
             {
-              search(location: "las vegas", limit: 12) {
+              search(location: "${appContext.location}", limit: 12) {
                 total
                 business {
                   photos

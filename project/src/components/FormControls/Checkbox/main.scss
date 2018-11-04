@@ -1,0 +1,10 @@
+.checkbox-wrapper {
+  border-bottom: 1px solid rgb(200, 200, 200);
+  padding-bottom: 3px;
+  user-select: none;
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+}

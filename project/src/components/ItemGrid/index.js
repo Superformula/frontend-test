@@ -1,5 +1,5 @@
 import React from "react";
-require("./main.css");
+require("./main.scss");
 
 export const Grid = ({ children }) => {
   return <div className="grid">{children}</div>;

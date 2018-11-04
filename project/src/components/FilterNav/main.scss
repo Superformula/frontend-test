@@ -1,0 +1,17 @@
+.filter-nav {
+  padding: 15px 70px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-nav .controls {
+  display: flex;
+  align-items: center;
+}
+
+.filter-nav .controls > * {
+  margin-right: 20px;
+}

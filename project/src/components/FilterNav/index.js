@@ -1,19 +1,20 @@
 import React from "react";
-require("./main.css");
+
+import FlatButton from "components/FlatButton";
+import CheckBox from "components/FormControls/CheckBox"
+
+require("./main.scss");
 
 const FilterNav = ({ setPrice, setOpenNow, setCategory }) => {
   return (
     <div className="filter-nav">
-      <div>
-        Filter By:
-        <input
-          type="checkbox"
-          onChange={e => setOpenNow(e.target.checked)}
-        />{" "}
-        Open Now
+      <div className="controls">
+        <span>Filter By:</span>
 
-        -----
-
+        <CheckBox 
+          label="Open Now"
+          onChange={setOpenNow}
+        /> 
         
         <select defaultValue="" onChange={e => setPrice(e.target.value)}>
           <option value="" disabled hidden>
@@ -25,8 +26,6 @@ const FilterNav = ({ setPrice, setOpenNow, setCategory }) => {
           <option value={"$$$"}>$$$</option>
           <option value={"$$$$"}>$$$$</option>
         </select>
-
-        -----
 
         <select defaultValue="" onChange={e => setCategory(e.target.value)}>
           <option value="" disabled hidden>
@@ -40,9 +39,10 @@ const FilterNav = ({ setPrice, setOpenNow, setCategory }) => {
           <option value={"Mexican"}>Mexican</option>
           <option value={"Thai"}>Thai</option>
         </select>
+
       </div>
 
-      <button>Clear All</button>
+      <FlatButton>Clear All</FlatButton>
     </div>
   );
 };

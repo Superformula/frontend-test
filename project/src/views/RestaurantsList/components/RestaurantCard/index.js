@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import FlatButton from "components/FlatButton";
 
-require("./main.css");
+require("./main.scss");
 
 const RestaurantCard = ({
   name,

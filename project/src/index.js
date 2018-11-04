@@ -8,7 +8,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import { AppContextProvider } from "AppContext";
 import RestaurantsList from "views/RestaurantsList";
-require("./main.css");
+require("./main.scss");
 
 const httpLink = createHttpLink({
   uri: "http://localhost:4000/graphql",
