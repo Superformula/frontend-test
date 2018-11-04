@@ -25,18 +25,29 @@ const RestaurantCard = ({
           }}
         />
       ) : (
-        <div>no photo</div>
+        <div>photo unavailable :(</div>
       )}
 
       <h3>{name}</h3>
+
       <p>{rating} stars</p>
 
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <p>
           {categories.length ? categories[0].title : null} - {price}
         </p>
-        
-        <p>{is_closed ? <span><span className="red-dot"/> CLOSED</span> : <span><span className="green-dot"/> OPEN NOW</span>}</p>
+
+        <p>
+          {is_closed ? (
+            <span>
+              <span className="red-dot" /> CLOSED
+            </span>
+          ) : (
+            <span>
+              <span className="green-dot" /> OPEN NOW
+            </span>
+          )}
+        </p>
       </div>
       <FlatButton theme="dark" fullWidth>
         learn more
