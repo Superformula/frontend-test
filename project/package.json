@@ -1,7 +1,7 @@
 {
   "name": "frontend-test",
   "version": "1.0.0",
-  "description": "Be sure to read **all** of this document carefully, and follow the guidelines within.",
+  "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -16,18 +16,18 @@
   "devDependencies": {
     "@babel/core": "7.1.2",
     "@babel/preset-env": "7.1.0",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "7.0.0",
     "babel-loader": "8.0.4",
-    "css-loader": "^1.0.1",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.4",
-    "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.6.0",
-    "react-router-dom": "^4.3.1",
+    "css-loader": "1.0.1",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.2.0",
+    "mini-css-extract-plugin": "0.4.4",
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0",
+    "react-router-dom": "4.3.1",
     "webpack": "4.24.0",
     "webpack-cli": "3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "3.1.10"
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
