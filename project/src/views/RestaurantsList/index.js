@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { AppContext } from "AppContext";
-
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 import FilterNav from "components/FilterNav";
 import { Grid, Item } from "components/ItemGrid";
+import RestaurantCard from "./components/RestaurantCard";
 require("./main.css");
 
 const RestaurantsList = () => {
@@ -14,7 +14,7 @@ const RestaurantsList = () => {
 
   return (
     <div>
-      <div className="top-section">
+      <div className="padded-section">
         <h1>Restaurants</h1>
         <p>
           Green juice mustache adaptogen air plant single-origin coffee. <br />
@@ -29,6 +29,9 @@ const RestaurantsList = () => {
         setCategory={setCategory}
       />
 
+      <h2 className="padded-section">
+        All Restaurants
+      </h2>
       <Grid>
         <Query
           query={gql`
@@ -53,25 +56,9 @@ const RestaurantsList = () => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error :(</p>;
 
-            return data.search.business.map(({ name, photos, rating, categories, price, is_closed }) => (
-              <Item key={name}>
-                {photos.length ? (
-                  <div
-                    style={{
-                      background: `url(${photos[0]})`,
-                      backgroundSize: "300px 230px",
-                      width: 300,
-                      height: 230
-                    }}
-                  />
-                ) : (
-                  <div>no photo</div>
-                )}
-
-                <p>{name}</p>
-                <p>{rating}</p>
-
-                <p>{categories[0].title} - {price}     ----- {is_closed ? "Closed" : "Open"}</p>
+            return data.search.business.map((business) => (
+              <Item key={business.name}>
+                <RestaurantCard {...business} />
               </Item>
             ));
           }}
