@@ -3,8 +3,9 @@ import { AppContext } from "AppContext";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
-import FilterNav from "components/FilterNav";
 import { Grid, Item } from "components/ItemGrid";
+
+import FilterNav from "./components/FilterNav";
 import RestaurantCard from "./components/RestaurantCard";
 require("./main.scss");
 
