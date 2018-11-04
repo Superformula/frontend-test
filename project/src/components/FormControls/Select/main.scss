@@ -1,0 +1,40 @@
+.select-wrapper {
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  cursor: pointer;
+
+  label {
+    position: relative;
+    :focus {
+      outline: 0;
+    }
+
+    select {
+      border: none;
+      font-size: 16px;
+      background-color: white;
+      min-width: 80px;
+      cursor: pointer;
+      color: #173d63;
+      font-weight: 300;
+  
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+  }
+  label:after {
+    content: ">";
+    font-size: 12px;
+    color: #aaa;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 2px;
+    top: 2px;
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+  }
+}
