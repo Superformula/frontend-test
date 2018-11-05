@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "react-apollo";
 import { createHttpLink } from "apollo-link-http";
@@ -8,6 +8,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 
 import { AppContextProvider } from "AppContext";
 import RestaurantsList from "views/RestaurantsList";
+import RestaurantDetail from "views/RestaurantDetail";
 require("./main.scss");
 
 const httpLink = createHttpLink({
@@ -33,13 +34,14 @@ const App = () => {
         <AppContextProvider>
           <Switch>
             <Route
-              path="/"
               exact
+              path="/"
               render={() => {
                 return <Redirect to="/restaurants" />;
               }}
             />
-            <Route path="/restaurants" component={RestaurantsList} />
+            <Route exact path="/restaurants" component={RestaurantsList} />
+            <Route path="/restaurants/:alias" component={RestaurantDetail} />            
           </Switch>
         </AppContextProvider>
       </BrowserRouter>
