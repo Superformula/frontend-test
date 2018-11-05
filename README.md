@@ -9,6 +9,9 @@
 
 # Superformula Frontend Test
 
+**Preview**:
+This preview demonstrates some usage and provides a little window into the `redux` store (pardon the refresh speeds)
+
 ![App preview](./preview.gif)
 
 ## Quickstart
