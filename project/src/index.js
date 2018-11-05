@@ -28,9 +28,9 @@ const client = new ApolloClient({
 
 const App = () => {
   return (
-    <AppContextProvider>
-      <ApolloProvider client={client}>
-        <BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <AppContextProvider>
           <Switch>
             <Route
               path="/"
@@ -41,9 +41,9 @@ const App = () => {
             />
             <Route path="/restaurants" component={RestaurantsList} />
           </Switch>
-        </BrowserRouter>
-      </ApolloProvider>
-    </AppContextProvider>
+        </AppContextProvider>
+      </BrowserRouter>
+    </ApolloProvider>
   );
 };
 

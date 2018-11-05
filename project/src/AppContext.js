@@ -1,47 +1,66 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+import qs from "query-string";
 
 export const AppContext = createContext();
 
-export const AppContextProvider = ({children}) => {
-  const [state, setState] = useState({
-    location: "las vegas",
-    price: "",
-    openNow: false,
-    category: ""
-  });
+export const AppContextProvider = withRouter(
+  ({ children, history, location }) => {
+    const queryState = qs.parse(location.search);
 
-  const setPrice = (price) => {
-    setState({...state, price})
-  }
-
-  const setOpenNow = (openNow) => {
-    setState({...state, openNow})
-  }
-  
-  const setCategory = (category) => {
-    setState({...state, category})
-  }
-
-  const clearAll = () => {
-    setState({
-      ...state,
+    let initialState = {
+      location: "las vegas",
       price: "",
-      openNow: false,
+      openNow: "false",
       category: ""
-    })
-  }
+    };
 
-  return (
-    <AppContext.Provider 
-      value={{
+    if (Object.keys(queryState).length) {
+      initialState = queryState;
+    }
+
+    const [state, setState] = useState(initialState);
+
+    useEffect(
+      () => {
+        history.push({ search: `?${qs.stringify(state)}` });
+      },
+      [state]
+    );
+
+    const setPrice = price => {
+      setState({ ...state, price });
+    };
+
+    const setOpenNow = openNow => {
+      setState({ ...state, openNow });
+    };
+
+    const setCategory = category => {
+      setState({ ...state, category });
+    };
+
+    const clearAll = () => {
+      setState({
         ...state,
-        setPrice,
-        setOpenNow,
-        setCategory,
-        clearAll
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
-}
+        price: "",
+        openNow: "false",
+        category: ""
+      });
+    };
+
+    return (
+      <AppContext.Provider
+        value={{
+          ...state,
+          setPrice,
+          setOpenNow,
+          setCategory,
+          clearAll
+        }}
+      >
+        {children}
+      </AppContext.Provider>
+    );
+  }
+);

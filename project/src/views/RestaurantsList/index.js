@@ -65,7 +65,7 @@ const RestaurantsList = () => {
           variables={{
             location,
             limit: 10,
-            openNow,
+            open_now: openNow === true,
             price: price.length ? price.length.toString() : null,
             category: category.length ? category.toLowerCase() : null
           }}

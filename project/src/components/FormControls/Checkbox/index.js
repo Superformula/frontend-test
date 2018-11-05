@@ -8,8 +8,8 @@ const CheckBox = ({ label, onChange, checked }) => {
       <label>
         <input
           type="checkbox"
-          checked={checked}
-          onChange={e => onChange(e.target.checked)}
+          checked={checked === "true"}
+          onChange={e => onChange(e.target.checked.toString())}
         />
         {label}
       </label>
@@ -20,7 +20,7 @@ const CheckBox = ({ label, onChange, checked }) => {
 CheckBox.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  checked: PropTypes.bool.isRequired // TODO: one of, true, false
+  checked: PropTypes.string.isRequired // TODO: one of, true, false
 }
 
 export default CheckBox;

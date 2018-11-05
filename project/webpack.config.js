@@ -1,5 +1,3 @@
-
-
 // https://www.valentinog.com/blog/react-webpack-babel/
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -52,5 +50,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true
-  }
+  },
+  devtool: "source-map"
 };
