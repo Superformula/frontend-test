@@ -1,7 +1,7 @@
 // restaurants
 
-export const allRestaurants = ({ restaurant }) => restaurant.restaurants;
-export const allRestaurantReviews = ({ restaurant }) => restaurant.reviews;
+export const allRestaurants = ({ restaurant }) => restaurant.get('restaurants');
+export const allRestaurantReviews = ({ restaurant }) => restaurant.get('reviews');
 export const getRestaurantData = ({ restaurant }) => {
   // destructure props here for use in container
   const {
@@ -15,7 +15,7 @@ export const getRestaurantData = ({ restaurant }) => {
     location,
     photos,
     review_count,
-  } = restaurant.restaurant;
+  } = restaurant.get('restaurant');
 
   return {
     id,
@@ -31,6 +31,6 @@ export const getRestaurantData = ({ restaurant }) => {
   };
 };
 
-export const isFetchingRestaurant = ({ restaurant }) => restaurant.isFetching;
-export const isFetchingRestaurants = ({ restaurant }) => restaurant.isFetching;
-export const getFilters = ({ restaurant }) => restaurant.filters;
+export const isFetchingRestaurant = ({ restaurant }) => restaurant.get('isFetching');
+export const isFetchingRestaurants = ({ restaurant }) => restaurant.get('isFetching');
+export const getFilters = ({ restaurant }) => restaurant.get('filters');

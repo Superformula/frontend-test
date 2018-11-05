@@ -1,8 +1,9 @@
+import { Map } from 'immutable';
 import * as ACTIONS from 'actions/restaurant';
 
 import Helpers from 'reducers/helpers';
 
-const initialState = {
+const initialState = Map({
   isFetching: false,
   restaurants: [],
   restaurant: {},
@@ -10,73 +11,67 @@ const initialState = {
   filters: {
     location: 'Las Vegas', // hardcoding here; TODO: add searchable field
   },
-};
+});
 
 const actionsMap = {
-  [ACTIONS.FETCH_RESTAURANTS_START]: (state, { data }) => {
-    const nextState = Object.assign({}, state, {
-      isFetching: true,
-    });
-
+  [ACTIONS.FETCH_RESTAURANTS_START]: (state) => {
+    const nextState = state.merge(Map({ isFetching: true }));
     return nextState;
   },
-  [ACTIONS.FETCH_RESTAURANT_START]: (state, { data }) => {
-    const nextState = Object.assign({}, state, {
-      isFetching: true,
-    });
-
+  [ACTIONS.FETCH_RESTAURANT_START]: (state) => {
+    const nextState = state.merge(Map({ isFetching: true }));
     return nextState;
   },
-  [ACTIONS.FETCH_RESTAURANT_REVIEWS_START]: (state, { data }) => {
-    const nextState = Object.assign({}, state, {
-      isFetching: true, // TODO: consider using a separate reducer or key for reviews loading
-    });
-
+  [ACTIONS.FETCH_RESTAURANT_REVIEWS_START]: (state) => {
+    const nextState = state.merge(Map({ isFetching: true }));
     return nextState;
   },
-  [ACTIONS.FETCH_RESTAURANT_START]: (state, { data }) => {
-    const nextState = Object.assign({}, state, {
-      isFetching: true,
-    });
-
+  [ACTIONS.FETCH_RESTAURANT_START]: (state) => {
+    const nextState = state.merge(Map({ isFetching: true }));
     return nextState;
   },
   [ACTIONS.FETCH_RESTAURANTS_SUCCESS]: (state, { data }) => {
-    const nextState = Object.assign({}, state, {
-      restaurants: data.businesses,
-      isFetching: false,
-    });
-
+    const nextState = state.merge(
+      Map({
+        restaurants: data.businesses,
+        isFetching: false,
+      }),
+    );
     return nextState;
   },
   [ACTIONS.FETCH_RESTAURANT_SUCCESS]: (state, { data }) => {
-    const nextState = Object.assign({}, state, {
-      restaurant: data,
-      isFetching: false,
-    });
-
+    const nextState = state.merge(
+      Map({
+        restaurant: data,
+        isFetching: false,
+      }),
+    );
     return nextState;
   },
   [ACTIONS.FETCH_RESTAURANT_REVIEWS_SUCCESS]: (state, { data }) => {
-    const nextState = Object.assign({}, state, {
-      reviews: data.reviews,
-      isFetching: false,
-    });
+    const nextState = state.merge(
+      Map({
+        reviews: data.reviews,
+        isFetching: false,
+      }),
+    );
 
     return nextState;
   },
   [ACTIONS.TOGGLE_FILTER]: (state, { filter, value }) => {
-    const nextState = Object.assign({}, state, {
-      filters: Helpers.toggleFilter(state, filter, value),
-    });
-
+    const nextState = state.merge(
+      Map({
+        filters: Helpers.toggleFilter(state, filter, value),
+      }),
+    );
     return nextState;
   },
   [ACTIONS.RESET_FILTERS]: (state) => {
-    const nextState = Object.assign({}, state, {
-      filters: { ...initialState.filters },
-    });
-
+    const nextState = state.merge(
+      Map({
+        filters: initialState.get('filters'),
+      }),
+    );
     return nextState;
   },
 };

@@ -44,6 +44,7 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "dotenv": "^6.1.0",
+    "immutable": "^4.0.0-rc.12",
     "include-media": "^1.4.9",
     "prop-types": "^15.6.2",
     "qs": "^6.5.2",

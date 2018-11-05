@@ -1,4 +1,4 @@
-- [React / Redux Demo App](#react--redux-demo-app)
+- [Superformula Frontend Test](#superformula-frontend-test)
   - [Quickstart](#quickstart)
     - [`json-server`](#json-server)
     - [Production](#production)
@@ -7,7 +7,7 @@
       - [Application Design](#application-design)
       - [Roadmap](#roadmap)
 
-# React / Redux Demo App
+# Superformula Frontend Test
 
 ## Quickstart
 

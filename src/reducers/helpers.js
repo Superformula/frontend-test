@@ -5,7 +5,7 @@ import qs from 'qs';
   add / remove filters from the state tree by object key
 */
 const toggleFilter = (state, filter, value) => {
-  const newFilters = Object.assign(state.filters, {});
+  const newFilters = Object.assign({}, state.get('filters'));
 
   if (typeof value === 'string') {
     if (value === 'All') {
