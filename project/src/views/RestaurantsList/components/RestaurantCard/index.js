@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import FlatButton from "components/FlatButton";
 
 require("./main.scss");
 
 const RestaurantCard = ({
+  alias,
   name,
   photos,
   rating,
@@ -49,9 +51,11 @@ const RestaurantCard = ({
           )}
         </p>
       </div>
-      <FlatButton theme="dark" fullWidth>
-        learn more
-      </FlatButton>
+      <Link to={`/restaurants/${alias}`}>
+        <FlatButton theme="dark" fullWidth>
+          learn more
+        </FlatButton>
+      </Link>
     </React.Fragment>
   );
 };
