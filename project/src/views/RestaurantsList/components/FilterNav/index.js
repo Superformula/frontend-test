@@ -34,6 +34,7 @@ const FilterNav = () => {
           onChange={setPrice}
           placeholder="Price"
           options={["All", "$", "$$", "$$$", "$$$$"]}
+          value={price}
         />
         <Select
           onChange={setCategory}
@@ -47,6 +48,7 @@ const FilterNav = () => {
             "Mexican",
             "Thai"
           ]}
+          value={category}
         />
       </div>
 
