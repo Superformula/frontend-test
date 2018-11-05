@@ -4,10 +4,10 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 import { Grid, Item } from "components/ItemGrid";
+import PaddedSection from "components/PaddedSection";
 
 import FilterNav from "./components/FilterNav";
 import RestaurantCard from "./components/RestaurantCard";
-require("./main.scss");
 
 const LIST_RESTAURANTS = gql`
   query ListRestaurants(
@@ -44,22 +44,25 @@ const RestaurantsList = () => {
   const appContext = useContext(AppContext);
   const { location, openNow, price, category } = appContext;
 
-  console.log("appContext: ", appContext);
+  // console.log("appContext: ", appContext);
 
   return (
     <div>
-      <div className="padded-section">
+      <PaddedSection>
         <h1>Restaurants</h1>
         <p>
           Green juice mustache adaptogen air plant single-origin coffee. <br />
           Beard yuccie succulents listicle, pickled gluten-free shaman YOLO
           intelligentsia occupy.
         </p>
-      </div>
+      </PaddedSection>
 
       <FilterNav />
 
-      <h2 className="padded-section">All Restaurants</h2>
+      <PaddedSection>
+        <h2>All Restaurants</h2>
+      </PaddedSection>
+
       <Grid>
         <Query
           query={LIST_RESTAURANTS}
