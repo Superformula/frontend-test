@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
+    <title>outline</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Filtering---Desktop" transform="translate(-148.000000, -759.000000)" stroke="#002B56">
+            <g id="all-things" transform="translate(64.000000, 368.000000)">
+                <g id="row-1" transform="translate(0.000000, 83.000000)">
+                    <g id="Thing-1">
+                        <g id="Group" transform="translate(0.000000, 244.000000)">
+                            <g id="Rating" transform="translate(0.000000, 64.000000)">
+                                <path d="M93.9983095,1.56625538 L91.5662811,8.04 L85.735947,8.04 L90.7410408,11.8065451 L88.3834805,17.9992916 L93.9995525,13.7746644 L99.6320938,17.9990703 L97.258227,11.8070961 L102.264053,8.04 L96.4128413,8.04 L93.9983095,1.56625538 Z" id="outline"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,96 +1,126 @@
-# Superformula Front-end Developer Coding Test
+- [React / Redux Demo App](#react--redux-demo-app)
+  - [Quickstart](#quickstart)
+    - [`json-server`](#json-server)
+    - [Production](#production)
+    - [Project Outline](#project-outline)
+      - [Directory Structure](#directory-structure)
+      - [Application Design](#application-design)
+      - [Roadmap](#roadmap)
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
+# React / Redux Demo App
 
-## Context
+## Quickstart
 
-Use HTML, CSS, and JavaScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
+Create a `.env` file in the root of the project, and copy over the keys from `.env.example` (replacing them with the proper production values/keys).
 
-![Superformula-front-end-test-mockup](./mockup.png)
-
-Use this Sketch file to see button states, colors, and responsive design.
-
-> [Source Sketch file](Superformula-FE-test-264388d.sketch)
-
-## Requirements
-
-### Yelp API
-
-You can ask us and we will provide you a Yelp API Key to use for your PR.
-
-### Page Structure
-
-```
-Main
-  - Filter navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (open modal to show more details)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
+```bash
+> yarn
+> yarn start
 ```
 
-### Functionality
+A hot-reloadable web app is viewable at `http://localhost:8080/`.
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
+### `json-server`
 
-### Tech stack
+Due to CORS, a bonus `server` application is available. It will proxy requests to Yelp's API. See the `./server/README.md` file for a quick way to set this up.
 
-- JS oriented
-  - Use **React**.
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor like SASS/SCSS/Less but _do not_ use any CSS frameworks or libraries.
+### Production
 
-### Bonus
+```bash
+> yarn
+> yarn build
+```
 
-- Also create mobile version included in Sketch comp.
-- Write clear **documentation** on how the app was designed and how to run the code.
-- Provide proper unit tests.
-- Provide components in [Storybook](https://storybook.js.org) with tests.
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages.
-- Provide an online demo of the application.
-- Include subtle animations to focus attention
-- Describe optimization opportunities when you conclude
+View the `./dist` directory for minified assets.
 
-## What We Care About
+### Project Outline
 
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your code & the way you solve the problem, not how well you can use a particular library or feature.
+This project uses React & Redux, SASS, and includes a custom webpack config.
 
-_We're interested in your method and how you approach the problem just as much as we're interested in the end result._
+Other notable packages include `include-media` (useful media query mixins), `dotenv` for app environments, and
 
-Here's what you should strive for:
+#### Directory Structure
 
-- Good use of current HTML, CSS, and JavaScript & performance best practices.
-- Solid testing approach.
-- Extensible code.
+Here is a notable breakdown of the components and the files used.
 
-## Q&A
+- ./src/
+  - ./actions - redux action creators
+  - ./api - `axios` API wrapper
+  - ./assets - assets (images and styles)
+  - ./components - basic / shared page components
+    - ./Filter - page filter components, used in the `FilterBar`
+    - ./FilterBar - page filter bar component
+    - ./Nav - simple page navigation (only used in the `RestaurantContainer`)
+    - ./OpenStatus - Basic open / closed component
+    - ./Restaurant - Shared components for Restaurant views and tiles
+    - ./ScrollToTop - basic scrollToTop component (useful when navigating between URLs)
+    - ./Stars - Stars review components
+  - ./containers - Top Level Page components
+  - ./routes - Routes definitions
+  - ./selectors - redux store helper selectors
+  - ./store - redux store configuration
+  - ./App.jsx - main application wrapper (includes `<Provider />`)
+  - ./index.html - main page template for HTML view
+  - ./index.jsx - main app entry point / webpack / render call
+- .env-example - example .env file (copy to `.env` or `.env.production`, etc)
+- .gitignore
+- .eslintrc.js - common eslint rules, extends from `airbnb` with some overrides
+- .prettierrc.js - prettier defaults
+- jsconfig.json - editor configuration
+- README.md (this file)
 
-> Where should I send back the result when I'm done?
+When developing, use the top level `Container` to map from the redux store and pass props down.
 
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
+#### Application Design
 
-> What if I have a question?
+TL;DR –– use the top level state tree (redux store) to handle the application state and various component logic. Pass props via top level `Container` `mapStateToProps` calls down to corresponding components.
 
-Just create a new issue in this repo and we will respond and get back to you quickly.
+The most notable complexity of this application is in the redux store with the filtering logic. We are using the [Yelp API](https://www.yelp.com/developers/documentation/v3/business) to make requests, along with `axios` to format and prepare the query string for the requests.
+
+The `state.restaurant.filter` object will contain a mapping of keys and values that the yelp API prefers. For example, the API may be requested as so:
+
+```js
+axios.get('/api/businesses/search', {
+    params: {
+    open_now: true,
+    price: '$,$$'
+  }
+})
+...
+```
+
+The `buildQueryObject` helper (found in `./src/reducers/helpers.js`) prepares the formatting of our object appropriately, as we're storing in the reducer itself as arrays, for example:
+
+```js
+state = {
+  restaurant: {
+    filters: {
+      location: 'Las Vegas',
+      open_now: true,
+      price: ['$', '$$']
+    }
+  }
+};
+```
+
+Our `toggleFilter` (found in `./src/reducers/helpers.js`) helper will remove items from the array, or set as `true` (in the case of the `open_now` filter).
+
+The views all use a direct mapping of the state tree to determine their active status, for example:
+
+```jsx
+<Filter.Option
+  isActive={values.includes(option)}
+  onSelect={this.onSelect}
+  key={option}
+  value={option}
+/>
+```
+
+#### Roadmap
+
+Time permitting, these options would have been implemented:
+
+- add more dynamic based `Load More` and use Yelp Pagination (right now, first page is only loaded and the Container simply slices out the array to fake loading more)
+- add mobile optimized filter navigation and touch up to mobile views
+- add unit tests
+- add storybook

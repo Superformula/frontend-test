@@ -1,0 +1,37 @@
+
+// Layout
+
+$container-max-width: 1312px;
+
+
+// Responsive
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: $container-max-width
+);
+$breakpoints: $grid-breakpoints;
+
+// Typography
+
+$helvetica: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+$font-family-base: $helvetica;
+$helvetica-light: HelveticaNeue-Light, $font-family-base;
+
+// Colors
+
+$brand-color-primary: #002B56;
+$gray: #666666;
+$gray-alt: #757575;
+$gray-light: #C8C8C8;
+$gray-lightest: #E6E6E6;
+$green: #00E8A4;
+$red: #FF3548;
+
+// Effects
+
+$transition-speed: .5s;
+$transition-easing: ease-out;

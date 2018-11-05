@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
+    <title>half-star</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="10 0.14 12.76 7.54 19.76 7.54 13.86 11.98 16.72 19.44 10 14.4 3.3 19.44 6.14 11.98 0.24 7.54 7.22 7.54"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Filtering---Desktop" transform="translate(-799.000000, -731.000000)">
+            <g id="all-things" transform="translate(64.000000, 368.000000)">
+                <g id="row-1" transform="translate(0.000000, 83.000000)">
+                    <g id="Thing-3" transform="translate(672.000000, 0.000000)">
+                        <g id="Rating" transform="translate(0.000000, 280.000000)">
+                            <g id="half-star" transform="translate(63.000000, 0.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <path stroke="#002B56" d="M9.9983095,1.56625538 L7.56628111,8.04 L1.73594704,8.04 L6.74104082,11.8065451 L4.38348049,17.9992916 L9.99955248,13.7746644 L15.6320938,17.9990703 L13.258227,11.8070961 L18.264053,8.04 L12.4128413,8.04 L9.9983095,1.56625538 Z"></path>
+                                <rect id="Rectangle" fill="#002B56" mask="url(#mask-2)" x="0" y="0" width="10" height="20"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

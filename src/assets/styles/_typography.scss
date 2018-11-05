@@ -1,0 +1,30 @@
+h1,
+.h1 {
+  margin: 0 0 25px;
+  letter-spacing: .96px;
+  font-family: $helvetica-light;
+  font-size: 54px;
+  line-height: 64px;
+}
+
+h2,
+.h2 {
+  margin: 0 0 25px;
+  letter-spacing: .96px;
+  font-size: 54px;
+  font-weight: 200;
+  line-height: 64px;
+}
+
+h3,
+.h3 {
+  letter-spacing: .96px;
+  font-size: 34px;
+  font-weight: 200;
+  line-height: 40px;
+}
+
+p {
+  margin: 0 0 16px;
+  line-height: 1.5;
+}

@@ -1,0 +1,626 @@
+// global
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: 1rem;
+
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  transition: color $transition-easing $transition-speed;
+  color: $brand-color-primary;
+
+  &.button {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #000000;
+  }
+}
+
+// atoms
+
+%meta-label {
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: $gray-alt;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  @include media(">md") {
+    padding: 0 64px;
+  }
+}
+
+.stars {
+  margin: 8px 0 0;
+}
+
+.star {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  background: transparent url(../images/star-fill.svg) no-repeat scroll top left;
+  background-size: cover;
+
+  &--half {
+    background-image: url(../images/star-half.svg);
+  }
+
+  &--empty {
+    background-image: url(../images/star-empty.svg);
+  }
+}
+
+.open-status {
+  @include flex-center;
+  width: 100%;
+  margin: 16px 0 0 0;
+
+  @include media(">sm") {
+    width: auto;
+    margin: 0 0 0 auto;
+  }
+
+  figure {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px 0 0;
+    content: "";
+    border-radius: 100%;
+    background: $green;
+  }
+
+  &--closed {
+    figure {
+      background-color: $red;
+    }
+  }
+}
+
+.meta {
+  @include flex-center;
+  flex-wrap: wrap;
+  margin: 16px 0 20px;
+
+  &__item {
+    @extend %meta-label;
+  }
+}
+
+
+.button {
+  display: inline-block;
+  min-width: 150px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all $transition-speed $transition-easing;
+  text-align: center;
+  letter-spacing: .86px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: 1px solid $brand-color-primary;
+  background: $brand-color-primary;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+
+  &:hover {
+    color: $brand-color-primary;
+    background: #FFFFFF;
+  }
+
+  &--inverse {
+    color: $brand-color-primary;
+    background: #FFFFFF;
+    &:hover {
+      color: #FFFFFF;
+      background: $brand-color-primary;
+    }
+  }
+
+  &--block {
+    width: 100%;
+  }
+
+  &--smaller {
+    min-width: 100px;
+    padding: 12px;
+    font-size: 11px;
+  }
+}
+
+// containers
+
+.content-section {
+  padding: 64px 0;
+
+  h3:first-child {
+    margin-bottom: 34px;
+  }
+
+  &__lower {
+    border-top: 1px solid $gray-lightest;
+  }
+}
+
+.tile-grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  > div {
+    width: 100%;
+    margin: 0 0 80px 0;
+
+    @include media(">sm") {
+      margin-right: 32px;
+    }
+    @include media(">md") {
+      width: calc(25% - 32px);
+    }
+    @include media("<lg", ">sm") {
+      width: calc(50% - 32px);
+    }
+
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+}
+
+.load-more {
+  @include flex-center;
+  justify-content: center;
+
+  &__button {
+    @include media(">sm") {
+      min-width: 416px;
+    }
+  }
+}
+
+// modules
+
+.nav {
+  padding-bottom: 30px;
+}
+
+.intro {
+  padding: 36px 0;
+
+  @include media(">md") {
+    max-width: 60%;
+  }
+
+  p {
+    letter-spacing: .92px;
+    color: $gray;
+    font-family: $helvetica-light;
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  &__footer {
+    margin-top: 30px;
+  }
+}
+
+.filter-bar {
+  padding: 20px 0;
+  color: $gray;
+  border-top: 1px solid $gray-lightest;
+  border-bottom: 1px solid $gray-lightest;
+  font-size: 16px;
+  line-height: 1;
+
+  &__label {
+    margin-right: 24px;
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  &__inner {
+    @include flex-center;
+  }
+}
+
+@mixin filter-toggle {
+  position: relative;
+  margin-right: 33px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  color: $brand-color-primary;
+  border-bottom: 1px solid $gray-light;
+  line-height: 1;
+}
+
+@mixin filter-toggle-figure {
+  @include flex-center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: 1px solid $gray-light;
+  border-radius: 100%;
+
+  &:after {
+    display: block;
+    width: 8px;
+    height: 8px;
+    content: "";
+    transition: opacity $transition-speed $transition-easing;
+    opacity: 0;
+    border-radius: 100%;
+    background: $brand-color-primary;
+
+    .filter-toggle--active & {
+      opacity: 1;
+    }
+  }
+}
+
+.filter-toggle {
+  @include filter-toggle();
+  display: flex;
+  align-items: center;
+
+
+  figure {
+    @include filter-toggle-figure();
+  }
+
+
+  &:hover,
+  &--active {
+    figure:after {
+      opacity: 1;
+    }
+  }
+}
+
+.filter-select {
+  @include filter-toggle();
+
+  &__label {
+    @include flex-center;
+
+    &:after {
+      display: block;
+      width: 7px;
+      height: 4px;
+      margin: 0 0 0 auto;
+      content: "";
+      transition: transform $transition-speed $transition-easing;
+      background: transparent url(../images/caret-down.svg) no-repeat scroll top left;
+
+      .filter-select--open & {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  &__options {
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    visibility: hidden;
+    padding: 6px 0;
+    transition: all $transition-speed/2 ease-out;
+    transform: translateY(50px);
+    transform-origin: top;
+    opacity: 0;
+    border: 1px solid $gray-light;
+    background: #FFFFFF;
+    box-shadow: 0 6px 5px 0 rgba(0,0,0,.10), inset 0 -1px 0 0 $gray-light;
+
+    .filter-select--open & {
+      visibility: visible;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .filter-option {
+    @include flex-center;
+    padding: 10px 16px;
+    letter-spacing: 0;
+    color: $gray;
+    figure {
+      @include filter-toggle-figure();
+    }
+
+    &:hover,
+    &--active {
+      figure:after {
+        opacity: 1;
+      }
+    }
+
+    // somewhat hacky way to do this;
+    // easier to set here than try and rebuild to format.
+    // the yelp expects integers for the value types,
+    // not `$` or `$$`.
+    &--1,
+    &--2,
+    &--3,
+    &--4 {
+      span {
+        display: none;
+      }
+    }
+
+    &--1 {
+      &:after {
+        content: "$";
+      }
+    }
+
+    &--2 {
+      &:after {
+        content: "$$";
+      }
+    }
+
+    &--3 {
+      &:after {
+        content: "$$$";
+      }
+    }
+
+    &--4 {
+      &:after {
+        content: "$$$$";
+      }
+    }
+  }
+}
+
+.filter-clear {
+  margin: 0 0 0 auto;
+
+  @extend .button;
+}
+
+.restaurant-tile {
+  position: relative;
+  min-height: 440px;
+  cursor: pointer;
+  &__img {
+    height: 228px;
+    background-size: cover;
+  }
+  &__heading {
+    margin: 16px 0 8px;
+    letter-spacing: 1px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  &__button {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.restaurant-header {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid $gray-lightest;
+  h3:first-child {
+    margin-bottom: 16px;
+  }
+
+  &__meta {
+    margin-bottom: 0;
+    .meta__item {
+      text-transform: none;
+      font-size: 22px;
+      font-weight: 200;
+      line-height: 32px;
+    }
+
+    .open-status figure {
+      width: 22px;
+      height: 22px;
+      margin-right: 8px;
+    }
+  }
+}
+
+.restaurant-intro {
+  @include flex-center;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+
+  > div {
+    width: 100%;
+    height: 200px;
+    margin: 0 0 100px;
+    background-size: cover;
+
+    @include media(">md") {
+      width: calc(25% - 32px);
+      height: 228px;
+      margin: 0 0 0 32px;
+    }
+
+    &:first-child {
+      @include media(">md") {
+        width: calc(50% - 32px);
+        margin-left: 0;
+      }
+    }
+  }
+
+  figure {
+    height: 100%;
+    margin: 0;
+    background-size: cover;
+  }
+
+  &__map {
+    width: 640px;
+    max-width: 100%;
+  }
+
+  &__address {
+    display: inline-block;
+    margin: 16px 0 0;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 28px;
+  }
+}
+
+.reviews {
+  &__heading {
+    margin: 0 0 50px;
+    letter-spacing: .92px;
+    color: $gray;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 32px;
+  }
+}
+
+.review {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 75px;
+  padding: 0 0 75px;
+  border-bottom: 1px solid $gray-lightest;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  .review-meta {
+    width: 100%;
+
+    @include media(">md") {
+      width: 30%;
+      margin-right: 100px;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 26px;
+
+    @include media(">md") {
+      width: 45%;
+      font-size: 28px;
+      font-weight: 200;
+      line-height: 1;
+    }
+
+    .stars {
+      margin: 32px 0;
+
+      @include media(">md") {
+        margin: 0 0 32px;
+      }
+    }
+  }
+}
+
+.review-meta {
+  margin-left: 100px;
+  &__avatar {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 0 32px 0 -100px;
+    background-size: cover;
+  }
+
+  &__name {
+    strong,
+    em {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+  }
+
+  strong {
+    margin: 0 0 8px;
+    letter-spacing: .92px;
+  }
+
+  em {
+    color: $gray;
+    font-weight: 200;
+  }
+}
+
+.loader {
+  position: relative;
+  top: 100px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  color: $brand-color-primary;
+
+  &:after,
+  &:before {
+    display: none;
+    box-sizing: border-box;;
+  }
+
+  &--active:after,
+  &--active:before {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    display: block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    animation: kick .6s infinite alternate;
+    border-radius: 50%;
+    background-color: $brand-color-primary;
+  }
+
+  &:before {
+    animation-delay: .2s;
+  }
+
+  &:after {
+    margin-left: -30px;
+    animation: kick .6s infinite alternate;
+  }
+}
+
+@keyframes kick {
+  0% {
+    transform: translateY(0);
+    opacity: 1;;
+  } to {
+    transform: translateY(-1rem);
+    opacity: .3;;
+  }
+}
