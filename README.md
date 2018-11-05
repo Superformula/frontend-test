@@ -9,6 +9,8 @@
 
 # Superformula Frontend Test
 
+![App preview](./preview.gif)
+
 ## Quickstart
 
 Create a `.env` file in the root of the project, and copy over the keys from `.env.example` (replacing them with the proper production values/keys).
