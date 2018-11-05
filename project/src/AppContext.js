@@ -22,13 +22,23 @@ export const AppContextProvider = ({children}) => {
     setState({...state, category})
   }
 
+  const clearAll = () => {
+    setState({
+      ...state,
+      price: "",
+      openNow: false,
+      category: ""
+    })
+  }
+
   return (
     <AppContext.Provider 
       value={{
         ...state,
         setPrice,
         setOpenNow,
-        setCategory
+        setCategory,
+        clearAll
       }}
     >
       {children}
