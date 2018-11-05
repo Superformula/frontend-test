@@ -2,6 +2,7 @@
 
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require("path");
 
 module.exports = {
   entry: {
@@ -49,7 +50,8 @@ module.exports = {
     poll: true
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, "dist"),
   },
   devtool: "source-map"
 };
