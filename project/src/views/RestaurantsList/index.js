@@ -26,6 +26,7 @@ const LIST_RESTAURANTS = gql`
     ) {
       total
       business {
+        alias
         photos
         name
         rating
@@ -67,7 +68,7 @@ const RestaurantsList = () => {
             limit: 10,
             open_now: openNow === true,
             price: price.length ? price.length.toString() : null,
-            category: category.length ? category.toLowerCase() : null
+            category: category.length ? category : null
           }}
         >
           {({ loading, error, data }) => {
@@ -75,6 +76,10 @@ const RestaurantsList = () => {
             if (error) {
               console.log("error: ", error);
               return <p>Error :(</p>;
+            }
+
+            if (!data.search.business.length) {
+              return <div>No Results Found</div>;
             }
 
             return data.search.business.map((business, index) => (
