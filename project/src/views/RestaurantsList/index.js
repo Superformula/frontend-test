@@ -44,9 +44,6 @@ const RestaurantsList = () => {
   console.log("appContext: ", appContext);
 
   const {
-    setPrice,
-    setOpenNow,
-    setCategory,
     location,
     openNow,
     price,
@@ -64,11 +61,7 @@ const RestaurantsList = () => {
         </p>
       </div>
 
-      <FilterNav
-        setPrice={setPrice}
-        setOpenNow={setOpenNow}
-        setCategory={setCategory}
-      />
+      <FilterNav />
 
       <h2 className="padded-section">All Restaurants</h2>
       <Grid>
