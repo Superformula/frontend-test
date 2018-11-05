@@ -17,6 +17,13 @@ const httpLink = createHttpLink({
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
+
+  // for dev only - disable cache
+  defaultOptions: {
+    query: {
+      fetchPolicy: 'no-cache',
+    }
+  }
 });
 
 const App = () => {
