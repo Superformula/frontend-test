@@ -11,7 +11,7 @@ const Select = ({ onChange, placeholder, options, value }) => {
             {placeholder}
           </option>
           {options.map((o, i) => (
-            <option key={o + i} value={o}>
+            <option key={o + i} value={o.toLowerCase()}>
               {o}
             </option>
           ))}
