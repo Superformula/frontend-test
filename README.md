@@ -129,3 +129,4 @@ Time permitting, these options would have been implemented:
 - add mobile optimized filter navigation and touch up to mobile views
 - add unit tests
 - add storybook
+- remove `sleep` helper, which is only included to demonstrate the loader view
