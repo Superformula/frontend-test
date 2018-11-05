@@ -35,7 +35,7 @@ View the `./dist` directory for minified assets.
 
 ### Project Outline
 
-This project uses React & Redux, SASS, and includes a custom webpack config.
+This project uses React & Redux (with Immutable.js), SASS, and includes a custom webpack config.
 
 Other notable packages include `include-media` (useful media query mixins), `dotenv` for app environments, and
 
@@ -57,7 +57,7 @@ Here is a notable breakdown of the components and the files used.
     - ./Stars - Stars review components
   - ./containers - Top Level Page components
   - ./routes - Routes definitions
-  - ./selectors - redux store helper selectors
+  - ./selectors - redux store helper selectors (shorcuts to immutable.get calls)
   - ./store - redux store configuration
   - ./App.jsx - main application wrapper (includes `<Provider />`)
   - ./index.html - main page template for HTML view
@@ -73,11 +73,11 @@ When developing, use the top level `Container` to map from the redux store and p
 
 #### Application Design
 
-TL;DR –– use the top level state tree (redux store) to handle the application state and various component logic. Pass props via top level `Container` `mapStateToProps` calls down to corresponding components.
+TL;DR –– use the top level state tree (redux store) to handle the application state and various component logic. Pass props via top level `Container` `mapStateToProps` calls down to corresponding components. This project uses [Immutable JS](https://facebook.github.io/immutable-js/) to store and retrieve keys in the state.
 
 The most notable complexity of this application is in the redux store with the filtering logic. We are using the [Yelp API](https://www.yelp.com/developers/documentation/v3/business) to make requests, along with `axios` to format and prepare the query string for the requests.
 
-The `state.restaurant.filter` object will contain a mapping of keys and values that the yelp API prefers. For example, the API may be requested as so:
+The `state.restaurant.filter` object will contain an Immutable map of keys and values that the yelp API prefers. For example, the API may be requested as so:
 
 ```js
 axios.get('/api/businesses/search', {
