@@ -41,14 +41,9 @@ const LIST_RESTAURANTS = gql`
 
 const RestaurantsList = () => {
   const appContext = useContext(AppContext);
-  console.log("appContext: ", appContext);
+  const { location, openNow, price, category } = appContext;
 
-  const {
-    location,
-    openNow,
-    price,
-    category
-  } = appContext;
+  console.log("appContext: ", appContext);
 
   return (
     <div>
@@ -76,9 +71,11 @@ const RestaurantsList = () => {
           }}
         >
           {({ loading, error, data }) => {
-            console.log(error)
             if (loading) return <p>Loading...</p>;
-            if (error) return <p>Error :(</p>;
+            if (error) {
+              console.log("error: ", error);
+              return <p>Error :(</p>;
+            }
 
             return data.search.business.map((business, index) => (
               <Item key={business.name + index}>

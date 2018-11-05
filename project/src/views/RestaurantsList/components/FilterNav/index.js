@@ -9,13 +9,11 @@ require("./main.scss");
 
 const FilterNav = () => {
   const appContext = useContext(AppContext);
-
   const {
     setPrice,
     setOpenNow,
     setCategory,
     clearAll,
-    location,
     openNow,
     price,
     category
