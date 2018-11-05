@@ -9,11 +9,49 @@ import FilterNav from "./components/FilterNav";
 import RestaurantCard from "./components/RestaurantCard";
 require("./main.scss");
 
+const LIST_RESTAURANTS = gql`
+  query ListRestaurants(
+    $location: String!
+    $limit: Int!
+    $open_now: Boolean
+    $price: String
+    $category: String
+  ) {
+    search(
+      location: $location
+      limit: $limit
+      open_now: $open_now
+      price: $price
+      categories: $category
+    ) {
+      total
+      business {
+        photos
+        name
+        rating
+        categories {
+          title
+        }
+        price
+        is_closed
+      }
+    }
+  }
+`;
+
 const RestaurantsList = () => {
   const appContext = useContext(AppContext);
-  console.log("appContext: ", appContext)
+  console.log("appContext: ", appContext);
 
-  const { setPrice, setOpenNow, setCategory } = appContext;
+  const {
+    setPrice,
+    setOpenNow,
+    setCategory,
+    location,
+    openNow,
+    price,
+    category
+  } = appContext;
 
   return (
     <div>
@@ -32,35 +70,25 @@ const RestaurantsList = () => {
         setCategory={setCategory}
       />
 
-      <h2 className="padded-section">
-        All Restaurants
-      </h2>
+      <h2 className="padded-section">All Restaurants</h2>
       <Grid>
         <Query
-          query={gql`
-            {
-              search(location: "${appContext.location}", limit: 12) {
-                total
-                business {
-                  photos
-                  name
-                  rating
-                  categories {
-                    title
-                  }
-                  price
-                  is_closed
-                }
-              }
-            }
-          `}
+          query={LIST_RESTAURANTS}
+          variables={{
+            location,
+            limit: 10,
+            openNow,
+            price: price.length ? price.length.toString() : null,
+            category: category.length ? category.toLowerCase() : null
+          }}
         >
           {({ loading, error, data }) => {
+            console.log(error)
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error :(</p>;
 
-            return data.search.business.map((business) => (
-              <Item key={business.name}>
+            return data.search.business.map((business, index) => (
+              <Item key={business.name + index}>
                 <RestaurantCard {...business} />
               </Item>
             ));
