@@ -1,13 +1,12 @@
 import React, { createContext, useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, matchPath } from "react-router-dom";
 import qs from "query-string";
 
 export const AppContext = createContext();
 
 export const AppContextProvider = withRouter(
   ({ children, history, location }) => {
-    const queryState = qs.parse(location.search);
-
+    
     let initialState = {
       location: "las vegas",
       price: "",
@@ -15,15 +14,21 @@ export const AppContextProvider = withRouter(
       category: ""
     };
 
+    const queryState = qs.parse(location.search);
+
     if (Object.keys(queryState).length) {
       initialState = queryState;
     }
 
     const [state, setState] = useState(initialState);
 
+    const match = matchPath(location.pathname, { path: "/restaurants/:alias" });
+
     useEffect(
       () => {
-        history.push({ search: `?${qs.stringify(state)}` });
+        if (!match) {
+          history.push({ search: `?${qs.stringify(state)}` });
+        }
       },
       [state]
     );
