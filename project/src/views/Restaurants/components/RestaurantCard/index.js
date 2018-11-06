@@ -12,6 +12,18 @@ const SpaceBetween = styled.div`
   justify-content: space-between;
 `;
 
+const SmallGreyText = styled.p`
+  font-size: 10px;
+  color: #ababab;
+`;
+
+const DetailsBox = styled.div`
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 const RestaurantCard = ({
   alias,
   name,
@@ -25,20 +37,26 @@ const RestaurantCard = ({
 
   return (
     <React.Fragment>
-      {photo ? <Image width="100%" height="230px" image={photo} /> : <div>photo unavailable :(</div>}
-      <h3>{name}</h3>
-      <p>{rating} stars</p>
-      <SpaceBetween>
-        <p>
-          {categories.length ? categories[0].title : null} - {price}
-        </p>
-        <p>{is_closed ? <Closed /> : <OpenNow />}</p>
-      </SpaceBetween>
-      <Link to={`/restaurants/${alias}`}>
-        <FlatButton theme="dark" fullWidth>
-          learn more
-        </FlatButton>
-      </Link>
+      {photo ? (
+        <Image width="100%" height="230px" image={photo} />
+      ) : (
+        <div>photo unavailable :(</div>
+      )}
+      <DetailsBox>
+        <h3>{name}</h3>
+        <span>{rating} stars</span>
+        <SpaceBetween>
+          <SmallGreyText>
+            {categories.length ? categories[0].title : null} - {price}
+          </SmallGreyText>
+          <SmallGreyText>{is_closed ? <Closed /> : <OpenNow />}</SmallGreyText>
+        </SpaceBetween>
+        <Link to={`/restaurants/${alias}`}>
+          <FlatButton theme="dark" fullWidth>
+            learn more
+          </FlatButton>
+        </Link>
+      </DetailsBox>
     </React.Fragment>
   );
 };

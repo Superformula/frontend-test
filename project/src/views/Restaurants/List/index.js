@@ -35,7 +35,7 @@ const RestaurantsList = () => {
           query={LIST_RESTAURANTS}
           variables={{
             location,
-            limit: 10,
+            limit: 12,
             open_now: openNow === true,
             price: price.length ? price.length.toString() : null,
             category: category.length ? category : null
@@ -53,9 +53,7 @@ const RestaurantsList = () => {
             }
 
             return data.search.business.map((business, index) => (
-              <Item 
-                key={business.name + index}
-              >
+              <Item key={business.name + index}>
                 <RestaurantCard {...business} />
               </Item>
             ));
