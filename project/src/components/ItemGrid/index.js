@@ -9,15 +9,15 @@ const GridWrapper = styled.div`
 
 const ItemWrapper = styled.div`
   overflow: hidden;
+  min-height: 100px;
+
   @media (max-width: 1200px) {
     padding: 1%;
     width: 21%;
-    height: 430px;
   }
   @media (min-width: 1200px) {
     padding: 1%;
     width: 14%;
-    height: 430px;
   }
 `;
 
@@ -25,6 +25,6 @@ export const Grid = ({ children }) => {
   return <GridWrapper>{children}</GridWrapper>;
 };
 
-export const Item = ({ children }) => {
-  return <ItemWrapper>{children}</ItemWrapper>;
+export const Item = ({ children, height }) => {
+  return <ItemWrapper style={{height}}>{children}</ItemWrapper>;
 };
