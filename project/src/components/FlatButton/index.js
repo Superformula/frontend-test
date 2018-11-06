@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 // sad!
 require("./main.scss");
 
-const FlatButton = ({ children, theme, fullWidth, onClick }) => {
+const FlatButton = ({ children, theme, fullWidth, onClick, style }) => {
   const classnames = [
     "flat-button",
     theme === "dark" && "dark",
@@ -16,7 +16,7 @@ const FlatButton = ({ children, theme, fullWidth, onClick }) => {
     .join(" ");
 
   return (
-    <button className={classnames} onClick={onClick}>
+    <button className={classnames} style={style} onClick={onClick}>
       {children}
     </button>
   );
@@ -26,7 +26,8 @@ FlatButton.propTypes = {
   children: PropTypes.node.isRequired,
   theme: PropTypes.string,
   fullWidth: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  style: PropTypes.object
 };
 
 FlatButton.defaultProps = {

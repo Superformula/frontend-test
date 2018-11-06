@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { AppContext } from "AppContext";
 import { Query } from "react-apollo";
+import styled from "styled-components";
 
+import FlatButton from "components/FlatButton";
 import { Grid, Item } from "components/ItemGrid";
 import PaddedSection from "components/PaddedSection";
 
@@ -9,9 +11,14 @@ import FilterNav from "../components/FilterNav";
 import RestaurantCard from "../components/RestaurantCard";
 import { LIST_RESTAURANTS } from "./gql";
 
+const Centered = styled.div`
+  text-align: center;
+  margin-top: 50px;
+`;
+
 const RestaurantsList = () => {
   const appContext = useContext(AppContext);
-  const { location, openNow, price, category } = appContext;
+  const { location, openNow, price, category, limit, loadMore } = appContext;
 
   return (
     <div>
@@ -29,37 +36,45 @@ const RestaurantsList = () => {
       <PaddedSection>
         <h2>All Restaurants</h2>
       </PaddedSection>
+      <Query
+        query={LIST_RESTAURANTS}
+        variables={{
+          location,
+          limit,
+          open_now: openNow === true,
+          price: price.length ? price.length.toString() : null,
+          category: category.length ? category : null
+        }}
+      >
+        {({ loading, error, data }) => {
+          if (loading) return <Centered>Loading...</Centered>;
+          if (error) {
+            console.log("error: ", error);
+            return <Centered>Error :(</Centered>;
+          }
+          if (!data.search.business.length) {
+            return <Centered>No Results Found</Centered>;
+          }
 
-      <Grid>
-        <Query
-          query={LIST_RESTAURANTS}
-          variables={{
-            location,
-            limit: 12,
-            open_now: openNow === true,
-            price: price.length ? price.length.toString() : null,
-            category: category.length ? category : null
-          }}
-        >
-          {({ loading, error, data }) => {
-            if (loading) return <p>Loading...</p>;
-            if (error) {
-              console.log("error: ", error);
-              return <p>Error :(</p>;
-            }
-
-            if (!data.search.business.length) {
-              return <div>No Results Found</div>;
-            }
-
-            return data.search.business.map((business, index) => (
-              <Item height="430" key={business.name + index}>
-                <RestaurantCard {...business} />
-              </Item>
-            ));
-          }}
-        </Query>
-      </Grid>
+          return (
+            <div>
+              <Grid>
+                {data.search.business.map((business, index) => (
+                  <Item height="430" key={business.name + index}>
+                    <RestaurantCard {...business} />
+                  </Item>
+                ))}
+              </Grid>
+              <Centered>
+                <FlatButton 
+                  style={{width: 300}}
+                  onClick={loadMore}
+                >load more</FlatButton>
+              </Centered>
+            </div>
+          );
+        }}
+      </Query>
     </div>
   );
 };

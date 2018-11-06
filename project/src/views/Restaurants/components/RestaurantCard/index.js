@@ -69,7 +69,7 @@ RestaurantCard.propTypes = {
       title: PropTypes.string
     })
   ).isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.string, // is sometimes null
   is_closed: PropTypes.bool.isRequired
 };
 

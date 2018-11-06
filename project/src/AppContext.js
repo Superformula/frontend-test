@@ -11,7 +11,8 @@ export const AppContextProvider = withRouter(
       location: "las vegas",
       price: "",
       openNow: "false",
-      category: ""
+      category: "",
+      limit: 12
     };
 
     const queryState = qs.parse(location.search);
@@ -45,12 +46,22 @@ export const AppContextProvider = withRouter(
       setState({ ...state, category });
     };
 
+    const loadMore = () => {
+      const nextLimit = Number(state.limit) + 12;
+
+      setState({
+        ...state,
+        limit: (nextLimit <= 48 ? nextLimit : 48) // yelp api limits results to 50
+      })
+    }
+
     const clearAll = () => {
       setState({
         ...state,
         price: "",
         openNow: "false",
-        category: ""
+        category: "",
+        limit: 12
       });
     };
 
@@ -61,7 +72,8 @@ export const AppContextProvider = withRouter(
           setPrice,
           setOpenNow,
           setCategory,
-          clearAll
+          clearAll,
+          loadMore
         }}
       >
         {children}
