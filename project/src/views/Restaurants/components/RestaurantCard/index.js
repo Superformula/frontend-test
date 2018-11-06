@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 import FlatButton from "components/FlatButton";
 import { OpenNow, Closed } from "../OpenClosed";
-import Image from "components/Image";
 
 const SpaceBetween = styled.div`
   display: flex;
@@ -38,7 +37,7 @@ const RestaurantCard = ({
   return (
     <React.Fragment>
       {photo ? (
-        <Image width="100%" height="230px" image={photo} />
+        <img width="100%" height="230px" src={photo} />
       ) : (
         <div>photo unavailable :(</div>
       )}
