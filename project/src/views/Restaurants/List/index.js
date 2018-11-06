@@ -1,50 +1,17 @@
 import React, { useContext } from "react";
 import { AppContext } from "AppContext";
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 
 import { Grid, Item } from "components/ItemGrid";
 import PaddedSection from "components/PaddedSection";
 
 import FilterNav from "../components/FilterNav";
 import RestaurantCard from "../components/RestaurantCard";
-
-const LIST_RESTAURANTS = gql`
-  query ListRestaurants(
-    $location: String!
-    $limit: Int!
-    $open_now: Boolean
-    $price: String
-    $category: String
-  ) {
-    search(
-      location: $location
-      limit: $limit
-      open_now: $open_now
-      price: $price
-      categories: $category
-    ) {
-      total
-      business {
-        alias
-        photos
-        name
-        rating
-        categories {
-          title
-        }
-        price
-        is_closed
-      }
-    }
-  }
-`;
+import { LIST_RESTAURANTS } from "./gql";
 
 const RestaurantsList = () => {
   const appContext = useContext(AppContext);
   const { location, openNow, price, category } = appContext;
-
-  // console.log("appContext: ", appContext);
 
   return (
     <div>
