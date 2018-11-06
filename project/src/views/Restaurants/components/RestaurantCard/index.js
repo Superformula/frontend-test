@@ -11,6 +11,13 @@ const SpaceBetween = styled.div`
   justifycontent: space-between;
 `;
 
+const ImageDiv = styled.div`
+  background: ${props => `url(${props.image})`};
+  background-size: 300px 230px;
+  width: 300;
+  height: 230px;
+`;
+
 const RestaurantCard = ({
   alias,
   name,
@@ -23,14 +30,7 @@ const RestaurantCard = ({
   return (
     <React.Fragment>
       {photos.length ? (
-        <div
-          style={{
-            background: `url(${photos[0]})`,
-            backgroundSize: "300px 230px",
-            width: 300,
-            height: 230
-          }}
-        />
+        <ImageDiv image={photos[0]} />
       ) : (
         <div>photo unavailable :(</div>
       )}
@@ -38,13 +38,13 @@ const RestaurantCard = ({
       <h3>{name}</h3>
       <p>{rating} stars</p>
 
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <SpaceBetween>
         <p>
           {categories.length ? categories[0].title : null} - {price}
         </p>
 
         <p>{is_closed ? <Closed /> : <OpenNow />}</p>
-      </div>
+      </SpaceBetween>
       <Link to={`/restaurants/${alias}`}>
         <FlatButton theme="dark" fullWidth>
           learn more

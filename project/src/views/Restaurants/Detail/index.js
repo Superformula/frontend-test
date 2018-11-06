@@ -6,7 +6,7 @@ import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import styled from "styled-components";
 
 import PaddedSection from "components/PaddedSection";
-import { OpenNow, Closed } from "../OpenClosed";
+import { OpenNow, Closed } from "../components/OpenClosed";
 require("./main.scss");
 
 const SpaceBetween = styled.div`
