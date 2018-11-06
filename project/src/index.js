@@ -20,11 +20,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 
   // for dev only - disable cache
-  defaultOptions: {
-    query: {
-      fetchPolicy: "no-cache"
-    }
-  }
+  // defaultOptions: {
+  //   query: {
+  //     fetchPolicy: "no-cache"
+  //   }
+  // }
 });
 
 const App = () => {
