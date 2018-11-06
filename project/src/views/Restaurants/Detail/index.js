@@ -1,6 +1,5 @@
 import React from "react";
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import styled from "styled-components";
@@ -8,6 +7,7 @@ import styled from "styled-components";
 import PaddedSection from "components/PaddedSection";
 import { OpenNow, Closed } from "../components/OpenClosed";
 import ImageDiv from "../components/ImageDiv";
+import { RESTAURANT_DETAILS } from "./gql";
 require("./main.scss");
 
 const SpaceBetween = styled.div`
@@ -29,38 +29,26 @@ const HR = styled.hr`
   padding: 0;
 `;
 
-const FullAddress = styled.div`
-  padding: 10px 0 20px 0;
+const PaddedText = styled.div`
+  padding: 15px 0 15px 0;
 `;
 
-const RESTAURANT_DETAILS = gql`
-  query RestaurantDetails($alias: String!) {
-    business(id: $alias) {
-      name
-      rating
-      categories {
-        title
-      }
-      price
-      is_closed
-      photos
-      location {
-        formatted_address
-      }
-      coordinates {
-        latitude
-        longitude
-      }
-      review_count
-      reviews {
-        user {
-          name
-          image_url
-        }
-        rating
-        text
-        time_created
-      }
+const Review = styled.div`
+  display: flex;
+  margin: 20px 0 20px 0;
+
+  img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+  }
+
+  & :nth-child(2) {
+    width: 100px;
+    margin-right: 20px;
+    & :nth-child(2) {
+      font-size: 12px;
+      color: #ababab;
     }
   }
 `;
@@ -138,10 +126,38 @@ const RestaurantDetail = ({
                   ))}
                 </SpaceBetween>
 
-                <FullAddress>{formatted_address}</FullAddress>
+                <PaddedText>{formatted_address}</PaddedText>
               </PaddedSection>
 
               <HR />
+
+              <PaddedSection>
+                <PaddedText>{review_count} Reviews</PaddedText>
+                <div>
+                  {reviews.map(
+                    ({
+                      user: { name, image_url },
+                      rating,
+                      text,
+                      time_created
+                    }) => (
+                      <Review key={image_url}>
+                        <img src={image_url} />
+                        <div>
+                          <div>{name}</div>
+                          <div>
+                            {new Date(time_created).toLocaleDateString()}
+                          </div>
+                        </div>
+                        <div>
+                          <div>{rating} stars</div>
+                          {text}
+                        </div>
+                      </Review>
+                    )
+                  )}
+                </div>
+              </PaddedSection>
             </div>
           );
         }}
