@@ -8,12 +8,13 @@ const GridWrapper = styled.div`
 `;
 
 const ItemWrapper = styled.div`
-  @media (max-width: 1000px) {
+  overflow: hidden;
+  @media (max-width: 1200px) {
     padding: 1%;
     width: 21%;
     height: 430px;
   }
-  @media (min-width: 1000px) {
+  @media (min-width: 1200px) {
     padding: 1%;
     width: 14%;
     height: 430px;
