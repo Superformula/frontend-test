@@ -53,7 +53,9 @@ const RestaurantsList = () => {
             }
 
             return data.search.business.map((business, index) => (
-              <Item key={business.name + index}>
+              <Item 
+                key={business.name + index}
+              >
                 <RestaurantCard {...business} />
               </Item>
             ));

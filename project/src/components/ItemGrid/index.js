@@ -8,7 +8,16 @@ const GridWrapper = styled.div`
 `;
 
 const ItemWrapper = styled.div`
-  margin: 15px;
+  @media (max-width: 1000px) {
+    padding: 1%;
+    width: 21%;
+    height: 430px;
+  }
+  @media (min-width: 1000px) {
+    padding: 1%;
+    width: 14%;
+    height: 430px;
+  }
 `;
 
 export const Grid = ({ children }) => {

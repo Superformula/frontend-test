@@ -5,7 +5,7 @@ import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import styled from "styled-components";
 
 import PaddedSection from "components/PaddedSection";
-import ImageDiv from "components/ImageDiv";
+import Image from "components/Image";
 
 import { OpenNow, Closed } from "../components/OpenClosed";
 import { RESTAURANT_DETAILS } from "./gql";
@@ -119,7 +119,7 @@ const RestaurantDetail = ({
                     </Map>
                   </LeafletContainer>
                   {photos.slice(0, 2).map(photo => (
-                    <ImageDiv
+                    <Image
                       key={photo}
                       width={`${50 / photos.length - 2}%`}
                       height="230px"
