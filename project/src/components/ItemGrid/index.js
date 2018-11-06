@@ -10,15 +10,22 @@ const GridWrapper = styled.div`
 const ItemWrapper = styled.div`
   overflow: hidden;
   min-height: 100px;
-
-  @media (max-width: 1200px) {
-    padding: 1%;
-    width: 21%;
-  }
+  
   @media (min-width: 1200px) {
     padding: 1%;
     width: 14%;
   }
+  
+  @media (max-width: 1200px) {
+    padding: 1%;
+    width: 21%;
+  }
+
+  @media (max-width: 800px) {
+    padding: 1%;
+    width: 30%;
+  }
+  
 `;
 
 export const Grid = ({ children }) => {
