@@ -5,17 +5,11 @@ import styled from "styled-components";
 
 import FlatButton from "components/FlatButton";
 import { OpenNow, Closed } from "../OpenClosed";
+import ImageDiv from "../ImageDiv";
 
 const SpaceBetween = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-const ImageDiv = styled.div`
-  background: ${props => `url(${props.image})`};
-  background-size: 300px 230px;
-  width: 300px;
-  height: 230px;
 `;
 
 const RestaurantCard = ({
@@ -27,13 +21,11 @@ const RestaurantCard = ({
   price,
   is_closed
 }) => {
+  const photo = photos.slice(0, 1);
+
   return (
     <React.Fragment>
-      {photos.length ? (
-        <ImageDiv image={photos[0]} />
-      ) : (
-        <div>photo unavailable :(</div>
-      )}
+      {photo ? <ImageDiv image={photo} /> : <div>photo unavailable :(</div>}
 
       <h3>{name}</h3>
       <p>{rating} stars</p>

@@ -7,11 +7,30 @@ import styled from "styled-components";
 
 import PaddedSection from "components/PaddedSection";
 import { OpenNow, Closed } from "../components/OpenClosed";
+import ImageDiv from "../components/ImageDiv";
 require("./main.scss");
 
 const SpaceBetween = styled.div`
   display: flex;
-  justifycontent: space-between;
+  justify-content: space-between;
+`;
+
+const LeafletContainer = styled.div`
+  width: 50%;
+  height: 230px;
+`;
+
+const HR = styled.hr`
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+`;
+
+const FullAddress = styled.div`
+  padding: 10px 0 20px 0;
 `;
 
 const RESTAURANT_DETAILS = gql`
@@ -69,7 +88,7 @@ const RestaurantDetail = ({
               price,
               is_closed,
               photos,
-              location,
+              location: { formatted_address },
               coordinates: { latitude, longitude },
               review_count,
               reviews
@@ -91,22 +110,38 @@ const RestaurantDetail = ({
                 </SpaceBetween>
               </PaddedSection>
 
-              <hr />
+              <HR />
+
               <PaddedSection>
-                <Map center={[latitude, longitude]} zoom={15}>
-                  <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                  />
-                  <Marker position={[latitude, longitude]}>
-                    <Popup>
-                      A pretty CSS3 popup.
-                      <br />
-                      Easily customizable.
-                    </Popup>
-                  </Marker>
-                </Map>
+                <SpaceBetween>
+                  <LeafletContainer>
+                    <Map center={[latitude, longitude]} zoom={15}>
+                      <TileLayer
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                      />
+                      <Marker position={[latitude, longitude]}>
+                        <Popup>
+                          A pretty CSS3 popup.
+                          <br />
+                          Easily customizable.
+                        </Popup>
+                      </Marker>
+                    </Map>
+                  </LeafletContainer>
+                  {photos.slice(0, 2).map(photo => (
+                    <ImageDiv
+                      key={photo}
+                      width={`${50 / photos.length - 2}%`}
+                      image={photo}
+                    />
+                  ))}
+                </SpaceBetween>
+
+                <FullAddress>{formatted_address}</FullAddress>
               </PaddedSection>
+
+              <HR />
             </div>
           );
         }}
