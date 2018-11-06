@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import FlatButton from "components/FlatButton";
 import { OpenNow, Closed } from "../OpenClosed";
-import ImageDiv from "../ImageDiv";
+import ImageDiv from "components/ImageDiv";
 
 const SpaceBetween = styled.div`
   display: flex;
@@ -25,16 +25,13 @@ const RestaurantCard = ({
 
   return (
     <React.Fragment>
-      {photo ? <ImageDiv image={photo} /> : <div>photo unavailable :(</div>}
-
+      {photo ? <ImageDiv width="100%" height="230px" image={photo} /> : <div>photo unavailable :(</div>}
       <h3>{name}</h3>
       <p>{rating} stars</p>
-
       <SpaceBetween>
         <p>
           {categories.length ? categories[0].title : null} - {price}
         </p>
-
         <p>{is_closed ? <Closed /> : <OpenNow />}</p>
       </SpaceBetween>
       <Link to={`/restaurants/${alias}`}>
