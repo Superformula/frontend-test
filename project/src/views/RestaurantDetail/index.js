@@ -2,6 +2,7 @@ import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 
 import PaddedSection from "components/PaddedSection";
 
@@ -20,6 +21,10 @@ const RESTAURANT_DETAILS = gql`
       photos
       location {
         formatted_address
+      }
+      coordinates {
+        latitude
+        longitude
       }
       review_count
       reviews {
@@ -59,6 +64,7 @@ const RestaurantDetail = ({
               is_closed,
               photos,
               location,
+              coordinates: { latitude, longitude },
               review_count,
               reviews
             }
@@ -90,6 +96,31 @@ const RestaurantDetail = ({
                   </p>
                 </div>
               </PaddedSection>
+
+              <hr />
+
+              <div
+                style={{
+                  border: '5px solid red',
+                  overflow: "hidden",
+                  width: 600,
+                  height: 250
+                }}
+              >
+                <Map center={[latitude, longitude]} zoom={15}>
+                  <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                  />
+                  <Marker position={[latitude, longitude]}>
+                    <Popup>
+                      A pretty CSS3 popup.
+                      <br />
+                      Easily customizable.
+                    </Popup>
+                  </Marker>
+                </Map>
+              </div>
             </div>
           );
         }}
