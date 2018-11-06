@@ -8,13 +8,13 @@ import { OpenNow, Closed } from "../OpenClosed";
 
 const SpaceBetween = styled.div`
   display: flex;
-  justifycontent: space-between;
+  justify-content: space-between;
 `;
 
 const ImageDiv = styled.div`
   background: ${props => `url(${props.image})`};
   background-size: 300px 230px;
-  width: 300;
+  width: 300px;
   height: 230px;
 `;
 
