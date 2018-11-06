@@ -1,8 +1,12 @@
 import React from "react";
-require("./main.scss");
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  padding: 10px 70px;
+`;
 
 const PaddedSection = ({ children }) => {
-  return <div className="padded-section">{children}</div>;
+  return <Wrapper>{children}</Wrapper>;
 };
 
 export default PaddedSection;
