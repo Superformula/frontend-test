@@ -18,7 +18,16 @@ const Centered = styled.div`
 
 const RestaurantsList = () => {
   const appContext = useContext(AppContext);
-  const { location, openNow, price, category, limit, loadMore } = appContext;
+  const { loadMore, location, openNow, price, category } = appContext;
+
+  const variables = {
+    location,
+    limit: 12,
+    offset: 0,
+    open_now: openNow === true,
+    price: price.length ? price.length.toString() : null,
+    category: category.length ? category : null
+  };
 
   return (
     <div>
@@ -38,38 +47,53 @@ const RestaurantsList = () => {
       </PaddedSection>
       <Query
         query={LIST_RESTAURANTS}
-        variables={{
-          location,
-          limit,
-          open_now: openNow === true,
-          price: price.length ? price.length.toString() : null,
-          category: category.length ? category : null
-        }}
+        variables={variables}
+        notifyOnNetworkStatusChange={true}
       >
-        {({ loading, error, data }) => {
-          if (loading) return <Centered>Loading...</Centered>;
+        {({ loading, error, data: { search }, fetchMore }) => {
+          if (loading && !search) return <Centered>Loading...</Centered>;
           if (error) {
             console.log("error: ", error);
             return <Centered>Error :(</Centered>;
           }
-          if (!data.search.business.length) {
+          if (!search.business.length) {
             return <Centered>No Results Found</Centered>;
           }
 
           return (
             <div>
               <Grid>
-                {data.search.business.map((business, index) => (
+                {search.business.map((business, index) => (
                   <Item height="430" key={business.name + index}>
                     <RestaurantCard {...business} />
                   </Item>
                 ))}
               </Grid>
               <Centered>
-                <FlatButton 
-                  style={{width: 300}}
-                  onClick={loadMore}
-                >load more</FlatButton>
+                <FlatButton
+                  style={{ width: 300 }}
+                  onClick={() => {
+                    fetchMore({
+                      variables: {
+                        ...variables,
+                        offset: loadMore()
+                      },
+                      updateQuery: ({ search }, { fetchMoreResult }) => {
+                        return {
+                          search: {
+                            ...search,
+                            business: [
+                              ...search.business,
+                              ...fetchMoreResult.search.business
+                            ]
+                          }
+                        };
+                      }
+                    });
+                  }}
+                >
+                  {loading ? "loading..." : "load more"}
+                </FlatButton>
               </Centered>
             </div>
           );

@@ -29,9 +29,7 @@ const FilterNav = () => {
     setOpenNow,
     setCategory,
     clearAll,
-    openNow,
-    price,
-    category
+    openNow, price, category
   } = appContext;
 
   return (
