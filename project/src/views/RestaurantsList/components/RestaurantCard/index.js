@@ -31,7 +31,6 @@ const RestaurantCard = ({
       )}
 
       <h3>{name}</h3>
-
       <p>{rating} stars</p>
 
       <div style={{ display: "flex", justifyContent: "space-between" }}>
