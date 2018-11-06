@@ -1,11 +1,26 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 
 import { AppContext } from "AppContext";
 import FlatButton from "components/FlatButton";
 import CheckBox from "components/FormControls/CheckBox";
 import Select from "components/FormControls/Select";
 
-require("./main.scss");
+const Wrapper = styled.div`
+  padding: 15px 70px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Controls = styled.div`
+  display: flex;
+  align-items: center;
+  > * {
+    margin-right: 20px;
+  }
+`;
 
 const FilterNav = () => {
   const appContext = useContext(AppContext);
@@ -20,14 +35,10 @@ const FilterNav = () => {
   } = appContext;
 
   return (
-    <div className="filter-nav">
-      <div className="controls">
+    <Wrapper>
+      <Controls>
         <span>Filter By:</span>
-        <CheckBox 
-          label="Open Now" 
-          onChange={setOpenNow} 
-          checked={openNow}
-        />
+        <CheckBox label="Open Now" onChange={setOpenNow} checked={openNow} />
         <Select
           onChange={setPrice}
           placeholder="Price"
@@ -48,10 +59,9 @@ const FilterNav = () => {
           ]}
           value={category}
         />
-      </div>
-
+      </Controls>
       <FlatButton onClick={clearAll}>Clear All</FlatButton>
-    </div>
+    </Wrapper>
   );
 };
 

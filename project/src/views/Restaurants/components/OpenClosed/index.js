@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const GreenDot = styled.div`
+const GreenDot = styled.span`
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -9,7 +9,7 @@ const GreenDot = styled.div`
   border-radius: 50%;
 `;
 
-const RedDot = styled.div`
+const RedDot = styled.span`
   display: inline-block;
   width: 10px;
   height: 10px;
