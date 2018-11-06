@@ -118,7 +118,15 @@ const RestaurantDetail = ({
                     </Map>
                   </LeafletContainer>
                   {photos.slice(0, 2).map(photo => (
-                    <img key={photo} width="auto" height="230px" src={photo} />
+                    <img 
+                      key={photo} 
+                      style={{
+                        width: "auto",
+                        maxWidth: "40%",
+                        height: 230
+                      }}
+                      src={photo} 
+                    />
                   ))}
                 </SpaceBetween>
 
