@@ -13,3 +13,7 @@ run `echo YELP_TOKEN="your-token-goes-here" > .env`
 after your .env file is in place, run `npm i && npm run start`
 
 This will give you an express server that proxies yelp running on http://localhost:4000 as well as the webpack-dev-server running the front end app on http://localhost:8080
+
+## Run Tests
+
+run tests with `npm test`
