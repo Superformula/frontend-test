@@ -1,10 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 import FlatButton from "components/FlatButton";
+import { OpenNow, Closed } from "../OpenClosed";
 
-require("./main.scss");
+const SpaceBetween = styled.div`
+  display: flex;
+  justifycontent: space-between;
+`;
 
 const RestaurantCard = ({
   alias,
@@ -38,17 +43,7 @@ const RestaurantCard = ({
           {categories.length ? categories[0].title : null} - {price}
         </p>
 
-        <p>
-          {is_closed ? (
-            <span>
-              <span className="red-dot" /> CLOSED
-            </span>
-          ) : (
-            <span>
-              <span className="green-dot" /> OPEN NOW
-            </span>
-          )}
-        </p>
+        <p>{is_closed ? <Closed /> : <OpenNow />}</p>
       </div>
       <Link to={`/restaurants/${alias}`}>
         <FlatButton theme="dark" fullWidth>

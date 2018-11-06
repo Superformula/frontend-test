@@ -7,8 +7,8 @@ import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
 import { AppContextProvider } from "AppContext";
-import RestaurantsList from "views/RestaurantsList";
-import RestaurantDetail from "views/RestaurantDetail";
+import RestaurantsList from "views/Restaurants/List";
+import RestaurantDetail from "views/Restaurants/Detail";
 require("./main.scss");
 
 const httpLink = createHttpLink({

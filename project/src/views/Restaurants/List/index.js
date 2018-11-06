@@ -6,8 +6,8 @@ import gql from "graphql-tag";
 import { Grid, Item } from "components/ItemGrid";
 import PaddedSection from "components/PaddedSection";
 
-import FilterNav from "./components/FilterNav";
-import RestaurantCard from "./components/RestaurantCard";
+import FilterNav from "../components/FilterNav";
+import RestaurantCard from "../components/RestaurantCard";
 
 const LIST_RESTAURANTS = gql`
   query ListRestaurants(

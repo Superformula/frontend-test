@@ -3,10 +3,16 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import styled from "styled-components";
 
 import PaddedSection from "components/PaddedSection";
-
+import { OpenNow, Closed } from "../OpenClosed";
 require("./main.scss");
+
+const SpaceBetween = styled.div`
+  display: flex;
+  justifycontent: space-between;
+`;
 
 const RESTAURANT_DETAILS = gql`
   query RestaurantDetails($alias: String!) {
@@ -76,37 +82,17 @@ const RestaurantDetail = ({
                 <h1>{name}</h1>
                 <p>{rating} stars</p>
 
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
+                <SpaceBetween>
                   <p>
                     {categories.length ? categories[0].title : null} - {price}
                   </p>
 
-                  <p>
-                    {is_closed ? (
-                      <span>
-                        <span className="red-dot" /> CLOSED
-                      </span>
-                    ) : (
-                      <span>
-                        <span className="green-dot" /> OPEN NOW
-                      </span>
-                    )}
-                  </p>
-                </div>
+                  <p>{is_closed ? <Closed /> : <OpenNow />}</p>
+                </SpaceBetween>
               </PaddedSection>
 
               <hr />
-
-              <div
-                style={{
-                  border: '5px solid red',
-                  overflow: "hidden",
-                  width: 600,
-                  height: 250
-                }}
-              >
+              <PaddedSection>
                 <Map center={[latitude, longitude]} zoom={15}>
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -120,7 +106,7 @@ const RestaurantDetail = ({
                     </Popup>
                   </Marker>
                 </Map>
-              </div>
+              </PaddedSection>
             </div>
           );
         }}
