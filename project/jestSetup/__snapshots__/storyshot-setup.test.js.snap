@@ -4229,8 +4229,11 @@ exports[`Storyshots PaddedSection 3 items 1`] = `
         Hey There Everyone!
       </h1>
       <h2>
-        Hey There Everyone!
+        It sure is nice
       </h2>
+      <h3>
+        To have some padding
+      </h3>
     </div>
   </div>
   <button
@@ -4507,7 +4510,7 @@ exports[`Storyshots PaddedSection 3 items 1`] = `
                         }
                       }
                     >
-                      Hey There Everyone!
+                      It sure is nice
                     </span>
                   </div>
                   <div
@@ -4527,6 +4530,75 @@ exports[`Storyshots PaddedSection 3 items 1`] = `
                     >
                       &lt;/
                       h2
+                      &gt;
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 33,
+                        "paddingRight": 3,
+                      }
+                    }
+                  >
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      &lt;
+                      h3
+                    </span>
+                    <span />
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      &gt;
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 48,
+                        "paddingRight": 3,
+                      }
+                    }
+                  >
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      To have some padding
+                    </span>
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "paddingLeft": 33,
+                        "paddingRight": 3,
+                      }
+                    }
+                  >
+                    <span
+                      style={
+                        Object {
+                          "color": "#777",
+                        }
+                      }
+                    >
+                      &lt;/
+                      h3
                       &gt;
                     </span>
                   </div>
