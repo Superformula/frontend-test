@@ -5,5 +5,5 @@ import CheckBox from "./index";
 
 storiesOf("CheckBox", module)
 .add("default", () => (
-  <CheckBox label="Open Now" onChange={() => {}} />
+  <CheckBox label="Open Now" onChange={() => {}} checked={"true"} />
 ));
