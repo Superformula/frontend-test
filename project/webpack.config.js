@@ -51,7 +51,25 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: path.resolve(__dirname, "dist"),
+    contentBase: path.resolve(__dirname, "dist")
   },
-  devtool: "source-map"
+  devtool: "source-map",
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    chunkFilename: '[name].js',
+    publicPath: '/'
+},
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          chunks: "all",
+          test: /node_modules/
+        }
+      }
+    }
+  }
 };
