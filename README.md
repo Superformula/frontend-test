@@ -18,6 +18,8 @@ Use this Sketch file to see button states, colors, and responsive design.
 
 You can ask us and we will provide you a Yelp API Key to use for your PR.
 
+> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
+
 ### Page Structure
 
 ```
