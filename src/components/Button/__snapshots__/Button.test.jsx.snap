@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component renders a disabled button correctly 1`] = `
+<button
+  className="sc-bdVaJa crknUg"
+  disabled={true}
+>
+  Disabled
+</button>
+`;
+
+exports[`Button Component renders a primary button correctly 1`] = `
+<button
+  className="sc-bdVaJa crknUg"
+>
+  Primary
+</button>
+`;
+
+exports[`Button Component renders a secondary button correctly 1`] = `
+<button
+  className="sc-bdVaJa dqbvwZ"
+>
+  Secondary
+</button>
+`;
