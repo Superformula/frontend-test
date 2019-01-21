@@ -1,98 +1,93 @@
 # Superformula Front-end Developer Coding Test
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
-
-## Context
-
-Use HTML, CSS, and JavaScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
-
-![Superformula-front-end-test-mockup](./mockup.png)
-
-Use this Sketch file to see button states, colors, and responsive design.
-
-> [Source Sketch file](Superformula-FE-test-264388d.sketch)
-
 ## Requirements
+In order to run this project you'll need to use **node 8.10** or higher. I recommend managing your node version via [NVM](https://github.com/creationix/nvm).
 
-### Yelp API
+## Quick start
+1. Clone this repo using `git clone https://github.com/ryanleafey/frontend-test/tree/rleafey-test`
+1. Run `npm install` to install dependencies.
+1. Run `npm start` to see the app at http://localhost:8080/.
+1. Run `npm run storybook` to see the Storybook app at http://localhost:6006/.
 
-You can ask us and we will provide you a Yelp API Key to use for your PR.
+## Table of Contents
+- [Requirements](#requirements)
+- [Quick start](#quick-start)
+- [Available scripts](#available-scripts)
+- [App architecture](#app-architecture)
+- [What's left?](#what's-left)
+- [Demo](#demo)
 
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
+## Available scripts
 
-### Page Structure
+In the project directory, you can run:
 
-```
-Main
-  - Filter navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (open modal to show more details)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
-```
+#### `npm run start`
 
-### Functionality
+Runs the app in the development mode.<br>
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser. The page will reload if you make edits.<br>
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
+#### `npm run test`
 
-### Tech stack
+Launches the test runner in the interactive watch mode.<br>
 
-- JS oriented
-  - Use **React**.
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor like SASS/SCSS/Less but _do not_ use any CSS frameworks or libraries.
+#### `npm run build`
 
-### Bonus
+Builds the app for production to the `dist` folder.<br>
 
-- Also create mobile version included in Sketch comp.
-- Write clear **documentation** on how the app was designed and how to run the code.
-- Provide proper unit tests.
-- Provide components in [Storybook](https://storybook.js.org) with tests.
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages.
-- Provide an online demo of the application.
-- Include subtle animations to focus attention
-- Describe optimization opportunities when you conclude
+#### `npm run lint`
+Lints the JS and SCSS files
 
-## What We Care About
+Additional linting scripts are available:
 
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your code & the way you solve the problem, not how well you can use a particular library or feature.
+````
+npm run lint:fix // Fix linting errors across JavaScript and Sass files
+npm run storybook // Run Storybook at http://localhost:6006/.
+npm run build-storybook // Build storybook assets
+````
 
-_We're interested in your method and how you approach the problem just as much as we're interested in the end result._
+## App architecture
+The app uses an action creator to fetch data from Yelp's API and store it the Redux store.
+A simple proxy was built and hosted on [glitch](https://glitch.com/edit/#!/colorful-halibut?path=server.js) to work around CORS.
 
-Here's what you should strive for:
+Redux was set up using [redux-actions](https://github.com/redux-utilities/redux-actions) and is organized using the [Ducks proposal](https://github.com/erikras/ducks-modular-redux) which aims to consolidate Redux's code spraw.
+`App.jsx` is connected to the store and passes props down to its child components. An optimization here could be to use a provider component with render props or the context API to pass these props
+as far down the stack as necessary to avoid prop drilling. The load more button requests more data and the restaurants reducer merges it into the state. 
 
-- Good use of current HTML, CSS, and JavaScript & performance best practices.
-- Solid testing approach.
-- Extensible code.
+Since a requirement was to not use a CSS framework, a quick attempt was made to assemble a design system.
+The base of the design system is in `./theme/theme.js` which includes colors, font sizes, spacing, and button variations.
+You can imagine how this could be extended and made dynamic by populating theme values via an API call or config on the window
+object before loading app data. The theme props are hooked into styled components throughout the project via a `ThemeProvider` so we can easily change the look and feel of the app.
 
-## Q&A
+The tests included in this project are simply here to show that I care about testing and to indicate that we should be adding them wherever possible.
+There is plenty of room to expand on these tests and to add more test coverage to the remaining components, Redux functions, etc.
 
-> Where should I send back the result when I'm done?
+## What's left?
+### There's a lot left to do...
+- Finish extending fetch/reducer functionality to support serverside queries
+- Write and hook up front-end filters for price and open_now
+- Hook up 'Clear Filters' button
+- Moar tests
+- Webpack optimizations for code splitting and tree shaking
+- Mobile/responsive styles
+- Error handling
+- Add react router
+    - Pull page title from route prop into hero mini component
+- Build details page
+    - Add route
+    - map component
+    - reviews component
+    - hook up learn more link
+- Localization
+    - Add react-intl
+    - update fetch to pass locale to Yelp
+- Harden/document <Griditem/> usage
+- End-toEnd tests
+- CI/CD pipeline 
 
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
+A note on arrow functions in JSX:
+These are a performance concern and under normal circumstances I would not use them in JSX in order to bind `this`. In the interest of time I left them in place so I could get farther with the exercise. 
 
-> What if I have a question?
+## Demo
+[App Demo](http://restaurant-listing.s3-website-us-east-1.amazonaws.com/) | [Storybook Demo](http://restaurant-listing.s3-website-us-east-1.amazonaws.com/storybook-static)
 
-Just create a new issue in this repo and we will respond and get back to you quickly.
+<img src="listing.gif"/>
