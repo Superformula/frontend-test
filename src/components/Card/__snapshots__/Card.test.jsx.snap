@@ -1,0 +1,597 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component renders itself with a primary button correctly 1`] = `
+<Card
+  buttonVariant="primary"
+  category="italian"
+  closed={false}
+  imageSrc="http://awesometest.com/image.jpg"
+  onClick={[MockFunction]}
+  price="$$$$"
+  rating={5}
+  title="This is awesome"
+>
+  <styled.div
+    display="flex"
+    mb={4}
+    mt={3}
+    p={
+      Array [
+        0,
+        2,
+        3,
+      ]
+    }
+    width={
+      Array [
+        1,
+        0.3333333333333333,
+        0.25,
+      ]
+    }
+  >
+    <div
+      className="sc-iwsKbI grHAwk"
+      display="flex"
+      width={
+        Array [
+          1,
+          0.3333333333333333,
+          0.25,
+        ]
+      }
+    >
+      <styled.div
+        bg="white"
+        display="flex"
+        flexDirection="column"
+        width={1}
+      >
+        <div
+          className="sc-iwsKbI cdOkXf"
+          display="flex"
+          width={1}
+        >
+          <ImageContainer
+            img="http://awesometest.com/image.jpg"
+            onClick={[MockFunction]}
+          >
+            <styled.div
+              onClick={[MockFunction]}
+            >
+              <div
+                className="sc-dxgOiQ fEVAoz"
+                onClick={[MockFunction]}
+              >
+                <styled.div
+                  img="http://awesometest.com/image.jpg"
+                >
+                  <div
+                    className="sc-ckVGcZ dxIIZh"
+                  />
+                </styled.div>
+              </div>
+            </styled.div>
+          </ImageContainer>
+          <styled.div>
+            <div
+              className="sc-iwsKbI fqrKBv"
+            >
+              <styled.h3
+                mt={2}
+              >
+                <h3
+                  className="sc-EHOje hZoKoK"
+                >
+                  This is awesome
+                </h3>
+              </styled.h3>
+              <StarRating
+                count={5}
+                rating={5}
+              >
+                <styled.div
+                  my={2}
+                >
+                  <div
+                    className="sc-iwsKbI bQYrWc"
+                  >
+                    <styled.div
+                      key="star-1"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                    <styled.div
+                      key="star-2"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                    <styled.div
+                      key="star-3"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                    <styled.div
+                      key="star-4"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                    <styled.div
+                      key="star-5"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </StarRating>
+            </div>
+          </styled.div>
+          <styled.div
+            alignItems="center"
+            display="flex"
+            mb={3}
+          >
+            <div
+              className="sc-iwsKbI hCqzdK"
+              display="flex"
+            >
+              <styled.div
+                width={0.6666666666666666}
+              >
+                <div
+                  className="sc-iwsKbI dLuuMB"
+                  width={0.6666666666666666}
+                >
+                  <styled.small
+                    color="black54"
+                    textTransform="uppercase"
+                  >
+                    <small
+                      className="sc-gzVnrw itQAs"
+                      color="black54"
+                    >
+                      italian
+                      <styled.div
+                        display="inline"
+                        px={1}
+                      >
+                        <div
+                          className="sc-iwsKbI bUIrNs"
+                          display="inline"
+                        >
+                          •
+                        </div>
+                      </styled.div>
+                    </small>
+                  </styled.small>
+                  <styled.small
+                    color="black54"
+                  >
+                    <small
+                      className="sc-gzVnrw cLDJWr"
+                      color="black54"
+                    >
+                      $$$$
+                    </small>
+                  </styled.small>
+                </div>
+              </styled.div>
+              <styled.div
+                display="flex"
+                justifyContent="flex-end"
+                width={0.3333333333333333}
+              >
+                <div
+                  className="sc-iwsKbI hsDEgj"
+                  display="flex"
+                  width={0.3333333333333333}
+                >
+                  <Badge
+                    statusColor="green"
+                    textTransform="uppercase"
+                  >
+                    <styled.div
+                      alignItems="center"
+                      display="flex"
+                    >
+                      <div
+                        className="sc-iwsKbI bMDsUw"
+                        display="flex"
+                      >
+                        <styled.span
+                          bg="green"
+                          display="inline-block"
+                          mr={1}
+                        >
+                          <span
+                            className="sc-htpNat jeXzCj"
+                            display="inline-block"
+                          />
+                        </styled.span>
+                        <styled.small
+                          color="black54"
+                          textTransform="uppercase"
+                        >
+                          <small
+                            className="sc-gzVnrw itQAs"
+                            color="black54"
+                          >
+                            Open Now
+                          </small>
+                        </styled.small>
+                      </div>
+                    </styled.div>
+                  </Badge>
+                </div>
+              </styled.div>
+            </div>
+          </styled.div>
+          <styled.div
+            alignItems="flex-end"
+            display="flex"
+            flex="1 0 auto"
+            mt={1}
+          >
+            <div
+              className="sc-iwsKbI bujbry"
+              display="flex"
+            >
+              <styled.button
+                block={true}
+                onClick={[MockFunction]}
+                secondary={false}
+                variant="primary"
+              >
+                <button
+                  className="sc-bwzfXH kOCFzd"
+                  onClick={[MockFunction]}
+                >
+                  Learn More
+                </button>
+              </styled.button>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</Card>
+`;
+
+exports[`Card Component renders itself with a secondary button correctly 1`] = `
+<Card
+  buttonVariant="secondary"
+  category="italian"
+  closed={false}
+  imageSrc="http://awesometest.com/image.jpg"
+  onClick={[MockFunction]}
+  price="$$$$"
+  rating={5}
+  title="This is awesome"
+>
+  <styled.div
+    display="flex"
+    mb={4}
+    mt={3}
+    p={
+      Array [
+        0,
+        2,
+        3,
+      ]
+    }
+    width={
+      Array [
+        1,
+        0.3333333333333333,
+        0.25,
+      ]
+    }
+  >
+    <div
+      className="sc-iwsKbI grHAwk"
+      display="flex"
+      width={
+        Array [
+          1,
+          0.3333333333333333,
+          0.25,
+        ]
+      }
+    >
+      <styled.div
+        bg="white"
+        display="flex"
+        flexDirection="column"
+        width={1}
+      >
+        <div
+          className="sc-iwsKbI cdOkXf"
+          display="flex"
+          width={1}
+        >
+          <ImageContainer
+            img="http://awesometest.com/image.jpg"
+            onClick={[MockFunction]}
+          >
+            <styled.div
+              onClick={[MockFunction]}
+            >
+              <div
+                className="sc-dxgOiQ fEVAoz"
+                onClick={[MockFunction]}
+              >
+                <styled.div
+                  img="http://awesometest.com/image.jpg"
+                >
+                  <div
+                    className="sc-ckVGcZ dxIIZh"
+                  />
+                </styled.div>
+              </div>
+            </styled.div>
+          </ImageContainer>
+          <styled.div>
+            <div
+              className="sc-iwsKbI fqrKBv"
+            >
+              <styled.h3
+                mt={2}
+              >
+                <h3
+                  className="sc-EHOje hZoKoK"
+                >
+                  This is awesome
+                </h3>
+              </styled.h3>
+              <StarRating
+                count={5}
+                rating={5}
+              >
+                <styled.div
+                  my={2}
+                >
+                  <div
+                    className="sc-iwsKbI bQYrWc"
+                  >
+                    <styled.div
+                      key="star-1"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                    <styled.div
+                      key="star-2"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                    <styled.div
+                      key="star-3"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                    <styled.div
+                      key="star-4"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                    <styled.div
+                      key="star-5"
+                    >
+                      <div
+                        className="sc-bdVaJa bgsLNb"
+                      >
+                        <SvgStarFull>
+                          <svg
+                            data-file-name="SvgStarFull"
+                          />
+                        </SvgStarFull>
+                      </div>
+                    </styled.div>
+                  </div>
+                </styled.div>
+              </StarRating>
+            </div>
+          </styled.div>
+          <styled.div
+            alignItems="center"
+            display="flex"
+            mb={3}
+          >
+            <div
+              className="sc-iwsKbI hCqzdK"
+              display="flex"
+            >
+              <styled.div
+                width={0.6666666666666666}
+              >
+                <div
+                  className="sc-iwsKbI dLuuMB"
+                  width={0.6666666666666666}
+                >
+                  <styled.small
+                    color="black54"
+                    textTransform="uppercase"
+                  >
+                    <small
+                      className="sc-gzVnrw itQAs"
+                      color="black54"
+                    >
+                      italian
+                      <styled.div
+                        display="inline"
+                        px={1}
+                      >
+                        <div
+                          className="sc-iwsKbI bUIrNs"
+                          display="inline"
+                        >
+                          •
+                        </div>
+                      </styled.div>
+                    </small>
+                  </styled.small>
+                  <styled.small
+                    color="black54"
+                  >
+                    <small
+                      className="sc-gzVnrw cLDJWr"
+                      color="black54"
+                    >
+                      $$$$
+                    </small>
+                  </styled.small>
+                </div>
+              </styled.div>
+              <styled.div
+                display="flex"
+                justifyContent="flex-end"
+                width={0.3333333333333333}
+              >
+                <div
+                  className="sc-iwsKbI hsDEgj"
+                  display="flex"
+                  width={0.3333333333333333}
+                >
+                  <Badge
+                    statusColor="green"
+                    textTransform="uppercase"
+                  >
+                    <styled.div
+                      alignItems="center"
+                      display="flex"
+                    >
+                      <div
+                        className="sc-iwsKbI bMDsUw"
+                        display="flex"
+                      >
+                        <styled.span
+                          bg="green"
+                          display="inline-block"
+                          mr={1}
+                        >
+                          <span
+                            className="sc-htpNat jeXzCj"
+                            display="inline-block"
+                          />
+                        </styled.span>
+                        <styled.small
+                          color="black54"
+                          textTransform="uppercase"
+                        >
+                          <small
+                            className="sc-gzVnrw itQAs"
+                            color="black54"
+                          >
+                            Open Now
+                          </small>
+                        </styled.small>
+                      </div>
+                    </styled.div>
+                  </Badge>
+                </div>
+              </styled.div>
+            </div>
+          </styled.div>
+          <styled.div
+            alignItems="flex-end"
+            display="flex"
+            flex="1 0 auto"
+            mt={1}
+          >
+            <div
+              className="sc-iwsKbI bujbry"
+              display="flex"
+            >
+              <styled.button
+                block={true}
+                onClick={[MockFunction]}
+                secondary={false}
+                variant="secondary"
+              >
+                <button
+                  className="sc-bwzfXH cQaPdt"
+                  onClick={[MockFunction]}
+                >
+                  Learn More
+                </button>
+              </styled.button>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</Card>
+`;
