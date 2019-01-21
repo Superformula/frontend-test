@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StarRating Component renders a 0 star rating 1`] = `
+<styled.div
+  my={2}
+>
+  <styled.div
+    key="star-1"
+  >
+    <SvgStarEmpty />
+  </styled.div>
+  <styled.div
+    key="star-2"
+  >
+    <SvgStarEmpty />
+  </styled.div>
+  <styled.div
+    key="star-3"
+  >
+    <SvgStarEmpty />
+  </styled.div>
+  <styled.div
+    key="star-4"
+  >
+    <SvgStarEmpty />
+  </styled.div>
+  <styled.div
+    key="star-5"
+  >
+    <SvgStarEmpty />
+  </styled.div>
+</styled.div>
+`;
+
+exports[`StarRating Component renders a 3.5 star rating 1`] = `
+<styled.div
+  my={2}
+>
+  <styled.div
+    key="star-1"
+  >
+    <SvgStarFull />
+  </styled.div>
+  <styled.div
+    key="star-2"
+  >
+    <SvgStarFull />
+  </styled.div>
+  <styled.div
+    key="star-3"
+  >
+    <SvgStarFull />
+  </styled.div>
+  <styled.div
+    key="star-4"
+  >
+    <SvgStarHalf />
+  </styled.div>
+  <styled.div
+    key="star-5"
+  >
+    <SvgStarEmpty />
+  </styled.div>
+</styled.div>
+`;
+
+exports[`StarRating Component renders a 5 star rating 1`] = `
+<styled.div
+  my={2}
+>
+  <styled.div
+    key="star-1"
+  >
+    <SvgStarFull />
+  </styled.div>
+  <styled.div
+    key="star-2"
+  >
+    <SvgStarFull />
+  </styled.div>
+  <styled.div
+    key="star-3"
+  >
+    <SvgStarFull />
+  </styled.div>
+  <styled.div
+    key="star-4"
+  >
+    <SvgStarFull />
+  </styled.div>
+  <styled.div
+    key="star-5"
+  >
+    <SvgStarFull />
+  </styled.div>
+</styled.div>
+`;
