@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component renders a green badge 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <styled.span
+    bg="green"
+    display="inline-block"
+    mr={1}
+  />
+  <styled.small
+    color="black54"
+    textTransform="lowercase"
+  >
+    test badge
+  </styled.small>
+</styled.div>
+`;
+
+exports[`Button Component renders a red badge 1`] = `
+<styled.div
+  alignItems="center"
+  display="flex"
+>
+  <styled.span
+    bg="red"
+    display="inline-block"
+    mr={1}
+  />
+  <styled.small
+    color="black54"
+    textTransform="uppercase"
+  >
+    test badge
+  </styled.small>
+</styled.div>
+`;
