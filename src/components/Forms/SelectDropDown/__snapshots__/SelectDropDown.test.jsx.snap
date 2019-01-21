@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectDropDown Component renders correctly 1`] = `
+<SelectDropDown
+  disableOnClickOutside={[Function]}
+  enableOnClickOutside={[Function]}
+  eventTypes={
+    Array [
+      "mousedown",
+      "touchstart",
+    ]
+  }
+  heading="Test"
+  items={
+    Array [
+      Object {
+        "title": "Test",
+        "value": "test",
+      },
+    ]
+  }
+  onSelect={[MockFunction]}
+  outsideClickIgnoreClass="ignore-react-onclickoutside"
+  preventDefault={false}
+  selectedItem="test"
+  stopPropagation={false}
+>
+  <styled.div
+    position="relative"
+  >
+    <div
+      className="sc-gqjmRU bAkkMC"
+    >
+      <styled.div
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <div
+          className="sc-ckVGcZ cnuynl"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          Test
+          <styled.span>
+            <span
+              className="sc-kpOJdX iFRxyn"
+            >
+              <SvgChevronDown>
+                <svg
+                  data-file-name="SvgChevronDown"
+                />
+              </SvgChevronDown>
+            </span>
+          </styled.span>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</SelectDropDown>
+`;
