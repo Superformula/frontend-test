@@ -1,0 +1,477 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterNav Component renders itself primary button correctly 1`] = `
+<FilterNav
+  category="italian"
+  openNow={true}
+  price="$$"
+  toggleCategory={[MockFunction]}
+  toggleFilter={[MockFunction]}
+>
+  <styled.div
+    borderBottom="1px solid"
+    borderColor="black10"
+    borderTop="1px solid"
+    py={4}
+    width={
+      Array [
+        1,
+      ]
+    }
+  >
+    <div
+      className="sc-gqjmRU hwYUaN"
+      width={
+        Array [
+          1,
+        ]
+      }
+    >
+      <styled.div>
+        <div
+          className="sc-iwsKbI oPSfI"
+        >
+          <styled.div
+            display="inline-flex"
+            width={
+              Array [
+                0.5,
+                0.75,
+                0.75,
+              ]
+            }
+          >
+            <div
+              className="sc-gqjmRU kiHGsi"
+              display="inline-flex"
+              width={
+                Array [
+                  0.5,
+                  0.75,
+                  0.75,
+                ]
+              }
+            >
+              <styled.div
+                display="inline-block"
+                mr={4}
+              >
+                <div
+                  className="sc-gqjmRU cGHpIG"
+                  display="inline-block"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-ckVGcZ bGWCTB"
+                    >
+                      Filter By:
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+              <styled.div
+                display="inline-block"
+                mr={4}
+              >
+                <div
+                  className="sc-gqjmRU cGHpIG"
+                  display="inline-block"
+                >
+                  <Checkbox
+                    checked={true}
+                    id="openNow"
+                    isDisabled={false}
+                    label="Open Now"
+                    name="openNow"
+                    onChange={[Function]}
+                  >
+                    <styled.div>
+                      <div
+                        className="sc-jTzLTM efNPAV"
+                      >
+                        <styled.label
+                          borderBottom="1px solid"
+                          borderColor="black21"
+                          htmlFor="openNow"
+                          pb={2}
+                        >
+                          <label
+                            className="sc-VigVT iomSMd"
+                            htmlFor="openNow"
+                          >
+                            <styled.input
+                              checked={true}
+                              id="openNow"
+                              isDisabled={false}
+                              name="openNow"
+                              onChange={[Function]}
+                            >
+                              <input
+                                checked={true}
+                                className="sc-fjdhpX hcUlkV"
+                                id="openNow"
+                                name="openNow"
+                                onChange={[Function]}
+                                type="checkbox"
+                              />
+                            </styled.input>
+                            <styled.div
+                              border="1px solid"
+                              borderColor="black21"
+                              checked={true}
+                            >
+                              <div
+                                checked={true}
+                                className="sc-jzJRlG jXBXWB"
+                              >
+                                <styled.svg
+                                  checked={true}
+                                  viewBox="0 0 24 24"
+                                >
+                                  <svg
+                                    checked={true}
+                                    className="sc-cSHVUG blGJjt"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <circle
+                                      cx="12"
+                                      cy="12"
+                                      r="10"
+                                    />
+                                  </svg>
+                                </styled.svg>
+                              </div>
+                            </styled.div>
+                            <span>
+                              Open Now
+                            </span>
+                          </label>
+                        </styled.label>
+                      </div>
+                    </styled.div>
+                  </Checkbox>
+                </div>
+              </styled.div>
+              <styled.div
+                display="inline-block"
+                mr={4}
+                width={97}
+              >
+                <div
+                  className="sc-gqjmRU kvVSH"
+                  display="inline-block"
+                  width={97}
+                >
+                  <OnClickOutside(SelectDropDown)
+                    eventTypes={
+                      Array [
+                        "mousedown",
+                        "touchstart",
+                      ]
+                    }
+                    excludeScrollbar={false}
+                    heading="Price"
+                    items={
+                      Array [
+                        Object {
+                          "title": "All",
+                          "value": "",
+                        },
+                        Object {
+                          "title": "$",
+                          "value": "$",
+                        },
+                        Object {
+                          "title": "$$",
+                          "value": "$$",
+                        },
+                        Object {
+                          "title": "$$$",
+                          "value": "$$$",
+                        },
+                        Object {
+                          "title": "$$$$",
+                          "value": "$$$$",
+                        },
+                      ]
+                    }
+                    onSelect={[Function]}
+                    outsideClickIgnoreClass="ignore-react-onclickoutside"
+                    preventDefault={false}
+                    selectedItem="$$"
+                    stopPropagation={false}
+                  >
+                    <SelectDropDown
+                      disableOnClickOutside={[Function]}
+                      enableOnClickOutside={[Function]}
+                      eventTypes={
+                        Array [
+                          "mousedown",
+                          "touchstart",
+                        ]
+                      }
+                      heading="Price"
+                      items={
+                        Array [
+                          Object {
+                            "title": "All",
+                            "value": "",
+                          },
+                          Object {
+                            "title": "$",
+                            "value": "$",
+                          },
+                          Object {
+                            "title": "$$",
+                            "value": "$$",
+                          },
+                          Object {
+                            "title": "$$$",
+                            "value": "$$$",
+                          },
+                          Object {
+                            "title": "$$$$",
+                            "value": "$$$$",
+                          },
+                        ]
+                      }
+                      onSelect={[Function]}
+                      outsideClickIgnoreClass="ignore-react-onclickoutside"
+                      preventDefault={false}
+                      selectedItem="$$"
+                      stopPropagation={false}
+                    >
+                      <styled.div
+                        position="relative"
+                      >
+                        <div
+                          className="sc-gqjmRU bAkkMC"
+                        >
+                          <styled.div
+                            onClick={[Function]}
+                            onKeyPress={[Function]}
+                            role="button"
+                            tabIndex={0}
+                          >
+                            <div
+                              className="sc-dxgOiQ dWBkrD"
+                              onClick={[Function]}
+                              onKeyPress={[Function]}
+                              role="button"
+                              tabIndex={0}
+                            >
+                              Price
+                              <styled.span>
+                                <span
+                                  className="sc-kGXeez kYdYIQ"
+                                >
+                                  <SvgChevronDown>
+                                    <svg
+                                      data-file-name="SvgChevronDown"
+                                    />
+                                  </SvgChevronDown>
+                                </span>
+                              </styled.span>
+                            </div>
+                          </styled.div>
+                        </div>
+                      </styled.div>
+                    </SelectDropDown>
+                  </OnClickOutside(SelectDropDown)>
+                </div>
+              </styled.div>
+              <styled.div
+                display="inline-block"
+                width={193}
+              >
+                <div
+                  className="sc-gqjmRU cejnGY"
+                  display="inline-block"
+                  width={193}
+                >
+                  <OnClickOutside(SelectDropDown)
+                    eventTypes={
+                      Array [
+                        "mousedown",
+                        "touchstart",
+                      ]
+                    }
+                    excludeScrollbar={false}
+                    heading="Categories"
+                    items={
+                      Array [
+                        Object {
+                          "title": "All",
+                          "value": "",
+                        },
+                        Object {
+                          "title": "Italian",
+                          "value": "italian",
+                        },
+                        Object {
+                          "title": "Seafood",
+                          "value": "seafood",
+                        },
+                        Object {
+                          "title": "Steakhouses",
+                          "value": "steakhouses",
+                        },
+                        Object {
+                          "title": "Japanese",
+                          "value": "japanese",
+                        },
+                        Object {
+                          "title": "American",
+                          "value": "american",
+                        },
+                        Object {
+                          "title": "Mexican",
+                          "value": "mexican",
+                        },
+                        Object {
+                          "title": "Thai",
+                          "value": "thai",
+                        },
+                      ]
+                    }
+                    onSelect={[Function]}
+                    outsideClickIgnoreClass="ignore-react-onclickoutside"
+                    preventDefault={false}
+                    selectedItem="italian"
+                    stopPropagation={false}
+                  >
+                    <SelectDropDown
+                      disableOnClickOutside={[Function]}
+                      enableOnClickOutside={[Function]}
+                      eventTypes={
+                        Array [
+                          "mousedown",
+                          "touchstart",
+                        ]
+                      }
+                      heading="Categories"
+                      items={
+                        Array [
+                          Object {
+                            "title": "All",
+                            "value": "",
+                          },
+                          Object {
+                            "title": "Italian",
+                            "value": "italian",
+                          },
+                          Object {
+                            "title": "Seafood",
+                            "value": "seafood",
+                          },
+                          Object {
+                            "title": "Steakhouses",
+                            "value": "steakhouses",
+                          },
+                          Object {
+                            "title": "Japanese",
+                            "value": "japanese",
+                          },
+                          Object {
+                            "title": "American",
+                            "value": "american",
+                          },
+                          Object {
+                            "title": "Mexican",
+                            "value": "mexican",
+                          },
+                          Object {
+                            "title": "Thai",
+                            "value": "thai",
+                          },
+                        ]
+                      }
+                      onSelect={[Function]}
+                      outsideClickIgnoreClass="ignore-react-onclickoutside"
+                      preventDefault={false}
+                      selectedItem="italian"
+                      stopPropagation={false}
+                    >
+                      <styled.div
+                        position="relative"
+                      >
+                        <div
+                          className="sc-gqjmRU bAkkMC"
+                        >
+                          <styled.div
+                            onClick={[Function]}
+                            onKeyPress={[Function]}
+                            role="button"
+                            tabIndex={0}
+                          >
+                            <div
+                              className="sc-dxgOiQ dWBkrD"
+                              onClick={[Function]}
+                              onKeyPress={[Function]}
+                              role="button"
+                              tabIndex={0}
+                            >
+                              Categories
+                              <styled.span>
+                                <span
+                                  className="sc-kGXeez kYdYIQ"
+                                >
+                                  <SvgChevronDown>
+                                    <svg
+                                      data-file-name="SvgChevronDown"
+                                    />
+                                  </SvgChevronDown>
+                                </span>
+                              </styled.span>
+                            </div>
+                          </styled.div>
+                        </div>
+                      </styled.div>
+                    </SelectDropDown>
+                  </OnClickOutside(SelectDropDown)>
+                </div>
+              </styled.div>
+            </div>
+          </styled.div>
+          <styled.div
+            display="inline-flex"
+            justifyContent="flex-end"
+            width={
+              Array [
+                0.5,
+                0.25,
+                0.25,
+              ]
+            }
+          >
+            <div
+              className="sc-gqjmRU iREoxV"
+              display="inline-flex"
+              width={
+                Array [
+                  0.5,
+                  0.25,
+                  0.25,
+                ]
+              }
+            >
+              <styled.button
+                block={false}
+                secondary={false}
+                small={true}
+                variant="secondary"
+              >
+                <button
+                  className="sc-bxivhb ceBfMQ"
+                >
+                  Clear Filters
+                </button>
+              </styled.button>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</FilterNav>
+`;
