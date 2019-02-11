@@ -1,10 +1,12 @@
 import React from "react";
 import "./button.scss";
 
-const Button = () => {
-
+const Button = props => {
   return (
-    <button>
+    <button
+      {...props}
+      className={"button " + (props.className ? props.className : "")}
+    >
       hello world
     </button>
   );
