@@ -1,11 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "index.scss";
+import App from 'App';
 
-let Test = () => {
-  return <h1>Test</h1>
-}
 ReactDOM.render(
-  <Test/>,
+  <App/>,
   document.getElementById("root")
 );
