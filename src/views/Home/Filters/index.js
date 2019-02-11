@@ -9,12 +9,15 @@ export default class Filters extends React.Component {
     return (
       <div id="filters">
         <div className="controls">
+          <div>Filter By:&nbsp;</div>
           <div>filter1</div>
           <div>filter2</div>
           <div>filter3</div>
         </div>
         <div className="actions">
-        <Button />
+        <Button>
+          Clear All
+        </Button>
         </div>
       </div>
     );
