@@ -1,4 +1,5 @@
 import React from "react";
+import Filters from './Filters';
 
 export default class Home extends React.Component {
 
@@ -9,6 +10,7 @@ export default class Home extends React.Component {
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem iste ratione veniam saepe repudiandae laboriosam quam culpa, eveniet ex facere esse. A accusamus explicabo qui nulla placeat ipsa, sint vero.
         </p>
+        <Filters/>
       </React.Fragment>
     );
   }
