@@ -4,12 +4,16 @@ import "./restaurant.scss";
 import Button from "../Button";
 
 export default class Restaurant extends React.Component {
+  
+
   render() {
+    const { restaurant } = this.props;
+    
     return (
       <div className="restaurant">
         <img className="photo" src="https://placehold.it/300x200" alt="a placeholder image"/>
         <h3>
-          Very long Name restaurants Number 1 in list
+          {restaurant.name}
         </h3>
         <div>
           *****

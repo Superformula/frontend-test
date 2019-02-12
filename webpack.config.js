@@ -15,7 +15,13 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname,'src'),
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      "/v3/graphql": {
+        target: 'https://api.yelp.com/',
+        changeOrigin: true,
+      },
+    }
   },
   module:       {
     rules: [
