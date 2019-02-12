@@ -1,13 +1,19 @@
 import React from "react";
-import Home from 'views/Home';
-import 'index.scss';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Home from "views/Home";
+import Detail from "views/Detail";
+import "index.scss";
 
 const App = () => {
   return (
-    <React.Fragment>
-      <Home/>
-    </React.Fragment>
+    <Router>
+      <React.Fragment>
+        <Route path="/" component={Home} exact />
+        <Route path="/detail" component={Detail} />
+      </React.Fragment>
+    </Router>
   );
-}
+};
 
 export default App;

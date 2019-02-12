@@ -22,7 +22,7 @@ export default class Restaurant extends React.Component {
             OPEN NOW
           </div>
         </div>
-        <Button>LEARN MORE</Button>
+        <Button to="/detail">LEARN MORE</Button>
         
       </div>
     );
