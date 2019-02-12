@@ -1,4 +1,6 @@
 import React from "react";
+import { fetchYelp } from 'fetchYelp';
+
 import Filters from "./Filters";
 import Divider from "components/Divider";
 import Button from "./Button";
@@ -15,40 +17,33 @@ export default class Home extends React.Component {
     };
   }
 
-  componentDidMount() {
-    
-    fetch('/v3/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/graphql',
-        'Authorization': `Bearer ${process.env.YELP_KEY}`,
-        'Accept-Language': "en_US"
-      },
-      body: `{
+  async componentDidMount() {
+
+    const searchRes = await fetchYelp(`
+      {
         search(location: "Las Vegas") {
-          total,
+          total
           business {
-            name,
-            id,
-            alias,
-            rating,
+            name
+            id
+            alias
+            rating
             url
+            price
+            photos
           }
         }
-      }`,
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log(res.data);
-        this.setState({
-          businesses: res.data.search.business,
-        });
-      });
+      }
+    `);
+
+    this.setState({
+      businesses: searchRes.search.business,
+    });
   }
 
   render() {
     const { businesses } = this.state;
-    
+
     return (
       <div id="home">
         <h1 className="page-padding">Restaurants</h1>
