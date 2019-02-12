@@ -1,11 +1,14 @@
 import React from "react";
 import Filters from "./Filters";
 import Divider from "components/Divider";
+import Restaurant from "./Restaurant";
+
+import "./home.scss";
 
 export default class Home extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <div id="home">
         <h1>Restaurants</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
@@ -17,7 +20,12 @@ export default class Home extends React.Component {
         <Filters />
         <Divider />
         <h2>All Restaurants</h2>
-      </React.Fragment>
+        <div className="search-results">
+          {[1, 2, 3, 4, 5, 6, 7].map(number => (
+            <Restaurant key={number} />
+          ))}
+        </div>
+      </div>
     );
   }
 }
