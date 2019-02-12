@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: path.join(__dirname,'src','index.js'),
+  entry: ['babel-polyfill', path.join(__dirname,'src','index.js')],
   output: {
     path: path.join(__dirname,'build'),
     filename: 'index.bundle.js'
