@@ -3,12 +3,13 @@ import "./button.scss";
 
 const Button = props => {
   return (
-    <button
+    <a
       {...props}
+      href="#"
       className={"button " + (props.className ? props.className : "")}
     >
       {props.children}
-    </button>
+    </a>
   );
 };
 

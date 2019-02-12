@@ -1,6 +1,7 @@
 import React from "react";
 import Filters from "./Filters";
 import Divider from "components/Divider";
+import Button from "./Button";
 import Restaurant from "./Restaurant";
 
 import "./home.scss";
@@ -24,6 +25,11 @@ export default class Home extends React.Component {
           {[1, 2, 3, 4, 5, 6, 7].map(number => (
             <Restaurant key={number} />
           ))}
+        </div>
+        <div className="loadmore-container">
+          <Button>
+            LOAD MORE
+          </Button>
         </div>
       </div>
     );
