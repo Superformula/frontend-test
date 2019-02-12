@@ -26,7 +26,7 @@ export default class Restaurant extends React.Component {
             OPEN NOW
           </div>
         </div>
-        <Button to="/detail/bla">LEARN MORE</Button>
+        <Button to={`/detail/${restaurant.id}`}>LEARN MORE</Button>
         
       </div>
     );
