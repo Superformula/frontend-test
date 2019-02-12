@@ -1,6 +1,7 @@
 html {
   width: 100vw;
   height: 100vh;
+  box-sizing: border-box;
 }
 
 body {
@@ -8,6 +9,10 @@ body {
   margin: 0;
   height: 100%;
   position: relative;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 

@@ -21,15 +21,15 @@ export default class Home extends React.Component {
         <Filters />
         <Divider />
         <h2>All Restaurants</h2>
-        <div className="search-results">
-          {[1, 2, 3, 4, 5, 6, 7].map(number => (
-            <Restaurant key={number} />
-          ))}
+        <div>
+          <div className="search-results">
+            {[1, 2, 3, 4, 5, 6, 7].map(number => (
+              <Restaurant key={number} />
+            ))}
+          </div>
         </div>
         <div className="loadmore-container">
-          <Button>
-            LOAD MORE
-          </Button>
+          <Button>LOAD MORE</Button>
         </div>
       </div>
     );
