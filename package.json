@@ -4,6 +4,7 @@
   "description": "Be sure to read **all** of this document carefully, and follow the guidelines within.",
   "main": "index.js",
   "dependencies": {
+    "dotenv-webpack": "^1.7.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-router-dom": "^4.3.1",
