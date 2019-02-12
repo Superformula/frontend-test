@@ -1,23 +1,30 @@
 import React from "react";
 import "./filters.scss";
 
-import Button from '../Button';
+import Button from "../Button";
+import Dropdown from "./Dropdown";
 
 export default class Filters extends React.Component {
-
   render() {
     return (
       <div id="filters">
         <div className="controls">
           <div>Filter By:&nbsp;</div>
-          <div>filter1</div>
-          <div>filter2</div>
-          <div>filter3</div>
+          <div>
+            <label htmlFor="openNow">
+              <input type="checkbox" checked/>
+              Open Now&nbsp;  
+            </label>
+          </div>
+          <div>
+            <Dropdown />
+          </div>
+          <div>
+            <Dropdown />
+          </div>
         </div>
         <div className="actions">
-        <Button>
-          Clear All
-        </Button>
+          <Button>Clear All</Button>
         </div>
       </div>
     );
