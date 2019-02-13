@@ -41,4 +41,45 @@ export const createCategoriesQuery = () => {
         }
     }
   `;
-}
+};
+
+export const createBusinessQuery = id => {
+  return `
+    {
+      business(id: "${id}") {
+        name
+        id
+        alias
+        rating
+        url
+        price
+        photos
+        review_count
+        location {
+          formatted_address
+        }
+        coordinates {
+          latitude
+          longitude
+        }
+        hours {
+          is_open_now
+        }
+        categories {
+          title
+        }
+        reviews {
+          id
+          text
+          rating
+          time_created
+          user {
+            name
+            image_url
+            id
+          }
+        }
+      }
+    }
+  `;
+};

@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchYelp } from "fetchYelp";
-import { createSearchQuery, createCategoriesQuery } from "./graphQueries";
+import { createSearchQuery, createCategoriesQuery } from "graphQueries";
 
 import Filters from "./Filters";
 import Divider from "components/Divider";

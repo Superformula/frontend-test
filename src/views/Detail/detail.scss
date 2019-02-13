@@ -1,8 +1,104 @@
 #detail {
-  overflow-x: hidden;
-
-  & > * {
-    padding: 0 40px;
-  }
   
+  .rating, .detail {
+    margin-bottom: 15px;
+  }
+
+  .detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    align-items: center;
+    
+    & > * {
+      font-size: 17px;
+      min-width: 50%;
+      max-width: 50%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .open-now {
+      text-align: right;
+    }
+
+    .dot {
+      font-size: 15px;
+    }
+
+    .dot.open {
+      color: green;
+    }
+    .dot.closed {
+      color: red;
+    }
+  }
+
+  .media-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+  }
+
+  .media {
+    display: flex;
+    padding: 20px 0px;
+    height: 300px;
+    margin-bottom: 25px;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .map {
+    margin-right: 20px;
+  }
+
+  .photos {
+    
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .review {
+    display: flex;
+    padding: 60px 0;
+
+    .profile {
+      display: flex;
+      width: 380px;
+      padding: 10px;
+
+
+      .photo-container {
+        width: 30%;
+        height: 63px;
+        position: relative;
+        overflow: hidden;
+        margin-right: 10px;
+      }
+      
+      .photo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
+
+      .profile-image img {
+        width: 100%;
+      }
+
+      .profile-name {
+        font-weight: bold;
+      }
+
+      .date {
+        font-size: 12px;
+        color: gray;
+      }
+    }
+  }
 }
