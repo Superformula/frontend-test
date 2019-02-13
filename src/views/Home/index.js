@@ -10,7 +10,6 @@ import Restaurant from "./Restaurant";
 import "./home.scss";
 
 export default class Home extends React.Component {
-
   state = {
     businesses: [],
     categories: [],
@@ -35,7 +34,7 @@ export default class Home extends React.Component {
 
     this.setState({
       businesses: searchRes.search.business,
-      categories: categoriesRes.categories.category,
+      categories: categoriesRes.categories.category
     });
   };
 
@@ -71,15 +70,15 @@ export default class Home extends React.Component {
 
   applyFilter = async (field, value) => {
     this.setState({
-      [field]: value,
+      [field]: value
     });
 
-    if (field === 'selectedCategory') {
+    if (field === "selectedCategory") {
       const { categories } = this.state;
 
       const foundCat = categories.find(cat => cat.title === value);
       if (!foundCat) return null;
-      
+
       const searchRes = await fetchYelp(createSearchQuery(foundCat.alias));
 
       this.setState({
@@ -88,10 +87,32 @@ export default class Home extends React.Component {
     }
   };
 
+  getCategoryAlias = () => {
+    const { categories, selectedCategory } = this.state;
+
+    const foundCat = categories.find(cat => cat.title === selectedCategory);
+    const foundCatAlias = foundCat ? foundCat.alias : null;
+
+    return foundCatAlias;
+  };
+
   isDirty = () => {
     const { selectedCategory, price, openNow } = this.state;
 
     return selectedCategory || price || openNow;
+  };
+
+  loadMore = async () => {
+    const searchRes = await fetchYelp(
+      createSearchQuery(
+        this.getCategoryAlias(),
+        this.state.businesses.length + 1
+      )
+    );
+
+    this.setState({
+      businesses: this.state.businesses.concat(searchRes.search.business)
+    });
   };
 
   render() {
@@ -135,7 +156,7 @@ export default class Home extends React.Component {
           </div>
         </div>
         <div className="loadmore-container">
-          <Button>LOAD MORE</Button>
+          <Button onClick={this.loadMore}>LOAD MORE</Button>
         </div>
       </div>
     );

@@ -1,8 +1,10 @@
-export const createSearchQuery = category => {
+export const createSearchQuery = (category, offset) => {
   const optionalCategory = category ? `, categories: "${category}"` : '';
+  const optionalOffset = offset ? `, offset: ${offset}` : '';
+
   return `
     {
-      search(location: "Las Vegas"${optionalCategory}) {
+      search(location: "Las Vegas"${optionalCategory}${optionalOffset}) {
         total
         business {
           name
