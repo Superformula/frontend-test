@@ -37,13 +37,19 @@ export default class Restaurant extends React.Component {
           <div>
             {restaurant.categories[0].title} • {restaurant.price}
           </div>
-          {restaurant.hours &&
-          restaurant.hours[0] &&
-          restaurant.hours[0].is_open_now ? (
-            <div>OPEN NOW</div>
-          ) : (
-            <div>CLOSED</div>
-          )}
+          <div className="open-now">
+            {restaurant.hours &&
+            restaurant.hours[0] &&
+            restaurant.hours[0].is_open_now ? (
+              <React.Fragment>
+                <span className="dot open">⬤</span> OPEN NOW
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <span className="dot closed">⬤</span> CLOSED
+              </React.Fragment>
+            )}
+          </div>
         </div>
         <Button to={`/detail/${restaurant.id}`} className="filled">
           LEARN MORE

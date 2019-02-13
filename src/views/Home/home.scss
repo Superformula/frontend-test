@@ -1,20 +1,23 @@
 #home {
-  overflow-x: hidden;
-
-  & > * {
-    // padding: 0 40px;
-  }
-
-  .page-padding {
-    padding: 0 40px;
-  }
 
   .search-results {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
     row-gap: 40px;
     margin-bottom: 50px;
+
+    @media screen and (min-width: 1080px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media screen and (min-width: 1440px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media screen and (min-width: 1920px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
 
   .loadmore-container {

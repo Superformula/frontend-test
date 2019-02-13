@@ -9,6 +9,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-bottom: 0;
+    font-size: 19px;
   }
 
   .photo-container {
@@ -35,13 +36,30 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
+    align-items: center;
     
     & > * {
+      font-size: 12px;
       min-width: 50%;
       max-width: 50%;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    .open-now {
+      text-align: right;
+    }
+
+    .dot {
+      font-size: 10px;
+    }
+
+    .dot.open {
+      color: green;
+    }
+    .dot.closed {
+      color: red;
     }
   }
 }

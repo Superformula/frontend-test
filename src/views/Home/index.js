@@ -128,7 +128,7 @@ export default class Home extends React.Component {
     const filteredByOpen = this.filterOpen(filteredByPrice);
 
     return (
-      <div id="home">
+      <div className="page" id="home">
         <h1 className="page-padding">Restaurants</h1>
         <p className="page-padding">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
