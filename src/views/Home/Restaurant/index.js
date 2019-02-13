@@ -1,6 +1,7 @@
 import React from "react";
 import "./restaurant.scss";
 
+import Ratings from "react-ratings-declarative";
 import Button from "../Button";
 
 export default class Restaurant extends React.Component {
@@ -18,7 +19,20 @@ export default class Restaurant extends React.Component {
         </div>
 
         <h3>{restaurant.name}</h3>
-        <div>{restaurant.rating}</div>
+        <div>
+          <Ratings
+            widgetRatedColors="#002B56"
+            widgetDimensions="20px"
+            widgetSpacings="0px"
+            rating={restaurant.rating}
+          >
+            <Ratings.Widget />
+            <Ratings.Widget />
+            <Ratings.Widget />
+            <Ratings.Widget />
+            <Ratings.Widget />
+          </Ratings>
+        </div>
         <div className="detail">
           <div>Category - {restaurant.price}</div>
           <div>OPEN NOW</div>
