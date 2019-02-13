@@ -27,6 +27,10 @@
     margin: auto;
   }
 
+  h3, .rating, .detail {
+    margin-bottom: 5px;
+  }
+
   .detail {
     display: flex;
     justify-content: space-between;

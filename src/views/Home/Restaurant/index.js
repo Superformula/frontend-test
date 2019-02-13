@@ -19,7 +19,7 @@ export default class Restaurant extends React.Component {
         </div>
 
         <h3>{restaurant.name}</h3>
-        <div>
+        <div className="rating">
           <Ratings
             widgetRatedColors="#002B56"
             widgetDimensions="20px"
