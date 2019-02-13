@@ -1,4 +1,5 @@
 import React from "react";
+import _uniq from "lodash/uniq";
 import "./filters.scss";
 
 import Button from "../Button";
@@ -13,6 +14,8 @@ export default class Filters extends React.Component {
       categories,
       onChange
     } = this.props;
+
+    const cleanCategories = _uniq(categories.map(cat => cat.title));
 
     return (
       <div id="filters">
@@ -31,6 +34,7 @@ export default class Filters extends React.Component {
           </div>
           <div>
             <Dropdown
+              placeholder="Price"
               value={price}
               onChange={e => onChange("price", e.target.value)}
               items={["$", "$$", "$$$", "$$$$"]}
@@ -38,9 +42,10 @@ export default class Filters extends React.Component {
           </div>
           <div>
             <Dropdown
+              placeholder="Category"
               value={selectedCategory}
               onChange={e => onChange("selectedCategory", e.target.value)}
-              items={categories.map(cat => cat.title)}
+              items={cleanCategories}
             />
           </div>
         </div>

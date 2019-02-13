@@ -46,6 +46,9 @@ export default class Home extends React.Component {
             url
             price
             photos
+            hours {
+              is_open_now
+            }
           }
         }
       }
@@ -62,6 +65,26 @@ export default class Home extends React.Component {
     });
   }
 
+  filterPrices = businesses => {
+    const { price } = this.state;
+
+    if (!price) return businesses;
+
+    return businesses.filter(bus => bus.price === price);
+  };
+
+  filterOpen = businesses => {
+    const { openNow } = this.state;
+
+    if (!openNow) return businesses;
+
+    return businesses.filter(bus => {
+      if (bus.hours && bus.hours[0] && bus.hours[0].is_open_now) {
+        return true;
+      }
+    });
+  };
+
   applyFilter = async (field, value) => {
     this.setState({
       [field]: value,
@@ -71,6 +94,7 @@ export default class Home extends React.Component {
       const { categories } = this.state;
 
       const foundCat = categories.find(cat => cat.title === value);
+      if (!foundCat) return null;
       
       const searchRes = await fetchYelp(`
         {
@@ -84,6 +108,9 @@ export default class Home extends React.Component {
               url
               price
               photos
+              hours {
+                is_open_now
+              }
             }
           }
         }
@@ -103,6 +130,9 @@ export default class Home extends React.Component {
       price,
       selectedCategory
     } = this.state;
+
+    const filteredByPrice = this.filterPrices(businesses);
+    const filteredByOpen = this.filterOpen(filteredByPrice);
 
     return (
       <div id="home">
@@ -125,7 +155,7 @@ export default class Home extends React.Component {
         <h2 className="page-padding">All Restaurants</h2>
         <div className="page-padding">
           <div className="search-results">
-            {businesses.map(business => (
+            {filteredByOpen.map(business => (
               <Restaurant key={business.id} restaurant={business} />
             ))}
           </div>

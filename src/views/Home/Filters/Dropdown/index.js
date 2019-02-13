@@ -3,12 +3,15 @@ import "./dropdown.scss";
 
 export default class Dropdown extends React.Component {
   render() {
-    const { items, value, onChange } = this.props;
+    const { items, value, onChange, placeholder } = this.props;
 
     return (
       <div className="dropdown">
         <select value={value} onChange={onChange}>
-          <option default value="">
+          <option value="">
+            {placeholder}
+          </option>
+          <option value="">
             All
           </option>
           {items.map(item => (
