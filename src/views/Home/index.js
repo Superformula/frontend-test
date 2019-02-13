@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchYelp } from 'fetchYelp';
+import { fetchYelp } from "fetchYelp";
 
 import Filters from "./Filters";
 import Divider from "components/Divider";
@@ -9,17 +9,32 @@ import Restaurant from "./Restaurant";
 import "./home.scss";
 
 export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      businesses: [],
-    };
-  }
+  state = {
+    businesses: [],
+    categories: [],
+    openNow: false,
+    price: "",
+    selectedCategory: ""
+  };
 
   async componentDidMount() {
+    const categoriesFetch = fetchYelp(`
+      {
+          categories {
+              total
+              category {
+                  title
+                  alias
+                  parent_categories {
+                      title
+                  }
+              }
+          }
+      }
+    `);
 
-    const searchRes = await fetchYelp(`
+    const searchFetch = fetchYelp(`
       {
         search(location: "Las Vegas") {
           total
@@ -36,13 +51,32 @@ export default class Home extends React.Component {
       }
     `);
 
+    const [categoriesRes, searchRes] = await Promise.all([
+      categoriesFetch,
+      searchFetch
+    ]);
+
     this.setState({
       businesses: searchRes.search.business,
+      categories: categoriesRes.categories.category,
     });
   }
 
+  applyFilter = (field, value) => {
+    this.setState({
+      [field]: value,
+    });
+
+  };
+
   render() {
-    const { businesses } = this.state;
+    const {
+      businesses,
+      categories,
+      openNow,
+      price,
+      selectedCategory
+    } = this.state;
 
     return (
       <div id="home">
@@ -54,7 +88,13 @@ export default class Home extends React.Component {
           vero.
         </p>
         <Divider />
-        <Filters />
+        <Filters
+          openNow={openNow}
+          price={price}
+          selectedCategory={selectedCategory}
+          onChange={this.applyFilter}
+          categories={categories}
+        />
         <Divider />
         <h2 className="page-padding">All Restaurants</h2>
         <div className="page-padding">
