@@ -70,7 +70,7 @@ export default class Detail extends React.Component {
                 width="400"
                 height="100%"
                 frameBorder="0"
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCEOaB-aNG9bXbECk43P3FUt6W-xGXjRe0&q=${
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_KEY}&q=${
                   restaurant.coordinates.latitude
                 },${restaurant.coordinates.longitude}`}
               />
