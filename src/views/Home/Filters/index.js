@@ -32,14 +32,14 @@ export default class Filters extends React.Component {
           <div>
             <Dropdown
               value={price}
-              onChange={value => onChange("price", value)}
+              onChange={e => onChange("price", e.target.value)}
               items={["$", "$$", "$$$", "$$$$"]}
             />
           </div>
           <div>
             <Dropdown
               value={selectedCategory}
-              onChange={value => onChange("selectedCategory", value)}
+              onChange={e => onChange("selectedCategory", e.target.value)}
               items={categories.map(cat => cat.title)}
             />
           </div>

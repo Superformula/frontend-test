@@ -62,11 +62,37 @@ export default class Home extends React.Component {
     });
   }
 
-  applyFilter = (field, value) => {
+  applyFilter = async (field, value) => {
     this.setState({
       [field]: value,
     });
 
+    if (field === 'selectedCategory') {
+      const { categories } = this.state;
+
+      const foundCat = categories.find(cat => cat.title === value);
+      
+      const searchRes = await fetchYelp(`
+        {
+          search(location: "Las Vegas", categories: "${foundCat.alias}") {
+            total
+            business {
+              name
+              id
+              alias
+              rating
+              url
+              price
+              photos
+            }
+          }
+        }
+      `);
+
+      this.setState({
+        businesses: searchRes.search.business
+      });
+    }
   };
 
   render() {
