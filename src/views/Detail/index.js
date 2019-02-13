@@ -27,8 +27,6 @@ export default class Detail extends React.Component {
 
     if (!restaurant) return null;
 
-    console.log(restaurant.coordinates);
-
     return (
       <div className="page" id="detail">
         <h1 className="page-padding">{restaurant.name}</h1>
