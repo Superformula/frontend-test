@@ -12,7 +12,9 @@ export default class Filters extends React.Component {
       price,
       selectedCategory,
       categories,
-      onChange
+      onChange,
+      isDirty,
+      resetForm,
     } = this.props;
 
     const cleanCategories = _uniq(categories.map(cat => cat.title));
@@ -50,7 +52,7 @@ export default class Filters extends React.Component {
           </div>
         </div>
         <div className="actions">
-          <Button>Clear All</Button>
+          <Button onClick={resetForm} disabled={!isDirty}>Clear All</Button>
         </div>
       </div>
     );

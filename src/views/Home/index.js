@@ -20,6 +20,10 @@ export default class Home extends React.Component {
   };
 
   async componentDidMount() {
+    this.hydratePage();
+  }
+
+  hydratePage = async () => {
     const categoriesFetch = fetchYelp(createCategoriesQuery());
 
     const searchFetch = fetchYelp(createSearchQuery());
@@ -33,7 +37,17 @@ export default class Home extends React.Component {
       businesses: searchRes.search.business,
       categories: categoriesRes.categories.category,
     });
-  }
+  };
+
+  resetForm = () => {
+    this.setState({
+      businesses: [],
+      openNow: false,
+      price: "",
+      selectedCategory: ""
+    });
+    this.hydratePage();
+  };
 
   filterPrices = businesses => {
     const { price } = this.state;
@@ -74,6 +88,12 @@ export default class Home extends React.Component {
     }
   };
 
+  isDirty = () => {
+    const { selectedCategory, price, openNow } = this.state;
+
+    return selectedCategory || price || openNow;
+  };
+
   render() {
     const {
       businesses,
@@ -102,6 +122,8 @@ export default class Home extends React.Component {
           selectedCategory={selectedCategory}
           onChange={this.applyFilter}
           categories={categories}
+          isDirty={this.isDirty()}
+          resetForm={this.resetForm}
         />
         <Divider />
         <h2 className="page-padding">All Restaurants</h2>

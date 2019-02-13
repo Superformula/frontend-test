@@ -34,10 +34,20 @@ export default class Restaurant extends React.Component {
           </Ratings>
         </div>
         <div className="detail">
-          <div>Category - {restaurant.price}</div>
-          <div>OPEN NOW</div>
+          <div>
+            {restaurant.categories[0].title} • {restaurant.price}
+          </div>
+          {restaurant.hours &&
+          restaurant.hours[0] &&
+          restaurant.hours[0].is_open_now ? (
+            <div>OPEN NOW</div>
+          ) : (
+            <div>CLOSED</div>
+          )}
         </div>
-        <Button to={`/detail/${restaurant.id}`}>LEARN MORE</Button>
+        <Button to={`/detail/${restaurant.id}`} className="filled">
+          LEARN MORE
+        </Button>
       </div>
     );
   }

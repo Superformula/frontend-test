@@ -12,7 +12,7 @@ const Button = props => {
   return (
     <Component
       {...props}
-      className={"button " + (props.className ? props.className : "")}
+      className={"button " + (props.disabled ? 'disabled ' : '') + (props.className ? props.className : "")}
     >
       {props.children}
     </Component>

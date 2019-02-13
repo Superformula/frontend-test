@@ -8,6 +8,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin-bottom: 0;
   }
 
   .photo-container {
@@ -24,5 +25,19 @@
     right: -9999px;
     height: 100%;
     margin: auto;
+  }
+
+  .detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    
+    & > * {
+      min-width: 50%;
+      max-width: 50%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 }
