@@ -1,5 +1,6 @@
 import React from "react";
 import { fetchYelp } from "fetchYelp";
+import { createSearchQuery, createCategoriesQuery } from "./graphQueries";
 
 import Filters from "./Filters";
 import Divider from "components/Divider";
@@ -19,40 +20,9 @@ export default class Home extends React.Component {
   };
 
   async componentDidMount() {
-    const categoriesFetch = fetchYelp(`
-      {
-          categories {
-              total
-              category {
-                  title
-                  alias
-                  parent_categories {
-                      title
-                  }
-              }
-          }
-      }
-    `);
+    const categoriesFetch = fetchYelp(createCategoriesQuery());
 
-    const searchFetch = fetchYelp(`
-      {
-        search(location: "Las Vegas") {
-          total
-          business {
-            name
-            id
-            alias
-            rating
-            url
-            price
-            photos
-            hours {
-              is_open_now
-            }
-          }
-        }
-      }
-    `);
+    const searchFetch = fetchYelp(createSearchQuery());
 
     const [categoriesRes, searchRes] = await Promise.all([
       categoriesFetch,
@@ -96,25 +66,7 @@ export default class Home extends React.Component {
       const foundCat = categories.find(cat => cat.title === value);
       if (!foundCat) return null;
       
-      const searchRes = await fetchYelp(`
-        {
-          search(location: "Las Vegas", categories: "${foundCat.alias}") {
-            total
-            business {
-              name
-              id
-              alias
-              rating
-              url
-              price
-              photos
-              hours {
-                is_open_now
-              }
-            }
-          }
-        }
-      `);
+      const searchRes = await fetchYelp(createSearchQuery(foundCat.alias));
 
       this.setState({
         businesses: searchRes.search.business
