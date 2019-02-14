@@ -2,6 +2,7 @@ import React from "react";
 import { fetchYelp } from "fetchYelp";
 import { createBusinessQuery } from "graphQueries";
 import moment from "moment";
+import Loader from "react-loader-spinner";
 
 import "./detail.scss";
 import Divider from "components/Divider";
@@ -25,7 +26,13 @@ export default class Detail extends React.Component {
   render() {
     const { restaurant } = this.state;
 
-    if (!restaurant) return null;
+    if (!restaurant) {
+      return (
+        <div className="loader">
+          <Loader type="Triangle" color="#00BFFF" height="100" width="100" />
+        </div>
+      );
+    }
 
     return (
       <div className="page" id="detail">
@@ -70,9 +77,11 @@ export default class Detail extends React.Component {
                 width="400"
                 height="100%"
                 frameBorder="0"
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_KEY}&q=${
-                  restaurant.coordinates.latitude
-                },${restaurant.coordinates.longitude}`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${
+                  process.env.GOOGLE_KEY
+                }&q=${restaurant.coordinates.latitude},${
+                  restaurant.coordinates.longitude
+                }`}
               />
             </div>
             <div className="photos">
@@ -81,10 +90,7 @@ export default class Detail extends React.Component {
               ))}
             </div>
           </div>
-          <div className="address">
-            {restaurant.location.formatted_address}
-          </div>
-          
+          <div className="address">{restaurant.location.formatted_address}</div>
         </div>
         <Divider />
         <h3 className="page-padding">{restaurant.review_count} Reviews</h3>
