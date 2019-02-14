@@ -1,98 +1,80 @@
-# Superformula Front-end Developer Coding Test
+# YELP API Restaurant Assessment
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
-
-## Context
-
-Use HTML, CSS, and JavaScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
-
-![Superformula-front-end-test-mockup](./mockup.png)
-
-Use this Sketch file to see button states, colors, and responsive design.
-
-> [Source Sketch file](Superformula-FE-test-264388d.sketch)
-
-## Requirements
-
-### Yelp API
-
-You can ask us and we will provide you a Yelp API Key to use for your PR.
-
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
-
-### Page Structure
-
+## How to start
+make a `.env` file and fill in the following configurations:
 ```
-Main
-  - Filter navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (open modal to show more details)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
+YELP_ID=abc
+YELP_KEY=abc123
+GOOGLE_KEY=abc123
 ```
 
-### Functionality
+Run the following in terminal:
+```
+npm install
+npm start
+```
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
+## How to build for production
+```
+npm run webpack
+```
 
-### Tech stack
+## What technologies does it use primarily?
+- react
+- react-router
+- Fetch API
+- Yelp's GraphQL api
+- CSS Flexbox
+- CSS Grid
+- SCSS
 
-- JS oriented
-  - Use **React**.
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor like SASS/SCSS/Less but _do not_ use any CSS frameworks or libraries.
+## Browser Compatibility
+- Tested only in Chrome
+- Will not work in ie due to fetch API + Grid CSS
 
-### Bonus
+## Folder Structure
+```
++-- package.json
++-- webpack.config.js // configure builds + dev server
++-- README.md
++-- .env // store confidential keys here
++-- _build
++-- _src
+|   +-- _components // here we store shared components
+|   +-- _views // here are page/view specific components
+|       +-- _Home
+|           +-- index.js // main view component
+|           +-- home.scss // home view styles
+|           +-- _Filters // large view subcomponent
+|               +-- index.js
+|               +-- filters.scss
+|       +-- _Detail
+|   +-- App.js // set up router + providers
+|   +-- fetchYelp.js // helper for making yelp api calls
+|   +-- graphQueries.js // stores actual graphql queries
+|   +-- index.js
+|   +-- index.html
+|   +-- index.scss //global styles
 
-- Also create mobile version included in Sketch comp.
-- Write clear **documentation** on how the app was designed and how to run the code.
-- Provide proper unit tests.
-- Provide components in [Storybook](https://storybook.js.org) with tests.
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages.
-- Provide an online demo of the application.
-- Include subtle animations to focus attention
-- Describe optimization opportunities when you conclude
+```
 
-## What We Care About
-
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your code & the way you solve the problem, not how well you can use a particular library or feature.
-
-_We're interested in your method and how you approach the problem just as much as we're interested in the end result._
-
-Here's what you should strive for:
-
-- Good use of current HTML, CSS, and JavaScript & performance best practices.
-- Solid testing approach.
-- Extensible code.
-
-## Q&A
-
-> Where should I send back the result when I'm done?
-
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
-
-> What if I have a question?
-
-Just create a new issue in this repo and we will respond and get back to you quickly.
+## Design Decisions
+- **Hierarchial folder structure per view**
+  - This makes it really easy to quickly find files and modify them, improving maintainability.
+  - Shared components go in the `components/` folder for any shared component that is needed. (Like our `Divider` component)
+- **Lifting State Management up high + controlled components**
+  - This approach allows you to have one "source of truth". This drastically reduces bugs
+  - This ends up making some files really big, but can be remedied by using HOCs, hooks or renderProps.
+- **CSS namespacing**
+  - There are a few global styles I've added here, however the majority of components are namespaced.
+  - This approach makes it much harder for CSS regression issues.
+  - I'd prefer namespacing with JSS / Styled components over SCSS, but used SCSS to save time.
+- **Making Data fetches calls inside components**
+  - Not a very scalable approach, but for small apps it increases clarity.
+  - Makes clear use of `componentDidMount` lifecycle methods
+- **Not using State management like Redux + Flux**
+  - Again, not very scalable- but got the job done on this small app.
+  - Not really sure where state management is headed on a React community level, but I'm excited for React Hooks and the `useReducer` hook
+- **Responsive Styling**
+  - Only a few places I used responsive media queries.
+  - Normally, I think it's a good idea to Develop mobile-first. That would include using CSS libraries or components that help you harness Grid + Flex + breakpoints
