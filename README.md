@@ -69,7 +69,7 @@ npm run webpack
 ```
 
 ## Design Decisions
-- **Hierarchial folder structure per view**
+- **Hierarchical folder structure per view**
   - This makes it really easy to quickly find files and modify them, improving maintainability.
   - Shared components go in the `components/` folder for any shared component that is needed. (Like our `Divider` component)
 - **Lifting State Management up high + controlled components**
