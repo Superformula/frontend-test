@@ -2,6 +2,7 @@ import React from "react";
 import { fetchYelp } from "fetchYelp";
 import { createSearchQuery, createCategoriesQuery } from "graphQueries";
 
+import Loader from "react-loader-spinner";
 import Filters from "./Filters";
 import Divider from "components/Divider";
 import Button from "./Button";
@@ -15,16 +16,20 @@ export default class Home extends React.Component {
     categories: [],
     openNow: false,
     price: "",
-    selectedCategory: ""
+    selectedCategory: "",
+    loading: true
   };
 
   async componentDidMount() {
-    this.hydratePage();
+    await this.hydratePage();
   }
 
   hydratePage = async () => {
-    const categoriesFetch = fetchYelp(createCategoriesQuery());
+    this.setState({
+      loading: true
+    });
 
+    const categoriesFetch = fetchYelp(createCategoriesQuery());
     const searchFetch = fetchYelp(createSearchQuery());
 
     const [categoriesRes, searchRes] = await Promise.all([
@@ -34,7 +39,8 @@ export default class Home extends React.Component {
 
     this.setState({
       businesses: searchRes.search.business,
-      categories: categoriesRes.categories.category
+      categories: categoriesRes.categories.category,
+      loading: false
     });
   };
 
@@ -79,10 +85,13 @@ export default class Home extends React.Component {
       const foundCat = categories.find(cat => cat.title === value);
       if (!foundCat) return null;
 
+      this.setState({ loading: true });
+
       const searchRes = await fetchYelp(createSearchQuery(foundCat.alias));
 
       this.setState({
-        businesses: searchRes.search.business
+        businesses: searchRes.search.business,
+        loading: false
       });
     }
   };
@@ -103,6 +112,8 @@ export default class Home extends React.Component {
   };
 
   loadMore = async () => {
+    this.setState({ loading: true });
+
     const searchRes = await fetchYelp(
       createSearchQuery(
         this.getCategoryAlias(),
@@ -111,7 +122,8 @@ export default class Home extends React.Component {
     );
 
     this.setState({
-      businesses: this.state.businesses.concat(searchRes.search.business)
+      businesses: this.state.businesses.concat(searchRes.search.business),
+      loading: false,
     });
   };
 
@@ -121,7 +133,8 @@ export default class Home extends React.Component {
       categories,
       openNow,
       price,
-      selectedCategory
+      selectedCategory,
+      loading
     } = this.state;
 
     const filteredByPrice = this.filterPrices(businesses);
@@ -153,7 +166,23 @@ export default class Home extends React.Component {
             {filteredByOpen.map(business => (
               <Restaurant key={business.id} restaurant={business} />
             ))}
+            {!loading && filteredByOpen.length === 0 && (
+              <div className="no-results">
+                No results.
+                <br /> Please Try another search
+              </div>
+            )}
           </div>
+          {loading && (
+            <div className="loader">
+              <Loader
+                type="Triangle"
+                color="#00BFFF"
+                height="100"
+                width="100"
+              />
+            </div>
+          )}
         </div>
         <div className="loadmore-container">
           <Button onClick={this.loadMore}>LOAD MORE</Button>
