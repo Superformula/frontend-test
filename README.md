@@ -78,3 +78,6 @@ npm run webpack
 - **Responsive Styling**
   - Only a few places I used responsive media queries.
   - Normally, I think it's a good idea to Develop mobile-first. That would include using CSS libraries or components that help you harness Grid + Flex + breakpoints
+- **Component Library**
+  - Did not use any component libraries like Material UI
+  - Normally, I would use something like Material UI. It enables a Developer to work so much faster. However I wanted to show my ability to not rely on a vendor library to get production-ready user interface.
