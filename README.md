@@ -14,6 +14,14 @@ npm install
 npm start
 ```
 
+## Testing
+```
+npm test
+
+// resets snapshots
+npm run test-reset 
+```
+
 ## How to build for production
 ```
 npm run webpack
@@ -27,6 +35,7 @@ npm run webpack
 - CSS Flexbox
 - CSS Grid
 - SCSS
+- Jest
 
 ## Browser Compatibility
 - Tested only in Chrome
@@ -47,6 +56,7 @@ npm run webpack
 |           +-- home.scss // home view styles
 |           +-- _Filters // large view subcomponent
 |               +-- index.js
+|               +-- index.spec.js // jest test file
 |               +-- filters.scss
 |       +-- _Detail
 |   +-- App.js // set up router + providers
@@ -81,3 +91,13 @@ npm run webpack
 - **Component Library**
   - Did not use any component libraries like Material UI
   - Normally, I would use something like Material UI. It enables a Developer to work so much faster. However I wanted to show my ability to not rely on a vendor library to get production-ready user interface.
+
+## Things to improve on
+- Tests
+  - I haven't had much test-running experience w/ React. This created a lot of roadblocks specifically when mocking sub components
+  - Once I learn more w/ Jest, I'd like to write tests for every file, not just small, display components
+- CSS
+  - Switch over to Material UI for better-looking cookie-cutter components (dropdown, buttons, Grid, Flex)
+  - Use JSS (much better namespacing) per component
+- Data Fetching
+  - Use HOCs to hydrate components with data instead of `componentDidMount` inside of the View component
