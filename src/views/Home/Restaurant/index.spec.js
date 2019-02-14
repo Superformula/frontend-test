@@ -1,7 +1,13 @@
 import React from "react";
+
 import Restaurant from "./index";
 import MockRouter from "react-mock-router";
 import renderer from "react-test-renderer";
+
+// TODO: this isn't working for now, skipping for time purposes
+jest.mock("react-ratings-declarative", () => () => (
+  <div id="mock-rating">mock rating</div>
+));
 
 const testRestaurant = {
   name: "Yardbird Southern Table & Bar",
