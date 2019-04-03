@@ -1,0 +1,17 @@
+@import 'variables';
+
+.filter {
+
+  .row {
+    justify-content: space-between;
+    padding: 0 $common-spacing;
+
+    .dropdown {
+      flex-grow: 1;
+    }
+  }
+
+  .cross {
+    display: none;
+  }
+}

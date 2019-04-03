@@ -5,39 +5,40 @@
 }
 
 %light-transparency {
-  @include button-transparency(0.9);
+  @include button-transparency(.9);
 }
 
 %dark-transparency {
-  @include button-transparency(0.1);
-  color: $primary-color;
+  @include button-transparency(.1);
+  color: $color-primary;
 }
 
-.Button {
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: .5rem 0;
-  background: $primary-color;
-  border: $primary-color solid 1px;
+.button {
+  background: $color-primary;
+  border: $color-primary solid 1px;
   border-radius: 1px;
+  color: $color-white;
+  cursor: pointer;
   font-size: 12px;
-  color: $font-color;
-  text-align: center;
   line-height: $button-line-height;
   min-width: 8rem;
+  padding: .5rem 0;
+  text-align: center;
+  text-transform: uppercase;
   vertical-align: center;
 
-  &.Clear {
-    color: $primary-color;
+  &.clear {
     background: transparent;
+    color: $color-primary;
 
     &:hover:active {
-      background: $primary-color;;
-      color: $font-color;
+      background: $color-primary;
+      color: $color-white;
     }
   }
 
-  &.Clear:hover, &:hover:active {
+  &.clear:hover,
+  &:hover:active {
     @extend %dark-transparency;
   }
 

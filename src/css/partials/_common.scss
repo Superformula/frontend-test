@@ -1,35 +1,58 @@
 @import 'variables';
 
-.View {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: $font-stack;
+  font-size: $font-size;
+}
+
+.view {
   min-width: $min-view-width;
 }
 
-.Row {
+.row {
+  align-items: center;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  align-items: center;
   width: 100%;
 }
 
-.Header {
+.header {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   min-height: 12.5rem;
 
   > * {
-    margin: $common-x-small-margin $common-margin;
+    margin: $common-x-small-spacing $common-spacing;
   }
 
-  .Title {
+  .title {
     font-size: $font-size-large;
   }
 }
 
-.Hr {
-  background-color: $font-color-grey;
+.hr {
+  background-color: $color-gray;
   height: 1px;
-  width: 100%;
   margin: 0;
+  width: 100%;
+}
+
+// Semantic UI Slider Component Fix
+.ui.slider.checkbox {
+  min-height: 19px;
+}
+
+@mixin flex($flow: row, $wrap: false) {
+  display: flex;
+  flex-flow: $flow $wrap;
+
 }

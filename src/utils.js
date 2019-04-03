@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const svgX = () =>
-    <svg width="17px" height="17px" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg"
+export const svgX = (props) =>
+    <svg {...props} width="17px" height="17px" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg"
          xmlnsXlink="http://www.w3.org/1999/xlink">
         <defs>
             <path
