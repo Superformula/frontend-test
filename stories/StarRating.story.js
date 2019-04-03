@@ -1,6 +1,6 @@
 import {storiesOf} from '@storybook/react';
+import StarRating from 'Components/StarRating';
 import React from 'react';
-import StarRating from '../src/components/StarRating';
 
 storiesOf('Components/StarRating')
     .add('0/5 Stars', () => <StarRating rating={0}/>)
