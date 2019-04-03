@@ -9,11 +9,15 @@
 html,
 body {
   font-family: $font-stack;
-  font-size: $font-size;
+  font-size: $font-regular-size;
 }
 
 .view {
   min-width: $min-view-width;
+
+  > .title {
+    margin: $common-spacing;
+  }
 }
 
 .row {
@@ -33,14 +37,22 @@ body {
   > * {
     margin: $common-x-small-spacing $common-spacing;
   }
+}
 
-  .title {
-    font-size: $font-size-large;
-  }
+.title {
+  font-family: HelveticaNeue-Light, sans-serif;
+  font-size: $font-large-size;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 40px;
+}
+
+.content {
+  @extend %grey-text;
 }
 
 .hr {
-  background-color: $color-gray;
+  background-color: $color-light-gray;
   height: 1px;
   margin: 0;
   width: 100%;
@@ -54,5 +66,8 @@ body {
 @mixin flex($flow: row, $wrap: nowrap) {
   display: flex;
   flex-flow: $flow $wrap;
+}
 
+%grey-text {
+  color: $color-gray;
 }

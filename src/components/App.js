@@ -10,4 +10,5 @@ export default () => <div className='view'>
     </Header>
     <div className='hr'/>
     <Filter/>
+    <div className='title'>{'All Restaurants'}</div>
 </div>

@@ -2,25 +2,39 @@
 @import 'variables';
 
 .filter {
+  &.closed {
+    .row-button {
+      display: none;
+    }
+  }
+
   .row {
     justify-content: space-between;
     padding: 0 $common-spacing;
+
+    &.spaced {
+      padding: $common-spacing;
+    }
   }
 
   .label {
+    @extend %grey-text;
     margin: $common-spacing $common-spacing $common-spacing 0;
   }
 
   .dropdown {
     @include flex(row, nowrap);
     align-items: center;
+    border-bottom: 1px $color-dark-gray solid;
+    padding: $common-x-small-spacing 0;
   }
 
   .dropdown,
   .content {
+    color: $color-primary;
     flex-grow: 1;
 
-    .control:before {
+    .control::before {
       content: '\f0d7';
     }
   }
