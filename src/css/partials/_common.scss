@@ -2,9 +2,6 @@
 
 .View {
   min-width: $min-view-width;
-  > .Title {
-    padding: 1.5rem 0 2rem;
-  }
 }
 
 .Row {
@@ -13,4 +10,19 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
+}
+
+.Header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  min-height: 12.5rem;
+
+  > * {
+    margin: $common-x-small-margin $common-margin;
+  }
+
+  .Title {
+    font-size: $font-size-large;
+  }
 }
