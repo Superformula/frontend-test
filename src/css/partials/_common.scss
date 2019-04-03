@@ -1,0 +1,13 @@
+@import 'variables';
+
+.View {
+  min-width: $min-view-width;
+}
+
+.Row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
