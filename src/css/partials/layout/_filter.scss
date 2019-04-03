@@ -1,5 +1,4 @@
-@import 'common';
-@import 'variables';
+@import 'base';
 
 .filter {
   &.closed {
@@ -19,7 +18,7 @@
 
   .label {
     @extend %grey-text;
-    margin: $common-spacing $common-spacing $common-spacing 0;
+    margin: $common-spacing $common-small-spacing $common-spacing 0;
   }
 
   .dropdown {

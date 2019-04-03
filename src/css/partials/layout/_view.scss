@@ -1,0 +1,21 @@
+@import 'base';
+
+.view {
+  min-width: $min-view-width;
+
+  > .title {
+    margin: $common-spacing;
+  }
+}
+
+.row {
+  @extend %row;
+}
+
+.title {
+  @extend %title;
+}
+
+.content {
+  @extend %grey-text;
+}

@@ -1,0 +1,12 @@
+@import 'base';
+
+.header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  min-height: 12.5rem;
+
+  > * {
+    margin: $common-x-small-spacing $common-spacing;
+  }
+}

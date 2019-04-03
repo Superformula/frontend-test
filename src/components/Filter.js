@@ -1,7 +1,7 @@
+import {svgDownArrow, svgX} from 'Base/utils';
 import React from 'react';
-import {svgDownArrow, svgX} from '../utils';
 
-export default () => {
+const Filter = () => {
     return (
         <div className='filter closed'>
             <div className='row row-dropdown'>
@@ -19,3 +19,5 @@ export default () => {
         </div>
     );
 };
+
+export default Filter;

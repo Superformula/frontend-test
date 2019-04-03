@@ -1,0 +1,21 @@
+@import 'variables';
+
+%grey-text {
+  color: $color-gray;
+}
+
+%row {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+%title {
+  font-family: $font-stack-title;
+  font-size: $font-large-size;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 40px;
+}

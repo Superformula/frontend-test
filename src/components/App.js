@@ -1,9 +1,10 @@
+import Filter from 'Components/Filter';
+import Header from 'Components/Header';
+import 'Css/main.scss';
 import React from 'react';
-import '../css/main.scss';
-import Filter from './Filter';
-import Header from './Header';
+import {Dimmer, Loader, Segment} from 'semantic-ui-react';
 
-export default () => <div className='view'>
+const App = ({businesses = []}) => <div className='view'>
     <Header title={'Restaurants'}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -11,4 +12,15 @@ export default () => <div className='view'>
     <div className='hr'/>
     <Filter/>
     <div className='title'>{'All Restaurants'}</div>
-</div>
+    <div className='grid'>
+        {!businesses.length
+            ? <Segment>
+                <Dimmer active>
+                    <Loader/>
+                </Dimmer>
+            </Segment>
+            : ''}
+    </div>
+</div>;
+
+export default App;

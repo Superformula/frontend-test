@@ -1,0 +1,5 @@
+@import 'base';
+
+.grid {
+  @include flex(column, nowrap);
+}
