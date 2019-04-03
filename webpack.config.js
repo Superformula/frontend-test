@@ -7,6 +7,7 @@ module.exports = {
     mode: 'production',
     // import alias resolution settings
     resolve: {
+        extensions: ['.js', '.jsx'],
         alias: {
             Components: path.resolve(__dirname, './src/components/'),
             Css: path.resolve(__dirname, './src/css/'),
