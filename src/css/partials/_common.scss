@@ -51,7 +51,7 @@ body {
   min-height: 19px;
 }
 
-@mixin flex($flow: row, $wrap: false) {
+@mixin flex($flow: row, $wrap: nowrap) {
   display: flex;
   flex-flow: $flow $wrap;
 

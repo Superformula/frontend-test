@@ -1,5 +1,5 @@
 import React from 'react';
-import {svgX} from '../utils';
+import {svgDownArrow, svgX} from '../utils';
 
 export default () => {
     return (
@@ -8,7 +8,7 @@ export default () => {
                 <div className='label'>Filter by:</div>
                 <div className='dropdown'>
                     <div className='content'>All</div>
-                    <div className='control'/>
+                    {svgDownArrow({className: 'control'})}
                 </div>
                 {svgX({className: 'cross'})}
             </div>

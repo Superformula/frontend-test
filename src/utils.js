@@ -21,3 +21,29 @@ export const svgX = (props) =>
             </g>
         </g>
     </svg>;
+
+export const svgDownArrow = (props) =>
+    <svg {...props} width="8px" height="6px" viewBox="0 0 8 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <polygon
+                id="path-1"
+                points="7 0.75 7.79549513 1.54549513 4.02274756 5.31824269 0.25 1.54549513 1.04549513 0.75 4.02274756 3.72725244"
+            />
+        </defs>
+        <g id="Filtering" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="Filtering---Mobile" transform="translate(-319.000000, -236.000000)">
+                <g id="Restaurants" transform="translate(0.000000, 42.000000)">
+                    <g id="Filter" transform="translate(25.000000, 183.000000)">
+                        <g id="Stacked-Group" transform="translate(78.000000, 4.000000)">
+                            <g id="icons/direction/go" transform="translate(216.000000, 7.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlinkHref="#path-1"/>
+                                </mask>
+                                <use id="caret" fill="#969696" fillRule="nonzero" xlinkHref="#path-1"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>;

@@ -1,13 +1,27 @@
+@import 'common';
 @import 'variables';
 
 .filter {
-
   .row {
     justify-content: space-between;
     padding: 0 $common-spacing;
+  }
 
-    .dropdown {
-      flex-grow: 1;
+  .label {
+    margin: $common-spacing $common-spacing $common-spacing 0;
+  }
+
+  .dropdown {
+    @include flex(row, nowrap);
+    align-items: center;
+  }
+
+  .dropdown,
+  .content {
+    flex-grow: 1;
+
+    .control:before {
+      content: '\f0d7';
     }
   }
 
