@@ -2,3 +2,10 @@
   display: flex;
   flex-flow: $flow $wrap;
 }
+
+@mixin button-transparency($opacity, $color: null) {
+  background: rgba(0, 43, 86, $opacity);
+  @if $color != null {
+    color: $color;
+  }
+}

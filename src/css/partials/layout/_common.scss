@@ -1,8 +1,19 @@
 @import 'base';
 
-.view {
-  min-width: $min-view-width;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html,
+body {
+  font-family: $font-stack;
+  font-size: $font-regular-size;
+  min-width: $min-view-width;
+}
+
+.view {
   > .title {
     margin: $common-spacing;
   }

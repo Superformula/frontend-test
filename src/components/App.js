@@ -2,7 +2,7 @@ import Filter from 'Components/Filter';
 import Header from 'Components/Header';
 import 'Css/main.scss';
 import React from 'react';
-import {Dimmer, Loader, Segment} from 'semantic-ui-react';
+import {Dimmer, Loader} from 'semantic-ui-react';
 
 const App = ({businesses = []}) => <div className='view'>
     <Header title={'Restaurants'}>
@@ -14,11 +14,9 @@ const App = ({businesses = []}) => <div className='view'>
     <div className='title'>{'All Restaurants'}</div>
     <div className='grid'>
         {!businesses.length
-            ? <Segment>
-                <Dimmer active>
-                    <Loader/>
-                </Dimmer>
-            </Segment>
+            ? <Dimmer active inverted>
+                <Loader inverted size='massive'/>
+            </Dimmer>
             : ''}
     </div>
 </div>;

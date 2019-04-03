@@ -2,4 +2,9 @@
 
 .grid {
   @include flex(column, nowrap);
+  height: available;
+
+  .loader {
+    flex: 1;
+  }
 }

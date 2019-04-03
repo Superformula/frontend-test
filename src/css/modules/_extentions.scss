@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 %grey-text {
   color: $color-gray;
@@ -18,4 +19,17 @@
   justify-content: center;
   letter-spacing: 0;
   line-height: 40px;
+}
+
+%full-screen {
+  height: 100vh;
+  width: 100vw;
+}
+
+%light-transparency {
+  @include button-transparency(.9);
+}
+
+%dark-transparency {
+  @include button-transparency(.1, $color-primary);
 }

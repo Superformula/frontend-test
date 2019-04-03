@@ -1,18 +1,5 @@
 @import 'base';
 
-@mixin button-transparency($opacity) {
-  background: rgba(0, 43, 86, $opacity);
-}
-
-%light-transparency {
-  @include button-transparency(.9);
-}
-
-%dark-transparency {
-  @include button-transparency(.1);
-  color: $color-primary;
-}
-
 .button {
   background: $color-primary;
   border: $color-primary solid 1px;
