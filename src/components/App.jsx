@@ -1,3 +1,4 @@
+import Card from 'Components/Card';
 import Filter from 'Components/Filter';
 import Header from 'Components/Header';
 import 'Css/main.scss';
@@ -17,7 +18,7 @@ const App = ({businesses = []}) => <div className='view'>
             ? <Dimmer active inverted>
                 <Loader inverted size='massive'/>
             </Dimmer>
-            : ''}
+            : businesses.map(b => <Card {...b}/>)}
     </div>
 </div>;
 
