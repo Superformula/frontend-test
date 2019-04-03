@@ -1,0 +1,47 @@
+@import 'variables';
+
+@mixin button-transparency($opacity) {
+  background: rgba(0, 43, 86, $opacity);
+}
+
+%light-transparency {
+  @include button-transparency(0.9);
+}
+
+%dark-transparency {
+  @include button-transparency(0.1);
+  color: $primary-color;
+}
+
+.Button {
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: .5rem 0;
+  background: $primary-color;
+  border: $primary-color solid 1px;
+  border-radius: 1px;
+  font-size: 12px;
+  color: $font-color;
+  text-align: center;
+  line-height: $button-line-height;
+  min-width: 8rem;
+  vertical-align: center;
+
+  &.Clear {
+    color: $primary-color;
+    background: transparent;
+
+    &:hover:active {
+      background: $primary-color;;
+      color: $font-color;
+    }
+  }
+
+  &.Clear:hover, &:hover:active {
+    @extend %dark-transparency;
+  }
+
+  &:hover {
+    @extend %light-transparency;
+  }
+}
