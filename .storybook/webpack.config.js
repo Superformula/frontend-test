@@ -2,9 +2,6 @@ const path = require('path');
 const _ = require('lodash');
 
 module.exports = async ({config}) => {
-
-    // config.context = path.resolve(__dirname, '../');
-
     _.extend(config.resolve.alias, {
         Components: path.resolve(__dirname, '../src/components/'),
         Css: path.resolve(__dirname, '../src/css/'),

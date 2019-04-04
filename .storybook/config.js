@@ -1,4 +1,5 @@
 import {configure} from '@storybook/react';
+import '../src/css/main.scss';
 
 function requireAll(requireContext) {
     return requireContext.keys().map(requireContext);
