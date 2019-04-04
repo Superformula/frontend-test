@@ -1,0 +1,26 @@
+@import '../imports/all';
+
+.hr {
+  background-color: $color-light-gray;
+  height: 1px;
+  margin: 0;
+  width: 100%;
+}
+
+.view {
+  > .title {
+    margin: $common-spacing;
+  }
+}
+
+.row {
+  @extend %row;
+}
+
+.title {
+  @extend %title;
+}
+
+.content {
+  @extend %grey-text;
+}

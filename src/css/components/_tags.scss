@@ -1,4 +1,4 @@
-@import 'base';
+@import '../imports/all';
 
 * {
   box-sizing: border-box;
@@ -13,20 +13,7 @@ body {
   min-width: $min-view-width;
 }
 
-.view {
-  > .title {
-    margin: $common-spacing;
-  }
+a {
+  text-decoration: unset;
 }
 
-.row {
-  @extend %row;
-}
-
-.title {
-  @extend %title;
-}
-
-.content {
-  @extend %grey-text;
-}

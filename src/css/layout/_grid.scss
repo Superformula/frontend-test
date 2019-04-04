@@ -1,4 +1,4 @@
-@import 'base';
+@import '../imports/all';
 
 .grid {
   @include flex(column, nowrap);
