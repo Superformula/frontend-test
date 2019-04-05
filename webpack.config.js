@@ -44,6 +44,11 @@ module.exports = (env) => {
                     changeOrigin: true,
                     secure: false,
                 },
+                '/json': {
+                    target: 'http://ip-api.com',
+                    changeOrigin: true,
+                    secure: false,
+                }
             },
         },
         optimization: {

@@ -8,4 +8,11 @@
   .loader {
     flex: 1;
   }
+
+  .loading-pane {
+    border: unset;
+    box-shadow: unset;
+    height: 50vw;
+    width: 100%;
+  }
 }

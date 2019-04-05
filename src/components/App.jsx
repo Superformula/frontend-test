@@ -5,7 +5,7 @@ import 'Css/main.scss';
 import {get} from 'lodash';
 import React from 'react';
 import {connect} from 'react-redux';
-import {Dimmer, Loader} from 'semantic-ui-react';
+import {Dimmer, Loader, Segment} from 'semantic-ui-react';
 import {selectBusinesses} from 'Store/selectors';
 
 const App = ({businesses = []}) => <div className='view'>
@@ -18,9 +18,11 @@ const App = ({businesses = []}) => <div className='view'>
     <div className='title'>{'All Restaurants'}</div>
     <div className='grid'>
         {!businesses.length
-            ? <Dimmer active inverted>
-                <Loader inverted size='massive'/>
-            </Dimmer>
+            ? <Segment className='loading-pane'>
+                <Dimmer inverted active>
+                    <Loader size='massive'/>
+                </Dimmer>
+            </Segment>
             : businesses.map(place => <Card
                 name={place.name}
                 imgSrc={get(place, 'photos[0]')}

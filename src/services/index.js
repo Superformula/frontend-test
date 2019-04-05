@@ -5,8 +5,8 @@ import {createHttpLink} from 'apollo-link-http';
 import {BEARER_TOKEN, DEFAULT_LIMIT, DEFAULT_OFFSET} from 'Constants';
 import gql from 'graphql-tag';
 
-export const getAlternateLocationData = async () => {
-    return fetch('http://ip-api.com/json', {
+export const getThirdPartyLocationData = async () => {
+    return fetch('/json', {
         mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json',

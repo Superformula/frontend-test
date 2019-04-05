@@ -1,13 +1,14 @@
 import {all, call, fork, put, select, take} from 'redux-saga/effects';
-import {getAlternateLocationData, getBusinesses} from 'Services';
+import {getThirdPartyLocationData, getBusinesses} from 'Services';
 import {createAction, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
 import {selectFilters, selectLocation} from 'Store/selectors';
 import signals from 'Store/signals';
 
+// This fails on certain browsers...some chromium bug
 function updatePosition() {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, {
-            timeout: 1000, // 1 second in ms
+            timeout: 200, // 200ms timeout window
             maximumAge: 3600000, // 1 hour old in ms
         });
     });
@@ -17,17 +18,12 @@ function* locationSaga() {
     while (true) {
         let position;
         try {
-            position = yield call(updatePosition);
+            const data = yield call(getThirdPartyLocationData);
+            position = data.zip || data.city;
+            console.log(`Using ${position} for position, instead of geolocation.`);
         } catch (e) {
-            console.warn('navigation.geolocation failed to give current position.');
-            try {
-                const data = yield call(getAlternateLocationData);
-                position = data.zip || data.city;
-                console.log(`Using ${position} for position, instead of geolocation.`);
-            } catch (e) {
-                console.log("I'm giving up...We're in San Francisco now!");
-                position = 'San Francisco';
-            }
+            position = 'Las Vegas';
+            console.log(`I'm giving up...We're in ${position} now!`);
         }
         yield put(storeUpdatedPosition(position));
         yield put(createAction(signals.LOCATION_UPDATED));
