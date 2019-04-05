@@ -14,10 +14,10 @@ const Card = (props) => {
     return (
         <div className='card'>
             <img className='image' src={imgSrc} alt={name}/>
-            <div className='details'>
+            <div className='card-details'>
                 <div className='name'>{name}</div>
                 <StarRating rating={rating}/>
-                <div className='info'>
+                <div className='card-info'>
                     <div className='category' style={{overflow: 'ellipsis'}}>{category}</div>
                     <div className='separator'>•</div>
                     <div className='price'>{price}</div>

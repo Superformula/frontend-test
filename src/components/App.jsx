@@ -2,8 +2,11 @@ import Card from 'Components/Card';
 import Filter from 'Components/Filter';
 import Header from 'Components/Header';
 import 'Css/main.scss';
+import {get} from 'lodash';
 import React from 'react';
+import {connect} from 'react-redux';
 import {Dimmer, Loader} from 'semantic-ui-react';
+import {selectBusinesses} from 'Store/selectors';
 
 const App = ({businesses = []}) => <div className='view'>
     <Header title={'Restaurants'}>
@@ -18,8 +21,18 @@ const App = ({businesses = []}) => <div className='view'>
             ? <Dimmer active inverted>
                 <Loader inverted size='massive'/>
             </Dimmer>
-            : businesses.map(b => <Card {...b}/>)}
+            : businesses.map(place => <Card
+                name={place.name}
+                imgSrc={get(place, 'photos[0]')}
+                rating={place.rating}
+                price={place.price}
+                key={place.id || place.name || 'Unknown Name'}
+                category={get(place, 'categories[0].title', 'Unknown').toUpperCase()}
+                isOpen={!get(place, 'is_closed', true)}
+            />)}
     </div>
 </div>;
 
-export default App;
+export default connect(state => ({
+    businesses: selectBusinesses(state),
+}))(App);

@@ -3,6 +3,7 @@ import StarRating from 'Components/StarRating';
 import React from 'react';
 
 storiesOf('Components/StarRating')
+    .add('< 0 Stars (Negative)', () => <StarRating rating={-1}/>)
     .add('0/5 Stars', () => <StarRating rating={0}/>)
     .add('1/5 Stars', () => <StarRating rating={1}/>)
     .add('1.5/5 Stars', () => <StarRating rating={1.5}/>)
@@ -12,5 +13,5 @@ storiesOf('Components/StarRating')
     .add('5/5 Stars', () => <StarRating rating={5}/>)
     .add('5/10 Stars', () => <StarRating rating={5} max={10}/>)
     .add('2.345/10 Stars', () => <StarRating rating={2.345} max={10}/>)
-    .add('11/10 Stars', () => <StarRating rating={11} max={10}/>)
+    .add('> Max Stars (11/10)', () => <StarRating rating={11} max={10}/>)
 ;

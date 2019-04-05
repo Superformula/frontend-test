@@ -23,7 +23,8 @@ export const svgX = (props) =>
     </svg>;
 
 export const svgDownArrow = (props) =>
-    <svg {...props} width="8px" height="6px" viewBox="0 0 8 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+    <svg {...props} width="8px" height="6px" viewBox="0 0 8 6" version="1.1" xmlns="http://www.w3.org/2000/svg"
+         xmlnsXlink="http://www.w3.org/1999/xlink">
         <defs>
             <polygon
                 id="path-1"

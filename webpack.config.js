@@ -15,9 +15,12 @@ module.exports = (env) => {
         resolve: {
             extensions: ['.js', '.jsx', '.scss'],
             alias: {
+                Constants: path.resolve(__dirname, './src/constants/'),
                 Components: path.resolve(__dirname, './src/components/'),
                 Css: path.resolve(__dirname, './src/css/'),
-                Base: path.resolve(__dirname, './src/'),
+                Services: path.resolve(__dirname, './src/services/'),
+                Store: path.resolve(__dirname, './src/store/'),
+                Utils: path.resolve(__dirname, './src/utils/'),
             },
         },
         // output for build
@@ -35,6 +38,13 @@ module.exports = (env) => {
             contentBase: path.join(__dirname, 'public'),
             compress: true,
             port: 3000,
+            proxy: {
+                '/v3': {
+                    target: 'https://api.yelp.com',
+                    changeOrigin: true,
+                    secure: false,
+                },
+            },
         },
         optimization: {
             minimizer: [new TerserJSPlugin({})],

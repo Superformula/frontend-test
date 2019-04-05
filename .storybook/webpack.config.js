@@ -3,9 +3,12 @@ const _ = require('lodash');
 
 module.exports = async ({config}) => {
     _.extend(config.resolve.alias, {
+        Constants: path.resolve(__dirname, '../src/constants/'),
         Components: path.resolve(__dirname, '../src/components/'),
         Css: path.resolve(__dirname, '../src/css/'),
-        Base: path.resolve(__dirname, '../src/'),
+        Services: path.resolve(__dirname, '../src/services/'),
+        Store: path.resolve(__dirname, '../src/store/'),
+        Utils: path.resolve(__dirname, '../src/utils/'),
     });
 
     // add the loaders

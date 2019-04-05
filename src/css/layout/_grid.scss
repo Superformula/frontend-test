@@ -1,8 +1,9 @@
 @import '../imports/all';
 
 .grid {
-  @include flex(column, nowrap);
-  height: available;
+  @include flex(row, wrap);
+  padding: 0 $common-spacing;
+  width: 100%;
 
   .loader {
     flex: 1;

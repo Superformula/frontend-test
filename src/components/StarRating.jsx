@@ -5,7 +5,7 @@ const star = (key, percentage = 0) => {
     const gradientId = `starGradient-${key}`;
     const primaryColor = '#002b57';
     return (
-        <svg className='star' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' key={key}>
+        <svg className='star' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' key={key}>
             <defs>
                 <linearGradient id={gradientId} x1='0' x2='1' y1='.5' y2='.5'>
                     <stop offset='0%' stopOpacity='1' stopColor={primaryColor}/>
@@ -31,9 +31,7 @@ const StarRating = ({rating, max = 5}) => {
     const isInteger = rating === filled;
 
     const percent = isInteger ? 0 : Math.round((rating - filled) * 100);
-    const remaining = isInteger ? max - filled : 4 - filled;
 
-    console.dir({rating, isInteger, filled, percent, remaining});
     return (
         <div className='star-rating'>
             {range(filled).map(k => star(k, 100))}

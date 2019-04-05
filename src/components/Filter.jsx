@@ -1,5 +1,5 @@
-import {svgDownArrow, svgX} from 'Base/utils';
 import React from 'react';
+import {svgDownArrow, svgX} from 'Utils';
 
 const Filter = () => {
     return (

@@ -1,8 +1,32 @@
 @import 'variables';
 @import 'mixins';
 
-%grey-text {
+%dark-transparency {
+  @include button-transparency(.1, $color-primary);
+}
+
+%ellipsis-safe-text {
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%full-screen {
+  height: 100vh;
+  width: 100vw;
+}
+
+%gray-text {
   color: $color-gray;
+}
+
+%gray-underline {
+  border-bottom: 1px $color-light-gray solid;
+}
+
+%light-transparency {
+  @include button-transparency(.9);
 }
 
 %row {
@@ -19,17 +43,4 @@
   justify-content: center;
   letter-spacing: 0;
   line-height: 40px;
-}
-
-%full-screen {
-  height: 100vh;
-  width: 100vw;
-}
-
-%light-transparency {
-  @include button-transparency(.9);
-}
-
-%dark-transparency {
-  @include button-transparency(.1, $color-primary);
 }
