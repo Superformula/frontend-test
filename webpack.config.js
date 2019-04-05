@@ -37,6 +37,7 @@ module.exports = (env) => {
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             compress: true,
+            host: '0.0.0.0',
             port: 3000,
             proxy: {
                 '/v3': {
@@ -48,7 +49,7 @@ module.exports = (env) => {
                     target: 'http://ip-api.com',
                     changeOrigin: true,
                     secure: false,
-                }
+                },
             },
         },
         optimization: {
