@@ -37,18 +37,17 @@ module.exports = (env) => {
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             compress: true,
+            https: true,
             host: '0.0.0.0',
             port: 3000,
             proxy: {
                 '/v3': {
                     target: 'https://api.yelp.com',
                     changeOrigin: true,
-                    secure: false,
                 },
                 '/json': {
                     target: 'http://ip-api.com',
                     changeOrigin: true,
-                    secure: false,
                 },
             },
         },

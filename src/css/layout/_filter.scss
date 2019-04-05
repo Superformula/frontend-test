@@ -1,13 +1,8 @@
 @import '../imports/all';
 
-.filter {
-  &.closed {
-    .row-button {
-      display: none;
-    }
-  }
-
-  .row {
+.filter.closed {
+  .row,
+  &.row {
     justify-content: space-between;
     padding: 0 $common-spacing;
 
@@ -37,8 +32,22 @@
       content: '\f0d7';
     }
   }
+}
 
-  .cross {
+.filter.open {
+  &.showing {
+    animation: fadeIn .25s linear;
+    background-color: $color-white;
+    box-shadow: 0 0 $common-small-spacing $common-small-spacing $color-dark-gray;
+    height: 100vh;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+  }
+
+  &.hidden,
+  &.hidden * {
     display: none;
   }
 }

@@ -1,5 +1,5 @@
 import {all, call, fork, put, select, take} from 'redux-saga/effects';
-import {getThirdPartyLocationData, getBusinesses} from 'Services';
+import {getBusinesses, getThirdPartyLocationData} from 'Services';
 import {createAction, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
 import {selectFilters, selectLocation} from 'Store/selectors';
 import signals from 'Store/signals';
@@ -9,7 +9,8 @@ function updatePosition() {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, {
             timeout: 200, // 200ms timeout window
-            maximumAge: 3600000, // 1 hour old in ms
+            maximumAge: 75000, // 1:15 min
+            enableHighAccuracy: true,
         });
     });
 }
@@ -18,12 +19,17 @@ function* locationSaga() {
     while (true) {
         let position;
         try {
-            const data = yield call(getThirdPartyLocationData);
-            position = data.zip || data.city;
-            console.log(`Using ${position} for position, instead of geolocation.`);
+            position = yield call(updatePosition);
         } catch (e) {
-            position = 'Las Vegas';
-            console.log(`I'm giving up...We're in ${position} now!`);
+            console.warn('navigator.geolocation failed to give current position.');
+            try {
+                const data = yield call(getThirdPartyLocationData);
+                position = data.zip || data.city;
+                console.log(`Using ${position} for position, instead of geolocation.`);
+            } catch (e) {
+                position = 'Las Vegas';
+                console.log(`I'm giving up...We're in ${position} now!`);
+            }
         }
         yield put(storeUpdatedPosition(position));
         yield put(createAction(signals.LOCATION_UPDATED));

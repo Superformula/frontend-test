@@ -1,22 +1,35 @@
-import React from 'react';
-import {svgDownArrow, svgX} from 'Utils';
+import React, {useState} from 'react';
+import {Dimmer} from 'semantic-ui-react';
+import {escapeHandler, svgDownArrow, svgX} from 'Utils';
 
-const Filter = () => {
+const Filter = ({ready = false}) => {
+    const [open, setOpen] = useState(false);
+
+    const openFilters = () => {
+        if (!ready) return;
+        setOpen(true);
+        escapeHandler(() => setOpen(false));
+    };
     return (
-        <div className='filter closed'>
-            <div className='row row-dropdown'>
-                <div className='label'>Filter by:</div>
-                <div className='dropdown'>
-                    <div className='content'>All</div>
-                    {svgDownArrow({className: 'control'})}
+        <React.Fragment>
+            <div className={`filter open ${open ? 'showing' : 'hidden'}`}>
+                <div className='row'>
+                    <div className='label'>Filter by:</div>
+                    {svgX({className: 'cross', onClick: () => setOpen(false)})}
                 </div>
-                {svgX({className: 'cross'})}
+                <div className='row row-button spaced'>
+                    <div className='button clear'>Clear All</div>
+                    <div className='button apply'>Apply</div>
+                </div>
             </div>
-            <div className='row row-button spaced'>
-                <div className='button clear'>Clear All</div>
-                <div className='button apply'>Apply</div>
+            <div className='filter closed row'>
+                <div className='label'>Filter by:</div>
+                <div className='dropdown' onClick={openFilters}>
+                    <div className='content'>All</div>
+                    {svgDownArrow()}
+                </div>
             </div>
-        </div>
+        </React.Fragment>
     );
 };
 
