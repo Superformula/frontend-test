@@ -59,9 +59,13 @@
   }
 }
 
-.card-info,
-.card-info .status {
-  @extend %ellipsis-safe-text;
+.card-info {
+  font-size: .8rem;
+
+  &,
+  & .status {
+    @extend %ellipsis-safe-text;
+  }
 }
 
 .card-info > *,
@@ -92,10 +96,10 @@
     border-radius: 8px;
     color: $color-primary;
     flex-shrink: 0;
-    font-size: 8px;
+    font-size: .6rem;
     letter-spacing: .57px;
     line-height: 16px;
-    padding: 0 .2rem;
+    padding: 0 .35rem;
     text-align: center;
 
     &.open {
@@ -104,6 +108,7 @@
 
     &.closed {
       background: $color-neon-red;
+      color: $color-white;
     }
   }
 
