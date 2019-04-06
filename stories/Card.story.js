@@ -4,7 +4,7 @@ import {fromJS} from 'immutable';
 import React from 'react';
 import StoryProvider from 'Store/StoryProvider';
 
-storiesOf('Components/Card')
+storiesOf('Components/Card', module)
     .addDecorator(story => <StoryProvider
         story={story()}
         initialState={{

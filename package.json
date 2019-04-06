@@ -15,6 +15,7 @@
     "apollo-client": "^2.5.1",
     "apollo-link-context": "^1.0.17",
     "apollo-link-http": "^1.5.14",
+    "body-scroll-lock": "^2.6.1",
     "core-js": "3",
     "graphql": "^14.2.1",
     "immutable": "^4.0.0-rc.12",

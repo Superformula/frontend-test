@@ -26,7 +26,7 @@ const Card = (props) => {
                         : <div className='status closed'>CLOSED</div>
                     }
                 </div>
-                <div className='button'>
+                <div className='button learn-more'>
                     <a href='/' className='text'>Learn More <span className='arrow'>→</span></a>
                 </div>
             </div>

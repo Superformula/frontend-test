@@ -1,11 +1,27 @@
+@import 'variables';
+
 @mixin flex($flow: row, $wrap: nowrap) {
   display: flex;
   flex-flow: $flow $wrap;
+}
+
+@mixin light-transparent-gradient($color: $color-light-gray) {
+  background: $color linear-gradient(transparent, $low-alpha);
 }
 
 @mixin button-transparency($opacity, $color: null) {
   background: rgba(0, 43, 86, $opacity);
   @if $color != null {
     color: $color;
+  }
+}
+
+@mixin slide-right($start, $end) {
+  0% {
+    left: $start;
+  }
+
+  100% {
+    left: $end;
   }
 }

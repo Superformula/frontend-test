@@ -15,6 +15,14 @@
 
 .row {
   @extend %row;
+
+  &.spaced {
+    justify-content: space-between;
+  }
+}
+
+.spaced {
+  padding: $common-spacing;
 }
 
 .title {

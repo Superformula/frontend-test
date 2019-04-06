@@ -1,0 +1,30 @@
+@import '../imports/all';
+
+.switch {
+  background: $color-light-gray;
+  border-radius: 50px;
+  box-shadow: inset 0 0 2px $color-gray;
+  height: $common-x-small-spacing;
+  position: relative;
+  width: $common-large-spacing;
+
+  > input {
+    opacity: 0;
+
+    &:checked + .knob {
+      background-color: $color-neon-green;
+      transform: translateX($common-large-spacing - $common-small-spacing);
+    }
+  }
+
+  .knob {
+    @include light-transparent-gradient();
+    border-radius: 100px;
+    box-shadow: 0 0 2px $color-gray;
+    height: $common-small-spacing;
+    position: absolute;
+    top: -$common-x-small-spacing / 2;
+    transition: .4s;
+    width: $common-small-spacing;
+  }
+}

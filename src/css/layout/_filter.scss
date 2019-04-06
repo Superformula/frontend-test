@@ -1,53 +1,65 @@
 @import '../imports/all';
 
-.filter.closed {
-  .row,
-  &.row {
-    justify-content: space-between;
-    padding: 0 $common-spacing;
 
-    &.spaced {
-      padding: $common-spacing;
+.filter {
+  justify-content: space-between;
+
+  &.open {
+    > .filter-open {
+      background-color: $color-white;
+      box-shadow: 0 0 $common-small-spacing $common-small-spacing $color-dark-gray;
+      height: 100vh;
+      left: 0;
+      opacity: 1;
+      position: fixed;
+      top: 0;
+      width: 100vw;
     }
   }
 
-  .label {
-    @extend %gray-text;
-    margin: $common-spacing $common-small-spacing $common-spacing 0;
+  &.closed {
+    > .filter-open,
+    > .filter-open > * {
+      display: none;
+      opacity: 0;
+    }
   }
 
-  .dropdown {
-    @include flex(row, nowrap);
-    align-items: center;
-    border-bottom: 1px $color-dark-gray solid;
-    padding: $common-x-small-spacing 0;
+  .control::before {
+    content: '\f0d7';
   }
 
-  .dropdown,
-  .content {
-    color: $color-primary;
-    flex-grow: 1;
 
-    .control::before {
-      content: '\f0d7';
+  &-closed {
+    padding: 0 $common-spacing;
+
+    .label {
+      margin: $common-spacing $common-small-spacing $common-spacing 0;
+    }
+
+    .dropdown {
+      @include flex(row, nowrap);
+      align-items: center;
+      border-bottom: 1px $color-dark-gray solid;
+      padding: $common-x-small-spacing 0;
+    }
+
+    .dropdown,
+    .content {
+      color: $color-primary;
+      flex-grow: 1;
     }
   }
 }
 
-.filter.open {
-  &.showing {
-    animation: fadeIn .25s linear;
-    background-color: $color-white;
-    box-shadow: 0 0 $common-small-spacing $common-small-spacing $color-dark-gray;
-    height: 100vh;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100vw;
-  }
+.label {
+  &.price,
+  &.open-now {
+    font-size: .8rem;
+    text-transform: uppercase;
 
-  &.hidden,
-  &.hidden * {
-    display: none;
+    > .toggle {
+      min-height: 19px;
+    }
   }
 }

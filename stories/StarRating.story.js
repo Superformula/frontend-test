@@ -2,7 +2,7 @@ import {storiesOf} from '@storybook/react';
 import StarRating from 'Components/StarRating';
 import React from 'react';
 
-storiesOf('Components/StarRating')
+storiesOf('Components/StarRating', module)
     .add('< 0 Stars (Negative)', () => <StarRating rating={-1}/>)
     .add('0/5 Stars', () => <StarRating rating={0}/>)
     .add('1/5 Stars', () => <StarRating rating={1}/>)
