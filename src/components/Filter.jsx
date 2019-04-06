@@ -54,7 +54,7 @@ const Filter = ({ready = false, startOpen = false}) => {
                 <DropdownFilter
                     label='categories' help='Select One'
                     filter={category} onFilterChange={setCategory}
-                    options={['American', 'Sushi', 'Mexican', 'Italian']}
+                    options={[null, 'American', 'Sushi', 'Mexican', 'Italian']}
                 />
                 <div className='hr'/>
             </div>

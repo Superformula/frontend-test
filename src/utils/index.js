@@ -30,17 +30,34 @@ export const svgDownArrow = (props) =>
         </g>
     </svg>;
 
-export const svgCheckMark = (props) => <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlnsXlink="http://www.w3.org/1999/xlink">
-    <g id="Filtering" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-        <g id="Filtering-(Open-fields)-2---Mobile" transform="translate(-26.000000, -477.000000)">
-            <g id="cuisine" transform="translate(24.000000, 341.000000)">
-                <g id="radios" transform="translate(2.000000, 72.000000)">
-                    <g id="check" transform="translate(0.000000, 64.000000)">
-                        <circle id="Oval" fill="#000000" cx="8" cy="8" r="8"/>
-                        <polygon id="icon" fill="#FFFFFF" fillRule="nonzero"
-                                 points="7.21428571 10.0738738 12.537243 4.55376999 13.462757 5.44623001 7.21428571 11.9261262 3.53724295 8.11289668 4.46275705 7.22043666"/>
+export const svgCheckedCircle = (props) => <svg {...props} width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlnsXlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g transform="translate(-26, -477)">
+            <g transform="translate(24, 341)">
+                <g transform="translate(2, 72)">
+                    <g transform="translate(0, 64)">
+                        <circle fill="#000" cx="8" cy="8" r="8"/>
+                        <polygon fill="#fff" fillRule="nonzero"
+                                 points="7.21 10.07 12.54 4.55 13.46 5.45 7.21 11.93 3.54 8.11 4.46 7.22"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>;
+
+export const svgUncheckedCircle = (props) => <svg {...props} width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlnsXlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g transform="translate(-26, -477)">
+            <g transform="translate(24, 341)">
+                <g transform="translate(2, 72)">
+                    <g transform="translate(0, 64)">
+                        <circle fill="#ccc" cx="8" cy="8" r="8"/>
+                        <circle fill="#fff" cx="8" cy="8" r="7"/>
                     </g>
                 </g>
             </g>

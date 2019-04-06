@@ -47,10 +47,30 @@
     }
   }
 
+  input {
+    display: none;
+
+    &:checked + .dropdown-menu {
+      transform: scaleX(1);
+    }
+  }
+
   > .dropdown {
     @extend %dropdown;
-    //margin-top: $x-small-spacing;
+    margin: $x-small-spacing 0;
     width: 100%;
+  }
+}
+
+.dropdown-menu {
+  @include flex-flow(row wrap);
+  width: 100%;
+
+  &.closed {
+    * {
+      display: none;
+      height: 0;
+    }
   }
 
   .option {
@@ -58,9 +78,16 @@
       display: none;
 
       &:checked + .text {
-        background-color: $color-neon-green;
-        transform: translateX($large-spacing - $small-spacing);
+        color: $color-primary;
       }
+    }
+
+    &.row {
+      justify-content: flex-start;
+    }
+
+    svg {
+      margin: $smaller-spacing $small-spacing $smaller-spacing 0;
     }
   }
 }
