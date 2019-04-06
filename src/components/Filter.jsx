@@ -1,19 +1,24 @@
 import {clearAllBodyScrollLocks, disableBodyScroll} from 'body-scroll-lock/lib/bodyScrollLock.es6';
-import PriceSelector from 'Components/PriceSelector';
+import OptionSelector from 'Components/OptionSelector';
 import Switch from 'Components/Switch';
 import React, {useState} from 'react';
 import {escapeHandler, svgDownArrow, svgX} from 'Utils';
 
 const Filter = ({ready = false, startOpen = false}) => {
     const [open, setOpen] = useState(startOpen);
+    const [price, setPrice] = useState(null);
+    const [openFilter, setOpenFilter] = useState(false);
 
+    const clearFilters = () => {
+        setPrice(null);
+        setOpenFilter(false);
+    };
     const openFilters = () => {
         if (!ready) return;
         setOpen(true);
         escapeHandler(() => setOpen(false));
     };
 
-    const [openFilter, setOpenFilter] = useState(true);
     const openFilterElement = document.querySelector('#filter-modal');
     open ? disableBodyScroll(openFilterElement) : clearAllBodyScrollLocks();
 
@@ -26,7 +31,7 @@ const Filter = ({ready = false, startOpen = false}) => {
                 </div>
                 <div className='hr'/>
                 <div className='row spaced'>
-                    <div className='button clear'>Clear All</div>
+                    <div className='button clear' onClick={clearFilters}>Clear All</div>
                     <div className='button apply'>Apply</div>
                 </div>
                 <div className='hr'/>
@@ -35,7 +40,8 @@ const Filter = ({ready = false, startOpen = false}) => {
                     <Switch value={openFilter} onChange={setOpenFilter}/>
                 </div>
                 <div className='hr'/>
-                <PriceSelector/>
+                <OptionSelector selection={price} onSelectionChange={setPrice}
+                                options={['all', '$', '$$', '$$$', '$$$$']}/>
             </div>
             <div className='filter-closed row'>
                 <div className='label'>Filter By:</div>

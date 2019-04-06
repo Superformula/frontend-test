@@ -1,0 +1,30 @@
+@import '../imports/all';
+
+.option-selector.spaced {
+
+  .label {
+    text-transform: uppercase;
+
+    &.selected {
+      font-weight: bold;
+    }
+  }
+
+  .options {
+    margin: $common-spacing 0;
+
+    .option {
+      border: 1px $color-light-gray solid;
+      flex: 1 0 20%;
+      justify-content: space-between;
+      padding: $common-small-spacing 0;
+      text-align: center;
+      text-transform: uppercase;
+
+      &.selected {
+        background-color: $color-primary;
+        color: $color-white
+      }
+    }
+  }
+}
