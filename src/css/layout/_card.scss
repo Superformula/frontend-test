@@ -59,14 +59,6 @@
   }
 }
 
-.card-info {
-  font-size: .8rem;
-
-  &,
-  & .status {
-    @extend %ellipsis-safe-text;
-  }
-}
 
 .card-info > *,
 .card-details .button .text {
@@ -80,25 +72,34 @@
   display: flex;
   flex: 0 0 auto;
   flex-flow: row nowrap;
+  font-size: .8rem;
   width: 100%;
+
+  &,
+  & .status {
+    @extend %ellipsis-safe-text;
+  }
 
   .category {
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .separator,
-  .price {
+  .separator {
     margin: 0 .3rem;
+  }
+
+  .price {
+    flex: 1 0 .1rem;
   }
 
   .status {
     border-radius: 8px;
     color: $color-primary;
     flex-shrink: 0;
-    font-size: .6rem;
-    letter-spacing: .57px;
-    line-height: 16px;
+    font-size: .5rem;
+    letter-spacing: .5px;
+    line-height: 15px;
     padding: 0 .35rem;
     text-align: center;
 
@@ -110,9 +111,5 @@
       background: $color-neon-red;
       color: $color-white;
     }
-  }
-
-  .price {
-    flex: 1 0 .1rem;
   }
 }

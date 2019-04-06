@@ -1,19 +1,26 @@
 @import '../imports/all';
 
-.option-selector.spaced {
+.button,
+.dropdown {
+  &-selector {
+    @extend %spaced;
 
-  .label {
-    text-transform: uppercase;
+    .label {
+      text-transform: uppercase;
 
-    &.selected {
-      font-weight: bold;
+      &.selected {
+        font-weight: bold;
+      }
     }
   }
+}
 
+.button-selector {
   .options {
-    margin: $common-spacing 0;
+    margin: $common-spacing 0 0;
 
     .option {
+      //@extend %ellipsis-safe-text;
       border: 1px $color-light-gray solid;
       flex: 1 0 20%;
       justify-content: space-between;
@@ -27,4 +34,8 @@
       }
     }
   }
+}
+
+.dropdown-selector {
+
 }
