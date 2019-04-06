@@ -1,10 +1,11 @@
 import React from 'react';
-import {svgDownArrow} from 'Utils';
+import {svgCheckMark, svgDownArrow} from 'Utils';
 
 const DropdownFilterOption = ({option, checked, onSelect}) => {
     return <div className='option' onClick={() => onSelect(option)}>
+        {checked ? svgCheckMark() : ''}
         <input type='checkbox' value={option} checked={checked}/>
-        {option}
+        <div className='text'>{option}</div>
     </div>;
 };
 
@@ -25,7 +26,8 @@ const DropdownFilter = ({label, help, options = [], filter = null, onFilterChang
             {svgDownArrow()}
         </div>
         <div className='dropdown-menu'>
-            {options.map(option => <DropdownFilterOption onSelect={onSelect} option={option} checked={filter === option}/>)}
+            {options.map(option => <DropdownFilterOption onSelect={onSelect} option={option}
+                                                         checked={filter === option}/>)}
         </div>
     </div>;
 };

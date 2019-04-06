@@ -30,6 +30,22 @@ export const svgDownArrow = (props) =>
         </g>
     </svg>;
 
+export const svgCheckMark = (props) => <svg version="1.1" viewBox="0 0 11 8" xmlns="http://www.w3.org/2000/svg">
+    <g fill="black" fillRule="evenodd">
+        <g transform="translate(-29 -481)" fill="#fff" fillRule="nonzero">
+            <g transform="translate(24 341)">
+                <g transform="translate(2 72)">
+                    <g transform="translate(0 64)">
+                        <polygon
+                            points="7.2143 10.074 12.537 4.5538 13.463 5.4462 7.2143 11.926 3.5372 8.1129 4.4628 7.2204"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>;
+
+
 export const escapeHandler = (onPress) => window.addEventListener('keydown', event => {
     if (event.defaultPrevented) {
         return; // Should do nothing if the default action has been cancelled

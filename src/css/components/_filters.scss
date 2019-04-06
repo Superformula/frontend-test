@@ -52,4 +52,15 @@
     //margin-top: $x-small-spacing;
     width: 100%;
   }
+
+  .option {
+    > input {
+      display: none;
+
+      &:checked + .text {
+        background-color: $color-neon-green;
+        transform: translateX($large-spacing - $small-spacing);
+      }
+    }
+  }
 }
