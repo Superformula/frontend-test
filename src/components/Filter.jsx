@@ -1,7 +1,7 @@
 import {clearAllBodyScrollLocks, disableBodyScroll} from 'body-scroll-lock/lib/bodyScrollLock.es6';
-import ButtonSelector from 'Components/ButtonSelector';
-import DropdownSelector from 'Components/DropdownSelector';
-import Switch from 'Components/Switch';
+import DropdownFilter from 'Components/filters/DropdownFilter';
+import ButtonFilter from 'Components/filters/ButtonFilter';
+import SwitchFilter from 'Components/filters/SwitchFilter';
 import React, {useState} from 'react';
 import {escapeHandler, svgDownArrow, svgX} from 'Utils';
 
@@ -32,28 +32,31 @@ const Filter = ({ready = false, startOpen = false}) => {
                     <div className='label'>Filter By</div>
                     {svgX({className: 'cross', onClick: () => setOpen(false)})}
                 </div>
-                <div className='hr'/>
+                <div className='hr full'/>
                 <div className='row'>
                     <div className='button clear' onClick={clearFilters}>Clear All</div>
+                    <div className='button-spacer'/>
                     <div className='button apply'>Apply</div>
                 </div>
+                <div className='hr full'/>
+                <SwitchFilter
+                    label='Open Now'
+                    filter={openFilter}
+                    onFilterChange={setOpenFilter}
+                />
                 <div className='hr'/>
-                <div className='row'>
-                    <div className='label open-now'>Open Now</div>
-                    <Switch value={openFilter} onChange={setOpenFilter}/>
-                </div>
-                <div className='hr'/>
-                <ButtonSelector
+                <ButtonFilter
                     label='price'
-                    selection={price} onSelectionChange={setPrice}
+                    filter={price} onFilterChange={setPrice}
                     options={['all', '$', '$$', '$$$', '$$$$']}
                 />
                 <div className='hr'/>
-                <DropdownSelector
-                    label='categories'
-                    selection={category} onSelectionChange={setCategory}
+                <DropdownFilter
+                    label='categories' help='Select One'
+                    filter={category} onFilterChange={setCategory}
                     options={['American', 'Sushi', 'Mexican', 'Italian']}
                 />
+                <div className='hr'/>
             </div>
             <div className='filter-closed row'>
                 <div className='label'>Filter By:</div>

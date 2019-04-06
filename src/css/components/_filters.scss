@@ -1,8 +1,9 @@
 @import '../imports/all';
 
 .button,
-.dropdown {
-  &-selector {
+.dropdown,
+.switch {
+  &-filter {
     @extend %spaced;
 
     .label {
@@ -15,27 +16,40 @@
   }
 }
 
-.button-selector {
+.button-filter {
   .options {
-    margin: $common-spacing 0 0;
+    margin: $spacing 0 0;
 
     .option {
-      //@extend %ellipsis-safe-text;
       border: 1px $color-light-gray solid;
       flex: 1 0 20%;
+      font-size: .8rem;
       justify-content: space-between;
-      padding: $common-small-spacing 0;
+      padding: $smaller-spacing 0;
       text-align: center;
       text-transform: uppercase;
 
       &.selected {
         background-color: $color-primary;
-        color: $color-white
+        color: $color-white;
       }
     }
   }
 }
 
-.dropdown-selector {
+.dropdown-filter.row {
+  @include flex-flow(row wrap);
 
+  .label {
+    &.help {
+      color: $color-gray;
+      text-transform: none;
+    }
+  }
+
+  > .dropdown {
+    @extend %dropdown;
+    //margin-top: $x-small-spacing;
+    width: 100%;
+  }
 }

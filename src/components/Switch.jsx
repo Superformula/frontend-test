@@ -4,7 +4,7 @@ const Switch = ({value = false, onChange}) => {
     const toggle = () => onChange(!value);
 
     return <div className='switch' onClick={toggle}>
-        <input type='checkbox' checked={value} onChange={toggle}/>
+        <input type='checkbox' checked={value}/>
         <div className='knob'/>
     </div>;
 };

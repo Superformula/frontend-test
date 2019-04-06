@@ -20,6 +20,23 @@
   @include button-transparency(.1, $color-primary);
 }
 
+%dropdown {
+  @include flex-flow(row nowrap);
+  align-items: center;
+  flex-grow: 1;
+  padding: $x-small-spacing 0;
+
+  .content {
+    color: $color-primary;
+    flex-grow: 1;
+  }
+}
+
+%dropdown-with-underline {
+  @extend %dropdown;
+  border-bottom: 1px $color-dark-gray solid;
+}
+
 %ellipsis-safe-text {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,7 +69,7 @@
 }
 
 %spaced {
-  padding: $common-spacing;
+  padding: $spacing;
 }
 
 %title {

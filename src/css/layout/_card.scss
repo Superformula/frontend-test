@@ -1,11 +1,11 @@
 @import '../imports/all';
 
 .card {
-  @include flex(row);
+  @include flex-flow(row);
   align-items: center;
   height: 40vw;
   justify-content: center;
-  margin: $common-small-spacing 0;
+  margin: $small-spacing 0;
   min-height: 100px;
   width: 100%;
 
@@ -17,7 +17,7 @@
 }
 
 .card-details {
-  @include flex(column);
+  @include flex-flow(column);
   align-content: space-between;
   flex: 1;
   height: 100%;

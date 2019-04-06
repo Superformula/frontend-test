@@ -1,8 +1,8 @@
 @import 'variables';
 
-@mixin flex($flow: row, $wrap: nowrap) {
+@mixin flex-flow($content: row nowrap) {
   display: flex;
-  flex-flow: $flow $wrap;
+  flex-flow: $content;
 }
 
 @mixin light-transparent-gradient($color: $color-light-gray) {

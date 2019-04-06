@@ -1,7 +1,15 @@
 @import '../imports/all';
 
+.button-spacer {
+  flex: 0;
+  height: 100%;
+  min-width: $spacing;
+}
+
 .button:not(.learn-more) {
   @extend %button;
+
+  flex: 1;
 
   &.clear {
     background: transparent;

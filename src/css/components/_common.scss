@@ -4,12 +4,12 @@
   background-color: $color-light-gray;
   height: 1px;
   margin: 0;
-  width: 100%;
+  width: auto;
 }
 
 .view {
   > .title {
-    margin: $common-spacing;
+    margin: $spacing;
   }
 }
 
