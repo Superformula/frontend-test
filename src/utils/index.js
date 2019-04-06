@@ -30,14 +30,17 @@ export const svgDownArrow = (props) =>
         </g>
     </svg>;
 
-export const svgCheckMark = (props) => <svg version="1.1" viewBox="0 0 11 8" xmlns="http://www.w3.org/2000/svg">
-    <g fill="black" fillRule="evenodd">
-        <g transform="translate(-29 -481)" fill="#fff" fillRule="nonzero">
-            <g transform="translate(24 341)">
-                <g transform="translate(2 72)">
-                    <g transform="translate(0 64)">
-                        <polygon
-                            points="7.2143 10.074 12.537 4.5538 13.463 5.4462 7.2143 11.926 3.5372 8.1129 4.4628 7.2204"/>
+export const svgCheckMark = (props) => <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlnsXlink="http://www.w3.org/1999/xlink">
+    <g id="Filtering" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g id="Filtering-(Open-fields)-2---Mobile" transform="translate(-26.000000, -477.000000)">
+            <g id="cuisine" transform="translate(24.000000, 341.000000)">
+                <g id="radios" transform="translate(2.000000, 72.000000)">
+                    <g id="check" transform="translate(0.000000, 64.000000)">
+                        <circle id="Oval" fill="#000000" cx="8" cy="8" r="8"/>
+                        <polygon id="icon" fill="#FFFFFF" fillRule="nonzero"
+                                 points="7.21428571 10.0738738 12.537243 4.55376999 13.462757 5.44623001 7.21428571 11.9261262 3.53724295 8.11289668 4.46275705 7.22043666"/>
                     </g>
                 </g>
             </g>
