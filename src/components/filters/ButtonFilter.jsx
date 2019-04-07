@@ -2,7 +2,7 @@ import React from 'react';
 
 const ButtonFilter = ({label, defaultOff = null, options = [], filter = null, onFilterChange}) => {
     const makeSelection = (selected) => {
-        if (filter === selected) {
+        if (filter === selected || selected === defaultOff) {
             onFilterChange(null);
             return
         }

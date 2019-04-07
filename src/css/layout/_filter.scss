@@ -27,7 +27,6 @@
           margin-bottom: $x-large-spacing;
         }
       }
-
     }
   }
 
@@ -67,4 +66,8 @@
       min-height: 19px;
     }
   }
+}
+
+.dropdown {
+  text-transform: capitalize;
 }

@@ -10,4 +10,5 @@ export const REDUX_KEYS = Object.freeze(keymirror({
     LOCATION: null,
     FILTERS: null,
     PAGINATION: null,
+    CATEGORIES: null,
 }));

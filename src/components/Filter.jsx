@@ -5,10 +5,10 @@ import SwitchFilter from 'Components/filters/SwitchFilter';
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {updateFilters} from 'Store/actions';
-import {selectFilters} from 'Store/selectors';
+import {selectCategories, selectFilters} from 'Store/selectors';
 import {buildFilterString, escapeHandler, svgDownArrow, svgX} from 'Utils';
 
-const Filter = ({ready = false, startOpen = false, updateFilters}) => {
+const Filter = ({ready = false, startOpen = false, updateFilters, categories}) => {
     const [open, setOpen] = useState(startOpen);
     const [price, setPrice] = useState(null);
     const [openFilter, setOpenFilter] = useState(false);
@@ -28,7 +28,7 @@ const Filter = ({ready = false, startOpen = false, updateFilters}) => {
 
     const openFilterElement = document.querySelector('#filter-modal');
     open ? disableBodyScroll(openFilterElement) : clearAllBodyScrollLocks();
-
+console.dir({categories})
     return (
         <div className={`filter ${open ? 'open' : 'closed'}`}>
             <div id='filter-modal' className='filter-open'>
@@ -64,7 +64,7 @@ const Filter = ({ready = false, startOpen = false, updateFilters}) => {
                 <DropdownFilter
                     label='categories' help='Select One'
                     filter={category} onFilterChange={setCategory}
-                    options={[null, 'American', 'Sushi', 'Mexican', 'Italian']}
+                    options={[null, ...categories]}
                 />
                 <div className='hr'/>
             </div>
@@ -81,6 +81,7 @@ const Filter = ({ready = false, startOpen = false, updateFilters}) => {
 
 export default connect(state => ({
     filters: selectFilters(state),
+    categories: selectCategories(state),
 }), {
     updateFilters,
 })(Filter);

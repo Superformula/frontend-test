@@ -101,7 +101,6 @@ export const safeInvoke = function* (func) {
 };
 
 export const buildFilterString = (filters) => {
-    console.dir(filters);
     let filterString = '';
     const addComma = (f) => (f && f.length && filterString && filterString.length ? ', ' : '') + f;
     if (filters.category) filterString += filters.category;

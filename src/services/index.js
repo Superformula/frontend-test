@@ -4,7 +4,6 @@ import {setContext} from 'apollo-link-context';
 import {createHttpLink} from 'apollo-link-http';
 import {BEARER_TOKEN, DEFAULT_LIMIT, DEFAULT_OFFSET} from 'Constants';
 import gql from 'graphql-tag';
-import {filter} from 'lodash';
 
 export const getThirdPartyLocationData = async () => {
     return fetch('/json', {
@@ -92,4 +91,12 @@ export const getBusinesses = async ({limit = DEFAULT_LIMIT, offset = DEFAULT_OFF
         query: buildQuery(filters),
         variables: {limit, offset, ...filters},
     });
+};
+
+export const getCategories = async () => {
+    return fetch('/v3/categories', {
+        headers: new Headers({
+            'Authorization': `Bearer ${BEARER_TOKEN}`,
+        }),
+    }).then(resp => resp.json());
 };

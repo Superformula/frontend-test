@@ -1,5 +1,5 @@
-import {all, call, fork, put, select, take} from 'redux-saga/effects';
-import {getBusinesses, getThirdPartyLocationData} from 'Services';
+import {all, call, fork, put, select, take, takeLatest} from 'redux-saga/effects';
+import {getBusinesses, getCategories, getThirdPartyLocationData} from 'Services';
 import {createAction, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
 import {selectFilters, selectLocation} from 'Store/selectors';
 import signals from 'Store/signals';
@@ -42,6 +42,19 @@ function* initLoadBusinesses() {
     yield put(loadBusinesses());
 }
 
+function* initLoadCategories() {
+    yield put(createAction(signals.CATEGORIES_LOADING));
+}
+
+function* fetchCategories() {
+    const categories = yield call(getCategories);
+    yield put(createAction(signals.CATEGORIES_LOADED, categories));
+}
+
+function* watchLoadCategories() {
+    yield takeLatest(signals.CATEGORIES_LOADING, fetchCategories);
+}
+
 function* watchUpdateFilters() {
     let {updateFilters} = yield all({
         updateFilters: take(signals.UPDATE_FILTERS),
@@ -80,6 +93,8 @@ export default function* root() {
     yield all([
         fork(watchUpdateFilters),
         fork(initLoadBusinesses),
+        // fork(initLoadCategories),
+        fork(watchLoadCategories),
         fork(locationSaga),
         fork(paginationSaga),
     ]);

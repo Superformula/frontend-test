@@ -2,10 +2,11 @@ import {REDUX_KEYS} from 'Constants';
 import * as Immutable from 'immutable';
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import createSagaMiddleware, {END} from 'redux-saga';
-import businesses from './reducers/businesses';
-import filters from './reducers/filters';
-import location from './reducers/location';
-import pagination from './reducers/pagination';
+import businesses from 'Store/reducers/businesses';
+import categories from 'Store/reducers/categories';
+import filters from 'Store/reducers/filters';
+import location from 'Store/reducers/location';
+import pagination from 'Store/reducers/pagination';
 
 export function buildStore(reducer, middleware, initialState = {}) {
     const composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
@@ -28,6 +29,7 @@ export default function configureStore(initialState = {}) {
             [REDUX_KEYS.LOCATION]: location,
             [REDUX_KEYS.PAGINATION]: pagination,
             [REDUX_KEYS.FILTERS]: filters,
+            [REDUX_KEYS.CATEGORIES]: categories,
         }),
         [sagaMiddleware],
         initialState);
