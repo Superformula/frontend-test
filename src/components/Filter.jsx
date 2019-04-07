@@ -1,11 +1,14 @@
 import {clearAllBodyScrollLocks, disableBodyScroll} from 'body-scroll-lock/lib/bodyScrollLock.es6';
-import DropdownFilter from 'Components/filters/DropdownFilter';
 import ButtonFilter from 'Components/filters/ButtonFilter';
+import DropdownFilter from 'Components/filters/DropdownFilter';
 import SwitchFilter from 'Components/filters/SwitchFilter';
 import React, {useState} from 'react';
-import {escapeHandler, svgDownArrow, svgX} from 'Utils';
+import {connect} from 'react-redux';
+import {updateFilters} from 'Store/actions';
+import {selectFilters} from 'Store/selectors';
+import {buildFilterString, escapeHandler, svgDownArrow, svgX} from 'Utils';
 
-const Filter = ({ready = false, startOpen = false}) => {
+const Filter = ({ready = false, startOpen = false, updateFilters}) => {
     const [open, setOpen] = useState(startOpen);
     const [price, setPrice] = useState(null);
     const [openFilter, setOpenFilter] = useState(false);
@@ -16,6 +19,7 @@ const Filter = ({ready = false, startOpen = false}) => {
         setOpenFilter(false);
         setCategory(null);
     };
+
     const openFilters = () => {
         if (!ready) return;
         setOpen(true);
@@ -36,7 +40,12 @@ const Filter = ({ready = false, startOpen = false}) => {
                 <div className='row'>
                     <div className='button clear' onClick={clearFilters}>Clear All</div>
                     <div className='button-spacer'/>
-                    <div className='button apply'>Apply</div>
+                    <div className='button apply' onClick={() => {
+                        updateFilters({open_now: openFilter, price, categories: category && category.toLowerCase()});
+                        setOpen(false);
+                    }}>
+                        Apply
+                    </div>
                 </div>
                 <div className='hr full'/>
                 <SwitchFilter
@@ -47,8 +56,9 @@ const Filter = ({ready = false, startOpen = false}) => {
                 <div className='hr'/>
                 <ButtonFilter
                     label='price'
-                    filter={price} onFilterChange={setPrice}
-                    options={['all', '$', '$$', '$$$', '$$$$']}
+                    defaultOff={'all'}
+                    filter={price || 'all'} onFilterChange={setPrice}
+                    options={['$', '$$', '$$$', '$$$$']}
                 />
                 <div className='hr'/>
                 <DropdownFilter
@@ -61,7 +71,7 @@ const Filter = ({ready = false, startOpen = false}) => {
             <div className='filter-closed row'>
                 <div className='label'>Filter By:</div>
                 <div className='dropdown' onClick={openFilters}>
-                    <div className='content'>All</div>
+                    <div className='content'>{buildFilterString({price, category, open: openFilter})}</div>
                     {svgDownArrow()}
                 </div>
             </div>
@@ -69,4 +79,8 @@ const Filter = ({ready = false, startOpen = false}) => {
     );
 };
 
-export default Filter;
+export default connect(state => ({
+    filters: selectFilters(state),
+}), {
+    updateFilters,
+})(Filter);

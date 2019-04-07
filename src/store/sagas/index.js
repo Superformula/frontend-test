@@ -3,6 +3,7 @@ import {getBusinesses, getThirdPartyLocationData} from 'Services';
 import {createAction, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
 import {selectFilters, selectLocation} from 'Store/selectors';
 import signals from 'Store/signals';
+import {safeInvoke} from 'Utils';
 
 // This fails on certain browsers...some chromium bug
 function updatePosition() {
@@ -47,10 +48,12 @@ function* watchUpdateFilters() {
         waitForLocation: take(signals.LOCATION_UPDATED),
     });
     while (true) {
-        const {type, ...params} = updateFilters;
-        const location = selectLocation(yield select());
-        const {filters, ...pagination} = params;
-        yield updateBusinesses({...pagination, ...filters, ...location});
+        yield safeInvoke(function* () {
+            const {type, ...params} = updateFilters;
+            const location = selectLocation(yield select());
+            const {filters, ...pagination} = params;
+            yield updateBusinesses({...pagination, ...filters, ...location});
+        });
         updateFilters = yield take(signals.UPDATE_FILTERS);
     }
 }
@@ -58,14 +61,17 @@ function* watchUpdateFilters() {
 function* paginationSaga() {
     while (true) {
         const {limit, offset} = yield take(signals.UPDATE_PAGE);
-        const state = yield select();
-        const filters = selectFilters(state);
-        const location = selectLocation(state);
-        yield updateBusinesses({limit, offset, ...filters, ...location});
+        yield safeInvoke(function* () {
+            const state = yield select();
+            const filters = selectFilters(state);
+            const location = selectLocation(state);
+            yield updateBusinesses({limit, offset, ...filters, ...location});
+        });
     }
 }
 
 function* updateBusinesses(params) {
+    yield put(createAction(signals.BUSINESSES_LOADING));
     const response = yield call(getBusinesses, params);
     yield put(createAction(signals.BUSINESSES_LOADED, response.data.search));
 }

@@ -6,21 +6,20 @@ import {get} from 'lodash';
 import React from 'react';
 import {connect} from 'react-redux';
 import {Dimmer, Loader, Segment} from 'semantic-ui-react';
-import {selectBusinesses} from 'Store/selectors';
+import {selectBusinesses, selectLoading} from 'Store/selectors';
 
-const App = ({businesses = []}) => {
-    const ready = !!businesses.length;
+const App = ({businesses = [], loading}) => {
     return <div className='view'>
         <Header title={'Restaurants'}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Header>
         <div className='hr'/>
-        <Filter ready={ready}/>
+        <Filter ready={!loading}/>
         <div className='title'>{'All Restaurants'}</div>
-        <Dimmer inverted active={!ready}/>
+        <Dimmer inverted active={loading}/>
         <div className='grid'>
-            {!businesses.length
+            {loading
                 ? <Segment className='loading-pane'>
                     <Dimmer inverted active>
                         <Loader size='massive'/>
@@ -41,4 +40,5 @@ const App = ({businesses = []}) => {
 
 export default connect(state => ({
     businesses: selectBusinesses(state),
+    loading: selectLoading(state),
 }))(App);

@@ -2,11 +2,18 @@ import {fromJS} from 'immutable';
 import {get} from 'lodash';
 import signals from 'Store/signals';
 
-const initialState = fromJS([]);
+const initialState = fromJS({loading: true, businesses: []});
 
 export default function (state = initialState, action) {
-    if (action.type === signals.BUSINESSES_LOADED) {
-        return state.merge([...get(action, 'business', [])]);
+    switch (action.type) {
+        case signals.BUSINESSES_LOADING:
+            return state.merge({loading: true});
+        case signals.BUSINESSES_LOADED:
+            return fromJS({
+                loading: false,
+                businesses: [...get(action, 'business', [])],
+            });
+        default:
+            return state;
     }
-    return state;
 }

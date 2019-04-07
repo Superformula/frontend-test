@@ -2,6 +2,7 @@ import keymirror from 'keymirror';
 
 const signals = Object.freeze(keymirror({
     // Restaurant signals
+    BUSINESSES_LOADING: null,
     BUSINESSES_LOADED: null,
 
     // Pagination signals

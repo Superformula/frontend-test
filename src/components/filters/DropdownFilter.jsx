@@ -4,7 +4,7 @@ import {svgCheckedCircle, svgDownArrow, svgUncheckedCircle} from 'Utils';
 const DropdownFilterOption = ({selection, checked, onSelect}) => {
     return <div className='option row' onClick={() => onSelect(selection)}>
         {checked ? svgCheckedCircle() : svgUncheckedCircle()}
-        <input type='checkbox' value={selection} checked={checked} onChange={() => onSelect(selection)}/>
+        <input type='checkbox' value={selection} checked={checked} readOnly/>
         <div className='text'>{selection}</div>
     </div>;
 };
@@ -12,6 +12,10 @@ const DropdownFilterOption = ({selection, checked, onSelect}) => {
 const DropdownFilter = ({label, help, options = [], filter = null, onFilterChange}) => {
     const extraClass = !!filter ? 'selected' : '';
     const onSelect = (value) => {
+        if (filter === value) {
+            onFilterChange(null);
+            return
+        }
         if (onFilterChange) onFilterChange(value);
     };
 
@@ -22,7 +26,7 @@ const DropdownFilter = ({label, help, options = [], filter = null, onFilterChang
         {help
             ? <div className='label help'>{help}</div>
             : ''}
-        <input type='checkbox' checked={open}/>
+        <input type='checkbox' checked={open} readOnly/>
         <div className='dropdown' onClick={() => setOpen(!open)}>
             <div className='content'>{filter || 'All'}</div>
             {svgDownArrow()}

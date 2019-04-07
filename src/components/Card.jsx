@@ -6,14 +6,7 @@ import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 const Card = (props) => {
-    const {
-        imgSrc,
-        name,
-        rating,
-        category,
-        price,
-        isOpen,
-    } = props;
+    const {imgSrc, name, rating, category, price, isOpen} = props;
 
     return (
         <div className='card'>

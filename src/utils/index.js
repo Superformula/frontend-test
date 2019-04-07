@@ -48,9 +48,10 @@ export const svgCheckedCircle = (props) => <svg {...props} width="16px" height="
     </g>
 </svg>;
 
-export const svgUncheckedCircle = (props) => <svg {...props} width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlnsXlink="http://www.w3.org/1999/xlink">
+export const svgUncheckedCircle = (props) => <svg {...props} width="16px" height="16px" viewBox="0 0 16 16"
+                                                  version="1.1"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                  xmlnsXlink="http://www.w3.org/1999/xlink">
     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g transform="translate(-26, -477)">
             <g transform="translate(24, 341)">
@@ -90,3 +91,21 @@ export const escapeHandler = (onPress) => window.addEventListener('keydown', eve
         event.preventDefault();
     }
 }, true);
+
+export const safeInvoke = function* (func) {
+    try {
+        yield func();
+    } catch (e) {
+        console.error(e);
+    }
+};
+
+export const buildFilterString = (filters) => {
+    console.dir(filters);
+    let filterString = '';
+    const addComma = (f) => (f && f.length && filterString && filterString.length ? ', ' : '') + f;
+    if (filters.category) filterString += filters.category;
+    if (filters.price) filterString += addComma(filters.price);
+    if (filters.open) filterString += addComma(filters.open ? 'Open Now' : '');
+    return filterString === '' ? 'All' : filterString;
+};

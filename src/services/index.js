@@ -4,6 +4,7 @@ import {setContext} from 'apollo-link-context';
 import {createHttpLink} from 'apollo-link-http';
 import {BEARER_TOKEN, DEFAULT_LIMIT, DEFAULT_OFFSET} from 'Constants';
 import gql from 'graphql-tag';
+import {filter} from 'lodash';
 
 export const getThirdPartyLocationData = async () => {
     return fetch('/json', {
@@ -59,11 +60,19 @@ const nodeTypeLookup = {
     location: 'String!',
     latitude: 'Float!',
     longitude: 'Float!',
-    open_now: 'Boolean!',
+    open_now: 'Boolean',
+    price: 'String',
+    categories: 'String',
 };
 
 const buildQuery = (filters = {}) => {
-    // console.dir(filters);
+    if (filters.price) {
+        if (filters.price.toLowerCase() === 'all') {
+            filters.price = null;
+        } else {
+            filters.price = filters.price.length;
+        }
+    }
     const keys = Object.keys(filters);
     const stringGql = `
         query SearchLimit($limit: Int!,
