@@ -1,7 +1,7 @@
 import {all, call, fork, put, select, take, takeLatest} from 'redux-saga/effects';
 import {getBusinesses, getCategories, getThirdPartyLocationData} from 'Services';
 import {createAction, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
-import {selectFilters, selectLocation} from 'Store/selectors';
+import {clearBusinessCache, clearCategoryCache, selectFilters, selectLocation} from 'Store/selectors';
 import signals from 'Store/signals';
 import {safeInvoke} from 'Utils';
 
@@ -49,6 +49,7 @@ function* initLoadCategories() {
 function* fetchCategories() {
     const categories = yield call(getCategories);
     yield put(createAction(signals.CATEGORIES_LOADED, categories));
+    yield call(clearCategoryCache);
 }
 
 function* watchLoadCategories() {
@@ -87,6 +88,7 @@ function* updateBusinesses(params) {
     yield put(createAction(signals.BUSINESSES_LOADING));
     const response = yield call(getBusinesses, params);
     yield put(createAction(signals.BUSINESSES_LOADED, response.data.search));
+    yield call(clearBusinessCache);
 }
 
 export default function* root() {

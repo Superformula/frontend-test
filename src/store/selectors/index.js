@@ -9,17 +9,18 @@ export const selectLocation = state => {
     return {...loc};
 };
 
-const memoizedSearchCategories = () => {
+const memoizedSearch = (selector, predicate) => {
     let cache = {};
-    return (state) => (k) => {
-        if (k in cache) {
-            return cache[k];
-        } else {
-            const r = state[REDUX_KEYS.CATEGORIES].toJS().categories.filter(c => c.alias.includes(k));
-            cache[k] = r;
+    return [state => param => {
+        if (param in cache) return cache[param];
+        else {
+            const r = selector(state).find(predicate(param));
+            if (r) cache[param] = r;
             return r;
         }
-    };
+    }, () => cache = {}];
 };
 
-export const searchCategories = memoizedSearchCategories();
+export const [selectCategory, clearCategoryCache] = memoizedSearch(selectCategories, alias => c => c.alias.includes(alias));
+export const [selectBusiness, clearBusinessCache] = memoizedSearch(selectBusinesses, name => b => b.name.includes(name));
+

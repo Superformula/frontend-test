@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom';
 const Router = () => {
     return <React.Fragment>
         <Switch>
-            <Route path='/detail/:alias' component={Detail}/>
+            <Route path='/detail/:name' component={Detail}/>
             <Route component={App}/>
         </Switch>
     </React.Fragment>;

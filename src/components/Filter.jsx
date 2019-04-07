@@ -6,7 +6,8 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {updateFilters} from 'Store/actions';
 import {selectCategories, selectFilters} from 'Store/selectors';
-import {buildFilterString, escapeHandler, svgDownArrow, svgX} from 'Utils';
+import {buildFilterString, escapeHandler} from 'Utils';
+import {cross, downArrow} from 'Utils/svgs';
 
 const Filter = ({ready = false, startOpen = false, updateFilters, categories, filters}) => {
     const [open, setOpen] = useState(startOpen);
@@ -33,7 +34,7 @@ const Filter = ({ready = false, startOpen = false, updateFilters, categories, fi
             <div id='filter-modal' className='filter-open'>
                 <div className='row'>
                     <div className='label'>Filter By</div>
-                    {svgX({className: 'cross', onClick: () => setOpen(false)})}
+                    {cross({className: 'cross', onClick: () => setOpen(false)})}
                 </div>
                 <div className='hr full'/>
                 <div className='row'>
@@ -71,7 +72,7 @@ const Filter = ({ready = false, startOpen = false, updateFilters, categories, fi
                 <div className='label'>Filter By:</div>
                 <div className='dropdown' onClick={openFilters}>
                     <div className='content'>{buildFilterString({price, category, open: openFilter})}</div>
-                    {svgDownArrow()}
+                    {downArrow()}
                 </div>
             </div>
         </div>
