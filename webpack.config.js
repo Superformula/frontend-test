@@ -24,7 +24,11 @@ module.exports = (env) => {
             },
         },
         // output for build
-        output: {filename: 'main.js', path: __dirname + '/public'},
+        output: {
+            filename: 'main.js',
+            path: __dirname + '/public',
+            publicPath: '/',
+        },
         // loaders
         module: {
             rules: [
@@ -38,6 +42,7 @@ module.exports = (env) => {
             contentBase: path.join(__dirname, 'public'),
             compress: true,
             disableHostCheck: true,
+            historyApiFallback: true,
             host: '0.0.0.0',
             hot: true,
             port: 3000,

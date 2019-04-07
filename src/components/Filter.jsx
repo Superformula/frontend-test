@@ -8,11 +8,11 @@ import {updateFilters} from 'Store/actions';
 import {selectCategories, selectFilters} from 'Store/selectors';
 import {buildFilterString, escapeHandler, svgDownArrow, svgX} from 'Utils';
 
-const Filter = ({ready = false, startOpen = false, updateFilters, categories}) => {
+const Filter = ({ready = false, startOpen = false, updateFilters, categories, filters}) => {
     const [open, setOpen] = useState(startOpen);
-    const [price, setPrice] = useState(null);
-    const [openFilter, setOpenFilter] = useState(false);
-    const [category, setCategory] = useState(null);
+    const [price, setPrice] = useState(filters.price);
+    const [openFilter, setOpenFilter] = useState(filters.open_now);
+    const [category, setCategory] = useState(filters.category);
 
     const clearFilters = () => {
         setPrice(null);
@@ -28,7 +28,6 @@ const Filter = ({ready = false, startOpen = false, updateFilters, categories}) =
 
     const openFilterElement = document.querySelector('#filter-modal');
     open ? disableBodyScroll(openFilterElement) : clearAllBodyScrollLocks();
-console.dir({categories})
     return (
         <div className={`filter ${open ? 'open' : 'closed'}`}>
             <div id='filter-modal' className='filter-open'>

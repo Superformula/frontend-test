@@ -1,7 +1,8 @@
-import App from 'Components/App';
+import Router from 'Components/Router';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
+import {BrowserRouter} from 'react-router-dom';
 import configureStore from 'Store';
 import root from 'Store/sagas';
 
@@ -11,6 +12,8 @@ store.runSaga(root);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <BrowserRouter>
+            <Router/>
+        </BrowserRouter>
     </Provider>,
     rootElement);

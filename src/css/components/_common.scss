@@ -7,6 +7,13 @@
   width: auto;
 }
 
+.back-arrow {
+  color: $color-primary;
+  font-size: $x-large-spacing;
+  margin: $spacing;
+  position: absolute;
+}
+
 .view {
   > .title {
     margin: $spacing;

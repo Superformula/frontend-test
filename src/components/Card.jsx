@@ -2,6 +2,7 @@ import StarRating from 'Components/StarRating';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
+import {Link} from 'react-router-dom';
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -24,7 +25,9 @@ const Card = (props) => {
                     }
                 </div>
                 <div className='button learn-more'>
-                    <a href='/' className='text'>Learn More <span className='arrow'>→</span></a>
+                    <Link to={`/detail/${encodeURIComponent(name)}`} className='text'>
+                        Learn More <span className='arrow'>→</span>
+                    </Link>
                 </div>
             </div>
         </div>
