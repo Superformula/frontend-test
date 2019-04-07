@@ -3,7 +3,7 @@
 .card {
   @include flex-flow(row);
   align-items: center;
-  height: 40vw;
+  height: 35vw;
   justify-content: center;
   margin: $small-spacing 0;
   min-height: 100px;
@@ -69,10 +69,13 @@
 
 .card-info {
   align-items: center;
+  color: $color-gray;
   display: flex;
   flex: 0 0 auto;
   flex-flow: row nowrap;
-  font-size: .8rem;
+  font-size: .75rem;
+  letter-spacing: .5px;
+  line-height: 15px;
   width: 100%;
 
   &,
@@ -98,8 +101,6 @@
     color: $color-primary;
     flex-shrink: 0;
     font-size: .5rem;
-    letter-spacing: .5px;
-    line-height: 15px;
     padding: 0 .35rem;
     text-align: center;
 

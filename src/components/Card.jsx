@@ -1,5 +1,9 @@
 import StarRating from 'Components/StarRating';
 import React from 'react';
+import LinesEllipsis from 'react-lines-ellipsis';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 const Card = (props) => {
     const {
@@ -15,7 +19,7 @@ const Card = (props) => {
         <div className='card'>
             <img className='image' src={imgSrc} alt={name}/>
             <div className='card-details'>
-                <div className='name'>{name}</div>
+                <ResponsiveEllipsis className='name' text={name} maxLine={2} trimRight basedOn='letters'/>
                 <StarRating rating={rating}/>
                 <div className='card-info'>
                     <div className='category' style={{overflow: 'ellipsis'}}>{category}</div>

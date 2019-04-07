@@ -11,7 +11,7 @@ storiesOf('App', module)
             'BUSINESSES': fromJS([
                 {
                     id: 1,
-                    name: 'Test Rest One',
+                    name: 'Very Long Name Restaurants Number 1 In List',
                     rating: 4,
                     price: '$$',
                     is_closed: false,

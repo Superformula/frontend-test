@@ -37,8 +37,9 @@ module.exports = (env) => {
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             compress: true,
-            https: true,
+            disableHostCheck: true,
             host: '0.0.0.0',
+            hot: true,
             port: 3000,
             proxy: {
                 '/v3': {
