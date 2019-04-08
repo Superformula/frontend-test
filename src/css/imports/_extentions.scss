@@ -1,25 +1,6 @@
 @import 'variables';
 @import 'mixins';
 
-%button {
-  background: $color-primary;
-  border: $color-primary solid 1px;
-  border-radius: 1px;
-  color: $color-white;
-  cursor: pointer;
-  font-size: 12px;
-  line-height: $button-line-height;
-  min-width: 8rem;
-  padding: .5rem 0;
-  text-align: center;
-  text-transform: uppercase;
-  vertical-align: center;
-}
-
-%dark-transparency {
-  @include button-transparency(.1, $color-primary);
-}
-
 %dropdown {
   @include flex-flow(row nowrap);
   align-items: center;
@@ -50,14 +31,6 @@
 
 %gray-text {
   color: $color-gray;
-}
-
-%gray-underline {
-  border-bottom: 1px $color-light-gray solid;
-}
-
-%light-transparency {
-  @include button-transparency(.9);
 }
 
 %row {

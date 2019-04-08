@@ -16,6 +16,10 @@
   }
 }
 
+@mixin gray-underline {
+  border-bottom: 1px $color-light-gray solid;
+}
+
 @mixin slide-right($start, $end) {
   0% {
     left: $start;

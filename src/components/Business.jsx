@@ -33,11 +33,11 @@ const Business = ({place = {}, loadReviews}) => {
                         : <div className='status closed'>CLOSED</div>
                     }
                 </div>
-                <div className='button learn-more'>
-                    <Link to={`/detail/${encodeURIComponent(id)}`} className='text' onClick={loadReviews}>
+                <Link to={`/detail/${encodeURIComponent(id)}`} className='button learn-more' onClick={loadReviews}>
+                    <div className='text'>
                         Learn More <span className='arrow'>→</span>
-                    </Link>
-                </div>
+                    </div>
+                </Link>
             </div>
         </div>
     );

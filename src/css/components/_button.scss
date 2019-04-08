@@ -6,10 +6,21 @@
   min-width: $spacing;
 }
 
-.button:not(.learn-more) {
-  @extend %button;
-
+// special button mixing for media query
+@mixin button {
+  background: $color-primary;
+  border: $color-primary solid 1px;
+  border-radius: 1px;
+  color: $color-white;
+  cursor: pointer;
   flex: 1;
+  font-size: 12px;
+  line-height: $button-line-height;
+  min-width: 8rem;
+  padding: .5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: center;
 
   &.clear {
     background: transparent;
@@ -23,10 +34,28 @@
 
   &.clear:hover,
   &:hover:active {
-    @extend %dark-transparency;
+    @include button-transparency(.1, $color-primary);
   }
 
   &:hover {
-    @extend %light-transparency;
+    @include button-transparency(.9);
+  }
+}
+
+.button:not(.learn-more) {
+  @include button;
+}
+
+@include media($screen-break-point) {
+  .button.learn-more {
+    .text {
+      @include button;
+
+      color: $color-white;
+
+      .arrow {
+        display: none;
+      }
+    }
   }
 }

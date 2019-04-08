@@ -13,8 +13,9 @@
     @include flex-flow(column nowrap);
     align-items: flex-start;
     flex: 1 0 20%;
-    height: 30vw;
+    height: 20 * $small-spacing;
     margin: $spacing;
+    min-width: 15 * $small-spacing;
     width: 20%;
   }
 
@@ -67,6 +68,7 @@
       .status {
         font-size: .5rem;
       }
+
       .status {
         flex-grow: 0;
       }
@@ -82,27 +84,33 @@
       width: 100%;
     }
 
+    .business-info {
+      margin-top: $x-small-spacing;
+    }
+
     .star-rating {
       height: 16px;
     }
 
-    .button {
-      align-items: flex-end;
-      background-color: transparent;
-      color: $color-primary;
-      display: flex;
-      flex-flow: row nowrap;
-      flex-grow: 1;
-      padding: 0;
-      text-align: left;
-
-      .arrow {
-        padding-left: .5rem;
-      }
-
-      .text {
-        @extend %gray-underline;
+    @media only screen and (max-width: $screen-break-point-max) {
+      .button {
+        align-items: flex-end;
+        background-color: transparent;
         color: $color-primary;
+        display: flex;
+        flex-flow: row nowrap;
+        flex-grow: 1;
+        padding: 0;
+        text-align: left;
+
+        .arrow {
+          padding-left: .5rem;
+        }
+
+        .text {
+          @include gray-underline;
+          color: $color-primary;
+        }
       }
     }
 
