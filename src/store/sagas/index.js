@@ -66,7 +66,7 @@ function* fetchReviews(action) {
     yield put(createAction(signals.REVIEWS_LOADING));
     yield safeInvoke(function* () {
         const response = yield call(getReviews, action);
-        yield put(createAction(signals.REVIEWS_LOADED, response.data));
+        yield put(createAction(signals.REVIEWS_LOADED, {...response.data, id: action.businessId}));
     });
 }
 

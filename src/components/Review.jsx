@@ -13,6 +13,7 @@ const Review = ({review}) => {
             <StarRating rating={review.rating}/>
         </div>
         <div className='text'>{review.text}</div>
+        <div className='hr'/>
     </div>;
 };
 

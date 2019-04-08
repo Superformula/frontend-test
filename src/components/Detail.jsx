@@ -1,4 +1,5 @@
 import Header from 'Components/Header';
+import Review from 'Components/Review';
 import StarRating from 'Components/StarRating';
 import 'Css/main.scss';
 import React from 'react';
@@ -10,18 +11,19 @@ import {
     selectBusinessLoading,
     selectNotFound,
     selectReviews,
+    selectReviewsFor,
     selectReviewsLoading,
     selectReviewsTotal,
 } from 'Store/selectors';
 
-const Detail = ({match, businesses, businessLoading, reviews, reviewsTotal, reviewsLoading, notFound, loadReviews}) => {
+const Detail = ({match, businesses, businessLoading, reviews, reviewsFor, reviewsTotal, reviewsLoading, notFound, loadReviews}) => {
     const id = decodeURIComponent(match.params.id);
     const business = businesses(id);
     let loading = false;
 
-    if ((!reviews.length || !business) && !reviewsLoading && !notFound) {
-        loadReviews(id);
+    if ((!reviews.length || !business || id !== reviewsFor) && !reviewsLoading && !notFound) {
         loading = true;
+        loadReviews(id);
     }
 
     if (loading || (!business && (reviewsLoading || businessLoading))) {
@@ -72,9 +74,11 @@ const Detail = ({match, businesses, businessLoading, reviews, reviewsTotal, revi
                     <div className='detail-images'>
                         {business.photos.map(url => <img key={url} className='detail-image' alt={url} src={url}/>)}
                     </div>
-                    <div className='hr'/>
+                    <div className='hr full'/>
                     <div className='review-count'>{reviewsTotal} Reviews</div>
-                    {/*{reviews.map(r => <Review key={r.id} review={r}/>)}*/}
+                    {reviews.map(r => <React.Fragment>
+                        <Review key={r.id} review={r}/>
+                    </React.Fragment>)}
                 </React.Fragment>
             }
         </div>
@@ -85,6 +89,7 @@ export default connect(state => ({
     businesses: selectBusiness(state),
     businessLoading: selectBusinessLoading(state),
     reviews: selectReviews(state),
+    reviewsFor: selectReviewsFor(state),
     reviewsLoading: selectReviewsLoading(state),
     reviewsTotal: selectReviewsTotal(state),
     notFound: selectNotFound(state),

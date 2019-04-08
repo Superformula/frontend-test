@@ -12,6 +12,7 @@ export default function (state = initialState, action) {
             return fromJS({
                 loading: false,
                 total: action.reviews.total,
+                for: action.id || null,
                 reviews: [...get(action.reviews, 'review', [])],
             });
         default:

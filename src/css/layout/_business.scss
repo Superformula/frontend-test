@@ -117,7 +117,6 @@
 }
 
 .detail.view {
-
   .detail-header {
     @include flex-flow(column nowrap);
     justify-content: space-around;
@@ -174,8 +173,12 @@
   }
 
   .hr {
-    left: -$spacing;
-    position: relative;
-    width: 100vh;
+    width: 100%;
+
+    &.full {
+      left: -$spacing;
+      position: relative;
+      width: 100vh;
+    }
   }
 }
