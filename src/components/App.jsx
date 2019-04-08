@@ -9,7 +9,7 @@ import {loadBusinesses} from 'Store/actions';
 import {selectBusinesses, selectBusinessesLoading} from 'Store/selectors';
 
 const App = ({businesses = [], loading, loadBusinesses}) => {
-    if (!businesses.length) {
+    if (!businesses.length && !loading) {
         loadBusinesses();
     }
     return <div className='view'>

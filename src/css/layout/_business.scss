@@ -117,14 +117,19 @@
 }
 
 .detail.view {
+
   .detail-header {
     @include flex-flow(column nowrap);
-    height: 6rem;
     justify-content: space-around;
+
+    > *:not(.title) {
+      margin-top: $small-spacing;
+    }
   }
 
   .detail-info {
     align-items: baseline;
+    flex: 1;
     text-transform: uppercase;
 
     .status {
@@ -148,8 +153,24 @@
 
   .detail-map {
     left: -$spacing;
-    margin: $larger-spacing 0;
+    margin: $larger-spacing 0 $spacing;
     position: relative;
     width: 100vw;
+  }
+
+  .detail-images {
+    height: 25vh;
+    margin: $spacing $spacing $spacing 0;
+
+    .detail-image {
+      height: 100%;
+      overflow-x: auto;
+    }
+  }
+
+  .hr {
+    left: -$spacing;
+    position: relative;
+    width: 100vh;
   }
 }

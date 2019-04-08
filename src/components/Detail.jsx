@@ -23,11 +23,12 @@ class Detail extends React.Component {
 
     componentDidMount() {
         const {
-            reviews, reviewsLoading, notFound, // redux state
+            businesses, reviews, reviewsLoading, notFound, // redux state
             loadReviews, // dispatch
         } = this.props;
 
-        if (!reviews.length && !reviewsLoading && !notFound) {
+        const business = businesses(this.state.id);
+        if ((!reviews.length || !business) && !reviewsLoading && !notFound) {
             loadReviews(this.state.id);
         }
     }
@@ -37,16 +38,15 @@ class Detail extends React.Component {
         const business = businesses(this.state.id);
         if (!business && (reviewsLoading || businessLoading)) {
             return <div className='view spaced'>
-                <Link to='/' className='back-arrow'>←</Link>
                 <div className='title'>Loading...</div>
                 <Dimmer inverted active>
                     <Loader size='massive'/>
                 </Dimmer>
             </div>;
         }
+        const {location} = business || {};
         return (
             <div className='detail view spaced'>
-                <Link to='/' className='back-arrow'>←</Link>
                 {!business
                     ? <Header title='Unknown location'>
                         Unable to find restaurant with the yelp ID specified.
@@ -73,6 +73,18 @@ class Detail extends React.Component {
                             </div>
                         </div>
                         <img src='/mapPlaceholder.svg' alt='map graphic' className='detail-map'/>
+                        <div className='detail-address'>
+                            <div className='street'>{location.address1}</div>
+                            {location.address2
+                                ? <div className='street-2'>{location.address2}</div> : ''}
+                            {location.address3
+                                ? <div className='street-3'>{location.address3}</div> : ''}
+                            <div className='rest'>{`${location.city}, ${location.state} ${location.postal_code}`}</div>
+                        </div>
+                        <div className='detail-images'>
+                            {business.photos.map(url => <img key={url} className='detail-image' alt={url} src={url}/>)}
+                        </div>
+                        <div className='hr'/>
                     </React.Fragment>
                 }
             </div>

@@ -11,6 +11,7 @@ body {
   font-family: $font-stack;
   font-size: $font-regular-size;
   min-width: $min-view-width;
+  overflow-x: hidden;
 }
 
 a {

@@ -1,4 +1,5 @@
 import Router from 'Components/Router';
+import ScrollToTop from 'Components/ScrollToTop';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
@@ -13,7 +14,9 @@ store.runSaga(root);
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <Router/>
+            <ScrollToTop>
+                <Router/>
+            </ScrollToTop>
         </BrowserRouter>
     </Provider>,
     rootElement);

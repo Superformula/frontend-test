@@ -7,11 +7,6 @@
   width: auto;
 }
 
-.back-arrow {
-  color: $color-primary;
-  font-size: $x-large-spacing;
-}
-
 .view {
   &:not(.spaced) > .title {
     margin: $spacing;
