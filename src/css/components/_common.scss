@@ -5,11 +5,21 @@
   height: 1px;
   margin: 0;
   width: auto;
+
+  @include media($screen-break-point) {
+    left: -$small-spacing;
+    position: relative;
+    width: 100vw;
+  }
 }
 
 .view {
   &:not(.spaced) > .title {
     margin: $spacing;
+  }
+
+  @include media($screen-break-point) {
+    padding: $small-spacing;
   }
 }
 

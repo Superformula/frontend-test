@@ -25,3 +25,9 @@
     left: $end;
   }
 }
+
+@mixin media($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}

@@ -9,10 +9,24 @@
   min-height: 100px;
   width: 100%;
 
+  @include media($screen-break-point) {
+    @include flex-flow(column nowrap);
+    align-items: flex-start;
+    flex: 1 0 20%;
+    height: 30vw;
+    margin: $spacing;
+    width: 20%;
+  }
+
   .image {
     height: 100%;
     object-fit: cover;
     width: 35%;
+
+    @include media($screen-break-point) {
+      height: 65%;
+      width: 100%;
+    }
   }
 
   .status {
@@ -40,6 +54,27 @@
     height: 100%;
     padding-left: 5%;
     width: 60%;
+
+    @include media($screen-break-point) {
+      padding: 0;
+      width: 100%;
+
+      > * {
+        flex-grow: 1;
+      }
+
+      .business-info,
+      .status {
+        font-size: .5rem;
+      }
+      .status {
+        flex-grow: 0;
+      }
+
+      .learn-more {
+        flex: 0;
+      }
+    }
 
     > * {
       flex-grow: 0;

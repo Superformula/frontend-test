@@ -10,3 +10,11 @@
     margin: $x-small-spacing $spacing;
   }
 }
+
+@include media($screen-break-point) {
+  .header {
+    .content {
+      width: 60%;
+    }
+  }
+}

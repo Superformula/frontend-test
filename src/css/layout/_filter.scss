@@ -42,7 +42,6 @@
     content: '\f0d7';
   }
 
-
   &-closed {
     padding: 0 $spacing;
 
@@ -52,6 +51,29 @@
 
     .dropdown {
       @extend %dropdown-with-underline;
+    }
+  }
+
+  &-large {
+    display: none;
+  }
+}
+
+@include media($screen-break-point) {
+  .filter {
+    &-closed.row,
+    &-open {
+      display: none;
+    }
+
+    &-large {
+      display: block;
+      margin: $spacing;
+
+      .label {
+        font-size: 1rem;
+        text-transform: none;
+      }
     }
   }
 }

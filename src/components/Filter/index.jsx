@@ -51,10 +51,10 @@ const Filter = ({ready = false, startOpen = false, updateFilters, categories, fi
                 <SwitchFilter label='Open Now' filter={openFilter} onFilterChange={setOpenFilter}/>
                 <div className='hr'/>
                 <ButtonFilter label='price' defaultOff={'all'} filter={price || 'all'} onFilterChange={setPrice}
-                    options={['$', '$$', '$$$', '$$$$']}/>
+                              options={['$', '$$', '$$$', '$$$$']}/>
                 <div className='hr'/>
                 <DropdownFilter label='categories' help='Select One' filter={category} onFilterChange={setCategory}
-                    options={[null, ...categories]}/>
+                                options={[null, ...categories]}/>
                 <div className='hr'/>
             </div>
             <div className='filter-closed row'>
@@ -64,6 +64,10 @@ const Filter = ({ready = false, startOpen = false, updateFilters, categories, fi
                     {downArrow()}
                 </div>
             </div>
+            <div className='filter-large'>
+                <div className='label'>Filter By:</div>
+            </div>
+            <div className='hr'/>
         </div>
     );
 };
