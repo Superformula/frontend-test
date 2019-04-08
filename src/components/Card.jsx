@@ -1,13 +1,22 @@
 import StarRating from 'Components/StarRating';
+import {get} from 'lodash';
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {updateFilters} from 'Store/actions';
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
-const Card = (props) => {
-    const {imgSrc, name, rating, category, price, isOpen} = props;
+const Card = ({place = {}, loadReviews}) => {
+    const name = place.name;
+    const id = place.id;
+    const imgSrc = get(place, 'photos[0]');
+    const rating = place.rating;
+    const price = place.price;
+    const category = get(place, 'categories[0].title', 'Unknown').toUpperCase();
+    const isOpen = !get(place, 'is_closed', true);
 
     return (
         <div className='card'>
@@ -25,7 +34,7 @@ const Card = (props) => {
                     }
                 </div>
                 <div className='button learn-more'>
-                    <Link to={`/detail/${encodeURIComponent(name)}`} className='text'>
+                    <Link to={`/detail/${encodeURIComponent(id)}`} className='text' onClick={loadReviews}>
                         Learn More <span className='arrow'>→</span>
                     </Link>
                 </div>
@@ -34,4 +43,6 @@ const Card = (props) => {
     );
 };
 
-export default Card;
+export default connect(null, {
+    updateFilters,
+})(Card);

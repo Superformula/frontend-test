@@ -7,8 +7,9 @@ export const DEFAULT_OFFSET = 0;
 
 export const REDUX_KEYS = Object.freeze(keymirror({
     BUSINESSES: null,
-    LOCATION: null,
-    FILTERS: null,
-    PAGINATION: null,
     CATEGORIES: null,
+    FILTERS: null,
+    LOCATION: null,
+    PAGINATION: null,
+    REVIEWS: null,
 }));

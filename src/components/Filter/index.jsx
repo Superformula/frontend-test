@@ -1,7 +1,7 @@
-import {clearAllBodyScrollLocks, disableBodyScroll} from 'body-scroll-lock/lib/bodyScrollLock.es6';
-import ButtonFilter from 'Components/filters/ButtonFilter';
-import DropdownFilter from 'Components/filters/DropdownFilter';
-import SwitchFilter from 'Components/filters/SwitchFilter';
+import {clearAllBodyScrollLocks, disableBodyScroll} from 'body-scroll-lock/lib/bodyScrollLock.es6.js';
+import ButtonFilter from 'Components/Filter/components/ButtonFilter';
+import DropdownFilter from 'Components/Filter/components/DropdownFilter';
+import SwitchFilter from 'Components/Filter/components/SwitchFilter';
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {updateFilters} from 'Store/actions';
@@ -48,24 +48,13 @@ const Filter = ({ready = false, startOpen = false, updateFilters, categories, fi
                     </div>
                 </div>
                 <div className='hr full'/>
-                <SwitchFilter
-                    label='Open Now'
-                    filter={openFilter}
-                    onFilterChange={setOpenFilter}
-                />
+                <SwitchFilter label='Open Now' filter={openFilter} onFilterChange={setOpenFilter}/>
                 <div className='hr'/>
-                <ButtonFilter
-                    label='price'
-                    defaultOff={'all'}
-                    filter={price || 'all'} onFilterChange={setPrice}
-                    options={['$', '$$', '$$$', '$$$$']}
-                />
+                <ButtonFilter label='price' defaultOff={'all'} filter={price || 'all'} onFilterChange={setPrice}
+                    options={['$', '$$', '$$$', '$$$$']}/>
                 <div className='hr'/>
-                <DropdownFilter
-                    label='categories' help='Select One'
-                    filter={category} onFilterChange={setCategory}
-                    options={[null, ...categories]}
-                />
+                <DropdownFilter label='categories' help='Select One' filter={category} onFilterChange={setCategory}
+                    options={[null, ...categories]}/>
                 <div className='hr'/>
             </div>
             <div className='filter-closed row'>

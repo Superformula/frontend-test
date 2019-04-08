@@ -5,6 +5,7 @@ export function createAction(type, payload = {}) {
     return {type, ...payload};
 }
 
+export const loadBusiness = businessId => createAction(signals.LOAD_BUSINESS, {businessId});
 export const loadBusinesses = (filters = {}, limit = DEFAULT_LIMIT, offset = DEFAULT_OFFSET) =>
     createAction(signals.UPDATE_FILTERS, {filters, limit, offset});
 
@@ -19,6 +20,5 @@ export const storeUpdatedPosition = position => {
     }
 };
 
-export const updateFilters = (filters) => createAction(signals.UPDATE_FILTERS, {filters});
-
-export const changePage = (limit, offset) => createAction(signals.UPDATE_PAGE, {limit, offset});
+export const updateFilters = filters => createAction(signals.UPDATE_FILTERS, {filters});
+export const loadReviews = businessId => createAction(signals.GET_REVIEWS, {businessId});

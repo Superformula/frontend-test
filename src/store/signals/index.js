@@ -5,9 +5,18 @@ const signals = Object.freeze(keymirror({
     CATEGORIES_LOADING: null,
     CATEGORIES_LOADED: null,
 
-    // Restaurant signals
+    // Business signals
+    LOAD_BUSINESS: null,
+    BUSINESS_LOADING: null,
+    BUSINESS_LOADED: null,
+    BUSINESS_NOT_FOUND: null,
     BUSINESSES_LOADING: null,
     BUSINESSES_LOADED: null,
+
+    // Review signals
+    GET_REVIEWS: null,
+    REVIEWS_LOADING: null,
+    REVIEWS_LOADED: null,
 
     // Pagination signals
     UPDATE_PAGE: null,

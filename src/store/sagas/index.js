@@ -1,6 +1,6 @@
 import {all, call, fork, put, select, take, takeLatest} from 'redux-saga/effects';
-import {getBusinesses, getCategories, getThirdPartyLocationData} from 'Services';
-import {createAction, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
+import {getBusiness, getBusinesses, getCategories, getReviews, getThirdPartyLocationData} from 'Services';
+import {createAction, loadBusiness, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
 import {clearBusinessCache, clearCategoryCache, selectFilters, selectLocation} from 'Store/selectors';
 import signals from 'Store/signals';
 import {safeInvoke} from 'Utils';
@@ -56,6 +56,20 @@ function* watchLoadCategories() {
     yield takeLatest(signals.CATEGORIES_LOADING, fetchCategories);
 }
 
+function* watchLoadReviews() {
+    yield takeLatest(signals.GET_REVIEWS, fetchReviews);
+}
+
+function* fetchReviews(action) {
+    // load the business along with the reviews
+    yield put(loadBusiness(action.businessId));
+    yield put(createAction(signals.REVIEWS_LOADING));
+    yield safeInvoke(function* () {
+        const response = yield call(getReviews, action);
+        yield put(createAction(signals.REVIEWS_LOADED, response.data));
+    });
+}
+
 function* watchUpdateFilters() {
     let {updateFilters} = yield all({
         updateFilters: take(signals.UPDATE_FILTERS),
@@ -91,12 +105,28 @@ function* updateBusinesses(params) {
     yield call(clearBusinessCache);
 }
 
+function* watchLoadBusiness() {
+    yield takeLatest(signals.LOAD_BUSINESS, fetchBusiness);
+}
+
+function* fetchBusiness(action) {
+    yield put(createAction(signals.BUSINESS_LOADING));
+    yield safeInvoke(function* () {
+        const {data} = yield call(getBusiness, action);
+        if (!data.business) {
+            yield put(createAction(signals.BUSINESS_NOT_FOUND));
+        }
+        yield put(createAction(signals.BUSINESS_LOADED, data));
+    });
+}
+
 export default function* root() {
     yield all([
         fork(watchUpdateFilters),
         fork(initLoadBusinesses),
-        // fork(initLoadCategories),
+        fork(watchLoadReviews),
         fork(watchLoadCategories),
+        fork(watchLoadBusiness),
         fork(locationSaga),
         fork(paginationSaga),
     ]);

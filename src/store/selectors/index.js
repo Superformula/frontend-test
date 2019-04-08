@@ -1,7 +1,12 @@
 import {REDUX_KEYS} from '../../constants';
 
 export const selectBusinesses = state => state[REDUX_KEYS.BUSINESSES].toJS().businesses;
-export const selectLoading = state => state[REDUX_KEYS.BUSINESSES].toJS().loading;
+export const selectBusinessesLoading = state => state[REDUX_KEYS.BUSINESSES].toJS().loading;
+export const selectBusinessLoading = state => state[REDUX_KEYS.BUSINESSES].toJS().loadingSingle;
+export const selectNotFound = state => state[REDUX_KEYS.BUSINESSES].toJS().notFound;
+export const selectReviews = state => state[REDUX_KEYS.REVIEWS].toJS().reviews;
+export const selectReviewsLoading = state => state[REDUX_KEYS.REVIEWS].toJS().loading;
+export const selectReviewsTotal = state => state[REDUX_KEYS.REVIEWS].toJS().total;
 export const selectFilters = state => state[REDUX_KEYS.FILTERS].toJS();
 export const selectCategories = state => state[REDUX_KEYS.CATEGORIES].toJS().categories;
 export const selectLocation = state => {
@@ -22,5 +27,5 @@ const memoizedSearch = (selector, predicate) => {
 };
 
 export const [selectCategory, clearCategoryCache] = memoizedSearch(selectCategories, alias => c => c.alias.includes(alias));
-export const [selectBusiness, clearBusinessCache] = memoizedSearch(selectBusinesses, name => b => b.name.includes(name));
+export const [selectBusiness, clearBusinessCache] = memoizedSearch(selectBusinesses, id => b => b.id === id);
 

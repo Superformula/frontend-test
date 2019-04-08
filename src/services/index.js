@@ -39,21 +39,33 @@ const yelpClient = new ApolloClient({
     },
 });
 
-const baseSelections = `
-            total
-            business {
-                id
-                name
-                photos
-                rating
-                price
-                is_closed
-                categories {
-                    title
-                    alias
-                }
-            }
-        `;
+const businessSelections = `  
+id
+name
+photos
+rating
+price
+location {
+  address1
+  address2
+  address3
+  city
+  state
+  postal_code
+}
+is_closed
+categories {
+  title
+  alias
+}
+`;
+
+const searchSelections = `
+total
+business {
+    ${businessSelections}
+}
+`;
 
 const nodeTypeLookup = {
     location: 'String!',
@@ -64,7 +76,7 @@ const nodeTypeLookup = {
     categories: 'String',
 };
 
-const buildQuery = (filters = {}) => {
+const buildBusinessesQuery = (filters = {}) => {
     if (filters.price) {
         if (filters.price.toLowerCase() === 'all') {
             filters.price = null;
@@ -79,7 +91,18 @@ const buildQuery = (filters = {}) => {
                           ${keys.map(k => `$${k}: ${nodeTypeLookup[k]}`)}) {
             search(limit: $limit,
                    offset: $offset${keys.length ? ',' : ''} ${keys.map(k => `${k}: $${k}`)}) {
-                ${baseSelections}
+                ${searchSelections}
+            }
+        }
+    `;
+    return gql(stringGql);
+};
+
+const buildBusinessQuery = () => {
+    const stringGql = `
+        query GetBusiness($id: String!) {
+            business(id: $id) {
+                ${businessSelections}
             }
         }
     `;
@@ -88,8 +111,15 @@ const buildQuery = (filters = {}) => {
 
 export const getBusinesses = async ({limit = DEFAULT_LIMIT, offset = DEFAULT_OFFSET, ...filters}) => {
     return yelpClient.query({
-        query: buildQuery(filters),
+        query: buildBusinessesQuery(filters),
         variables: {limit, offset, ...filters},
+    });
+};
+
+export const getBusiness = async ({businessId}) => {
+    return yelpClient.query({
+        query: buildBusinessQuery(),
+        variables: {id: businessId},
     });
 };
 
@@ -99,4 +129,28 @@ export const getCategories = async () => {
             'Authorization': `Bearer ${BEARER_TOKEN}`,
         }),
     }).then(resp => resp.json());
+};
+
+export const getReviews = async ({businessId, limit = DEFAULT_LIMIT, offset = DEFAULT_OFFSET}) => {
+    return yelpClient.query({
+        query: gql`
+            query FindReviews($limit: Int!, $offset: Int!, $businessId: String!) {
+                reviews(business: $businessId, limit: $limit, offset: $offset) {
+                    total
+                    review {
+                        id
+                        rating
+                        text
+                        time_created
+                        user {
+                            name
+                            image_url
+                            id
+                        }
+                    }
+                }
+            }
+        `,
+        variables: {limit, offset, businessId},
+    });
 };

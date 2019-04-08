@@ -24,7 +24,7 @@ You can ask us and we will provide you a Yelp API Key to use for your PR.
 
 ```
 Main
-  - Filter navigation
+  - Index navigation
     - Open now (client side filter)
     - Price (client side filter)
     - Categories/Cuisines (server side search filter)

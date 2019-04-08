@@ -10,12 +10,10 @@
 .back-arrow {
   color: $color-primary;
   font-size: $x-large-spacing;
-  margin: $spacing;
-  position: absolute;
 }
 
 .view {
-  > .title {
+  &:not(.spaced) > .title {
     margin: $spacing;
   }
 }
@@ -30,4 +28,8 @@
 
 .content {
   @extend %gray-text;
+}
+
+.spaced {
+  @extend %spaced;
 }
