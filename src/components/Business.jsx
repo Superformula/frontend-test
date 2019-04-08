@@ -9,7 +9,7 @@ import {updateFilters} from 'Store/actions';
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
-const Card = ({place = {}, loadReviews}) => {
+const Business = ({place = {}, loadReviews}) => {
     const name = place.name;
     const id = place.id;
     const imgSrc = get(place, 'photos[0]');
@@ -19,12 +19,12 @@ const Card = ({place = {}, loadReviews}) => {
     const isOpen = !get(place, 'is_closed', true);
 
     return (
-        <div className='card'>
+        <div className='business'>
             <img className='image' src={imgSrc} alt={name}/>
-            <div className='card-details'>
+            <div className='business-details'>
                 <ResponsiveEllipsis className='name' text={name} maxLine={2} trimRight basedOn='letters'/>
                 <StarRating rating={rating}/>
-                <div className='card-info'>
+                <div className='business-info'>
                     <div className='category' style={{overflow: 'ellipsis'}}>{category}</div>
                     <div className='separator'>•</div>
                     <div className='price'>{price}</div>
@@ -45,4 +45,4 @@ const Card = ({place = {}, loadReviews}) => {
 
 export default connect(null, {
     updateFilters,
-})(Card);
+})(Business);

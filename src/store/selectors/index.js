@@ -6,6 +6,7 @@ export const selectBusinessLoading = state => state[REDUX_KEYS.BUSINESSES].toJS(
 export const selectNotFound = state => state[REDUX_KEYS.BUSINESSES].toJS().notFound;
 export const selectReviews = state => state[REDUX_KEYS.REVIEWS].toJS().reviews;
 export const selectReviewsLoading = state => state[REDUX_KEYS.REVIEWS].toJS().loading;
+export const selectReviewsFor = state => state[REDUX_KEYS.REVIEWS].toJS().for;
 export const selectReviewsTotal = state => state[REDUX_KEYS.REVIEWS].toJS().total;
 export const selectFilters = state => state[REDUX_KEYS.FILTERS].toJS();
 export const selectCategories = state => state[REDUX_KEYS.CATEGORIES].toJS().categories;

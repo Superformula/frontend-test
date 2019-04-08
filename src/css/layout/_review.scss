@@ -1,0 +1,28 @@
+@import '../imports/all';
+
+.review {
+  @include flex-flow(row wrap);
+  margin-bottom: $x-large-spacing;
+
+  .details {
+    @include flex-flow(column nowrap);
+    flex: 1;
+    justify-content: space-evenly;
+    margin-left: $smallish-spacing;
+
+    .name {
+      font-weight: bold;
+    }
+  }
+
+  .rating {
+    margin: $small-spacing 0;
+    width: 100%;
+  }
+
+  img {
+    height: 20vw;
+    object-fit: cover;
+    width: 20vw;
+  }
+}

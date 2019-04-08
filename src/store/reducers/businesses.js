@@ -22,10 +22,13 @@ export default function (state = initialState, action) {
         case signals.BUSINESS_LOADING:
             return state.merge(fromJS({loadingSingle: true, notFound: false}));
         case signals.BUSINESS_LOADED:
+            const businesses = state.toJS().businesses;
+            const newBusiness = get(action, 'business', {});
+            if (businesses.find(b => b.id === newBusiness.id)) return state;
             return state.mergeDeep(fromJS({
                 loadingSingle: false,
                 notFound: false,
-                businesses: [get(action, 'business', {})],
+                businesses: [newBusiness],
             }));
         default:
             return state;

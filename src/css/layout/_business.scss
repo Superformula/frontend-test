@@ -1,6 +1,6 @@
 @import '../imports/all';
 
-.card {
+.business {
   @include flex-flow(row);
   align-items: center;
   height: 35vw;
@@ -33,7 +33,7 @@
     }
   }
 
-  .card-details {
+  .business-details {
     @include flex-flow(column);
     align-content: space-between;
     flex: 1;
@@ -79,7 +79,7 @@
 
 
 .detail-info,
-.card-info {
+.business-info {
   align-items: center;
   color: $color-gray;
   display: flex;
@@ -160,12 +160,17 @@
 
   .detail-images {
     height: 25vh;
-    margin: $spacing $spacing $spacing 0;
+    margin: $larger-spacing $spacing $larger-spacing 0;
 
     .detail-image {
       height: 100%;
       overflow-x: auto;
     }
+  }
+
+  .review-count {
+    color: $color-dark-gray;
+    margin: $large-spacing 0;
   }
 
   .hr {

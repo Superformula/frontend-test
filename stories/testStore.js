@@ -1,7 +1,8 @@
+import {REDUX_KEYS} from 'Constants';
 import {fromJS} from 'immutable';
 
 export default {
-    BUSINESSES: fromJS({
+    [REDUX_KEYS.BUSINESSES]: fromJS({
         loading: false,
         businesses: [
             {
@@ -506,7 +507,7 @@ export default {
             },
         ],
     }),
-    CATEGORIES: fromJS({
+    [REDUX_KEYS.CATEGORIES]: fromJS({
         loading: true,
         categories: [
             {
@@ -535,13 +536,25 @@ export default {
             },
         ],
     }),
-    FILTERS: fromJS({}),
-    LOCATION: fromJS({
+    [REDUX_KEYS.FILTERS]: fromJS({}),
+    [REDUX_KEYS.LOCATION]: fromJS({
         location: '29401',
     }),
-    PAGINATION: fromJS([]),
-    REVIEWS: fromJS({
+    [REDUX_KEYS.PAGINATION]: fromJS([]),
+    [REDUX_KEYS.REVIEWS]: fromJS({
         loading: false,
-        reviews: [],
+        reviews: [{
+            id: 'FxcNgER255MUnl92tJu71Q',
+            rating: 5,
+            text: 'Our group of 6 all agreed that Raw is one of the best eats in Charleston. Super fresh oysters and great seafood all around. The chefs really know how to let...',
+            time_created: '2019-04-08 08:37:30',
+            user: {
+                name: 'Jenny G.',
+                image_url: 'https://s3-media2.fl.yelpcdn.com/photo/e8NgpKRNVxXWNgOkO53RMA/o.jpg',
+                id: 'bfdFzJ264QGhK_WdzcOjww',
+                __typename: 'User',
+            },
+            __typename: 'Review',
+        }],
     }),
 };

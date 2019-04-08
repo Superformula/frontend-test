@@ -1,4 +1,4 @@
-import {all, call, fork, put, select, take, takeLatest} from 'redux-saga/effects';
+import {all, call, fork, put, select, take, takeEvery, takeLatest} from 'redux-saga/effects';
 import {getBusiness, getBusinesses, getCategories, getReviews, getThirdPartyLocationData} from 'Services';
 import {createAction, loadBusiness, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
 import {clearBusinessCache, clearCategoryCache, selectFilters, selectLocation} from 'Store/selectors';
@@ -57,7 +57,7 @@ function* watchLoadCategories() {
 }
 
 function* watchLoadReviews() {
-    yield takeLatest(signals.GET_REVIEWS, fetchReviews);
+    yield takeEvery(signals.GET_REVIEWS, fetchReviews);
 }
 
 function* fetchReviews(action) {

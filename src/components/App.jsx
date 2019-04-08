@@ -1,4 +1,4 @@
-import Card from 'Components/Card';
+import Card from 'Components/Business';
 import Filter from 'Components/Filter';
 import Header from 'Components/Header';
 import 'Css/main.scss';
