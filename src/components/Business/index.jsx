@@ -1,3 +1,4 @@
+import Info from 'Components/Business/Info';
 import StarRating from 'Components/StarRating';
 import {get} from 'lodash';
 import React from 'react';
@@ -9,7 +10,7 @@ import {updateFilters} from 'Store/actions';
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
-const Business = ({place = {}, loadReviews}) => {
+const Index = ({place = {}, loadReviews}) => {
     const name = place.name;
     const id = place.id;
     const imgSrc = get(place, 'photos[0]');
@@ -24,15 +25,7 @@ const Business = ({place = {}, loadReviews}) => {
             <div className='business-details'>
                 <ResponsiveEllipsis className='name' text={name} maxLine={2} trimRight basedOn='letters'/>
                 <StarRating rating={rating}/>
-                <div className='business-info'>
-                    <div className='category' style={{overflow: 'ellipsis'}}>{category}</div>
-                    <div className='separator'>•</div>
-                    <div className='price'>{price}</div>
-                    {isOpen
-                        ? <div className='status open'>OPEN</div>
-                        : <div className='status closed'>CLOSED</div>
-                    }
-                </div>
+                <div className='business-info'><Info category={category} price={price} open={isOpen}/></div>
                 <Link to={`/detail/${encodeURIComponent(id)}`} className='button learn-more' onClick={loadReviews}>
                     <div className='text'>
                         Learn More <span className='arrow'>→</span>
@@ -45,4 +38,4 @@ const Business = ({place = {}, loadReviews}) => {
 
 export default connect(null, {
     updateFilters,
-})(Business);
+})(Index);
