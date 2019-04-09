@@ -253,12 +253,13 @@
     grid-gap: $small-spacing;
     grid-template-columns: repeat(6, 40vw);
     grid-template-rows: minmax($image-height * .75, 1fr);
-    margin: $spacing 0 $spacing $spacing;
+    margin: $spacing 0;
     order: 2;
     width: 40vw;
 
     @include media {
       height: 20%;
+      margin-left: 1.5rem;
       order: 1;
     }
 
