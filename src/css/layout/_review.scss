@@ -7,12 +7,24 @@
   .details {
     @include flex-flow(column nowrap);
     flex: 1;
-    justify-content: space-evenly;
-    margin-left: $smallish-spacing;
+    justify-content: flex-start;
+    margin-left: $spacing;
+    margin-top: $x-small-spacing / 2;
 
     .name {
+      flex: 4;
+      font-size: 1.25rem;
       font-weight: bold;
     }
+
+    .date {
+      flex: 5;
+      font-size: 1.1rem;
+    }
+  }
+
+  .info {
+    @include flex-flow(row)
   }
 
   .rating {

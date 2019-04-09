@@ -8,7 +8,7 @@ const Review = ({review}) => {
             <img alt={review.user.name} src={review.user.image_url}/>
             <div className='details'>
                 <div className='name'>{review.user.name}</div>
-                <div className='date'>{moment(review.time_created).format('L')}</div>
+                <div className='date'>{moment(review.time_created).format('l')}</div>
             </div>
         </div>
         <div className='content'>

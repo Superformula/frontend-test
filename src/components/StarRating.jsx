@@ -2,7 +2,6 @@ import {range} from 'lodash';
 import React from 'react';
 
 const star = (key, percentage = 0) => {
-    console.log(key);
     const gradientId = `starGradient-${key}`;
     const primaryColor = '#002b57';
     return (

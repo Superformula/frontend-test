@@ -16,7 +16,7 @@ const Business = ({place = {}, loadReviews}) => {
     const rating = place.rating;
     const price = place.price;
     const category = get(place, 'categories[0].title', 'Unknown').toUpperCase();
-    const isOpen = !get(place, 'is_closed', true);
+    const isOpen = get(place, 'hours[0].is_open_now', true);
 
     return (
         <li className='business'>

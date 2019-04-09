@@ -29,7 +29,7 @@ function* locationSaga() {
                 console.log(`Using ${position} for position, instead of geolocation.`);
             } catch (e) {
                 position = 'Las Vegas';
-                console.log(`I'm giving up...We're in ${position} now!`);
+                console.log(`Failed both geoposition attempts...we're in ${position} now!`);
             }
         }
         yield put(storeUpdatedPosition(position));
@@ -111,7 +111,6 @@ function* fetchBusiness(action) {
     yield put(createAction(signals.BUSINESS_LOADING));
     yield safeInvoke(function* () {
         const {data} = yield call(getBusiness, action);
-        console.log({data});
         yield put(createAction(signals.BUSINESS_LOADED, data));
     }, function* () {
         yield put(createAction(signals.BUSINESS_NOT_FOUND));

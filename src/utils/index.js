@@ -32,7 +32,6 @@ export const safeInvoke = function* (func, onError = noop) {
     try {
         yield func();
     } catch (e) {
-        console.warn('catching error in safeInvoke!');
         console.error(e);
         if (onError && typeof onError === 'function') yield onError();
     }

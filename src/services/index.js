@@ -44,6 +44,9 @@ id
 name
 photos
 rating
+hours {
+  is_open_now
+}
 price
 location {
   address1
