@@ -19,7 +19,7 @@ const Business = ({place = {}, loadReviews}) => {
     const isOpen = !get(place, 'is_closed', true);
 
     return (
-        <div className='business'>
+        <li className='business'>
             <img className='image' src={imgSrc} alt={name}/>
             <div className='business-details'>
                 <ResponsiveEllipsis className='name' text={name} maxLine={2} trimRight basedOn='letters'/>
@@ -39,7 +39,7 @@ const Business = ({place = {}, loadReviews}) => {
                     </div>
                 </Link>
             </div>
-        </div>
+        </li>
     );
 };
 

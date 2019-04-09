@@ -1,4 +1,4 @@
-import {all, call, fork, put, select, take, takeEvery, takeLatest} from 'redux-saga/effects';
+import {all, call, fork, put, select, take, takeLatest} from 'redux-saga/effects';
 import {getBusiness, getBusinesses, getCategories, getReviews, getThirdPartyLocationData} from 'Services';
 import {createAction, loadBusiness, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
 import {clearBusinessCache, clearCategoryCache, selectFilters, selectLocation} from 'Store/selectors';
@@ -38,14 +38,6 @@ function* locationSaga() {
     }
 }
 
-function* initLoadBusinesses() {
-    yield put(loadBusinesses());
-}
-
-function* initLoadCategories() {
-    yield put(createAction(signals.CATEGORIES_LOADING));
-}
-
 function* fetchCategories() {
     const categories = yield call(getCategories);
     yield put(createAction(signals.CATEGORIES_LOADED, categories));
@@ -53,11 +45,17 @@ function* fetchCategories() {
 }
 
 function* watchLoadCategories() {
+    yield take(signals.LOCATION_UPDATED);
     yield takeLatest(signals.CATEGORIES_LOADING, fetchCategories);
 }
 
 function* watchLoadReviews() {
-    yield takeEvery(signals.GET_REVIEWS, fetchReviews);
+    const {reviews} = yield  all({
+        location: take(signals.LOCATION_UPDATED),
+        reviews: take(signals.GET_REVIEWS),
+    });
+    yield takeLatest(signals.GET_REVIEWS, fetchReviews);
+    yield put(createAction(signals.GET_REVIEWS, reviews));
 }
 
 function* fetchReviews(action) {
@@ -71,19 +69,18 @@ function* fetchReviews(action) {
 }
 
 function* watchUpdateFilters() {
-    let {updateFilters} = yield all({
-        updateFilters: take(signals.UPDATE_FILTERS),
-        waitForLocation: take(signals.LOCATION_UPDATED),
+    yield take(signals.LOCATION_UPDATED);
+    yield takeLatest(signals.UPDATE_FILTERS, handleUpdateFilters);
+    yield put(loadBusinesses());
+}
+
+function* handleUpdateFilters(updateFilters) {
+    yield safeInvoke(function* () {
+        const {type, ...params} = updateFilters;
+        const location = selectLocation(yield select());
+        const {filters, ...pagination} = params;
+        yield updateBusinesses({...pagination, ...filters, ...location});
     });
-    while (true) {
-        yield safeInvoke(function* () {
-            const {type, ...params} = updateFilters;
-            const location = selectLocation(yield select());
-            const {filters, ...pagination} = params;
-            yield updateBusinesses({...pagination, ...filters, ...location});
-        });
-        updateFilters = yield take(signals.UPDATE_FILTERS);
-    }
 }
 
 function* paginationSaga() {
@@ -106,6 +103,7 @@ function* updateBusinesses(params) {
 }
 
 function* watchLoadBusiness() {
+    yield take(signals.LOCATION_UPDATED);
     yield takeLatest(signals.LOAD_BUSINESS, fetchBusiness);
 }
 
@@ -113,17 +111,16 @@ function* fetchBusiness(action) {
     yield put(createAction(signals.BUSINESS_LOADING));
     yield safeInvoke(function* () {
         const {data} = yield call(getBusiness, action);
-        if (!data.business) {
-            yield put(createAction(signals.BUSINESS_NOT_FOUND));
-        }
+        console.log({data});
         yield put(createAction(signals.BUSINESS_LOADED, data));
+    }, function* () {
+        yield put(createAction(signals.BUSINESS_NOT_FOUND));
     });
 }
 
 export default function* root() {
     yield all([
         fork(watchUpdateFilters),
-        fork(initLoadBusinesses),
         fork(watchLoadReviews),
         fork(watchLoadCategories),
         fork(watchLoadBusiness),

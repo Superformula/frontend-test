@@ -30,8 +30,18 @@
   }
 }
 
-@mixin media($width) {
-  @media only screen and (min-width: $width) {
+@mixin media {
+  @media only screen and (min-width: $screen-break-point) {
     @content;
   }
+}
+
+@mixin media-smaller {
+  @media only screen and (max-width: $screen-break-point-max) {
+    @content;
+  }
+}
+
+@mixin drop-shadow {
+  box-shadow: 0 6px 5px 0 rgba(0, 0, 0, 0.10), inset 0 -1px 0 0 #c8c8c8;
 }

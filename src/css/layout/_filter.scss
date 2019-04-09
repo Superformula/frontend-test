@@ -1,5 +1,103 @@
 @import '../imports/all';
 
+.button,
+.dropdown,
+.switch {
+  &-filter {
+    @extend %spaced;
+
+    .label {
+      text-transform: uppercase;
+
+      &.selected {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.button-filter {
+  .options {
+    margin: $spacing 0 0;
+
+    .option {
+      border: 1px $color-light-gray solid;
+      flex: 1 0 20%;
+      font-size: .8rem;
+      justify-content: space-between;
+      padding: $smaller-spacing 0;
+      text-align: center;
+      text-transform: uppercase;
+
+      &.selected {
+        background-color: $color-primary;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+.dropdown-filter.row {
+  @include flex-flow(row wrap);
+  padding-bottom: 0;
+
+  .label {
+    &.help {
+      color: $color-gray;
+      text-transform: none;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked + .dropdown-menu {
+      transform: scaleX(1);
+    }
+  }
+
+  > .display {
+    @extend %dropdown;
+    margin: $x-small-spacing 0;
+    width: 100%;
+  }
+}
+
+.dropdown-menu {
+  @include flex-flow(row wrap);
+  height: 100%;
+  padding: 0 $spacing;
+
+  &.closed {
+    * {
+      display: none;
+      height: 0;
+    }
+  }
+
+  .option {
+    > input {
+      display: none;
+
+      &:checked + .text {
+        color: $color-primary;
+      }
+    }
+
+    &.row {
+      justify-content: flex-start;
+    }
+
+    svg {
+      margin: $smaller-spacing $small-spacing $smaller-spacing 0;
+    }
+  }
+
+  .ellipsis {
+    text-align: center;
+    width: 100%;
+  }
+}
 
 .filter {
   justify-content: space-between;
@@ -31,6 +129,13 @@
   }
 
   &.closed {
+    @include media-smaller {
+      > .button.clear,
+      + .hr {
+        display: none;
+      }
+    }
+
     > .filter-open,
     > .filter-open > * {
       display: none;
@@ -59,20 +164,69 @@
   }
 }
 
-@include media($screen-break-point) {
+@include media {
   .filter {
     &-closed.row,
     &-open {
+      @include flex-flow(row nowrap);
       display: none;
     }
 
+    &.closed {
+      @include flex-flow(row wrap);
+      align-items: center;
+    }
+
     &-large {
-      display: block;
-      margin: $spacing;
+      @include flex-flow(row nowrap);
+      flex: 1;
+      padding: $large-spacing $spacing $spacing;
+      width: 80%;
 
       .label {
         font-size: 1rem;
+        min-width: 68px;
         text-transform: none;
+      }
+    }
+
+    .hr {
+      left: 1rem;
+      position: relative;
+      width: 100vw;
+    }
+
+    .dropdown {
+      margin-right: $spacing;
+      max-height: $spacing;
+      max-width: 15rem;
+      width: 30%;
+      z-index: 1;
+    }
+
+    .dropdown-filter.row {
+      @include flex-flow(row nowrap);
+      border-bottom: 1px solid $color-primary;
+      margin: 0 $smaller-spacing;
+      padding: 0;
+
+      .display {
+        flex: 0;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .dropdown-menu {
+      @include drop-shadow;
+      background: $color-white;
+      height: auto;
+      margin-left: $smaller-spacing;
+      padding: $smaller-spacing;
+      width: 100%;
+
+      &.closed {
+        display: none;
       }
     }
   }
@@ -92,4 +246,15 @@
 
 .dropdown {
   text-transform: capitalize;
+
+  @include media {
+    .label {
+      flex: 1;
+      padding-bottom: $x-small-spacing / 3;
+    }
+
+    .content {
+      display: none;
+    }
+  }
 }

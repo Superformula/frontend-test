@@ -25,11 +25,16 @@ export const escapeHandler = (onPress) => window.addEventListener('keydown', eve
     }
 }, true);
 
-export const safeInvoke = function* (func) {
+function* noop() {
+}
+
+export const safeInvoke = function* (func, onError = noop) {
     try {
         yield func();
     } catch (e) {
+        console.warn('catching error in safeInvoke!');
         console.error(e);
+        if (onError && typeof onError === 'function') yield onError();
     }
 };
 
@@ -40,4 +45,24 @@ export const buildFilterString = (filters) => {
     if (filters.price) filterString += addComma(filters.price);
     if (filters.open) filterString += addComma(filters.open ? 'Open Now' : '');
     return filterString === '' ? 'All' : filterString;
+};
+
+/**
+ * Simulate a key event.
+ * @param {Number} keyCode The keyCode of the key to simulate
+ * @param {String} type (optional) The type of event : down, up or press. The default is down
+ * @param {Object} modifiers (optional) An object which contains modifiers keys { ctrlKey: true, altKey: false, ...}
+ */
+export const simulateKey = (keyCode, type = 'down', modifiers = {}) => {
+    const evtName = (typeof (type) === 'string') ? 'key' + type : 'keydown';
+    const event = document.createEvent('HTMLEvents');
+
+    event.initEvent(evtName, true, false);
+    event.keyCode = keyCode;
+
+    for (const i in modifiers) {
+        event[i] = modifiers[i];
+    }
+
+    document.dispatchEvent(event);
 };

@@ -46,16 +46,23 @@
   @include button;
 }
 
-@include media($screen-break-point) {
+@include media {
   .button.learn-more {
     .text {
       @include button;
-
       color: $color-white;
+      margin-top: $x-small-spacing;
 
       .arrow {
         display: none;
       }
     }
+  }
+
+  .button.clear {
+    justify-self: flex-end;
+    margin-right: $spacing;
+    max-width: $small-spacing * 10;
+    min-width: $x-small-spacing * 13;
   }
 }

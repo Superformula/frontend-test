@@ -2,10 +2,11 @@ import {range} from 'lodash';
 import React from 'react';
 
 const star = (key, percentage = 0) => {
+    console.log(key);
     const gradientId = `starGradient-${key}`;
     const primaryColor = '#002b57';
     return (
-        <svg className='star' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' key={key}>
+        <svg key={key} className='star' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'>
             <defs>
                 <linearGradient id={gradientId} x1='0' x2='1' y1='.5' y2='.5'>
                     <stop offset='0%' stopOpacity='1' stopColor={primaryColor}/>
@@ -21,7 +22,7 @@ const star = (key, percentage = 0) => {
     );
 };
 
-const StarRating = ({rating, max = 5}) => {
+const StarRating = ({keyPrefix, rating, max = 5}) => {
     if (rating > max) {
         rating = max;
     } else if (rating < 0) {
@@ -31,12 +32,12 @@ const StarRating = ({rating, max = 5}) => {
     const isInteger = rating === filled;
 
     const percent = isInteger ? 0 : Math.round((rating - filled) * 100);
-
+    const buildKey = k => `${keyPrefix}:${k}`;
     return (
         <div className='star-rating'>
-            {range(filled).map(k => star(k, 100))}
-            {percent > 0 ? star(filled, percent) : ''}
-            {range(filled + 1, max + (isInteger ? 1 : 0)).map(k => star(k))}
+            {range(filled).map(k => star(buildKey(k), 100))}
+            {percent > 0 ? star(buildKey(filled), percent) : ''}
+            {range(filled + 1, max + (isInteger ? 1 : 0)).map(k => star(buildKey(k)))}
         </div>
     );
 };

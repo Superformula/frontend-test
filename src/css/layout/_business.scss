@@ -9,14 +9,9 @@
   min-height: 100px;
   width: 100%;
 
-  @include media($screen-break-point) {
+  @include media {
     @include flex-flow(column nowrap);
-    align-items: flex-start;
-    flex: 1 0 20%;
-    height: 20 * $small-spacing;
-    margin: $spacing;
-    min-width: 15 * $small-spacing;
-    width: 20%;
+    height: unset;
   }
 
   .image {
@@ -24,8 +19,8 @@
     object-fit: cover;
     width: 35%;
 
-    @include media($screen-break-point) {
-      height: 65%;
+    @include media {
+      height: $image-height * .75;
       width: 100%;
     }
   }
@@ -56,7 +51,7 @@
     padding-left: 5%;
     width: 60%;
 
-    @include media($screen-break-point) {
+    @include media {
       padding: 0;
       width: 100%;
 
@@ -66,6 +61,8 @@
 
       .business-info,
       .status {
+        align-items: baseline;
+        flex: 1 0 auto;
         font-size: .5rem;
       }
 
@@ -160,9 +157,25 @@
 }
 
 .detail.view {
+  max-width: 900px;
+
+  @include media {
+    margin: auto;
+  }
+
+  @include media-smaller {
+    > .hr.full:nth-of-type(2) {
+      display: none;
+    }
+  }
+
   .detail-header {
     @include flex-flow(column nowrap);
     justify-content: space-around;
+
+    @include media {
+      margin-bottom: $x-large-spacing;
+    }
 
     > *:not(.title) {
       margin-top: $small-spacing;
@@ -190,23 +203,77 @@
       &.open {
         background-color: $color-neon-green;
       }
+
+      &.closed {
+        background-color: $color-neon-red;
+      }
     }
   }
 
   .detail-map {
-    left: -$spacing;
-    margin: $larger-spacing 0 $spacing;
+    background-image: url('/mapPlaceholder.svg');
+    background-position: center;
+    background-size: cover;
+    height: $image-height * .75;
+    margin: $spacing (-$spacing);
+    min-width: $min-view-width;
     position: relative;
     width: 100vw;
+
+    @include media {
+      height: $image-height;
+      left: 0;
+      order: 0;
+      width: 50%;
+    }
+  }
+
+  .detail-container {
+    @include flex-flow(row wrap);
+  }
+
+  .detail-address {
+    flex-basis: 100%;
+    order: 1;
+
+    @include media {
+      @include flex-flow(row nowrap);
+      margin-bottom: $larger-spacing;
+      order: 2;
+
+      > *::after {
+        color: transparent;
+        content: 'I'; // decent spacer
+      }
+    }
   }
 
   .detail-images {
-    height: 25vh;
-    margin: $larger-spacing $spacing $larger-spacing 0;
+    display: grid;
+    grid-gap: $small-spacing;
+    grid-template-columns: repeat(6, 40vw);
+    grid-template-rows: minmax($image-height * .75, 1fr);
+    margin: $spacing 0 $spacing $spacing;
+    order: 2;
+    width: 40vw;
+
+    @include media {
+      height: 20%;
+      order: 1;
+    }
 
     .detail-image {
       height: 100%;
-      overflow-x: auto;
+      max-height: 100%;
+      max-width: 100%;
+      min-width: $image-height;
+      object-fit: cover;
+
+      @include media {
+        height: $image-height;
+        margin-left: $small-spacing;
+        object-fit: cover;
+      }
     }
   }
 
@@ -218,10 +285,21 @@
   .hr {
     width: 100%;
 
+    &:not(.full) {
+      @include media {
+        left: 0;
+        width: 100%;
+      }
+    }
+
     &.full {
       left: -$spacing;
       position: relative;
       width: 100vh;
+
+      @include media {
+        left: -3 * $small-spacing;
+      }
     }
   }
 }

@@ -11,7 +11,7 @@
   }
 }
 
-@include media($screen-break-point) {
+@include media {
   .header {
     .content {
       width: 60%;

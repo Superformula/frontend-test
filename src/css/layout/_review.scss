@@ -26,7 +26,47 @@
 
   img {
     height: 20vw;
+    min-height: $image-height * .29;
+    min-width: $image-height * .29;
     object-fit: cover;
     width: 20vw;
+  }
+}
+
+
+@include media {
+  .review {
+    img {
+      height: $image-height * .4;
+      object-fit: cover;
+      width: $image-height * .4;
+    }
+
+    .info {
+      @include flex-flow(row nowrap);
+      flex: 1;
+    }
+
+    .content {
+      flex: 3;
+      margin-left: $x-large-spacing * 2;
+    }
+
+    .details {
+      justify-content: flex-start;
+      margin-top: $x-small-spacing / 4;
+
+      .date {
+        font-size: .8rem;
+      }
+    }
+
+    .rating {
+      margin-top: 0;
+    }
+
+    .hr {
+      margin: $x-large-spacing 0 $smaller-spacing;
+    }
   }
 }

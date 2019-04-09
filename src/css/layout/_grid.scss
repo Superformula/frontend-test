@@ -5,9 +5,18 @@
   padding: 0 $spacing;
   width: 100%;
 
-  @include media($screen-break-point) {
-    padding: 0;
+  @include media {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(4, 1fr);
+    list-style: none;
+    width: 100%;
   }
+
+  @media only screen and (min-width: $screen-break-point) and (max-width: $screen-break-point + 250px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
 
   .loader {
     flex: 1;
@@ -16,7 +25,8 @@
   .loading-pane {
     border: unset;
     box-shadow: unset;
-    height: 50vw;
-    width: 100%;
+    min-height: 25vh;
+    min-width: 100%;
+    position: relative;
   }
 }

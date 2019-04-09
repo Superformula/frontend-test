@@ -1,0 +1,62 @@
+@import '../imports/all';
+
+.switch {
+  background: $color-light-gray;
+  border-radius: 50px;
+  box-shadow: inset 0 0 2px $color-gray;
+  height: $x-small-spacing;
+  position: relative;
+  width: $large-spacing;
+
+  > input {
+    opacity: 0;
+
+    @include media-smaller {
+      &:checked + .knob {
+        background-color: $color-neon-green;
+        transform: translateX($large-spacing - $small-spacing);
+      }
+    }
+  }
+
+  .knob {
+    @include light-transparent-gradient();
+    border-radius: 100px;
+    box-shadow: 0 0 2px $color-gray;
+    height: $small-spacing;
+    position: absolute;
+    top: -$x-small-spacing / 2;
+    transition: .4s;
+    width: $small-spacing;
+  }
+}
+
+@include media {
+  .switch-filter.row {
+    @include flex-flow(row nowrap);
+    border-bottom: 1px solid $color-primary;
+    flex: 0 0 7 * $small-spacing;
+    margin: 0 $spacing;
+    padding: 0 0 $x-small-spacing / 3;
+
+    .label.selected {
+      font-weight: normal;
+    }
+  }
+
+  .switch {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    order: -1;
+
+    .knob {
+      background: transparent;
+    }
+
+    > input:checked + .knob {
+      background-color: $color-primary;
+      border: 2px $color-white solid;
+    }
+  }
+}

@@ -1,17 +1,17 @@
-import Card from 'Components/Business';
+import Business from 'Components/Business';
 import Filter from 'Components/Filter';
 import Header from 'Components/Header';
 import 'Css/main.scss';
 import React from 'react';
 import {connect} from 'react-redux';
-import {Dimmer, Loader, Segment} from 'semantic-ui-react';
-import {loadBusinesses} from 'Store/actions';
+import {Dimmer, Loader} from 'semantic-ui-react';
 import {selectBusinesses, selectBusinessesLoading} from 'Store/selectors';
 
-const App = ({businesses = [], loading, loadBusinesses}) => {
-    if (!businesses.length && !loading) {
-        loadBusinesses();
-    }
+const generateBusinessGrid = buses => {
+    return <ul className='grid'>{buses.map(place => <Business key={place.id} place={place}/>)}</ul>;
+};
+
+const buildDisplay = (loading, content) => {
     return <div className='view'>
         <Header title={'Restaurants'}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -20,22 +20,19 @@ const App = ({businesses = [], loading, loadBusinesses}) => {
         <div className='hr'/>
         <Filter ready={!loading}/>
         <div className='title'>{'All Restaurants'}</div>
-        <Dimmer inverted active={loading}/>
-        <div className='grid'>
-            {loading
-                ? <Segment className='loading-pane'>
-                    <Dimmer inverted active>
-                        <Loader size='massive'/>
-                    </Dimmer>
-                </Segment>
-                : businesses.map(place => <Card key={place.id} place={place}/>)}
-        </div>
+        {content}
     </div>;
+};
+
+const App = ({businesses = [], loading}) => {
+    return buildDisplay(loading, loading
+        ? <Dimmer inverted active>
+            <Loader size='massive'/>
+        </Dimmer>
+        : generateBusinessGrid(businesses));
 };
 
 export default connect(state => ({
     businesses: selectBusinesses(state),
     loading: selectBusinessesLoading(state),
-}), {
-    loadBusinesses,
-})(App);
+}))(App);
