@@ -1,11 +1,12 @@
 const path = require('path');
 const _ = require('lodash');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {BaseHrefWebpackPlugin} = require('base-href-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-module.exports = (env) => {
-    const isProduction = _.get(env, 'production', false);
+module.exports = ({production: isProduction = false, base = '/'} = {}) => {
+    if (isProduction && base) console.log(`Setting base to: ${base}`);
     return {
         devtool: isProduction ? false : 'source-map',
         entry: ['whatwg-fetch', './src/index.js'],
@@ -75,7 +76,8 @@ module.exports = (env) => {
             // Beat that CSS down into something manageable, and pull it out of the bundle...
             // new MiniCssExtractPlugin({filename: '[name].css', chunkFilename: '[id].css'}),
             // automatically generate index.html with the right tags added in
-            new HtmlWebpackPlugin({template: 'src/index.html'}),
+            new HtmlWebpackPlugin({'template': 'src/index.html'}),
+            new BaseHrefWebpackPlugin({baseHref: base}),
         ],
     };
 };

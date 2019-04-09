@@ -262,19 +262,22 @@
       height: 20%;
       margin-left: 1.5rem;
       order: 1;
+      width: 40%;
     }
 
     .detail-image {
-      height: 100%;
-      max-height: 100%;
-      max-width: 100%;
-      min-width: $image-height;
+      height: 55vw;
+      margin-left: $small-spacing;
+      min-height: 150px;
+      min-width: 270px;
       object-fit: cover;
+      width: 80vw;
 
       @include media {
         height: $image-height;
         margin-left: $small-spacing;
         object-fit: cover;
+        width: 100%;
       }
     }
   }

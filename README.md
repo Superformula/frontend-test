@@ -1,16 +1,33 @@
-# Superformula Front-end Developer Coding Test
+# Superformula Front-end Developer Coding Test Solution
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
+Thanks for taking the time to review my test project.  I enjoyed writing it and I hope you enjoy the final product.  I
+made a few enhancements and variations to the UX.  I will describe them in detail later on.  For now...
 
-## Context
+## Quick Start
 
-Use HTML, CSS, and JavaScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
+### Requirements
 
-![Superformula-front-end-test-mockup](./mockup.png)
+ - [node 8+](https://nodejs.org/en/download/)
+ - npm 6+ (this should come with node)
+ 
+ I will be running commands using yarn (1.5.1).  Feel free to use npm instead...
 
-Use this Sketch file to see button states, colors, and responsive design.
+### How to run the application
 
-> [Source Sketch file](Superformula-FE-test-264388d.sketch)
+First clone the repo and install the dependencies.  This can only be done once you have node/npm installed.
+
+```
+$ yarn install
+```
+
+Once you have the dependencies installed, you can run the application locally.  The application is served via webpack's
+devServer and can easily be started with the following command:
+
+```
+$ yarn start
+```
+
+This will spin up a proxied development server at port 3003 
 
 ## Requirements
 
@@ -18,7 +35,8 @@ Use this Sketch file to see button states, colors, and responsive design.
 
 You can ask us and we will provide you a Yelp API Key to use for your PR.
 
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
+> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and 
+proxy your requets to Yelp's endpoints.
 
 ### Page Structure
 
@@ -50,10 +68,14 @@ Detail View
 
 ### Functionality
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
+- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side
+ queries.
 - Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
+- `Categories` can be pre-filled from the 
+[Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
+- The items should always show 4-6 items 
+per row depending on viewport size. Use your own judgement for when to change 
+per breakpoints.
 - Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
 
 ### Tech stack
@@ -77,7 +99,8 @@ Detail View
 
 ## What We Care About
 
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your code & the way you solve the problem, not how well you can use a particular library or feature.
+Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your 
+code & the way you solve the problem, not how well you can use a particular library or feature.
 
 _We're interested in your method and how you approach the problem just as much as we're interested in the end result._
 
@@ -91,7 +114,8 @@ Here's what you should strive for:
 
 > Where should I send back the result when I'm done?
 
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
+Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless 
+otherwise noted to you directly.
 
 > What if I have a question?
 
