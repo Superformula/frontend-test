@@ -7,7 +7,7 @@
     "test": "jest",
     "build": "webpack --env.production",
     "start": "webpack-dev-server --open --mode development",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {

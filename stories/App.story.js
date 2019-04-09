@@ -5,5 +5,4 @@ import StoryProvider from 'Store/StoryProvider';
 
 storiesOf('Routes/Main', module)
     .addDecorator(story => <StoryProvider story={story()}/>)
-    .add('with fake data', () => <Router/>)
-;
+    .add('with fake data', () => <Router/>);

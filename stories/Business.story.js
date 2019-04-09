@@ -5,12 +5,13 @@ import StoryProvider from 'Store/StoryProvider';
 
 storiesOf('Components/Business', module)
     .addDecorator(story => <StoryProvider story={story()}/>)
-    .add('Simple', () => <Business
-        name="Julian's Bakery"
-        imgSrc='https://via.placeholder.com/300'
-        rating={4.25}
-        isOpen={true}
-        category={'American'}
-        price={'$$'}
-    />)
+    .add('Simple', () => <Business place={{
+        name: 'Julian\'s Bakery',
+        id: 1234,
+        photos: ['https://via.placeholder.com/300'],
+        rating: 4.35,
+        price: '$$',
+        categories: [{title: 'American'}],
+        hours: [{is_open_now: true}],
+    }}/>)
 ;
