@@ -1,6 +1,7 @@
 import {REDUX_KEYS} from 'Constants';
 import {fromJS} from 'immutable';
 
+
 export default {
     [REDUX_KEYS.BUSINESSES]: fromJS({
         loading: false,

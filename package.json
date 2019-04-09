@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "build": "webpack --env.production",
     "start": "webpack-dev-server --open --mode development",
     "storybook": "start-storybook -s ./public -p 6006",
@@ -33,7 +34,8 @@
     "redux-saga": "^1.0.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.86.0",
-    "shiitake": "^2.3.0"
+    "shiitake": "^2.3.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -44,21 +46,71 @@
     "@storybook/addon-links": "^5.0.6",
     "@storybook/addons": "^5.0.6",
     "@storybook/react": "^5.0.6",
+    "@types/jest": "^24.0.11",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.1",
+    "expect": "latest",
     "graphql-tag": "^2.10.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.7.1",
+    "jest-fetch-mock": "^2.1.2",
+    "jest-watch-typeahead": "^0.3.0",
     "node-sass": "^4.11.0",
     "react-test-renderer": "^16.8.6",
+    "redux-saga-test-plan": "4.0.0-beta.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/tests/**/tests/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/tests/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testPathIgnorePatterns": [
+      "^<rootDir>/.*data/.*"
+    ],
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
+    ],
+    "moduleNameMapper": {
+      "^Constants(.*)$": "<rootDir>/src/constants/$1",
+      "^Components(.*)$": "<rootDir>/src/components/$1",
+      "^Css(.*)$": "<rootDir>/src/css/$1",
+      "^Services(.*)$": "<rootDir>/src/services/$1",
+      "^Store(.*)$": "<rootDir>/src/store/$1",
+      "^Utils(.*)$": "<rootDir>/src/utils$1"
+    },
+    "moduleFileExtensions": [
+      "tsx",
+      "ts",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest/setupJest.js"
+    ],
+    "watchPlugins": [
+      "<rootDir>/node_modules/jest-watch-typeahead/filename.js",
+      "<rootDir>/node_modules/jest-watch-typeahead/testname.js"
+    ]
   }
 }

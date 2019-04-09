@@ -1,8 +1,8 @@
 import React from 'react';
 import {Provider as ReduxProvider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
-import configureStore from 'Store';
-import testStore from '../tests/data/store';
+import configureStore from 'testStore';
+import testStore from '../../tests/data/testStore';
 
 export default function StoryProvider({story, initialState = testStore}) {
     const store = configureStore(initialState);

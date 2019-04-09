@@ -157,3 +157,14 @@ export const getReviews = async ({businessId, limit = DEFAULT_LIMIT, offset = DE
         variables: {limit, offset, businessId},
     });
 };
+
+// This fails on certain browsers...some chromium bug
+export function updatePosition() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject, {
+            timeout: 200, // 200ms timeout window
+            maximumAge: 75000, // 1:15 min
+            enableHighAccuracy: true,
+        });
+    });
+}

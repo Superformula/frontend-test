@@ -1,22 +1,18 @@
 import {all, call, fork, put, select, take, takeLatest} from 'redux-saga/effects';
-import {getBusiness, getBusinesses, getCategories, getReviews, getThirdPartyLocationData} from 'Services';
+import {
+    getBusiness,
+    getBusinesses,
+    getCategories,
+    getReviews,
+    getThirdPartyLocationData,
+    updatePosition,
+} from 'Services';
 import {createAction, loadBusiness, loadBusinesses, storeUpdatedPosition} from 'Store/actions';
 import {clearBusinessCache, clearCategoryCache, selectFilters, selectLocation} from 'Store/selectors';
 import signals from 'Store/signals';
 import {safeInvoke} from 'Utils';
 
-// This fails on certain browsers...some chromium bug
-function updatePosition() {
-    return new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject, {
-            timeout: 200, // 200ms timeout window
-            maximumAge: 75000, // 1:15 min
-            enableHighAccuracy: true,
-        });
-    });
-}
-
-function* locationSaga() {
+export function* locationSaga() {
     while (true) {
         let position;
         try {
@@ -38,18 +34,18 @@ function* locationSaga() {
     }
 }
 
-function* fetchCategories() {
+export function* fetchCategories() {
     const categories = yield call(getCategories);
     yield put(createAction(signals.CATEGORIES_LOADED, categories));
     yield call(clearCategoryCache);
 }
 
-function* watchLoadCategories() {
+export function* watchLoadCategories() {
     yield take(signals.LOCATION_UPDATED);
     yield takeLatest(signals.CATEGORIES_LOADING, fetchCategories);
 }
 
-function* watchLoadReviews() {
+export function* watchLoadReviews() {
     const {reviews} = yield  all({
         location: take(signals.LOCATION_UPDATED),
         reviews: take(signals.GET_REVIEWS),
@@ -58,7 +54,7 @@ function* watchLoadReviews() {
     yield put(createAction(signals.GET_REVIEWS, reviews));
 }
 
-function* fetchReviews(action) {
+export function* fetchReviews(action) {
     // load the business along with the reviews
     yield put(loadBusiness(action.businessId));
     yield put(createAction(signals.REVIEWS_LOADING));
@@ -68,13 +64,13 @@ function* fetchReviews(action) {
     });
 }
 
-function* watchUpdateFilters() {
+export function* watchUpdateFilters() {
     yield take(signals.LOCATION_UPDATED);
     yield takeLatest(signals.UPDATE_FILTERS, handleUpdateFilters);
     yield put(loadBusinesses());
 }
 
-function* handleUpdateFilters(updateFilters) {
+export function* handleUpdateFilters(updateFilters) {
     yield safeInvoke(function* () {
         const {type, ...params} = updateFilters;
         const location = selectLocation(yield select());
@@ -83,7 +79,7 @@ function* handleUpdateFilters(updateFilters) {
     });
 }
 
-function* paginationSaga() {
+export function* paginationSaga() {
     while (true) {
         const {limit, offset} = yield take(signals.UPDATE_PAGE);
         yield safeInvoke(function* () {
@@ -95,19 +91,19 @@ function* paginationSaga() {
     }
 }
 
-function* updateBusinesses(params) {
+export function* updateBusinesses(params) {
     yield put(createAction(signals.BUSINESSES_LOADING));
     const response = yield call(getBusinesses, params);
     yield put(createAction(signals.BUSINESSES_LOADED, response.data.search));
     yield call(clearBusinessCache);
 }
 
-function* watchLoadBusiness() {
+export function* watchLoadBusiness() {
     yield take(signals.LOCATION_UPDATED);
     yield takeLatest(signals.LOAD_BUSINESS, fetchBusiness);
 }
 
-function* fetchBusiness(action) {
+export function* fetchBusiness(action) {
     yield put(createAction(signals.BUSINESS_LOADING));
     yield safeInvoke(function* () {
         const {data} = yield call(getBusiness, action);
