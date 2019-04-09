@@ -1,5 +1,5 @@
 import {REDUX_KEYS} from 'Constants';
-import {fromJS} from 'immutable';
+import {fromJS} from 'immutable/dist/immutable-nonambient';
 
 export default {
     [REDUX_KEYS.BUSINESSES]: fromJS({

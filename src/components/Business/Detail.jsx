@@ -33,13 +33,6 @@ const Detail = ({
     if (notFound) document.location.href = '/';
     // if we've loaded our reviews (and the business due to the saga), and we have the right one loaded, turn off the flag
     if (reviews.length && id === reviewsFor && loading) setLoading(false);
-    // if we aren't loading data, we haven't had a request error, and we either have no data, or the wrong data...
-    if (!loading && !notFound && (id !== reviewsFor || !business || !reviews.length)) {
-        // set the loading flag and load the review & business data
-        setLoading(true);
-        loadReviews(id);
-    }
-
     // if we're loading (in any way) show a loading page...
     if (loading || (!business && (reviewsLoading || businessLoading))) {
         return <div className='detail view spaced'>
@@ -48,6 +41,12 @@ const Detail = ({
                 <Loader size='massive'/>
             </Dimmer>
         </div>;
+    }
+    // if we aren't loading data, we haven't had a request error, and we either have no data, or the wrong data...
+    if (!loading && !notFound && (id !== reviewsFor || !business || !reviews.length)) {
+        // set the loading flag and load the review & business data
+        setLoading(true);
+        loadReviews(id);
     }
 
     return (
@@ -85,9 +84,7 @@ const Detail = ({
                     </div>
                     <div className='hr full'/>
                     <div className='review-count'>{reviewsTotal} Reviews</div>
-                    {reviews.map(r => <React.Fragment>
-                        <Review key={r.id} review={r}/>
-                    </React.Fragment>)}
+                    {reviews.map(r => <Review key={r.id} review={r}/>)}
                 </React.Fragment>
             }
         </div>

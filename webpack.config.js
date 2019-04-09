@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = (env) => {
     const isProduction = _.get(env, 'production', false);
     return {
-        devtool: isProduction ? false : 'eval-source-map',
+        devtool: isProduction ? false : 'source-map',
         entry: './src/index.js',
         // this turns on a lot of optimizations, the 'start' script in package.json sets this to development
         mode: 'production',

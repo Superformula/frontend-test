@@ -56,20 +56,25 @@
 
     .info {
       @include flex-flow(row nowrap);
-      flex: 1;
+      width: 40%;
     }
 
     .content {
-      flex: 3;
-      margin-left: $x-large-spacing * 2;
+      width: 60%;
     }
 
     .details {
       justify-content: flex-start;
       margin-top: $x-small-spacing / 4;
 
+      .name,
+      .date {
+        flex: 0;
+      }
+
       .date {
         font-size: .8rem;
+        margin-top: $small-spacing;
       }
     }
 
