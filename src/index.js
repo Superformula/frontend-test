@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 import configureStore from 'Store';
-import root from 'Store/sagas';
+import rootSaga from 'Store/sagas';
 
 const rootElement = document.getElementById('root');
 const store = configureStore();
-store.runSaga(root);
+store.runSaga(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>

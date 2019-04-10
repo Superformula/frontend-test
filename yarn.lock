@@ -6749,10 +6749,6 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
 
-normalizr@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/normalizr/-/normalizr-3.3.0.tgz#6f44b95e8bf2201845a9e551920c4e5861166d27"
-
 npm-bundled@^1.0.1:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.6.tgz#e7ba9aadcef962bb61248f91721cd932b3fe6bdd"

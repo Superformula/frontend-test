@@ -231,6 +231,10 @@
 
   .detail-container {
     @include flex-flow(row wrap);
+
+    @include media {
+      overflow-x: hidden;
+    }
   }
 
   .detail-address {

@@ -40,95 +40,31 @@ Webpack will build, bundle, serve, and proxy this application for you!  If you u
 be available on your local network and you can view the application on a mobile device.  If you don't want to/can't do 
 that, chrome's dev tools offer the ability to emulate native devices.  See the screenshot below as an example.
 
-
 ![Chrome Emulator](chrome-emulator.png)
 
-### Yelp API
+## Architecture
 
-You can ask us and we will provide you a Yelp API Key to use for your PR.
+Technologies used:
 
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and 
-proxy your requets to Yelp's endpoints.
+ - [Redux](https://redux.js.org/) / [Redux-Saga](https://redux-saga.js.org/)
+ - [Apollo](https://www.apollographql.com/docs/react/) / [GraphQL](https://graphql.org/)
+ - [Jest](https://jestjs.io/) / [Storybook](https://storybook.js.org/)
+ - [Babel](https://babeljs.io/) / [Webpack](https://webpack.js.org/) / [Sass/SCSS](https://sass-lang.com/)
 
-### Page Structure
+### Why GraphQL?
 
-```
-Main
-  - Index navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (open modal to show more details)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
-```
+The following are the main reasons for choosing to use the GraphQL API:
 
-### Functionality
+- Related information can be gathered in a single request
+- Utilizes powerful caching (on the server and client)
+  - Note: Because of this, I made the filtering server based.  There is no client filtering in the application.  Where 
+  possible, we will skip the query and use redux.
+- Local data is much easier to store from the request (and you can easily normalize this in redux for later use)
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side
- queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the 
-[Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items 
-per row depending on viewport size. Use your own judgement for when to change 
-per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
+### Why Redux and What is Redux-Saga?
 
-### Tech stack
+For any application that can benefit from storing complex data locally, redux is a phenomenal solution.  Since we are
+storing related information on the client, it was an easy choice due to my familiarity and my trust in the ecosystem.
 
-- JS oriented
-  - Use **React**.
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor like SASS/SCSS/Less but _do not_ use any CSS frameworks or libraries.
-
-### Bonus
-
-- Also create mobile version included in Sketch comp.
-- Write clear **documentation** on how the app was designed and how to run the code.
-- Provide proper unit tests.
-- Provide components in [Storybook](https://storybook.js.org) with tests.
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages.
-- Provide an online demo of the application.
-- Include subtle animations to focus attention
-- Describe optimization opportunities when you conclude
-
-## What We Care About
-
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your 
-code & the way you solve the problem, not how well you can use a particular library or feature.
-
-_We're interested in your method and how you approach the problem just as much as we're interested in the end result._
-
-Here's what you should strive for:
-
-- Good use of current HTML, CSS, and JavaScript & performance best practices.
-- Solid testing approach.
-- Extensible code.
-
-## Q&A
-
-> Where should I send back the result when I'm done?
-
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless 
-otherwise noted to you directly.
-
-> What if I have a question?
-
-Just create a new issue in this repo and we will respond and get back to you quickly.
+Redux-Saga is a different beast.  If you are familiar with redux, then you already know that managing actions can be
+somewhat complicated.  There are many solutions to this problem, including: Redux-Thunk, 

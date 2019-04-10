@@ -8,6 +8,8 @@ export function createAction(type, payload = {}) {
 export const loadBusiness = businessId => createAction(signals.LOAD_BUSINESS, {businessId});
 export const loadBusinesses = (filters = {}, limit = DEFAULT_LIMIT, offset = DEFAULT_OFFSET) =>
     createAction(signals.UPDATE_FILTERS, {filters, limit, offset});
+export const loadReviews = businessId => createAction(signals.GET_REVIEWS, {businessId});
+export const updateFilters = filters => createAction(signals.UPDATE_FILTERS, {filters});
 
 export const storeUpdatedPosition = position => {
     if (typeof position === 'object' && 'coords' in position) {
@@ -19,6 +21,3 @@ export const storeUpdatedPosition = position => {
         return createAction(signals.STORE_LOCATION, {position});
     }
 };
-
-export const updateFilters = filters => createAction(signals.UPDATE_FILTERS, {filters});
-export const loadReviews = businessId => createAction(signals.GET_REVIEWS, {businessId});
