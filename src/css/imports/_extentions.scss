@@ -4,8 +4,10 @@
 %dropdown {
   @include flex-flow(row nowrap);
   align-items: center;
+  cursor: pointer;
   flex-grow: 1;
   padding: $x-small-spacing 0;
+  user-select: none;
 
   .content {
     color: $color-primary;

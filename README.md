@@ -40,7 +40,8 @@ Webpack will build, bundle, serve, and proxy this application for you!  If you u
 be available on your local network and you can view the application on a mobile device.  If you don't want to/can't do 
 that, chrome's dev tools offer the ability to emulate native devices.  See the screenshot below as an example.
 
-![Chrome Emulator](chrome-emulator.png)
+![Chrome Emulator](docs/chrome-emulator.png)
+![Chrome Emulator](docs/chrome-emulator.png)
 
 ## Architecture
 
@@ -133,3 +134,19 @@ that would be more pertinent to gauging my abilities.
 
 ## Demo
 
+### Mobile
+
+![Mobile Demo](docs/mobile-demo.gif)
+
+### Desktop
+
+This demo also shows how the caching is smart and will store recent queries, so you can save a few requests, while still
+being responsive to user interaction.
+
+#### Filtering
+
+![Desktop Filtering Grid](docs/desktop-filtering-grid.gif)
+
+#### Navigation to detail page
+
+![Desktop Navigate to Detail](docs/desktop-nav-detail.gif)

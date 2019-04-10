@@ -6,6 +6,9 @@
   &-filter {
     @extend %spaced;
 
+    cursor: pointer;
+    user-select: none;
+
     .label {
       text-transform: uppercase;
 
@@ -65,8 +68,10 @@
 
 .dropdown-menu {
   @include flex-flow(row wrap);
+  cursor: pointer;
   height: 100%;
   padding: 0 $spacing;
+  user-select: none;
 
   &.closed {
     * {
@@ -90,6 +95,10 @@
 
     svg {
       margin: $smaller-spacing $small-spacing $smaller-spacing 0;
+
+      @include media {
+        margin: $small-spacing;
+      }
     }
   }
 
@@ -207,7 +216,6 @@
     .dropdown-filter.row {
       @include flex-flow(row nowrap);
       border-bottom: 1px solid $color-primary;
-      margin: 0 $smaller-spacing;
       padding: 0;
 
       .display {
@@ -221,8 +229,7 @@
       @include drop-shadow;
       background: $color-white;
       height: auto;
-      margin-left: $smaller-spacing;
-      padding: $smaller-spacing;
+      padding: 0;
       width: 100%;
 
       &.closed {
