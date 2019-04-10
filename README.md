@@ -1,6 +1,6 @@
-# Superformula Front-end Developer Coding Test Solution
+# Superformula Test - Julian Coy
 
-Thanks for taking the time to review my test project.  I enjoyed writing it and I hope you enjoy the final product.  I
+Thanks for taking the time to review my project.  I enjoyed writing it and I hope you enjoy the final product.  I
 made a few enhancements and variations to the UX.  I will describe them in detail later on.  For now...
 
 ## Quick Start
@@ -56,10 +56,14 @@ Technologies used:
 The following are the main reasons for choosing to use the GraphQL API:
 
 - Related information can be gathered in a single request
-- Utilizes powerful caching (on the server and client)
-  - Note: Because of this, I made the filtering server based.  There is no client filtering in the application.  Where 
-  possible, we will skip the query and use redux.
-- Local data is much easier to store from the request (and you can easily normalize this in redux for later use)
+- Utilizes powerful caching (on the server and client)<sup>†</sup>
+- Local data is much easier to store from the request and you can easily normalize it
+
+<sup>†</sup>
+<sup><sub>
+Because of this, I made the filtering server based.  There is no client filtering in the application.  Where possible, 
+we will skip the query and use redux.
+</sub></sup>
 
 ### Why Redux and What is Redux-Saga?
 
@@ -92,9 +96,40 @@ problem.  Here are (in no particular order) the deviations/alterations I made al
     - why not?
     - pagination + small payloads = better data UX
 - Filters are queued on small mobile devices while being automatically applied on larger devices
-- For some reason the Yelp GraphQL API behaved oddly...these deviations were the result[^1]
-    - Only one image would come back per business, so the site was slightly modified to work with that parameter
-    - Only three reviews would ever some back ()
+- For some reason the Yelp GraphQL API behaved oddly<sup>††</sup>...these deviations were the result:
+    - Only one image was provided per business, so the site was slightly modified to work with that parameter
+    - Only three reviews would ever some back
+    - These are all solvable with pagination, but I decided to leave that for another time (the sagas/reducers were 
+    stubbed out)
     
-    
-[^1]: Note: I'm assuming this has to do with the type of API key we used
+<sup>††</sup>
+<sup><sub>
+I'm assuming this a limitation of the API key I used...
+</sub></sup>
+
+## Looking Forward
+
+### Testing
+
+I made the rough outlines of a test suite, but it is far from complete.  You can view components in Storybook, but the 
+simpler components should be thoroughly tested with snapshots and helper tools such as 
+[Enzyme](https://airbnb.io/enzyme/).  The sagas are also very important to test, as they house the heart of the 
+application's logic.  I was able to get off to a good start on those, but clearly they would need a little more 
+coverage.
+
+### Data Normalization
+
+If we ever wanted to store large amounts of information and interact with that date, it would be prudent to use a 
+normalization scheme.  Since GraphQL by nature sends denormalized data, it is possible to request and store the same 
+information multiple times in your redux store.  Apart from keeping the store lean, normalization allows us to create
+database-like queries to have powerful control over our data in the client domain.  Libraries like 
+[normalizr](https://github.com/paularmstrong/normalizr) and [reselect](https://github.com/reduxjs/reselect) are AWESOME 
+for this.
+
+### Pagination
+
+Pagination is an easy win and provides a necessary part of the experience.  It was scrapped to focus on other features 
+that would be more pertinent to gauging my abilities.
+
+## Demo
+
