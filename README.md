@@ -63,8 +63,38 @@ The following are the main reasons for choosing to use the GraphQL API:
 
 ### Why Redux and What is Redux-Saga?
 
-For any application that can benefit from storing complex data locally, redux is a phenomenal solution.  Since we are
-storing related information on the client, it was an easy choice due to my familiarity and my trust in the ecosystem.
+For any application that can benefit from storing complex data locally, redux is a phenomenal solution.  Since we are 
+storing intricately related data on the client, it was an easy choice due to my familiarity with and trust in the
+ecosystem.
 
-Redux-Saga is a different beast.  If you are familiar with redux, then you already know that managing actions can be
-somewhat complicated.  There are many solutions to this problem, including: Redux-Thunk, 
+Redux-Saga is a different beast, but one I adore.  If you are familiar with redux, then you already know that managing 
+actions can be somewhat complicated.  There are many solutions to this problem, including: Redux-Thunk, Observable, etc.
+These are wonderful solutions, but they (in my opinion) lead to more complex and fragile logic.  They are also much 
+harder to test, since dispatching actions to the store can be a complicated process at best.
+
+Redux-Saga removes a lot of that complication by following a simple rule: only dispatch simple objects to the store and
+don't use callbacks.  Cause that's how you end up crazy...ever seen a triple curried thunk?  If you don't believe me,
+check out some of the [sagas I wrote here](src/store/sagas/index.js).  They're super simple.
+
+I went ahead and started up a small test suite that would show how simple and powerful testing your sagas can be.  Due 
+to time limitations, I was only able to write a few tests.  But I think they show the simplicity and power of this
+design decision.
+
+## Caveats / Changes
+
+While building the application, I made a few UX tweaks where I thought they would be beneficial.  I also decided to do 
+some minor deviations from the requirements in regards to filters (no client filters), but I don't think that will be a
+problem.  Here are (in no particular order) the deviations/alterations I made along the way:
+
+- Client-side filtering is not a thing
+    - apollo/graphql cache is favorable
+    - we don't have to worry about stale data
+    - why not?
+    - pagination + small payloads = better data UX
+- Filters are queued on small mobile devices while being automatically applied on larger devices
+- For some reason the Yelp GraphQL API behaved oddly...these deviations were the result[^1]
+    - Only one image would come back per business, so the site was slightly modified to work with that parameter
+    - Only three reviews would ever some back ()
+    
+    
+[^1]: Note: I'm assuming this has to do with the type of API key we used
