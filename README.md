@@ -27,9 +27,21 @@ devServer and can easily be started with the following command:
 $ yarn start
 ```
 
-This will spin up a proxied development server at port 3003 
+This will spin up a proxied development server at port 3000.  Webpack should automatically open a browser for you, but 
+if it doesn't, you can navigate to https://localhost:3000/ or https://0.0.0.0:3000/.  If for some reason, this port is
+already bound (or you need to change the host setting), you can easily modify the start command to specify your
+desired configuration.  Like so...
 
-## Requirements
+```
+yarn start --host localhost --port 1234
+``` 
+
+Webpack will build, bundle, serve, and proxy this application for you!  If you use `0.0.0.0` as your host, the app will
+be available on your local network and you can view the application on a mobile device.  If you don't want to/can't do 
+that, chrome's dev tools offer the ability to emulate native devices.  See the screenshot below as an example.
+
+
+![Chrome Emulator](chrome-emulator.png)
 
 ### Yelp API
 

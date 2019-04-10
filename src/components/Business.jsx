@@ -1,4 +1,4 @@
-import Info from 'Components/Business/Info';
+import Info from 'Components/Info';
 import StarRating from 'Components/StarRating';
 import {get} from 'lodash';
 import React from 'react';
@@ -10,7 +10,7 @@ import {updateFilters} from 'Store/actions';
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
-const Index = ({place = {}, loadReviews}) => {
+const Business = ({place = {}, loadReviews}) => {
     const name = place.name;
     const id = place.id;
     const imgSrc = get(place, 'photos[0]');
@@ -38,4 +38,4 @@ const Index = ({place = {}, loadReviews}) => {
 
 export default connect(null, {
     updateFilters,
-})(Index);
+})(Business);

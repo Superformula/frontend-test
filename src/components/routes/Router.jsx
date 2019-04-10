@@ -1,5 +1,5 @@
-import App from 'Components/App';
-import Detail from 'Components/Business/Detail';
+import App from 'Components/routes/Grid';
+import Detail from 'Components/routes/Detail';
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 

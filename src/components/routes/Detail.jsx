@@ -1,4 +1,4 @@
-import Info from 'Components/Business/Info';
+import Info from 'Components/Info';
 import Header from 'Components/Header';
 import Review from 'Components/Review';
 import StarRating from 'Components/StarRating';

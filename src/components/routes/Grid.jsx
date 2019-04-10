@@ -24,7 +24,7 @@ const buildDisplay = (loading, content) => {
     </div>;
 };
 
-const App = ({businesses = [], loading}) => {
+const Grid = ({businesses = [], loading}) => {
     return buildDisplay(loading, loading
         ? <Dimmer inverted active>
             <Loader size='massive'/>
@@ -35,4 +35,4 @@ const App = ({businesses = [], loading}) => {
 export default connect(state => ({
     businesses: selectBusinesses(state),
     loading: selectBusinessesLoading(state),
-}))(App);
+}))(Grid);

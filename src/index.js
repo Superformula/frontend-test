@@ -1,4 +1,4 @@
-import Router from 'Components/Router';
+import Router from 'Components/routes/Router';
 import ScrollToTop from 'Components/ScrollToTop';
 import React from 'react';
 import ReactDOM from 'react-dom';
