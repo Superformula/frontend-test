@@ -45,3 +45,31 @@
 @mixin drop-shadow {
   box-shadow: 0 6px 5px 0 rgba(0, 0, 0, 0.10), inset 0 -1px 0 0 #c8c8c8;
 }
+
+@mixin status-verbose {
+  align-items: baseline;
+  flex: 1;
+  text-transform: uppercase;
+
+  .status {
+    color: $color-dark-gray;
+    flex-shrink: 0;
+    padding: 0 0 0 .35rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .indicator {
+    border-radius: .5rem;
+    min-height: .5rem;
+    min-width: .5rem;
+
+    &.open {
+      background-color: $color-neon-green;
+    }
+
+    &.closed {
+      background-color: $color-neon-red;
+    }
+  }
+}

@@ -59,9 +59,23 @@
         flex-grow: 1;
       }
 
+      .business-info {
+        @include status-verbose;
+
+        .status {
+          &.open, &.closed {
+            background-color: transparent;
+          }
+
+          &.open::after {
+            content: ' Now';
+          }
+        }
+      }
+
       .business-info,
       .status {
-        align-items: baseline;
+        align-items: center;
         flex: 1 0 auto;
         font-size: .5rem;
       }
@@ -184,29 +198,11 @@
   }
 
   .detail-info {
-    align-items: baseline;
-    flex: 1;
-    text-transform: uppercase;
+    @include status-verbose;
 
     .status {
-      color: $color-dark-gray;
-      flex-shrink: 0;
-      padding: 0 0 0 .35rem;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .indicator {
-      border-radius: .5rem;
-      min-height: .5rem;
-      min-width: .5rem;
-
-      &.open {
-        background-color: $color-neon-green;
-      }
-
-      &.closed {
-        background-color: $color-neon-red;
+      @include media {
+        text-transform: capitalize;
       }
     }
   }
