@@ -1,0 +1,19 @@
+//Type
+h1, .h1 {
+  font-size: 54px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.19;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  color: $primary-color;
+}
+
+h3, .h3 {
+  font-size: 22px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.9px;
+  color: $medium-color;
+}

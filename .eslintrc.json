@@ -1,0 +1,99 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "parserOptions": {
+	    "ecmaFeatures": {
+	      "jsx": true
+	    },
+      "ecmaVersion": 6,
+      "sourceType": "module"
+  	},
+    "plugins": [
+      "sort-imports-es6-autofix"
+    ],
+    "env": {
+      "jest": true
+    },
+    "globals": {
+      "$": true,
+      "dataLayer": true,
+      "document": true,
+      "done": true,
+      "Element": true,
+      "Event": true,
+      "localStorage": true,
+      "navigator": true,
+      "pa": true,
+      "pi": true,
+      "response": true,
+      "s": true,
+      "window": true
+    },
+    "overrides": [
+      {
+        "files": ["**/*.test.jsx"],
+        "rules": {"function-paren-newline": 0}
+      }
+    ],
+    "rules": {
+      "comma-dangle": ["error", "never"],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1
+        }
+      ],
+      "no-param-reassign": ["error", { "props": false }],
+      "no-return-assign": 0,
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "object-curly-newline": ["error", {
+        "ObjectExpression": {
+          "multiline": true,
+          "minProperties": 2
+        },
+        "ObjectPattern": {
+          "multiline": true,
+          "minProperties": 2
+        },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }],
+      "one-var": ["error", "consecutive"],
+      "import/extensions": 0,
+      "import/no-unresolved": "off",
+      "react/jsx-curly-spacing": ["error", {
+        "when": "always",
+        "children": {
+        "when": "always"
+      }
+    }
+  ],
+      "react/forbid-prop-types": 0,
+      "react/sort-comp": 0,
+      "sort-imports-es6-autofix/sort-imports-es6": [
+        2,
+        {
+          "ignoreCase": false,
+          "ignoreMemberSort": false,
+          "memberSyntaxSortOrder": [
+            "none",
+            "all",
+            "single",
+            "multiple"
+          ]
+        }
+      ]
+    },
+    "settings": {
+	    "react": {
+	      "createClass": "createReactClass",
+	      "pragma": "React",
+	      "version": "16.0",
+	      "flowVersion": "0.53"
+	    },
+	    "propWrapperFunctions": [ "forbidExtraProps" ]
+	  }
+}
