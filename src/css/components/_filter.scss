@@ -1,0 +1,16 @@
+.filters {
+  border-bottom: 1px solid $light-color;
+  border-top: 1px solid $light-color;
+  color: $dark-color;
+  padding: 1.25rem 0;
+}
+
+.filter {
+  color: $secondary-color;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 1.56rem;
+  margin-left: 1.5rem;
+}

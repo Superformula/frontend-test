@@ -1,6 +1,16 @@
 @import 'colors';
+@import 'forms';
 @import 'grid';
+@import 'helpers';
 @import 'type';
+@import 'button';
+@import './components/all';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;

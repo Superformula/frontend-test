@@ -1,19 +1,20 @@
 //Type
 h1, .h1 {
-  font-size: 54px;
+  color: $primary-color;
+  font-size: 3.375rem;
   font-weight: 300;
   font-style: normal;
   line-height: 1.19;
   letter-spacing: 1px;
-  margin-bottom: 24px;
-  color: $primary-color;
+  margin-bottom: 1.5rem;
 }
 
 h3, .h3 {
-  font-size: 22px;
-  font-weight: 300;
+  color: $medium-color;
+  font-size: 1.375rem;
   font-style: normal;
+  font-weight: 300;
   line-height: 1.45;
   letter-spacing: 0.9px;
-  color: $medium-color;
+  padding-bottom: 1.5rem;
 }

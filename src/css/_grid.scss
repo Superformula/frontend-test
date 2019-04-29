@@ -1,15 +1,15 @@
 //Grid System
 .grid-container {
-    width : 100%;
     margin: 0 auto;
-    max-width : 1440px;
+    max-width : 90rem;
+    width : 100%;
 }
 
 .row:before,
 .row:after {
+    clear:both;
     content:"";
     display: table ;
-    clear:both;
 }
 
 [class*='col-'] {
@@ -17,7 +17,7 @@
     min-height: 1px;
     width: 16.66%;
     /*-- gutter --*/
-    padding: 12px;
+    padding: 0 0.75rem;
 }
 
 .col-1{
