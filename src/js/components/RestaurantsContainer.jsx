@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Filter from './Filter.jsx';
+import Results from './Results.jsx';
 import '../../css/main.scss';
 
 class RestaurantsContainer extends Component {
@@ -17,6 +18,7 @@ class RestaurantsContainer extends Component {
           </div>
         </div>
         <Filter />
+        <Results />
       </React.Fragment>
     );
   }
