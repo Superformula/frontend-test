@@ -21,6 +21,7 @@
   "homepage": "https://github.com/gcornhill/frontend-test#readme",
   "dependencies": {
     "@babel/runtime": "^7.4.4",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-rating": "^1.6.2"
@@ -44,7 +45,6 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
-    "prop-types": "^15.7.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.30.0",

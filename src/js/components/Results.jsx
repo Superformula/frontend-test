@@ -82,7 +82,8 @@ class Results extends Component {
                   image_url,
                   name,
                   price,
-                  rating
+                  rating,
+                  url
                 }) => (
                   <li key={ id } className="col-3">
                     <Card
@@ -92,6 +93,7 @@ class Results extends Component {
                       name={ name }
                       price={ price }
                       rating={ rating }
+                      url={ url }
                     />
                   </li>
                 )) }
