@@ -1,0 +1,16 @@
+.indicator {
+    border-radius: .5rem;
+    display: inline-block;
+    height: .5rem;
+    margin-right: .25rem;
+    text-align: center;
+    width: .5rem;
+
+    &.open {
+      background-color: $open-color;
+    }
+
+    &.closed {
+      background-color: $closed-color;
+    }
+  }

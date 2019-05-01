@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Card from './Card.jsx';
+
 class Results extends Component {
   constructor(props) {
     super(props);
@@ -61,7 +63,7 @@ class Results extends Component {
         <div className="grid-container">
           <div className="row">
             <div className="col-6">
-              <h1>All Restaurants</h1>
+              <h2>All Restaurants</h2>
             </div>
           </div>
           <div className="row">
@@ -73,8 +75,25 @@ class Results extends Component {
 
             { !loading && !error && (
               <ul>
-                { restaurants.map(({ id, name }) => (
-                  <li key={ id }>{ name }</li>
+                { restaurants.map(({
+                  categories,
+                  id,
+                  is_closed,
+                  image_url,
+                  name,
+                  price,
+                  rating
+                }) => (
+                  <li key={ id } className="col-3">
+                    <Card
+                      category={ categories[0].title }
+                      closed={ is_closed }
+                      image={ image_url }
+                      name={ name }
+                      price={ price }
+                      rating={ rating }
+                    />
+                  </li>
                 )) }
               </ul>
             ) }

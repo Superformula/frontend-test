@@ -9,9 +9,9 @@ class RestaurantsContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="grid-container">
+        <div className="grid-container restaurants-container">
           <div className="row">
-              <div className="col-3">
+              <div className="col-6">
                 <h1>Restaurants</h1>
                 <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
               </div>

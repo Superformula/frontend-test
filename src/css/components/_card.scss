@@ -1,0 +1,33 @@
+.card {
+    margin-bottom: 5rem;
+}
+
+.card-image {
+  height: 14.25rem;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.card-name {
+  color: #000;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  margin: 1rem 0 .5rem;
+}
+
+.card-details {
+  color: $light-color-alt1;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  line-height: 1.33;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}

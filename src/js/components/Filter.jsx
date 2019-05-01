@@ -7,7 +7,7 @@ class Filter extends Component {
       <div className="filters">
         <div className="grid-container">
           <div className="row">
-            <div className="col-3">
+            <div className="col-6">
                 Filter By:
                 <div className="filter">
                   <div className="radio-wrapper">
@@ -25,7 +25,7 @@ class Filter extends Component {
                   Categories
                 </div>
             </div>
-            <div className="col-3 text-right">
+            <div className="col-6 text-right">
               <button
                 className="btn btn--disabled"
                 disabled

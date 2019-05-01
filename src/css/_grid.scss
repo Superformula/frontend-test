@@ -17,28 +17,61 @@
     min-height: 1px;
     width: 16.66%;
     /*-- gutter --*/
-    padding: 0 0.75rem;
+    padding: 0 0.9375rem;
 }
 
-.col-1{
-    width: 16.66%;
+.col-1 {
+    width: 8.33%;
 }
-.col-2{
+
+.col-2 {
+    width: 16.67%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
     width: 33.33%;
 }
-.col-3{
+
+.col-5 {
+    width: 41.67%;
+}
+
+.col-6 {
     width: 50%;
 }
-.col-4{
-    width: 66.664%;
+
+.col-7 {
+    width: 58.33%;
 }
-.col-5{
+
+.col-8 {
+    width: 66.67%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
     width: 83.33%;
 }
-.col-6{
-    width: 100%;
+
+.col-11 {
+    width: 83.33%;
+}
+
+.col-12 {
+    width: 91.67%;
 }
 
 .grid-container *{
     box-sizing: border-box;
+}
+
+.collapsed {
+  padding: 0;
 }
