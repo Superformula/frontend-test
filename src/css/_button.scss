@@ -5,7 +5,7 @@
   display: inline-block;
   font-size: 0.875rem;
   margin: .125rem 0;
-  padding: 0.55rem 1rem;
+  padding: 1rem 1rem;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -16,4 +16,5 @@
   border: 1px solid $light-color;
   color: $medium-color-alt1;
   min-width: 9.375rem;
+  padding: .55rem 1rem;
 }

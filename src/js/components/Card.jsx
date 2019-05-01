@@ -36,6 +36,7 @@ class Card extends Component {
             <OpenClosedIndicator closed={ closed } />
           </div>
         </div>
+        <a href="#" className="btn">Learn More</a>
       </div>
     );
   }
