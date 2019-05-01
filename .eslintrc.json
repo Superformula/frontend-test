@@ -45,6 +45,7 @@
       ],
       "no-param-reassign": ["error", { "props": false }],
       "no-return-assign": 0,
+      "jsx-a11y/label-has-for": "off",
       "object-curly-spacing": [
         "error",
         "always"
