@@ -1,61 +1,18 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 
 import Card from './Card.jsx';
 
+@inject('store')
+@observer
 class Results extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      loading: false,
-      restaurants: []
-    };
-  }
-
   componentDidMount() {
-    this.mounted = true;
-    this.fetchRestautants();
-  }
-
-  async fetchRestautants() {
-    let restaurants = [],
-      error = null;
-
-    this.setState({ loading: true });
-
-    try {
-      const response = await fetch(
-        'https://thingproxy.freeboard.io/fetch/https://api.yelp.com/v3/businesses/search?location=las%20vegas',
-        { headers: new Headers({ Authorization: 'Bearer iKjzqtCSUNKhDGTKO5eVp43jSZOW5rstarKcFna4g3OiU3owt4hSSsQM7qzaZkr6o-_97yDEMs9der7ovIieC-M_IoKRMNmiY-eEUalSCJaIeYI-NUfcreJPPFTOW3Yx' }) }
-      );
-
-      if (!response.ok) {
-        new Error('Unable to fetch restaurants');
-      }
-
-      const body = await response.json();
-      restaurants = body.businesses;
-    } catch (err) {
-      error = err;
-    }
-
-    if (!this.mounted) {
-      return;
-    }
-
-    this.setState({
-      restaurants,
-      error,
-      loading: false
-    });
+    this.props.store.fetch();
   }
 
   render() {
-    const {
-      error,
-      loading,
-      restaurants
-    } = this.state;
+    const { store } = this.props;
 
     return (
       <div className="results">
@@ -66,15 +23,15 @@ class Results extends Component {
             </div>
           </div>
           <div className="row">
-            { loading && (
+            { store.isPending && (
               <p className="loading">
                 Loading...
               </p>
             ) }
 
-            { !loading && !error && (
+            { store.isComplete && !store.isError && (
               <ul>
-                { restaurants.map(({
+                { store.data.businesses.map(({
                   categories,
                   id,
                   is_closed,
@@ -99,9 +56,9 @@ class Results extends Component {
               </ul>
             ) }
 
-            { error && (
+            { store.isError && (
               <pre className="error">
-                { error.toString() }
+                { store.errors.toString() }
               </pre>
             ) }
           </div>
@@ -110,5 +67,7 @@ class Results extends Component {
     );
   }
 }
+
+Results.propTypes = { store: PropTypes.object.isRequired };
 
 export default Results;

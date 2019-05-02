@@ -1,11 +1,14 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 
 import Filter from './Filter.jsx';
 import Results from './Results.jsx';
 
 import '../../css/main.scss';
 
-function RestaurantsContainer() {
+const RestaurantsContainer = inject('store')(observer((props) => {
+  const store = props;
+
   return (
     <React.Fragment>
       <div className="grid-container restaurants-container">
@@ -22,6 +25,6 @@ function RestaurantsContainer() {
       <Results />
     </React.Fragment>
   );
-}
+}));
 
 export default RestaurantsContainer;
