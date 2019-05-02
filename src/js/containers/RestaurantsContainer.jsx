@@ -1,8 +1,8 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 
-import Filter from './Filter.jsx';
-import Results from './Results.jsx';
+import Filter from '../components/Filter.jsx';
+import Results from '../components/Results.jsx';
 
 import '../../css/main.scss';
 
