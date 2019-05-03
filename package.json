@@ -20,7 +20,11 @@
   },
   "jest": {
     "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./src/setupTests.js"]
+    "setupFiles": ["./src/setupTests.js"],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/**/*.{js,jsx}"
+    ]
   },
   "homepage": "https://github.com/gcornhill/frontend-test#readme",
   "dependencies": {

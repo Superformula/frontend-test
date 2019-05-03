@@ -5,8 +5,8 @@ exports[`OpenClosedIndicator should render correctly 1`] = `
   className="open-closed-indicator"
 >
   <div
-    className="indicator open"
+    className="indicator closed"
   />
-  open now
+  closed
 </div>
 `;
