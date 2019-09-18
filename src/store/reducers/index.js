@@ -1,22 +1,18 @@
-import {
-	fromJS
-} from 'immutable';
+import { fromJS } from 'immutable';
 
-import {
-	LOADING
-} from '../actions';
+import { RESTAURANTS_LOADING } from '../actions';
 
 const initialState = fromJS({
-	loading: true
+    restaurantsLoading: true
 });
 
 function appReducer(state = initialState, action) {
-	switch (action.type) {
-		case LOADING:
-			return state.set('loading', true);
-		default:
-			return state
-	}
+    switch (action.type) {
+        case RESTAURANTS_LOADING:
+            return state.set('restaurantsLoading', true);
+        default:
+            return state;
+    }
 }
 
 export default appReducer;

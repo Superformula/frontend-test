@@ -1,1 +1,1 @@
-export const LOADING = 'LOADING';
+export const RESTAURANTS_LOADING = 'RESTAURANTS_LOADING';

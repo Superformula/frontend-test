@@ -1,0 +1,17 @@
+@import '../scss/variables';
+:local .header {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 36px 0 0 64px;
+}
+:local .title {
+    font-family: $font-title;
+    font-size: $font-size-large;
+    justify-content: center;
+    letter-spacing: 0;
+    line-height: 40px;
+}
+:local .description {
+    color: $color-grey;
+}

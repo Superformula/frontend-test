@@ -1,18 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-const App = ({ loading }) => {
-    return <div>Loading - {loading.toString()}</div>;
+import Restaurants from './Restaurants';
+const App = () => {
+    return (
+        <div>
+            <Restaurants />
+        </div>
+    );
 };
 
-App.propTypes = {
-    loading: PropTypes.bool
-};
-
-export default connect(
-    state => {
-        return { loading: state.toJS().loading };
-    },
-    null
-)(App);
+export default App;
