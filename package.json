@@ -10,6 +10,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "mobx": "^5.13.0",
     "mobx-react": "^6.1.3",
     "prop-types": "^15.7.2",

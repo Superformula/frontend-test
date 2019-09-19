@@ -7,13 +7,17 @@ export default {
   title: 'Button' 
 };
 
-const size = ['large'];
+const size = ['wide'];
+const color = ['inverted']
 
-export const withTextRegular = () => ( 
+export const regular = () => ( 
   <Button>Learn More</Button> 
 );
 
-export const withTextLarge = () => ( 
-  <Button size={size}>Load More</Button> 
+export const inverted = () => ( 
+  <Button color={color}>Learn More</Button> 
 );
 
+export const wide = () => ( 
+  <Button size={size}>Load More</Button> 
+);
