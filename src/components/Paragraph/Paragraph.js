@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Paragraph.scss'
+import { PropTypes } from 'mobx-react';
 
 function Paragraph(props) {
   return (
@@ -8,6 +9,10 @@ function Paragraph(props) {
       {props.children}
     </p>
   );
+}
+
+Paragraph.propTypes = {
+  children: PropTypes.object
 }
 
 export default Paragraph;
