@@ -1,19 +1,20 @@
+// import for color variables
 @import '../../styles/index';
 
 .button {
+  @include font-regular;
   background-color: $midnightblue;
   border-color: $midnightblue;
-  border-radius: 3px;
+  border-radius: 2px;
   color: $white;
-  font-family: $font-regular;
+  font-size: 14px;
+  letter-spacing: 1px;
   line-height: 16px;
-  padding: 10px 50px;
+  max-width: 420px;
+  padding: 13px 0;
   text-align: center;
   text-transform: uppercase;
-
-  &.wide {
-    padding: 10px 70px;
-  }
+  width: 100%;
   
   &.inverted {
     background-color: transparent;

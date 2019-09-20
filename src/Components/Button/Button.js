@@ -4,9 +4,9 @@ import className from 'classnames';
 import "./Button.scss";
 
 function Button(props) {
-  const { size, color, children} = props;
+  const { color, children } = props;
   return (
-    <button className={className("button", size, color)}>
+    <button className={className("button", color)}>
       {children}
     </button>
   );

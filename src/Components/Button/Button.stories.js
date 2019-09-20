@@ -7,7 +7,6 @@ export default {
   title: 'Button' 
 };
 
-const size = ['wide'];
 const color = ['inverted']
 
 export const regular = () => ( 
@@ -16,8 +15,4 @@ export const regular = () => (
 
 export const inverted = () => ( 
   <Button color={color}>Learn More</Button> 
-);
-
-export const wide = () => ( 
-  <Button size={size}>Load More</Button> 
 );
