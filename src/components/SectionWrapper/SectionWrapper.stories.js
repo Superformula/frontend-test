@@ -1,22 +1,22 @@
 import React from 'react';
 
-import FlexWrapper from './FlexWrapper';
+import SectionWrapper from './SectionWrapper';
 
 export default { 
-  component: FlexWrapper,
-  title: 'FlexWrapper' 
+  component: SectionWrapper,
+  title: 'SectionWrapper' 
 };
 
 export const desktop = () => ( 
-  <FlexWrapper>
+  <SectionWrapper>
     <div>Here is some Text</div>
-  </FlexWrapper> 
+  </SectionWrapper> 
 );
 
 export const mobile = () => ( 
-  <FlexWrapper>
+  <SectionWrapper>
     <div>
       Here is some more test, but on mobile.
     </div>
-  </FlexWrapper> 
+  </SectionWrapper> 
 );
