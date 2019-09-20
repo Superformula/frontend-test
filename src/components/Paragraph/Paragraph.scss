@@ -1,0 +1,7 @@
+@import '../../styles/index';
+
+.paragraph {
+  @include font-light;
+  font-size: 20px;
+  line-height: 28px;
+}
