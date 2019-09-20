@@ -19,5 +19,5 @@ export const withSubtext = () => (
 );
 
 export const withSubcomponent = () => (
-  <Hero component={<Divider/>}>Restaurants</Hero>
+  <Hero subcomponent={<Divider/>}>Restaurants</Hero>
 );
