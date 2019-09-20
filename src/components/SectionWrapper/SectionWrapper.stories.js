@@ -7,16 +7,8 @@ export default {
   title: 'SectionWrapper' 
 };
 
-export const desktop = () => ( 
+export const isDefault = () => ( 
   <SectionWrapper>
-    <div>Here is some Text</div>
-  </SectionWrapper> 
-);
-
-export const mobile = () => ( 
-  <SectionWrapper>
-    <div>
-      Here is some more test, but on mobile.
-    </div>
+    Here is some text.
   </SectionWrapper> 
 );

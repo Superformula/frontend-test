@@ -3,9 +3,9 @@ import './SectionWrapper.scss';
 
 function SectionWrapper(props) {
   return (
-  <div className='section-wrapper'>
+  <section className='section-wrapper'>
     {props.children}
-  </div>
+  </section>
 )};
 
 export default SectionWrapper;
