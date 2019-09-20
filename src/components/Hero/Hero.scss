@@ -1,0 +1,18 @@
+@import '../../styles/index';
+
+.hero {
+  @include font-light;
+  font-size: 54px;
+  letter-spacing: 1px;
+  line-height: 64px;
+  margin: 0 0 16px;
+}
+
+.subtext {
+  @include font-light;
+  display: block;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 1px;
+  max-width: 750px;
+}
