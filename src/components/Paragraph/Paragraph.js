@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Paragraph.scss'
-import { PropTypes } from 'mobx-react';
+import PropTypes from 'prop-types';
 
 function Paragraph(props) {
   return (
