@@ -1,14 +1,21 @@
-$color-main: #002b57;
+$color-primary: #002b57;
 $color-green: #00e8a4;
 $color-red: #ff3548;
-
-$color-dark-grey: #606060;
-$color-grey: #757575;
-$color-light-grey: #e6e6e6;
+$color-black: #000000;
+$color-dark-grey: #333333;
+$color-grey: #666666;
+$color-light-grey: #d8d8d8;
+$color-lightest-grey: #e6e6e6;
 $color-white: #fff;
 
-$font-main: HelveticaNeue, sans-serif;
-$font-title: 'HelveticaNeue-Light', 'Helvetica Neue Light';
-$font-line-height: 24px;
-$font-size-main: 16px;
-$font-size-large: 54px;
+$font-family-primary: HelveticaNeue, sans-serif;
+$font-family-primary-light: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+    'Lucida Grande', sans-serif;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-label: 16px;
+$font-size-description: 20px;
+$font-size-title: 36px;
+$font-size-large: 50px;
+
+$content-width: 1420px;

@@ -1,6 +1,31 @@
 @import 'variables';
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html,
 body {
-  color: $color-main;
-  font-family: HelveticaNeue, sans-serif;
+    font-family: $font-family-primary;
+    font-size: $font-size-description;
+    color: $color-dark-grey;
+    letter-spacing: 1.5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.divider {
+    background-color: $color-lightest-grey;
+    height: 1px;
+    margin: 0;
+    width: 100%;
+}
+
+.contentContainer {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 0px 50px;
 }

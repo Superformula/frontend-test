@@ -1,0 +1,15 @@
+@import '../scss/variables';
+@import '../scss/extensions';
+
+:local .businesses {
+    margin-top: 70px;
+}
+:local .restaurantsList {
+    display: flex;
+    flex-flow: row wrap;
+}
+:local .title {
+    font-size: $font-size-title;
+    font-family: $font-family-primary-light;
+    margin-bottom: 40px;
+}

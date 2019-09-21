@@ -1,0 +1,23 @@
+@import '../scss/variables';
+@import '../scss/extensions';
+:local .filters {
+    height: 80px;
+    position: relative;
+}
+:local .filtersRow {
+    position: absolute;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+}
+:local .filterByLabel {
+    font-size: $font-size-label;
+    color: $color-grey;
+    height: 32px;
+    line-height: 1.8;
+    float: left;
+    margin-right: 30px;
+}
+:local .filterContainer {
+    margin-right: 30px;
+}

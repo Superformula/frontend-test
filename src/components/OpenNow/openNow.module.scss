@@ -1,0 +1,22 @@
+@import '../../scss/variables';
+
+:local .openNowContainer {
+    float: right;
+}
+:local .openNowCircle {
+    width: 8px;
+    height: 8px;
+    background: $color-green;
+    border-radius: 100%;
+    margin: 3px 5px;
+    float: left;
+}
+:local .red {
+    background: $color-red;
+    float: left;
+}
+:local .openNowText {
+    display: inline-block;
+}
+:local .large {
+}

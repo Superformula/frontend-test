@@ -1,27 +1,19 @@
-// Global application styles
-import './scss/_base.scss';
-
-// window.fetch polyfill TODO - put it in webpack?
-import 'whatwg-fetch';
-
-// React
 import React from 'react';
-
+import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 
-import { BrowserRouter } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import './scss/_base.scss';
 
-import { Provider } from 'react-redux';
-
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import store from './store';
-
 import App from './components/App.jsx';
+import Detail from './components/RestaurantDetail.jsx';
 
 render(
     <Provider store={store}>
         <BrowserRouter>
-            <Route component={App} />
+            <Route exact path="/" component={App} />
+            <Route path="/detail/:id" component={Detail} />
         </BrowserRouter>
     </Provider>,
     document.getElementById('root')

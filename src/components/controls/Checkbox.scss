@@ -1,0 +1,41 @@
+@import '../../scss/variables';
+
+.checkbox-container {
+    input[type='checkbox'] {
+        display: none;
+    }
+    .circle-checkbox {
+        float: left;
+        width: 16px;
+        height: 16px;
+        background: $color-white;
+        border-radius: 100%;
+        border: 1px solid $color-light-grey;
+        position: relative;
+        margin-top: 2px;
+    }
+    .circle-checkbox label {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 100px;
+
+        transition: all 0.2s ease;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background: $color-white;
+        pointer-events: none;
+    }
+    .circle-checkbox input[type='checkbox']:checked + label {
+        background: $color-primary;
+    }
+    .label-text {
+        font-size: $font-size-label;
+        color: $color-primary;
+        display: inline-block;
+        margin-left: 8px;
+    }
+}
