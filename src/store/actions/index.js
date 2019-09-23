@@ -13,6 +13,7 @@ export const QUERY_OFFSET_CHANGED = 'QUERY_OFFSET_CHANGED';
 export const CLEAR_FILTERS = 'CLEAR_FILTERS';
 
 import businesses from '../../tests/data/businesses';
+import state1 from '../../tests/data/state-1';
 
 import { getCategories, getRestaurants, getRestaurantDetails, getReviews } from '../../services';
 
@@ -28,12 +29,12 @@ export const fetchCategories = () => {
 };
 
 export const fetchRestaurants = (offset = 0) => {
-    // return dispatch => {
-    //     dispatch({
-    //         type: FETCH_RESTAURANTS_SUCCESS,
-    //         value: businesses
-    //     });
-    // };
+    return dispatch => {
+        dispatch({
+            type: FETCH_RESTAURANTS_SUCCESS,
+            value: businesses
+        });
+    };
     return dispatch => {
         dispatch({
             type: RESTAURANTS_LOADING,
@@ -53,6 +54,14 @@ export const fetchRestaurants = (offset = 0) => {
 };
 
 export const fetchRestaurantDetails = id => {
+    console.log('state1', state1);
+    console.log('restaurantDetails', state1.restaurantDetails);
+    return dispatch => {
+        dispatch({
+            type: FETCH_RESTAURANT_DETAILS_SUCCESS,
+            value: state1.restaurantDetails
+        });
+    };
     return dispatch => {
         dispatch({ type: RESTAURANT_DETAILS_LOADING, value: true });
         getRestaurantDetails(id).then(details => {
@@ -65,6 +74,12 @@ export const fetchRestaurantDetails = id => {
 };
 
 export const fetchReviews = id => {
+    return dispatch => {
+        dispatch({
+            type: FETCH_REVIEWS_SUCCESS,
+            value: state1.reviews
+        });
+    };
     return dispatch => {
         dispatch({ type: REVIEWS_LOADING, value: true });
         getReviews(id).then(reviews => {

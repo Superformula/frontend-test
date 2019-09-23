@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import truncate from 'truncate';
-import StarRatings from 'react-star-ratings';
 import { Link } from 'react-router-dom';
 import {
     restaurantContainer,

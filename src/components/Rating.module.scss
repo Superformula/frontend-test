@@ -1,5 +1,5 @@
 :local .ratingContainer {
-    display: inline-block;
+    position: relative;
 }
 :local .filledStarsContainer {
     position: absolute;
@@ -14,4 +14,7 @@
     height: 20px;
     padding: 1px;
     margin-right: 1px;
+}
+.starsContainer {
+    display: inline-block;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 
-import './scss/_base.scss';
+import './scss/base.scss';
 
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import store from './store';

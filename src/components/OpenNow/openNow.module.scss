@@ -15,8 +15,13 @@
     background: $color-red;
     float: left;
 }
-:local .openNowText {
-    display: inline-block;
-}
 :local .large {
+    width: 22px;
+    height: 22px;
+    margin: 0 10px 0 0;
+}
+.openNowText {
+    display: inline-block;
+    font-family: $font-family-primary-light;
+    color: $color-grey;
 }

@@ -37,7 +37,10 @@ module.exports = () => {
                             loader: 'css-loader',
                             options: {
                                 modules: true,
-                                sourceMap: isDevelopment
+                                sourceMap: isDevelopment,
+                                modules: {
+                                    localIdentName: '[name]__[local]___[hash:base64:5]'
+                                }
                             }
                         },
                         {
@@ -82,7 +85,10 @@ module.exports = () => {
         },
 
         resolve: {
-            extensions: ['.js', '.jsx', '.scss']
+            extensions: ['.js', '.jsx', '.scss'],
+            alias: {
+                scss: path.resolve(__dirname, './src/scss/')
+            }
         },
 
         devServer: {
@@ -103,8 +109,8 @@ module.exports = () => {
         plugins: [
             new CleanWebpackPlugin(),
             new MiniCssExtractPlugin({
-                filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-                chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+                filename: isDevelopment ? '[name]zizzyzizz.css' : '[name].[hash].css',
+                chunkFilename: isDevelopment ? '[id]zizzyzizz.css' : '[id].[hash].css'
             }),
             new HtmlWebpackPlugin({ template: './src/index.html' })
         ]

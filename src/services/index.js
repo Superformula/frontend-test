@@ -16,11 +16,12 @@ export const getRestaurants = offset => {
             });
             // TODO Promise.all here sometimes causes the API to error with "too many requests per second",
             // so fetching sequentially instead...
-            return restaurantFetches.reduce((promiseChain, currentFetch) => {
-                return promiseChain.then(chainResults =>
-                    currentFetch.then(currentResult => [...chainResults, currentResult])
-                );
-            }, Promise.resolve([]));
+            // return restaurantFetches.reduce((promiseChain, currentFetch) => {
+            //     return promiseChain.then(chainResults =>
+            //         currentFetch.then(currentResult => [...chainResults, currentResult])
+            //     );
+            // }, Promise.resolve([]));
+            return Promise.all(restaurantFetches);
         })
         .then(restaurants => {
             return restaurants;

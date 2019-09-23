@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
-import { ratingContainer, filledStarsContainer, emptyStarsContainer, emptyStar } from './Rating.module.scss';
+import {
+    ratingContainer,
+    filledStarsContainer,
+    emptyStarsContainer,
+    emptyStar,
+    starsContainer
+} from './Rating.module.scss';
 
 /*
 The react-star-ratings module takes care of filling stars based on rating numbers, and can partially fill them etc.
@@ -26,16 +32,18 @@ const Rating = ({ rating }) => {
     }
     return (
         <div className={ratingContainer}>
-            <div className={filledStarsContainer}>
-                <StarRatings
-                    rating={rating}
-                    starDimension="20px"
-                    starSpacing="1px"
-                    starRatedColor="#002b57"
-                    starEmptyColor="transparent"
-                />
+            <div className={starsContainer}>
+                <div className={filledStarsContainer}>
+                    <StarRatings
+                        rating={rating}
+                        starDimension="20px"
+                        starSpacing="1px"
+                        starRatedColor="#002b57"
+                        starEmptyColor="transparent"
+                    />
+                </div>
+                <div className={emptyStarsContainer}>{stars}</div>
             </div>
-            <div className={emptyStarsContainer}>{stars}</div>
         </div>
     );
 };
