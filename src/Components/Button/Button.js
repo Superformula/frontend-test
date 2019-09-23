@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import className from 'classnames';
+import classNames from 'classnames';
 import "./Button.scss";
 
 function Button(props) {
   const { color, children } = props;
   return (
-    <button className={className("button", color)}>
+    <button className={classNames("button", color)}>
       {children}
     </button>
   );
