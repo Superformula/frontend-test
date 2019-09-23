@@ -1,0 +1,16 @@
+.spacer {
+  display: block;
+  width: 100%;
+
+  &.small {
+    height: 8px;
+  }
+
+  &.medium {
+    height: 16px;
+  }
+
+  &.large {
+    height: 24px;
+  }
+}
