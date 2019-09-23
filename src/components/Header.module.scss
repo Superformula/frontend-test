@@ -16,3 +16,10 @@
     color: $color-grey;
     width: 650px;
 }
+:local .stickyTop {
+    position: fixed;
+    background: $color-white;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+}

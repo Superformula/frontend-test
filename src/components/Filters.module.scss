@@ -21,3 +21,20 @@
 :local .filterContainer {
     margin-right: 30px;
 }
+:local .clearFiltersButton {
+    width: 151px;
+    height: 38px;
+    color: $color-primary;
+    font-size: $font-size-small;
+    border: 1px solid $color-primary;
+    border-radius: 1px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 3.3;
+    float: right;
+    margin-top: 22px;
+
+    &:hover {
+        background-color: $color-light-grey;
+    }
+}

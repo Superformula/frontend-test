@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import truncate from 'truncate';
 import classNames from 'classnames';
-import { filters, filtersRow, filterByLabel, filterContainer } from './Filters.module.scss';
+import { filters, filtersRow, filterByLabel, filterContainer, clearFiltersButton } from './Filters.module.scss';
 import Checkbox from './controls/Checkbox';
-import { openNowChanged, fetchRestaurants, selectedPriceChanged, selectedCategoryChanged } from '../store/actions';
+import {
+    openNowChanged,
+    fetchRestaurants,
+    selectedPriceChanged,
+    selectedCategoryChanged,
+    clearFilters
+} from '../store/actions';
 import Dropdown from './controls/Dropdown';
 
 const priceItems = [
@@ -17,13 +24,12 @@ const priceItems = [
 const Filters = ({
     openNow,
     openNowChanged,
-    fetchRestaurants,
-    queryOffset,
     selectedPrice,
     selectedPriceChanged,
     selectedCategory,
     selectedCategoryChanged,
-    restaurants
+    restaurants,
+    clearFilters
 }) => {
     // Get all categories that exist in the restaurants array
     const categories = restaurants.reduce((acc, restaurant) => {
@@ -39,7 +45,7 @@ const Filters = ({
         }
         return acc;
     }, {});
-    const categoryItems = Object.values(categories);
+    const categoryItems = Object.values(categories).map(val => ({ ...val, label: truncate(val.label, 17) }));
     categoryItems.unshift({ label: 'All', value: 'all' });
     // if the category that was selected has been filtered out, set selected category to 'all'
     // TODO this doesn't represent the store, I no like
@@ -49,17 +55,16 @@ const Filters = ({
         <div className={classNames(filters, 'contentContainer')}>
             <div className={filtersRow}>
                 <div className={filterByLabel}>Filter By:</div>
-                <span className={filterContainer}>
+                <div className={filterContainer}>
                     <Checkbox
                         label="Open Now"
                         checked={openNow}
                         onChange={checked => {
                             openNowChanged(checked);
-                            fetchRestaurants(queryOffset);
                         }}
                     />
-                </span>
-                <span className={filterContainer}>
+                </div>
+                <div className={filterContainer}>
                     <Dropdown
                         label="Price"
                         items={priceItems}
@@ -69,8 +74,8 @@ const Filters = ({
                         }}
                         width={100}
                     />
-                </span>
-                <span className={filterContainer}>
+                </div>
+                <div className={filterContainer}>
                     <Dropdown
                         label="Categories"
                         items={categoryItems}
@@ -80,7 +85,10 @@ const Filters = ({
                         }}
                         width={200}
                     />
-                </span>
+                </div>
+            </div>
+            <div className={clearFiltersButton} onClick={() => clearFilters()}>
+                CLEAR ALL
             </div>
         </div>
     );
@@ -89,19 +97,17 @@ const Filters = ({
 Filters.propTypes = {
     openNow: PropTypes.bool,
     openNowChanged: PropTypes.func,
-    queryOffset: PropTypes.number,
-    fetchRestaurants: PropTypes.func,
     selectedPrice: PropTypes.string,
     selectedPriceChanged: PropTypes.func,
     selectedCategory: PropTypes.string,
     selectedCategoryChanged: PropTypes.func,
-    restaurants: PropTypes.array
+    restaurants: PropTypes.array,
+    clearFilters: PropTypes.func
 };
 
 export default connect(
     state => ({
         openNow: state.openNow,
-        queryOffset: state.queryOffset,
         selectedPrice: state.selectedPrice,
         selectedCategory: state.selectedCategory,
         restaurants: state.restaurants
@@ -110,6 +116,6 @@ export default connect(
         openNowChanged,
         selectedPriceChanged,
         selectedCategoryChanged,
-        fetchRestaurants
+        clearFilters
     }
 )(Filters);

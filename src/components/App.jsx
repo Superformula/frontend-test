@@ -5,20 +5,28 @@ import Header from './Header';
 import Filters from './Filters';
 import RestaurantsList from './RestaurantsList';
 import { fetchRestaurants, fetchCategories } from '../store/actions';
-import Loader from './Loader';
+// TODO refactor for main view scss
+import { description, stickyTop } from './Header.module.scss';
 
 const App = ({ restaurantsLoading, fetchRestaurants, fetchCategories, queryOffset }) => {
     useEffect(() => {
         // fetchCategories();
+        // TODO clear restaurants + query offset
         fetchRestaurants(queryOffset);
     }, []);
     return (
         <div>
-            <Loader loading={restaurantsLoading} />
-            <Header />
-            <div className="divider" />
-            <Filters />
-            <div className="divider" />
+            <div className={stickyTop}>
+                <Header headerTitle="Restaurants">
+                    <div className={description}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </div>
+                </Header>
+                <div className="divider" />
+                <Filters />
+                <div className="divider" />
+            </div>
             <RestaurantsList />
         </div>
     );

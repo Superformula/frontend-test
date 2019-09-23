@@ -20,6 +20,7 @@
     "react-star-ratings": "^2.3.0",
     "redux-saga": "^1.1.1",
     "redux-thunk": "^2.3.0",
+    "truncate": "^2.1.0",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {

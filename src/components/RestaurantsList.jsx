@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import { businesses, restaurantsList, title } from './restaurantsList.module.scss';
+import { headerSpacer, restaurantsList, title, loadMoreButton } from './restaurantsList.module.scss';
 import Restaurant from './Restaurant';
-
+import Loader from './Loader';
+import { queryOffsetChanged, fetchRestaurants } from '../store/actions';
 const filterRestaurants = (restaurants, openNow, selectedPrice, selectedCategory) => {
     return (openNow
         ? restaurants.filter(restaurant => {
+              // TODO this is brittle, a rastaurant can be an error object
               if (restaurant.hours[0].is_open_now) {
                   return restaurant;
               }
@@ -32,15 +34,51 @@ const filterRestaurants = (restaurants, openNow, selectedPrice, selectedCategory
         });
 };
 
-const RestaurantsList = ({ restaurantsLoading, restaurants, openNow, selectedPrice, selectedCategory }) => {
+const VertSpacer = ({ height }) => <div style={{ width: '100%', height: `${height}px` }} />;
+const RestaurantsList = ({
+    restaurantsLoading,
+    restaurants,
+    openNow,
+    selectedPrice,
+    selectedCategory,
+    queryOffset,
+    queryOffsetChanged,
+    fetchRestaurants
+}) => {
     const filteredRestaurants = filterRestaurants(restaurants, openNow, selectedPrice, selectedCategory);
+    const showMainLoader = restaurantsLoading && restaurants.length === 0;
+    const showLoadMoreLoader = restaurantsLoading && restaurants.length > 0;
     return (
-        <div className={classNames(businesses, 'contentContainer')}>
-            <div className={title}>All Restaurants</div>
-            <div className={restaurantsList}>
-                {filteredRestaurants.map(restaurant => (
-                    <Restaurant key={restaurant.id} restaurant={restaurant} />
-                ))}
+        <div>
+            <div className={headerSpacer} />
+            <VertSpacer height={385} />
+            <div className="contentContainer">
+                {showMainLoader ? (
+                    <Loader />
+                ) : (
+                    <React.Fragment>
+                        <div className={title}>All Restaurants</div>
+                        <div className={restaurantsList}>
+                            {filteredRestaurants.map(restaurant => (
+                                <Restaurant key={restaurant.id} restaurant={restaurant} />
+                            ))}
+                        </div>
+                        {showLoadMoreLoader ? (
+                            <Loader />
+                        ) : (
+                            <div
+                                className={loadMoreButton}
+                                onClick={() => {
+                                    queryOffsetChanged(queryOffset + 20);
+                                    fetchRestaurants(queryOffset + 20);
+                                }}
+                            >
+                                LOAD MORE
+                            </div>
+                        )}
+                        <VertSpacer height={100} />
+                    </React.Fragment>
+                )}
             </div>
         </div>
     );
@@ -51,7 +89,10 @@ RestaurantsList.propTypes = {
     restaurants: PropTypes.array,
     openNow: PropTypes.bool,
     selectedPrice: PropTypes.string,
-    selectedCategory: PropTypes.string
+    selectedCategory: PropTypes.string,
+    queryOffset: PropTypes.number,
+    queryOffsetChanged: PropTypes.func,
+    fetchRestaurants: PropTypes.func
 };
 
 export default connect(
@@ -60,7 +101,8 @@ export default connect(
         restaurants: state.restaurants,
         openNow: state.openNow,
         selectedPrice: state.selectedPrice,
-        selectedCategory: state.selectedCategory
+        selectedCategory: state.selectedCategory,
+        queryOffset: state.queryOffset
     }),
-    null
+    { queryOffsetChanged, fetchRestaurants }
 )(RestaurantsList);

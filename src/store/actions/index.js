@@ -9,7 +9,10 @@ export const LOAD_ERROR = 'LOAD_ERROR';
 export const OPEN_NOW_CHANGED = 'OPEN_NOW_CHANGED';
 export const SELECTED_PRICE_CHANGED = 'SELECTED_PRICE_CHANGED';
 export const SELECTED_CATEGORY_CHANGED = 'SELECTED_CATEGORY_CHANGED';
-// import businesses from '../../tests/data/businesses';
+export const QUERY_OFFSET_CHANGED = 'QUERY_OFFSET_CHANGED';
+export const CLEAR_FILTERS = 'CLEAR_FILTERS';
+
+import businesses from '../../tests/data/businesses';
 
 import { getCategories, getRestaurants, getRestaurantDetails, getReviews } from '../../services';
 
@@ -25,6 +28,12 @@ export const fetchCategories = () => {
 };
 
 export const fetchRestaurants = (offset = 0) => {
+    // return dispatch => {
+    //     dispatch({
+    //         type: FETCH_RESTAURANTS_SUCCESS,
+    //         value: businesses
+    //     });
+    // };
     return dispatch => {
         dispatch({
             type: RESTAURANTS_LOADING,
@@ -67,6 +76,13 @@ export const fetchReviews = id => {
     };
 };
 
+export const queryOffsetChanged = offset => {
+    return {
+        type: QUERY_OFFSET_CHANGED,
+        value: offset
+    };
+};
+
 export const loadError = error => {
     return {
         type: LOAD_ERROR,
@@ -92,5 +108,11 @@ export const selectedCategoryChanged = selectedCategory => {
     return {
         type: SELECTED_CATEGORY_CHANGED,
         value: selectedCategory
+    };
+};
+
+export const clearFilters = () => {
+    return {
+        type: CLEAR_FILTERS
     };
 };

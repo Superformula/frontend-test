@@ -2,21 +2,20 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { loaderContainer, spinner } from './Loader.module.scss';
-import { green } from '@material-ui/core/colors';
 const useStyles = makeStyles(theme => ({
     progress: {
-        color: green
+        color: '#002b57'
     }
 }));
 
-const Loader = ({ loading }) => {
+const Loader = () => {
     const classes = useStyles();
-    return loading ? (
+    return (
         <div className={loaderContainer}>
             <div className={spinner}>
-                <CircularProgress size={80} className={classes.progress} />
+                <CircularProgress size={50} thickness={4} className={classes.progress} />
             </div>
         </div>
-    ) : null;
+    );
 };
 export default Loader;

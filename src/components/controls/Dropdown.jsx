@@ -8,12 +8,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import { controlContainer } from './Controls.module.scss';
-import { arrow, arrowUp } from './Dropdown.module.scss';
+import { arrow, arrowUp, itemLabel } from './Dropdown.module.scss';
 const StyledMenu = withStyles({
     paper: {
         border: '1px solid #d3d4d5',
         borderRadius: '0px',
-        marginTop: '5px'
+        marginTop: '5px',
+        boxShadow: `0px 6px 5px 0px rgba(0,0,0,0.1)`
     }
 })(props => (
     <Menu
@@ -33,7 +34,9 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles(theme => ({
     root: {
-        fontFamily: 'Helvetica Neue'
+        fontFamily: 'Helvetica Neue',
+        padding: 5,
+        minHeight: 0
     }
 }))(MenuItem);
 
@@ -64,6 +67,7 @@ const Dropdown = ({ label, items, selected, onChange, width }) => {
                 anchorEl={anchorEl}
                 keepMounted
                 open={Boolean(anchorEl)}
+                // open={true}
                 onClose={handleClose}
             >
                 {items.map(item => (
@@ -73,15 +77,18 @@ const Dropdown = ({ label, items, selected, onChange, width }) => {
                             onChange(item.value);
                             handleClose();
                         }}
+                        style={{ width: `${width}px` }}
                     >
                         <StyledIcon>
                             {selected === item.value ? (
-                                <CheckCircleIcon size="small" />
+                                <CheckCircleIcon style={{ fontSize: 18, color: 'black', minWidth: '30px' }} />
                             ) : (
-                                <RadioButtonUncheckedIcon style={{ fontSize: 18, color: 'black', minWidth: '30px' }} />
+                                <RadioButtonUncheckedIcon
+                                    style={{ fontSize: 18, color: '#C8C8C8', minWidth: '30px' }}
+                                />
                             )}
                         </StyledIcon>
-                        <div>{item.label}</div>
+                        <div className={itemLabel}>{item.label}</div>
                     </StyledMenuItem>
                 ))}
             </StyledMenu>
