@@ -1,0 +1,28 @@
+@import '../../scss/variables';
+.reviewRow {
+	padding: 80px 0 80px;
+	border-bottom: 1px solid $color-lightest-grey;
+}
+.userColumn {
+	flex: 1;
+}
+.reviewColumn {
+	flex: 3;
+}
+.userImage {
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+}
+.userImageColumn {
+	flex: 1;
+}
+.userInfoColumn {
+	flex: 2;
+}
+.ratingContainer {
+	margin-bottom: 25px;
+}
+.reviewText {
+	font-family: $font-family-primary-light;
+}
