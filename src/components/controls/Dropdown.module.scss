@@ -1,19 +1,19 @@
 @import '../../scss/variables';
 
-:local .arrow {
-    float: right;
-    width: 5px;
-    height: 5px;
-    border-right: 1px solid $color-grey;
-    border-bottom: 1px solid $color-grey;
-    transform: rotate(45deg);
-    margin-top: 7px;
+.arrow {
+	float: right;
+	width: 5px;
+	height: 5px;
+	border-right: 1px solid $color-grey;
+	border-bottom: 1px solid $color-grey;
+	transform: rotate(45deg);
+	margin-top: 7px;
 
-    &.arrowUp {
-        transform: rotate(220deg);
-    }
+	&.arrowUp {
+		transform: rotate(220deg);
+	}
 }
-:local .itemLabel {
-    font-size: $font-size-label;
-    color: $color-grey;
+.itemLabel {
+	font-size: $font-size-label;
+	color: $color-grey;
 }

@@ -5,114 +5,128 @@ const path = require('path');
 
 const OUTPUT_PATH = 'dist';
 module.exports = () => {
-    const isDevelopment = process.env.NODE_ENV === 'development';
-    return {
-        entry: ['whatwg-fetch', './src/index.js'],
-        mode: isDevelopment ? 'development' : 'production',
-        output: {
-            path: path.resolve(__dirname, OUTPUT_PATH),
-            filename: '[name].[chunkhash].js',
-            publicPath: '/'
-        },
+	const isDevelopment = process.env.NODE_ENV === 'development';
+	return {
+		entry: ['whatwg-fetch', './src/index.js'],
+		mode: isDevelopment ? 'development' : 'production',
+		output: {
+			path: path.resolve(__dirname, OUTPUT_PATH),
+			filename: '[name].[chunkhash].js',
+			publicPath: '/'
+		},
 
-        module: {
-            rules: [
-                {
-                    test: /\.(js|jsx)$/,
-                    exclude: /node_modules/,
-                    use: [
-                        {
-                            loader: 'babel-loader',
-                            options: {
-                                presets: ['@babel/preset-env', '@babel/preset-react']
-                            }
-                        }
-                    ]
-                },
-                {
-                    test: /\.module\.s(a|c)ss$/,
-                    loader: [
-                        isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                modules: true,
-                                sourceMap: isDevelopment,
-                                modules: {
-                                    localIdentName: '[name]__[local]___[hash:base64:5]'
-                                }
-                            }
-                        },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: function() {
-                                    return [require('autoprefixer')];
-                                }
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: isDevelopment
-                            }
-                        }
-                    ]
-                },
-                {
-                    test: /\.s(a|c)ss$/,
-                    exclude: /\.module.(s(a|c)ss)$/,
-                    loader: [
-                        isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-                        'css-loader',
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: function() {
-                                    return [require('autoprefixer')];
-                                }
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: isDevelopment
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
+		module: {
+			rules: [
+				{
+					test: /\.(js|jsx)$/,
+					exclude: /node_modules/,
+					use: [
+						{
+							loader: 'babel-loader',
+							options: {
+								presets: ['@babel/preset-env', '@babel/preset-react']
+							}
+						}
+					]
+				},
+				{
+					test: /\.module\.s(a|c)ss$/,
+					loader: [
+						isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+						{
+							loader: 'css-loader',
+							options: {
+								modules: true,
+								sourceMap: isDevelopment,
+								modules: {
+									localIdentName: '[name]__[local]___[hash:base64:5]'
+								}
+							}
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: function() {
+									return [require('autoprefixer')];
+								}
+							}
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: isDevelopment
+							}
+						}
+					]
+				},
+				{
+					test: /\.s(a|c)ss$/,
+					exclude: /\.module.(s(a|c)ss)$/,
+					loader: [
+						isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+						'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: function() {
+									return [require('autoprefixer')];
+								}
+							}
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: isDevelopment
+							}
+						}
+					]
+				},
+				{
+					test: /\.css$/,
+					loader: [
+						'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: function() {
+									return [require('autoprefixer')];
+								}
+							}
+						}
+					]
+				}
+			]
+		},
 
-        resolve: {
-            extensions: ['.js', '.jsx', '.scss'],
-            alias: {
-                scss: path.resolve(__dirname, './src/scss/')
-            }
-        },
+		resolve: {
+			extensions: ['.js', '.jsx', '.scss'],
+			alias: {
+				scss: path.resolve(__dirname, './src/scss/')
+			}
+		},
 
-        devServer: {
-            contentBase: path.join(__dirname, OUTPUT_PATH),
-            compress: true,
-            port: 3000,
-            historyApiFallback: true,
-            proxy: {
-                '/v3/**': {
-                    target: 'https://api.yelp.com',
-                    changeOrigin: true
-                }
-            }
-        },
+		devServer: {
+			contentBase: path.join(__dirname, OUTPUT_PATH),
+			compress: true,
+			port: 3000,
+			historyApiFallback: true,
+			proxy: {
+				'/v3/**': {
+					target: 'https://api.yelp.com',
+					changeOrigin: true
+				}
+			}
+		},
 
-        devtool: isDevelopment ? 'source-map' : false,
+		devtool: isDevelopment ? 'source-map' : false,
 
-        plugins: [
-            new CleanWebpackPlugin(),
-            new MiniCssExtractPlugin({
-                filename: isDevelopment ? '[name]zizzyzizz.css' : '[name].[hash].css',
-                chunkFilename: isDevelopment ? '[id]zizzyzizz.css' : '[id].[hash].css'
-            }),
-            new HtmlWebpackPlugin({ template: './src/index.html' })
-        ]
-    };
+		plugins: [
+			new CleanWebpackPlugin(),
+			new MiniCssExtractPlugin({
+				filename: isDevelopment ? '[name]zizzyzizz.css' : '[name].[hash].css',
+				chunkFilename: isDevelopment ? '[id]zizzyzizz.css' : '[id].[hash].css'
+			}),
+			new HtmlWebpackPlugin({ template: './src/index.html' })
+		]
+	};
 };

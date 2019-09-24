@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Filters from '../Filters/Filters';
 import RestaurantsList from '../RestaurantsList/RestaurantsList';
-import { getRestaurants } from '../../store/actions';
-// TODO refactor for main view scss
-import { description, stickyTop } from '../Header/Header.module.scss';
+import { getRestaurants, clearRestaurants } from '../../store/actions';
+import { divider } from 'scss/layout.module.scss';
+import { description, stickyTop } from './AllRestaurants.module.scss';
 
-const App = ({ onGetRestaurants, queryOffset }) => {
+const AllRestaurants = ({ onGetRestaurants, onClearRestaurants }) => {
 	useEffect(() => {
-		// TODO clear restaurants + query offset here
-		onGetRestaurants(queryOffset);
-	}, []);
+		onClearRestaurants();
+		onGetRestaurants();
+	}, [onGetRestaurants, onClearRestaurants]);
 	return (
 		<div>
 			<div className={stickyTop}>
@@ -22,27 +22,27 @@ const App = ({ onGetRestaurants, queryOffset }) => {
 						labore et dolore magna aliqua.
 					</div>
 				</Header>
-				<div className="divider" />
+				<div className={divider} />
 				<Filters />
-				<div className="divider" />
+				<div className={divider} />
 			</div>
 			<RestaurantsList />
 		</div>
 	);
 };
 
-App.propTypes = {
-	queryOffset: PropTypes.number,
-	onGetRestaurants: PropTypes.func
+AllRestaurants.propTypes = {
+	onGetRestaurants: PropTypes.func,
+	onClearRestaurants: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-	restaurantsLoading: state.restaurantsLoading,
-	queryOffset: state.queryOffset
+	restaurantsLoading: state.restaurantsLoading
 });
 export default connect(
 	mapStateToProps,
 	{
-		onGetRestaurants: getRestaurants
+		onGetRestaurants: getRestaurants,
+		onClearRestaurants: clearRestaurants
 	}
-)(App);
+)(AllRestaurants);

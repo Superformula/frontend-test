@@ -1,10 +1,10 @@
 @import '../../scss/variables';
 
-:local .controlContainer {
-    cursor: pointer;
-    padding-bottom: 5px;
-    border-bottom: 1px solid $color-light-grey;
-    display: inline-block;
-    font-size: $font-size-label;
-    color: $color-primary;
+.controlContainer {
+	cursor: pointer;
+	padding-bottom: 5px;
+	border-bottom: 1px solid $color-light-grey;
+	display: inline-block;
+	font-size: $font-size-label;
+	color: $color-primary;
 }

@@ -1,0 +1,13 @@
+@import '../../scss/variables';
+.description {
+	font-family: $font-family-primary-light;
+	color: $color-grey;
+	width: 650px;
+}
+.stickyTop {
+	position: fixed;
+	background: $color-white;
+	z-index: 10;
+	top: 0;
+	width: 100%;
+}

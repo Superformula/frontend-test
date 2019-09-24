@@ -1,16 +1,15 @@
 @import '../../scss/variables';
-@import '../../scss/extensions';
 
-:local .restaurantsList {
+.restaurantsList {
 	display: flex;
 	flex-flow: row wrap;
 }
-:local .title {
+.title {
 	font-size: $font-size-title;
 	font-family: $font-family-primary-light;
 	margin-bottom: 40px;
 }
-:local .loadMoreButton {
+.loadMoreButton {
 	width: 416px;
 	height: 48px;
 	color: $color-primary;
@@ -21,4 +20,7 @@
 	text-align: center;
 	line-height: 3.5;
 	margin: 0 auto;
+	&:hover {
+		background-color: $color-light-grey;
+	}
 }

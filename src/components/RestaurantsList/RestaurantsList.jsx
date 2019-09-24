@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { contentContainer } from 'scss/layout.module.scss';
 import { headerSpacer, restaurantsList, title, loadMoreButton } from './restaurantsList.module.scss';
 import Restaurant from '../Restaurant/Restaurant';
 import Loader from '../Loader/Loader';
-import { queryOffsetChanged, getRestaurants } from '../../store/actions';
+import { getRestaurants } from '../../store/actions';
 const filterRestaurants = (restaurants, openNow, selectedPrice, selectedCategory) => {
 	return (openNow
 		? restaurants.filter(restaurant => {
@@ -43,7 +44,6 @@ const RestaurantsList = ({
 	selectedPrice,
 	selectedCategory,
 	queryOffset,
-	onQueryOffsetChanged,
 	onGetRestaurants
 }) => {
 	const filteredRestaurants = filterRestaurants(restaurants, openNow, selectedPrice, selectedCategory);
@@ -53,7 +53,7 @@ const RestaurantsList = ({
 		<div>
 			<div className={headerSpacer} />
 			<VertSpacer height={385} />
-			<div className="contentContainer">
+			<div className={contentContainer}>
 				{showMainLoader ? (
 					<Loader />
 				) : (
@@ -70,9 +70,7 @@ const RestaurantsList = ({
 							<div
 								className={loadMoreButton}
 								onClick={() => {
-									// TODO
-									onQueryOffsetChanged(queryOffset + 20);
-									onGetRestaurants(queryOffset + 20);
+									onGetRestaurants(queryOffset);
 								}}
 							>
 								LOAD MORE
@@ -93,7 +91,6 @@ RestaurantsList.propTypes = {
 	selectedPrice: PropTypes.string,
 	selectedCategory: PropTypes.string,
 	queryOffset: PropTypes.number,
-	onQueryOffsetChanged: PropTypes.func,
 	onGetRestaurants: PropTypes.func
 };
 
@@ -106,5 +103,5 @@ export default connect(
 		selectedCategory: state.selectedCategory,
 		queryOffset: state.queryOffset
 	}),
-	{ onQueryOffsetChanged: queryOffsetChanged, onGetRestaurants: getRestaurants }
+	{ onGetRestaurants: getRestaurants }
 )(RestaurantsList);

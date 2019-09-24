@@ -10,6 +10,9 @@ export const SELECTED_PRICE_CHANGED = 'SELECTED_PRICE_CHANGED';
 export const SELECTED_CATEGORY_CHANGED = 'SELECTED_CATEGORY_CHANGED';
 export const QUERY_OFFSET_CHANGED = 'QUERY_OFFSET_CHANGED';
 export const CLEAR_FILTERS = 'CLEAR_FILTERS';
+export const CLEAR_RESTAURANTS = 'CLEAR_RESTAURANTS';
+
+export const OFFSET_INCREMENT = 20;
 
 import businesses from '../../tests/data/businesses';
 import state1 from '../../tests/data/state-1';
@@ -40,6 +43,10 @@ export const getRestaurants = (offset = 0) => {
 				dispatch({
 					type: FETCH_RESTAURANTS_SUCCESS,
 					value: restaurants
+				});
+				dispatch({
+					type: QUERY_OFFSET_CHANGED,
+					value: offset + OFFSET_INCREMENT
 				});
 			})
 			.catch(err => {
@@ -109,6 +116,12 @@ export const selectedCategoryChanged = selectedCategory => {
 	return {
 		type: SELECTED_CATEGORY_CHANGED,
 		value: selectedCategory
+	};
+};
+
+export const clearRestaurants = () => {
+	return {
+		type: CLEAR_RESTAURANTS
 	};
 };
 

@@ -1,25 +1,12 @@
 @import '../../scss/variables';
-@import '../../scss/extensions';
 
-:local .header {
+.header {
 	height: 194px;
 	margin-top: 36px;
 }
-:local .title {
+.title {
 	font-family: $font-family-primary-light;
 	font-size: $font-size-large;
 	justify-content: center;
 	margin-bottom: 25px;
-}
-:local .description {
-	font-family: $font-family-primary-light;
-	color: $color-grey;
-	width: 650px;
-}
-:local .stickyTop {
-	position: fixed;
-	background: $color-white;
-	z-index: 10;
-	top: 0;
-	width: 100%;
 }

@@ -1,20 +1,20 @@
-:local .ratingContainer {
-    position: relative;
+.ratingContainer {
+	position: relative;
 }
-:local .filledStarsContainer {
-    position: absolute;
-    top: 0;
+.filledStarsContainer {
+	position: absolute;
+	top: 0;
 }
-:local .emptyStarsContainer {
-    position: absolute;
-    top: 1px;
+.emptyStarsContainer {
+	position: absolute;
+	top: 1px;
 }
-:local .emptyStar {
-    width: 20px;
-    height: 20px;
-    padding: 1px;
-    margin-right: 1px;
+.emptyStar {
+	width: 20px;
+	height: 20px;
+	padding: 1px;
+	margin-right: 1px;
 }
 .starsContainer {
-    display: inline-block;
+	display: inline-block;
 }

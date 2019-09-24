@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import truncate from 'truncate';
 import classNames from 'classnames';
+import { contentContainer } from 'scss/layout.module.scss';
 import { filters, filtersRow, filterByLabel, filterContainer, clearFiltersButton } from './Filters.module.scss';
 import Checkbox from '../controls/Checkbox';
 import { openNowChanged, selectedPriceChanged, selectedCategoryChanged, clearFilters } from '../../store/actions';
@@ -46,7 +47,7 @@ const Filters = ({
 	const selectedCategoryAfterFilter =
 		typeof categoryItems.find(item => item.value === selectedCategory) !== 'undefined' ? selectedCategory : 'all';
 	return (
-		<div className={classNames(filters, 'contentContainer')}>
+		<div className={classNames(filters, contentContainer)}>
 			<div className={filtersRow}>
 				<div className={filterByLabel}>Filter By:</div>
 				<div className={filterContainer}>

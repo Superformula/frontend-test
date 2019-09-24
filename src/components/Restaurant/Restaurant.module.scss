@@ -39,4 +39,8 @@
 	line-height: 3.5;
 	position: absolute;
 	bottom: 0;
+
+	&:hover {
+		background-color: $color-primary-light;
+	}
 }

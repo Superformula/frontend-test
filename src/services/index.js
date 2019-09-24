@@ -14,13 +14,20 @@ export const fetchRestaurants = offset => {
 	})
 		.then(res => res.json())
 		.then(res => {
+			console.log('fetchRestaurants res', res);
 			const restaurantFetches = res.businesses.map(restaurantDetails => {
-				return fetchRestaurantDetails(restaurantDetails.id);
+				return fetchRestaurantDetails(restaurantDetails.id).then(restaurant => {
+					if (!restaurant.error) {
+						return restaurant;
+					}
+					console.log('error loading restaurant');
+					return null;
+				});
 			});
 			return Promise.all(restaurantFetches);
 		})
 		.then(restaurants => {
-			return restaurants;
+			return restaurants.filter(restaurant => restaurant !== null);
 		})
 		.catch(err => {
 			console.log('error fetching restaurants', err);

@@ -9,7 +9,8 @@ import {
 	SELECTED_PRICE_CHANGED,
 	SELECTED_CATEGORY_CHANGED,
 	QUERY_OFFSET_CHANGED,
-	CLEAR_FILTERS
+	CLEAR_FILTERS,
+	CLEAR_RESTAURANTS
 } from '../actions';
 
 const initialState = {
@@ -50,6 +51,8 @@ function appReducer(state = initialState, action) {
 			return { ...state, queryOffset: action.value };
 		case CLEAR_FILTERS:
 			return { ...state, categories: [], openNow: true, selectedPrice: 'all', selectedCategory: 'all' };
+		case CLEAR_RESTAURANTS:
+			return { ...state, restaurants: [], queryOffset: 0 };
 		default:
 			return state;
 	}

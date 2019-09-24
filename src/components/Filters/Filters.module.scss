@@ -1,16 +1,15 @@
 @import '../../scss/variables';
-@import '../../scss/extensions';
-:local .filters {
+.filters {
 	height: 80px;
 	position: relative;
 }
-:local .filtersRow {
+.filtersRow {
 	position: absolute;
 	display: flex;
 	top: 50%;
 	transform: translateY(-50%);
 }
-:local .filterByLabel {
+.filterByLabel {
 	font-size: $font-size-label;
 	color: $color-grey;
 	height: 32px;
@@ -18,10 +17,10 @@
 	float: left;
 	margin-right: 30px;
 }
-:local .filterContainer {
+.filterContainer {
 	margin-right: 30px;
 }
-:local .clearFiltersButton {
+.clearFiltersButton {
 	width: 151px;
 	height: 38px;
 	color: $color-primary;

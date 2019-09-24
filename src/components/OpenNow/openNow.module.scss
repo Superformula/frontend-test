@@ -1,27 +1,27 @@
 @import '../../scss/variables';
 
-:local .openNowContainer {
-    float: right;
+.openNowContainer {
+	float: right;
 }
-:local .openNowCircle {
-    width: 8px;
-    height: 8px;
-    background: $color-green;
-    border-radius: 100%;
-    margin: 3px 5px;
-    float: left;
+.openNowCircle {
+	width: 8px;
+	height: 8px;
+	background: $color-green;
+	border-radius: 100%;
+	margin: 3px 5px;
+	float: left;
 }
-:local .red {
-    background: $color-red;
-    float: left;
+.red {
+	background: $color-red;
+	float: left;
 }
-:local .large {
-    width: 22px;
-    height: 22px;
-    margin: 0 10px 0 0;
+.large {
+	width: 22px;
+	height: 22px;
+	margin: 0 10px 0 0;
 }
 .openNowText {
-    display: inline-block;
-    font-family: $font-family-primary-light;
-    color: $color-grey;
+	display: inline-block;
+	font-family: $font-family-primary-light;
+	color: $color-grey;
 }
