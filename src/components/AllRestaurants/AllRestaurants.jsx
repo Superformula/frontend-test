@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Filters from '../Filters/Filters';
 import RestaurantsList from '../RestaurantsList/RestaurantsList';
-import { fetchRestaurants, fetchCategories } from '../../store/actions';
+import { getRestaurants } from '../../store/actions';
 // TODO refactor for main view scss
 import { description, stickyTop } from '../Header/Header.module.scss';
 
-const App = ({ restaurantsLoading, fetchRestaurants, fetchCategories, queryOffset }) => {
+const App = ({ onGetRestaurants, queryOffset }) => {
 	useEffect(() => {
-		// fetchCategories();
 		// TODO clear restaurants + query offset here
-		fetchRestaurants(queryOffset);
+		onGetRestaurants(queryOffset);
 	}, []);
 	return (
 		<div>
@@ -33,10 +32,8 @@ const App = ({ restaurantsLoading, fetchRestaurants, fetchCategories, queryOffse
 };
 
 App.propTypes = {
-	restaurantsLoading: PropTypes.bool,
 	queryOffset: PropTypes.number,
-	fetchRestaurants: PropTypes.func,
-	fetchCategories: PropTypes.func
+	onGetRestaurants: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -46,7 +43,6 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{
-		fetchCategories,
-		fetchRestaurants
+		onGetRestaurants: getRestaurants
 	}
 )(App);

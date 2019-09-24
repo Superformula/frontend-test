@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { headerSpacer, restaurantsList, title, loadMoreButton } from './restaurantsList.module.scss';
 import Restaurant from '../Restaurant/Restaurant';
 import Loader from '../Loader/Loader';
-import { queryOffsetChanged, fetchRestaurants } from '../../store/actions';
+import { queryOffsetChanged, getRestaurants } from '../../store/actions';
 const filterRestaurants = (restaurants, openNow, selectedPrice, selectedCategory) => {
 	return (openNow
 		? restaurants.filter(restaurant => {
@@ -43,8 +43,8 @@ const RestaurantsList = ({
 	selectedPrice,
 	selectedCategory,
 	queryOffset,
-	queryOffsetChanged,
-	fetchRestaurants
+	onQueryOffsetChanged,
+	onGetRestaurants
 }) => {
 	const filteredRestaurants = filterRestaurants(restaurants, openNow, selectedPrice, selectedCategory);
 	const showMainLoader = restaurantsLoading && restaurants.length === 0;
@@ -70,8 +70,9 @@ const RestaurantsList = ({
 							<div
 								className={loadMoreButton}
 								onClick={() => {
-									queryOffsetChanged(queryOffset + 20);
-									fetchRestaurants(queryOffset + 20);
+									// TODO
+									onQueryOffsetChanged(queryOffset + 20);
+									onGetRestaurants(queryOffset + 20);
 								}}
 							>
 								LOAD MORE
@@ -92,8 +93,8 @@ RestaurantsList.propTypes = {
 	selectedPrice: PropTypes.string,
 	selectedCategory: PropTypes.string,
 	queryOffset: PropTypes.number,
-	queryOffsetChanged: PropTypes.func,
-	fetchRestaurants: PropTypes.func
+	onQueryOffsetChanged: PropTypes.func,
+	onGetRestaurants: PropTypes.func
 };
 
 export default connect(
@@ -105,5 +106,5 @@ export default connect(
 		selectedCategory: state.selectedCategory,
 		queryOffset: state.queryOffset
 	}),
-	{ queryOffsetChanged, fetchRestaurants }
+	{ onQueryOffsetChanged: queryOffsetChanged, onGetRestaurants: getRestaurants }
 )(RestaurantsList);

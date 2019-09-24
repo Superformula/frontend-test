@@ -5,25 +5,18 @@ const API_KEY =
 const headers = new Headers({
 	Authorization: `Bearer ${API_KEY}`
 });
-export const getRestaurantDetails = id => {
+export const fetchRestaurantDetails = id => {
 	return fetch(`${QUERY_BASE}/${id}`, { headers }).then(res => res.json());
 };
-export const getRestaurants = offset => {
+export const fetchRestaurants = offset => {
 	return fetch(`${QUERY_BASE}/${SEARCH_QUERY}&offset=${offset}`, {
 		headers
 	})
 		.then(res => res.json())
 		.then(res => {
 			const restaurantFetches = res.businesses.map(restaurantDetails => {
-				return getRestaurantDetails(restaurantDetails.id);
+				return fetchRestaurantDetails(restaurantDetails.id);
 			});
-			// TODO Promise.all here sometimes causes the API to error with "too many requests per second",
-			// so fetching sequentially instead...
-			// return restaurantFetches.reduce((promiseChain, currentFetch) => {
-			//     return promiseChain.then(chainResults =>
-			//         currentFetch.then(currentResult => [...chainResults, currentResult])
-			//     );
-			// }, Promise.resolve([]));
 			return Promise.all(restaurantFetches);
 		})
 		.then(restaurants => {
@@ -34,17 +27,7 @@ export const getRestaurants = offset => {
 			// TODO error view state
 		});
 };
-export const getCategories = () => {
-	return fetch('/v3/categories', {
-		headers
-	})
-		.then(res => res.json())
-		.then(res => {
-			return res.categories.filter(category => category.parent_aliases[0] === 'restaurants');
-		});
-};
-
-export const getReviews = id => {
+export const fetchReviews = id => {
 	return fetch(`${QUERY_BASE}/${id}/reviews`, {
 		headers
 	})
