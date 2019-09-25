@@ -1,98 +1,75 @@
-# Superformula Front-end Developer Coding Test
+# Superformula Code challenge - Brendan Crich
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
+## Running
 
-## Context
+(use NPM in place of yarn if you like...)
 
-Use HTML, CSS, and JavaScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
-
-![Superformula-front-end-test-mockup](./mockup.png)
-
-Use this Sketch file to see button states, colors, and responsive design.
-
-> [Source Sketch file](Superformula-FE-test-264388d.sketch)
-
-## Requirements
-
-### Yelp API
-
-You can ask us and we will provide you a Yelp API Key to use for your PR.
-
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
-
-### Page Structure
+first:
 
 ```
-Main
-  - Filter navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (open modal to show more details)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
+$ yarn install
 ```
 
-### Functionality
+then:
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
+```
+$ yarn start
+```
 
-### Tech stack
+This should run the webpack dev server locally at https://localhost:3000/
 
-- JS oriented
-  - Use **React**.
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor like SASS/SCSS/Less but _do not_ use any CSS frameworks or libraries.
+For testing you can run
 
-### Bonus
+```
+$ yarn test
+```
 
-- Also create mobile version included in Sketch comp.
-- Write clear **documentation** on how the app was designed and how to run the code.
-- Provide proper unit tests.
-- Provide components in [Storybook](https://storybook.js.org) with tests.
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages.
-- Provide an online demo of the application.
-- Include subtle animations to focus attention
-- Describe optimization opportunities when you conclude
+To create a prod build:
 
-## What We Care About
+```
+$ yarn build
+```
 
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your code & the way you solve the problem, not how well you can use a particular library or feature.
+(I haven't looked into the prod build too much, and it probably could be improved/optimized).
 
-_We're interested in your method and how you approach the problem just as much as we're interested in the end result._
+## Notes
 
-Here's what you should strive for:
+### Service calls, async
 
-- Good use of current HTML, CSS, and JavaScript & performance best practices.
-- Solid testing approach.
-- Extensible code.
+I decided to use redux-thunk in lieu of redux-saga or something else; there are just a few relatively straightforward fetches and not much complex async stuff so I kept it simple.
 
-## Q&A
+### Styles
 
-> Where should I send back the result when I'm done?
+This uses css modules for the most part (in scss) - css modules can make components a lot more modular and portable, though perhaps not altogether necessary in a smaller project like this, and requires a bit more boilerplate.
 
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
+### Testing
 
-> What if I have a question?
+I did some basic tests of the reducer and most of the actions, and component tests of the two main views. This is just a sample of testing, and not at all complete.
 
-Just create a new issue in this repo and we will respond and get back to you quickly.
+### Categories
+
+It's mentioned in the README that categories would be filtered server-side - I believe the GraphQL implementation of the API (which I didn't use) lets you do this; I'm not sure if you can do it with the basic API but in any case I deviated somewhat from the requirements here and made the menu populate with the categories that exist in the results, and filter them client-side when you select a category.
+
+## Future improvements
+
+#### Project structure
+
+The structure is pretty basic, the main 'app reducer' could probably be split up into a few reducers, actions could be separated out more, etc... I kept most of these sorts of things in single files.
+
+#### Loader
+
+I don't love the way the loader looks, and it would be possible pretty easily to do view states that show loading of different areas of the app - for instance in the Restaurant Detail view, the reviews loader could be separate. The store is already mostly set up to account for views like that.
+
+#### Styles
+
+Since the criteria called for only doing the "desktop" view, I didn't design the styles with responsiveness or mobile in mind at all, so a lot of things could be changed from hard pixel values to more responsive-friendly styles. Styles in general could use a bit of work.
+
+#### GraphQL/Sagas
+
+I'd probably switch out the services for a GraphQL implementation, and use redux-saga if I were to really refactor this.
+
+#### Error handling
+
+Right now I just have one main ugly error boundary that shows up if anything goes wrong in the services. Error handling could be done a lot better.
+
+Thanks for taking a look! It's been enjoyable.
