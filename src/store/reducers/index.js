@@ -10,8 +10,9 @@ import {
 	SELECTED_CATEGORY_CHANGED,
 	QUERY_OFFSET_CHANGED,
 	CLEAR_FILTERS,
-	CLEAR_RESTAURANTS
-} from '../actions';
+	CLEAR_RESTAURANTS,
+	FETCH_ERROR
+} from '../constants';
 
 const initialState = {
 	restaurantsLoading: true,
@@ -24,11 +25,14 @@ const initialState = {
 	openNow: true,
 	queryOffset: 0,
 	selectedPrice: 'all',
-	selectedCategory: 'all'
+	selectedCategory: 'all',
+	appError: false
 };
 
 function appReducer(state = initialState, action) {
 	switch (action.type) {
+		case FETCH_ERROR:
+			return { ...state, appError: true };
 		case OPEN_NOW_CHANGED:
 			return { ...state, openNow: action.value };
 		case FETCH_RESTAURANTS_LOADING:

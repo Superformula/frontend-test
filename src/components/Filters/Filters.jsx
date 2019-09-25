@@ -16,7 +16,7 @@ const priceItems = [
 	{ label: '$$$', value: '$$$' },
 	{ label: '$$$$', value: '$$$$' }
 ];
-const Filters = ({
+export const Filters = ({
 	openNow,
 	openNowChanged,
 	selectedPrice,
@@ -42,10 +42,9 @@ const Filters = ({
 	}, {});
 	const categoryItems = Object.values(categories).map(val => ({ ...val, label: truncate(val.label, 17) }));
 	categoryItems.unshift({ label: 'All', value: 'all' });
-	// if the category that was selected has been filtered out, set selected category to 'all'
-	// TODO this doesn't represent the store, I no like
+	// if the category that was previously selected has been filtered out, set selected category to 'all'
 	const selectedCategoryAfterFilter =
-		typeof categoryItems.find(item => item.value === selectedCategory) !== 'undefined' ? selectedCategory : 'all';
+		typeof categoryItems.find(item => item.value === selectedCategory) === 'undefined' ? 'all' : selectedCategory;
 	return (
 		<div className={classNames(filters, contentContainer)}>
 			<div className={filtersRow}>

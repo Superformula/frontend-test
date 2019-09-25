@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -30,7 +31,7 @@ const Review = ({ review }) => {
 			</div>
 			<div className={classNames(column, reviewColumn)}>
 				<div className={ratingContainer}>
-					<Rating rating={rating}></Rating>
+					<Rating rating={rating} />
 				</div>
 				<div className={reviewText}>{text}</div>
 			</div>

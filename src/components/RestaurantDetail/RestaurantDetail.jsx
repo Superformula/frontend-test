@@ -23,7 +23,7 @@ import Header from '../Header/Header';
 import Rating from '../Rating/Rating';
 import OpenNowIndicator from '../OpenNow/OpenNowIndicator';
 
-const Detail = ({
+export const RestaurantDetail = ({
 	restaurantDetails,
 	onGetRestaurantDetails,
 	restaurantDetailsLoading,
@@ -121,7 +121,7 @@ const Detail = ({
 	);
 };
 
-Detail.propTypes = {
+RestaurantDetail.propTypes = {
 	onGetReviews: PropTypes.func,
 	reviews: PropTypes.array,
 	onGetRestaurantDetails: PropTypes.func,
@@ -139,4 +139,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{ onGetRestaurantDetails: getRestaurantDetails, onGetReviews: getReviews }
-)(Detail);
+)(RestaurantDetail);

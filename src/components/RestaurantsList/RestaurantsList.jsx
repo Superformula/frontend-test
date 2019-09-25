@@ -9,7 +9,6 @@ import { getRestaurants } from '../../store/actions';
 const filterRestaurants = (restaurants, openNow, selectedPrice, selectedCategory) => {
 	return (openNow
 		? restaurants.filter(restaurant => {
-				// TODO this is brittle, a restaurant can be an error object
 				if (restaurant.hours[0].is_open_now) {
 					return restaurant;
 				}
@@ -37,7 +36,8 @@ const filterRestaurants = (restaurants, openNow, selectedPrice, selectedCategory
 
 const VertSpacer = ({ height }) => <div style={{ width: '100%', height: `${height}px` }} />;
 VertSpacer.propTypes = { height: PropTypes.number };
-const RestaurantsList = ({
+
+export const RestaurantsList = ({
 	restaurantsLoading,
 	restaurants,
 	openNow,

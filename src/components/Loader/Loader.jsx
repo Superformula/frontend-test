@@ -10,15 +10,19 @@ const useStyles = makeStyles(() => ({
 	}
 }));
 
-const Loader = ({ wrapperClassname }) => {
+const Loader = ({ wrapperClassname, fetchError }) => {
 	const classes = useStyles();
 	return (
 		<div className={classNames(loaderContainer, wrapperClassname)}>
-			<div className={spinner}>
-				<CircularProgress size={50} thickness={4} className={classes.progress} />
-			</div>
+			{fetchError ? (
+				<div>Sorry, something went wrong. Please refresh the page and try again.</div>
+			) : (
+				<div className={spinner}>
+					<CircularProgress size={50} thickness={5} className={classes.progress} />
+				</div>
+			)}
 		</div>
 	);
 };
-Loader.propTypes = { wrapperClassname: PropTypes.string };
+Loader.propTypes = { wrapperClassname: PropTypes.string, fetchError: PropTypes.bool };
 export default Loader;

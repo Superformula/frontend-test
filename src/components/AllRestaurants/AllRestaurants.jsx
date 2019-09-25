@@ -8,7 +8,7 @@ import { getRestaurants, clearRestaurants } from '../../store/actions';
 import { divider } from 'scss/layout.module.scss';
 import { description, stickyTop } from './AllRestaurants.module.scss';
 
-const AllRestaurants = ({ onGetRestaurants, onClearRestaurants }) => {
+export const AllRestaurants = ({ onGetRestaurants, onClearRestaurants }) => {
 	useEffect(() => {
 		onClearRestaurants();
 		onGetRestaurants();
