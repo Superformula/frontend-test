@@ -1,0 +1,43 @@
+%filled-star {
+  &:after {
+    content: url("../../icons/svgs/icon-star-filled.svg");
+  }
+}
+
+%half-star {
+  &:after {
+    content: url("../../icons/svgs/icon-star-half.svg");
+  }
+}
+
+.rating-list {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .rating-list-item {
+    display: inline;
+    &::after {
+      content: url("../../icons/svgs/icon-star-empty.svg");
+    }
+  }
+
+  @for $i from 0 to 6 {
+    &[data-rating="#{$i}"] {
+      .rating-list-item:nth-child(-n + #{$i}) {
+        @extend %filled-star;
+      }
+    }
+
+    &[data-rating="#{$i + 0.5}"] {
+      .rating-list-item:nth-child(-n + #{$i}) {
+        @extend %filled-star;
+      }
+
+      .rating-list-item:nth-child(#{$i + 1}) {
+        @extend %half-star;
+      }
+    }
+  }
+}
