@@ -1,0 +1,18 @@
+@import "../../scss/base/colors";
+@import "../../scss/base/typography";
+
+.label {
+  @include font-regular;
+  color: $lightgrey;
+  font-size: 12px;
+  text-transform: uppercase;
+
+  .label-divider {
+    padding: 0 5px;
+  }
+
+  &.label-content--large {
+    font-size: 22px;
+    text-transform: capitalize;
+  }
+}
