@@ -1,10 +1,6 @@
-import React from 'react';
-import './Divider.scss';
+import React from "react";
+import "./Divider.scss";
 
-function Divider() {
-  return (
-    <span className="divider"></span>
-  );
-}
+const Divider = () => <span className="divider" />;
 
 export default Divider;
