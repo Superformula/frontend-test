@@ -1,18 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import Button from './Button';
+import Button from "./Button";
 
-export default { 
+export default {
   component: Button,
-  title: 'Button' 
+  title: "Button"
 };
 
-const color = ['inverted']
+const color = ["inverted"];
 
-export const regular = () => ( 
-  <Button>Learn More</Button> 
-);
+export const regular = () => <Button>Learn More</Button>;
 
-export const inverted = () => ( 
-  <Button color={color}>Learn More</Button> 
-);
+export const inverted = () => <Button inverted>Learn More</Button>;
