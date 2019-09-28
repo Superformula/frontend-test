@@ -11,8 +11,6 @@ const MetadataWrapper = props => {
   const { category, status, price, large } = props;
   let isLarge = large;
 
-  console.log(isLarge);
-
   return (
     <div className="metadata-wrapper">
       <div className="metadata-label-container">
