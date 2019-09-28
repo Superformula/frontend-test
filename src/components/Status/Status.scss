@@ -1,0 +1,47 @@
+@import "../../scss/base/typography";
+@import "../../scss/base/colors";
+
+.status-wrapper {
+  display: flex;
+  align-items: center;
+
+  .status-text {
+    @include font-regular;
+    color: $lightgrey;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .status-indicator {
+    border-radius: 50%;
+    display: inline-block;
+    height: 8px;
+    margin-right: 5px;
+    width: 8px;
+
+    &.status-indicator--open {
+      background-color: $green;
+    }
+
+    &.status-indicator--closed {
+      background-color: $red;
+    }
+
+    .large {
+      @include font-light;
+      font-size: 22px;
+      text-transform: capitalize;
+    }
+  }
+
+  &.status-content--large {
+    .status-text {
+      font-size: 22px;
+      text-transform: capitalize;
+    }
+    .status-indicator {
+      height: 22px;
+      width: 22px;
+    }
+  }
+}
