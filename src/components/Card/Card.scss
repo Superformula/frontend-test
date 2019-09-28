@@ -1,0 +1,10 @@
+@import "../../scss/base/typography";
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .card-metadata-container {
+    flex: 1 0 auto;
+  }
+}
