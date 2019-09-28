@@ -27,7 +27,7 @@ const Status = props => {
 };
 
 Status.propTypes = {
-  large: PropTypes.string,
+  large: PropTypes.bool,
   status: PropTypes.bool
 };
 
