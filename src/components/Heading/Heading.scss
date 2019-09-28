@@ -1,0 +1,11 @@
+@import "../../scss/base/typography";
+
+.heading {
+  @include font-regular;
+  display: block;
+  margin: 0;
+
+  &.light {
+    @include font-light;
+  }
+}
