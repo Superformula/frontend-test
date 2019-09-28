@@ -1,23 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import SectionWrapper from '../SectionWrapper/SectionWrapper';
-import './Hero.scss';
+import React from "react";
+import PropTypes from "prop-types";
 
-function Hero(props) {
+import Heading from "../Heading/Heading";
+import SectionWrapper from "../SectionWrapper/SectionWrapper";
+import Spacer from "../Spacer/Spacer";
+
+import "./Hero.scss";
+
+const Hero = props => {
   const { children, subtext, subcomponent } = props;
-  
+
   return (
     <SectionWrapper>
-      <h1 className="hero">{children}</h1>
-      {subtext ? <span className="subtext">{subtext}</span> : null}
-      {subcomponent ? subcomponent : null}
+      <Heading level={1}>{children}</Heading>
+      {(subtext || subcomponent) && <Spacer size="medium" />}
+      {subtext && (
+        <Heading level={3} light>
+          {subtext}
+        </Heading>
+      )}
+      {subcomponent && subcomponent}
     </SectionWrapper>
   );
-}
+};
 
 Hero.propTypes = {
   subtext: PropTypes.string,
-  subcomponent: PropTypes.object
-}
+  subcomponent: PropTypes.node
+};
 
 export default Hero;
