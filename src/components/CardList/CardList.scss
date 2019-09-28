@@ -1,0 +1,21 @@
+.cardlist-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & .cardlist-list-item {
+    display: flex;
+    margin: 0 1%;
+    width: 100%;
+    max-width: 300px;
+
+    &:nth-of-type(4n) {
+      margin-right: 0;
+    }
+    &::nth-of-type(4n + 1) {
+      margin-left: 0;
+    }
+  }
+}
