@@ -1,22 +1,42 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isDevelopment = process.env.NODE_ENV === "development";
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'index.js'
+    path: path.resolve(__dirname, "public"),
+    filename: "index.js"
   },
   module: {
     rules: [
-      {test: /\.(js)$/, loader: 'babel-loader'},
-      {test: /\.scss$/, loader: ['style-loader', 'css-loader', 'sass-loader' ]},
+      { test: /\.(svg)$/, loader: "url-loader" },
+      { test: /\.(js)$/, loader: "babel-loader" },
+      {
+        test: /\.(scss)$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          { loader: "resolve-url-loader" },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
     ]
   },
-  mode: "development",
+  mode: "none",
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: "src/index.html"
     }),
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? "[name].css" : "[name].[hash].css",
+      chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css"
+    })
   ]
-}
+};
