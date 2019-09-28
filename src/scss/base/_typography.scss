@@ -1,0 +1,43 @@
+// Typography
+@mixin font-regular {
+  font-family: "Helvetica Neue", Helvetica, san-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+@mixin font-light {
+  font-family: "Helvetica Neue", Helvetica, san-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+h1,
+.h1 {
+  font-size: 54px;
+}
+
+h2,
+.h2 {
+  font-size: 34px;
+}
+
+h3,
+.h3 {
+  font-size: 22px;
+}
+
+h4,
+.h4 {
+  font-size: 20px;
+}
+
+h5,
+.h5 {
+  font-size: 16px;
+}
+
+h6,
+.h6 {
+  font-size: 12px;
+  text-transform: uppercase;
+}
