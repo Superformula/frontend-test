@@ -1,7 +1,6 @@
 import React from "react";
 
 import Label from "../Label/Label";
-import { Z_BLOCK } from "zlib";
 
 export default {
   component: Label,
