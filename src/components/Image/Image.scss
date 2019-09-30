@@ -1,0 +1,12 @@
+.image-container {
+  width: 100%;
+
+  &.small {
+    height: 80px;
+    width: 80px;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+}
