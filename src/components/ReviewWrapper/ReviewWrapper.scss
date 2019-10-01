@@ -1,0 +1,19 @@
+.review-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 75px 0 65px;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #E6E6E6;
+  }
+
+  .review-user-details-container {
+    flex: 1;
+    margin-left: 32px;
+  }
+
+  .review-details-container {
+    flex: 5;
+  }
+}
