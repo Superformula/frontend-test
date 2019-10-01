@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Card.scss";
 
-import Rating from "../Rating/Rating";
-import Heading from "../Heading/Heading";
 import Button from "../Button/Button";
-import Spacer from "../Spacer/Spacer";
+import Heading from "../Heading/Heading";
+import Image from "../Image/Image";
 import MetadataWrapper from "../MetadataWrapper/MetadataWrapper";
-// import Image from '../Image/Image';
+import Rating from "../Rating/Rating";
+import Spacer from "../Spacer/Spacer";
 
 const Card = props => {
   const { category, image, headline, rating, price, status } = props;
@@ -15,8 +15,7 @@ const Card = props => {
   return (
     <div className="card-wrapper">
       <div className="card-metadata-container">
-        {/* <Image source={image} /> */}
-        <img src="http://via.placeholder.com/300x230/" />
+        <Image source={image} />
         <Spacer size="medium" />
 
         {/* Restaurant Name */}
@@ -40,7 +39,12 @@ const Card = props => {
 };
 
 Card.protoTypes = {
-  headline: PropTypes.string
+  category: PropTypes.string,
+  image: PropTypes.string,
+  headline: PropTypes.string,
+  rating: PropTypes.number,
+  price: PropTypes.string,
+  status: PropTypes.bool
 };
 
 export default Card;
