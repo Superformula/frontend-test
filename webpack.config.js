@@ -11,14 +11,15 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(svg)$/, loader: "url-loader" },
+      { test: /\.(svg|png)$/, loader: "url-loader" },
       { test: /\.(js)$/, loader: "babel-loader" },
       {
         test: /\.(scss)$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          { loader: "css-loader" },
+          { loader: "css-loader", options: { importLoaders: 3 }},
           { loader: "resolve-url-loader" },
+          { loader: "postcss-loader"},
           {
             loader: "sass-loader",
             options: {
@@ -26,7 +27,10 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      { test: /\.css$/, use: [
+        "style-loader", "css-loader", "postcss-loader"
+      ]},
     ]
   },
   mode: "none",
@@ -37,6 +41,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: isDevelopment ? "[name].css" : "[name].[hash].css",
       chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css"
-    })
+    }),
   ]
 };
