@@ -14,5 +14,6 @@ export const allSizes = () => (
   <div style={{ display: "grid" }}>
     <Image source={normalImage}/>
     <Image source={smallImage} small/>
+    <Image />
   </div>
 );

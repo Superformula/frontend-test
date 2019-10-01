@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import placeholder from '../../assets/images/yelp-logo.png';
 
 import './Image.scss';
 
@@ -11,9 +12,10 @@ const Image = (props) => {
     'image-container': true,
     'small': small
   })
+
   return (
     <div className={classes}>
-      <img src={source} className='image' alt={alt || 'Image from Yelp'}/>
+      <img src={source ? source : placeholder} className='image' alt={alt || 'Image from Yelp'}/>
     </div>
   );
 
@@ -22,7 +24,7 @@ const Image = (props) => {
 Image.propTypes = {
   alt: PropTypes.string,
   small: PropTypes.bool,
-  source: PropTypes.string.isRequired
+  source: PropTypes.string
 }
 
 export default Image;
