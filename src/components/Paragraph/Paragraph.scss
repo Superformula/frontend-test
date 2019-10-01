@@ -1,7 +1,7 @@
 @import "../../scss/base/typography";
 
 .paragraph {
-  @include font-light;
+  @include font-regular;
   font-size: 20px;
   line-height: 28px;
 }
