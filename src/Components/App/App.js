@@ -9,8 +9,7 @@ import Hero from "../Hero/Hero";
 import SectionWrapper from "../SectionWrapper/SectionWrapper";
 import Spacer from "../Spacer/Spacer";
 
-const subtext =
-  "Don't be fooled by the French name, this place oozes with Californian flair.";
+const subtext = "Don't be fooled by the French name, this place oozes with Californian flair.";
 
 class App extends Component {
   render() {
@@ -60,7 +59,7 @@ class App extends Component {
           </CardList>
         </SectionWrapper>
       </div>
-    );
+    )
   }
 }
 

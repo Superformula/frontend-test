@@ -9,4 +9,4 @@ const Root = (
   <App />
 );
 
-ReactDOM.render(Root, document.getElementById("root"));
+ReactDOM.render(Root, document.getElementById('root'));
