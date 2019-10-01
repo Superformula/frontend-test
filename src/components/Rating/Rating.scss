@@ -1,12 +1,12 @@
 %filled-star {
   &:after {
-    content: url("../../icons/svgs/icon-star-filled.svg");
+    content: url("../../assets/svgs/icon-star-filled.svg");
   }
 }
 
 %half-star {
   &:after {
-    content: url("../../icons/svgs/icon-star-half.svg");
+    content: url("../../assets/svgs/icon-star-half.svg");
   }
 }
 
@@ -19,7 +19,7 @@
   .rating-list-item {
     display: inline;
     &::after {
-      content: url("../../icons/svgs/icon-star-empty.svg");
+      content: url("../../assets/svgs/icon-star-empty.svg");
     }
   }
 
