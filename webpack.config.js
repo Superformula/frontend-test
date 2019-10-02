@@ -1,7 +1,15 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDevelopment = process.env.NODE_ENV === "development";
+const dotenv = require('dotenv').config().parsed;
+
+// reduces to an object
+const envKeys = Object.keys(dotenv).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(dotenv[next]);
+  return prev;
+}, {});
 
 module.exports = {
   entry: "./src/index.js",
@@ -19,7 +27,15 @@ module.exports = {
           { loader: MiniCssExtractPlugin.loader },
           { loader: "css-loader", options: { importLoaders: 3 }},
           { loader: "resolve-url-loader" },
-          { loader: "postcss-loader"},
+          { 
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+              config: {
+                path: 'postcss.config.js'
+              }
+            }
+          },
           {
             loader: "sass-loader",
             options: {
@@ -28,9 +44,6 @@ module.exports = {
           }
         ]
       },
-      { test: /\.css$/, use: [
-        "style-loader", "css-loader", "postcss-loader"
-      ]},
     ]
   },
   mode: "none",
@@ -42,5 +55,6 @@ module.exports = {
       filename: isDevelopment ? "[name].css" : "[name].[hash].css",
       chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css"
     }),
+    new webpack.DefinePlugin(envKeys)
   ]
 };
