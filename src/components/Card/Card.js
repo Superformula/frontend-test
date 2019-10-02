@@ -10,16 +10,16 @@ import Rating from "../Rating/Rating";
 import Spacer from "../Spacer/Spacer";
 
 const Card = props => {
-  const { category, image, headline, rating, price, status } = props;
+  const { category, image, name, rating, price, status } = props;
 
   return (
     <div className="card-wrapper">
       <div className="card-metadata-container">
-        <Image source={image} />
+        <Image source={image} alt={name}/>
         <Spacer size="medium" />
 
         {/* Restaurant Name */}
-        <Heading level={4}>{headline}</Heading>
+        <Heading level={4}>{name}</Heading>
         <Spacer size="small" />
 
         {/* Rating */}
@@ -41,7 +41,7 @@ const Card = props => {
 Card.protoTypes = {
   category: PropTypes.string,
   image: PropTypes.string,
-  headline: PropTypes.string,
+  name: PropTypes.string,
   rating: PropTypes.number,
   price: PropTypes.string,
   status: PropTypes.bool
