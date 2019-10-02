@@ -1,5 +1,10 @@
 .image-container {
+  height: 228px;
   width: 100%;
+
+  & img {
+    height: 100%;
+  }
 
   &.small {
     height: 80px;
@@ -8,5 +13,6 @@
 
   .image {
     max-width: 100%;
+    object-fit: cover;
   }
 }
