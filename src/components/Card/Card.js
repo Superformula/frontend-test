@@ -9,8 +9,9 @@ import MetadataWrapper from "../MetadataWrapper/MetadataWrapper";
 import Rating from "../Rating/Rating";
 import Spacer from "../Spacer/Spacer";
 
+
 const Card = props => {
-  const { category, image, name, rating, price, status } = props;
+  const { category, image, name, onClick, rating, price, status } = props;
 
   return (
     <div className="card-wrapper">
@@ -32,7 +33,7 @@ const Card = props => {
       </div>
 
       <div className="card-button-container">
-        <Button>Learn More</Button>
+        <Button onClick={onClick}>Learn More</Button>
       </div>
     </div>
   );
