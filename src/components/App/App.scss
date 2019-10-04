@@ -1,4 +1,11 @@
-.App {
+.app {
   margin: 0 auto;
   max-width: 1440px;
+
+  .app-button-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 416px;
+  }
 }
+
