@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/react-hooks";
 
 import "./App.scss";
 
+import Button from "../Button/Button";
 import Card from "../Card/Card";
 import CardList from "../CardList/CardList";
 import Divider from "../Divider/Divider";
@@ -13,27 +14,62 @@ import Spacer from "../Spacer/Spacer";
 
 const subtext = "Don't be fooled by the French name, this place oozes with Californian flair.";
 
-const RESTAURANT_LIST = gql`
-{
-  search(categories:"Food", location:"Las Vegas"){
-    business{
-      name
-      rating
-      price
-      photos
+const App = () => {
+
+  const RESTAURANT_LIST = gql`
+  query Restaurants($offset:Int, $limit:Int){
+    search(categories:"Food", location:"Las Vegas", offset: $offset, limit:$limit){
+      business{
+        id
+        name
+        rating
+        price
+        photos
+        categories{
+          title
+        }
+      }
+      total
     }
   }
-}
-`;
+  `;
 
-const App = () => {
-  const {loading, error, data } = useQuery(RESTAURANT_LIST);
+  const getID = (e, id) => {
+    e.preventDefault();
+    console.log("Restaurant ID:" + id);
+  }
 
-  if(loading) return <p>Loading!!</p>;
-  if(error) return <p>ERROR!</p>;
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(
+    RESTAURANT_LIST,
+    {
+      variables: {
+        offset: 0,
+        limit: 8
+      },
+      notifyOnNetworkStatusChange: true,
+    }
+  );
+
+  const onFetchMore = () => {
+    fetchMore({
+      variables: {
+        offset: 8
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult) return prev;
+        return Object.assign({}, prev, {
+          data: [...prev.data, ...fetchMoreResult.data]
+        });
+      },
+    });
+  };
+
+  if(networkStatus === 3) return 'Fetching More';
+  if(loading) return 'Loading';
+  if(error) return `Error ${error}`;
 
   return (
-    <div className="App">
+    <div className="app">
       <SectionWrapper>
         <Hero subtext={subtext}>Restaurants</Hero>
       </SectionWrapper>
@@ -44,18 +80,23 @@ const App = () => {
 
       <SectionWrapper>
         <CardList> 
-        {data.search.business.map(({name, rating, photos, price, i}) => (
+        {data.search.business.map(({ categories, id, name, rating, photos, price }) => (
           <Card
-            image={photos}
+            image={photos.toString()}
             name={name}
             rating={rating}
-            category="thai"
+            category={categories[0].title}
             price={price}
             status={true}
-            key={i}
+            key={id}
+            onClick={(e) => getID(e, id)}
           />
         ))}
         </CardList>
+
+        <div className="app-button-container">
+          <Button inverted onClick={onFetchMore}>Load More</Button>
+        </div>
       </SectionWrapper>
     </div>
   );
