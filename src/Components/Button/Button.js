@@ -4,19 +4,20 @@ import classNames from "classnames";
 import "./Button.scss";
 
 const Button = props => {
-  const { inverted, children } = props;
+  const { children, inverted, onClick } = props;
 
   const classes = classNames({
     button: true,
     inverted: inverted
   });
 
-  return <button className={classes}>{children}</button>;
+  return <button className={classes} onClick={onClick}>{children}</button>;
 };
 
 Button.propTypes = {
   children: PropTypes.string,
-  inverted: PropTypes.bool
+  inverted: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 Button.defaultProps = {
