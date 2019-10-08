@@ -1,14 +1,14 @@
 import React from "react";
 
+import { storiesOf } from '@storybook/react';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
+import notes from './Button.md';
+
 import Button from "./Button";
 
-export default {
-  component: Button,
-  title: "Button"
-};
-
-const color = ["inverted"];
-
-export const regular = () => <Button>Learn More</Button>;
-
-export const inverted = () => <Button inverted>Learn More</Button>;
+storiesOf('Button', module)
+.addDecorator(withKnobs)
+.add('A Button', () => 
+    <Button inverted={boolean('inverted', false)}>Learn More</Button>,
+    {notes: {notes} }
+);
