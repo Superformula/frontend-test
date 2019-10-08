@@ -1,0 +1,38 @@
+@import "../../scss/base/typography";
+
+.page-details {
+  padding: 64px 0;
+
+  .details-metadata_rating-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .details-heading-location,
+  .details-heading-review_count {
+    @include font-light;
+  }
+
+  .details-image_location-container {
+    padding: 0 36px;
+    display: flex;
+    flex-direction: column;
+
+    .details-image_location-image {
+      display: flex;
+      flex-direction: row;
+
+      img:first-child {
+        height: 228px;
+        width: 50%;
+      }
+      
+      img:not(:first-child) {
+        height: 228px;
+        margin-left: 2%;
+        width: 23%;
+      }
+    }
+  }
+}
