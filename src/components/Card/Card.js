@@ -18,6 +18,7 @@ const Card = props => {
     <div className="card-wrapper">
       <div className="card-metadata-container">
         <div className="card-metadata-image">
+          {/* Restaurant Image */}
           <Image source={image} alt={name}/>
         </div>
         <Spacer size="medium" />
