@@ -6,5 +6,9 @@
 
   .card-metadata-container {
     flex: 1 0 auto;
+
+    .card-metadata-image {
+      height: 228px;
+    }
   }
 }

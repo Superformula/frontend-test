@@ -9,14 +9,12 @@ const Image = (props) => {
   const { alt, small, source } = props;
 
   const classes = classNames({
-    'image-container': true,
+    'image': true,
     'small': small
   })
 
   return (
-    <div className={classes}>
-      <img src={source ? source : placeholder} className='image' alt={alt || 'Image from Yelp'}/>
-    </div>
+    <img src={source ? source : placeholder} className={classes} alt={alt || 'Image from Yelp'}/>
   );
 
 }

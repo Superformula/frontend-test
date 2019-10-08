@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./Card.scss";
 
 import Button from "../Button/Button";
@@ -11,12 +12,14 @@ import Spacer from "../Spacer/Spacer";
 
 
 const Card = props => {
-  const { category, image, name, onClick, rating, price, status } = props;
+  const { category, image, id, name, rating, price, status } = props;
 
   return (
     <div className="card-wrapper">
       <div className="card-metadata-container">
-        <Image source={image} alt={name}/>
+        <div className="card-metadata-image">
+          <Image source={image} alt={name}/>
+        </div>
         <Spacer size="medium" />
 
         {/* Restaurant Name */}
@@ -33,7 +36,9 @@ const Card = props => {
       </div>
 
       <div className="card-button-container">
-        <Button onClick={onClick}>Learn More</Button>
+        <Link to={`/${id}`}>
+          <Button>Learn More</Button>
+        </Link>
       </div>
     </div>
   );

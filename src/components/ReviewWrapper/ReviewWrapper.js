@@ -7,6 +7,7 @@ import Heading from '../Heading/Heading';
 import Image from '../Image/Image';
 import Paragraph from '../Paragraph/Paragraph';
 import Rating from '../Rating/Rating';
+import Spacer from '../Spacer/Spacer';
 
 const ReviewWrapper = (props) => {
   const { rating, reviewText, reviewDate, reviewerName, userImage } = props;
@@ -19,12 +20,13 @@ const ReviewWrapper = (props) => {
       <div className="review-user-details-container">
         {/* User name & date of review */}
         <Heading level={3}>{reviewerName}</Heading>
-        <Heading level={5}>{reviewDate}</Heading>
+        <Heading level={5} light>{reviewDate}</Heading>
       </div>
 
       <div className="review-details-container">
         {/* Rating for the review */}
         <Rating rating={rating} />
+        <Spacer size="large" />
 
         {/* The review */}
         <Paragraph>{reviewText}</Paragraph>

@@ -14,9 +14,7 @@ const MetadataWrapper = props => {
   return (
     <div className="metadata-wrapper">
       <div className="metadata-label-container">
-        <Label divider large={isLarge}>
-          {category}
-        </Label>
+        <Label divider large={isLarge}>{category}</Label>
         <Label large={isLarge}>{price}</Label>
       </div>
       <div className="metadata-status-container">
