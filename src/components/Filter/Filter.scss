@@ -1,0 +1,174 @@
+@import '../../scss/base/colors';
+@import '../../scss/base/typography';
+
+.filter-form-container{
+  @include font-regular;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+
+  .filter-form-label{
+    margin-right: 24px;
+  }
+
+  .filter-form-input  {
+    border-bottom: 1px solid $grey;
+    color: $midnightblue;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    position: relative;
+    padding: 8px 0px 8px 30px;
+    user-select: none;
+
+    & input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+
+      &:checked ~ .radio {
+        background-color: $white;
+
+        &:after {
+          display: block;
+        }
+      }
+    }
+
+    .radio {
+      background-color: $white;
+      border: 1px solid $midnightblue;
+      border-radius: 50%;
+      left: 0;
+      height: 20px;
+      position: absolute;
+      top: 8px;
+      width: 20px;
+      
+      &:after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 5px;
+        top: 5px;
+        width: 8px;
+        height: 8px;
+        border: solid black;
+        border-width: 4px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.filter-form-button-container {
+  width: 50%;
+
+  & > button {
+    float: right;
+    width: 150px;
+  }
+}
+
+.filter-form-list-container {
+  position: relative;
+  
+  .filter-form-list-label {
+    border-bottom: 1px solid $grey;
+    color: $midnightblue;
+    display: block;
+    margin-left: 32px;
+    padding: 8px 0;
+    position: relative;
+
+    &.price {
+      width: 100px;
+    }
+
+    &.categories {
+      width: 150px;
+    }
+  }
+
+  .filter-form-list {
+    @include font-regular;
+    background-color: $white;
+    border: 1px solid $lightgrey;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    position: absolute;
+    right: 0;
+    top: 32px;
+
+    &.price,
+    &.categories {
+      display: block;
+    }
+
+    &.categories > li {
+      width: 150px;
+    }
+
+    & > li {
+      width: 100px;
+      background: $white;
+      cursor: pointer;
+      line-height: 25px;
+      font-size: 14px;
+      padding: 0px 10px 5px;
+      position: relative;
+
+      &:hover {
+        background-color:$lightgrey;
+      }
+
+      & input[type=radio] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+  
+        &:checked ~ .check {
+          background-color: $black;
+  
+          &:after {
+            display: block;
+          }
+        }
+      }
+  
+      & .check {
+        background-color: $white;
+        border: 1px solid $midnightblue;
+        border-radius: 50%;
+        left: 8px;
+        height: 15px;
+        position: absolute;
+        top: 5px;
+        width: 15px;
+        
+        &:after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: 5px;
+          top: 2px;
+          width: 4px;
+          height: 8px;
+          border: solid $white;
+          border-width: 0 1px 1px 0;
+          transform: rotate(45deg);
+        }
+      }
+      label {
+        margin-left: 20px;
+      }
+    }
+  }
+}
