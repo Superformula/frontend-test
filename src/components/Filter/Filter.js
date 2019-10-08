@@ -224,7 +224,7 @@ const Filter = () => {
         () => (
           setGlobalState({
             price: "",
-            categories: "",
+            categories: "All",
             is_open_now: false}
           ),
           setIsChecked(false),
