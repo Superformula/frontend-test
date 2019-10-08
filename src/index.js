@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import App from "./components/App/App";
+import App from "./App";
 
 import "./scss/main.scss";
 
