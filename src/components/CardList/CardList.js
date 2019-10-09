@@ -38,10 +38,7 @@ const CardList = () => {
   const { loading, error, data, refetch } = useQuery(
     RESTAURANT_LIST,
     { 
-      variables: 
-      { 
-        limit: 16,
-      } 
+      variables: { limit: 16 },
     }
   );
 
@@ -51,8 +48,7 @@ const CardList = () => {
       categories: globalState.categories,
       is_open_now: globalState.is_open_now
     })
-  })
-
+  });
 
   if(loading) return <Loading />;
   if(error) return `Error ${error}`;
