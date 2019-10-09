@@ -26,8 +26,4 @@ Label.prototypes = {
   large: PropTypes.bool
 };
 
-Label.defaultProps = {
-  large: false
-};
-
 export default Label;
