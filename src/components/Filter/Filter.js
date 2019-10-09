@@ -39,13 +39,16 @@ const Filter = () => {
       setIsClickedCategories(false); 
     }
   };
-
   return (
     <>
     <form className="filter-form-container">
       <label className="filter-form-label">Filter By:</label>
 
-       {/* OPEN NOW */}
+       {/*  is_open_now 
+
+        When the "Open Now" filter is clicked, we update the local state to
+        update the component (to show it's an active filter), and updated 
+        the is_open_now filter variable to CardList can go fetch a new list. */}
       <label className="filter-form-input">
         <input
           onChange={
@@ -56,12 +59,16 @@ const Filter = () => {
           }
           type="checkbox"
           checked={isChecked}
+          className="filter-input-is_open"
         />
         <span className="radio"/>
         Open Now
       </label> 
 
-        {/* PRICE LIST */}
+        {/* PRICE LIST 
+          A fixed number of elements, OK with hardcoding (in this instance), but
+          would probably come back and refactor to a quick loop.
+        */}
         <div className="filter-form-list-container">
           <label 
             ref={priceRef}
@@ -110,7 +117,11 @@ const Filter = () => {
         </div>
 
 
-        {/* CATEGORIES LIST */}
+        {/* CATEGORIES LIST 
+          This is crunchy and needs to be updated for pulling from Yelp and dynamically
+          creating elements. I was having trouble finding the best way to pull food category 
+          results with the GraphQL route. 
+        */}
         <div className="filter-form-list-container">
           <label 
             ref={categoriesRef}
@@ -219,6 +230,8 @@ const Filter = () => {
         </div>
     </form>
 
+
+    {/* Reset all of the filters back to their original values */}
     <div className="filter-form-button-container">
       <Button inverted onClick={
         () => (
