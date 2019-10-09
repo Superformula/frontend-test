@@ -1,13 +1,11 @@
 import React from "react";
 
 import Heading from "./Heading";
+import { storiesOf } from '@storybook/react';
+import notes from './Heading.md';
 
-export default {
-  component: Heading,
-  title: "Heading"
-};
 
-export const allHeadings = () => (
+storiesOf('Heading', module).add("A Heading", () => 
   <div>
     <Heading level={1} style="light">
       This is a 'light' heading.
@@ -17,5 +15,6 @@ export const allHeadings = () => (
     <Heading level={4}>This is a heading.</Heading>
     <Heading level={5}>This is a heading.</Heading>
     <Heading level={6}>This is a heading.</Heading>
-  </div>
+  </div>,
+  {notes: {notes}}
 );

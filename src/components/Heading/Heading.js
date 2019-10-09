@@ -18,9 +18,13 @@ const Heading = props => {
 };
 
 Heading.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node,
   level: PropTypes.number,
-  style: PropTypes.string
+  light: PropTypes.string
 };
+
+Heading.defaultProps = {
+  level: 1
+}
 
 export default Heading;
