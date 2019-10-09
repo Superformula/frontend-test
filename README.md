@@ -5,7 +5,7 @@ This is my submission for the Front-end (UI Focused) position.
 ## Running locally
 ### Website
 - `npm install`
-- `npm run build`
+- `npm run start`
 - point browser to `localhost:8080`
 
 > For storybook
