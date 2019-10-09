@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import CardList from "../../components/CardList/CardList";
 import Divider from "../../components/Divider/Divider";
@@ -16,6 +16,11 @@ const subtext = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 
 const Restaurants = () => {
   const [globalState, setGlobalState] = useGlobalHook();
+  const [showChild, setShowChild] = useState(false);
+
+  // This helps from react trying to update the
+  // cardlist component BEFORE it mounts
+  useEffect(() => { setShowChild(true); }, [])
 
   return (
     <div className="page-restaurants">
@@ -37,7 +42,7 @@ const Restaurants = () => {
       <SectionWrapper>
         <Spacer size="large" />
         <Heading level={2}>{globalState.categories} Restaurants</Heading>
-        <CardList />
+        { showChild && <CardList /> }
       </SectionWrapper>
     </div>
   );
