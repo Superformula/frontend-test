@@ -2,5 +2,4 @@
 .DS_Store
 public
 .sb-live
-.env
 now.json
