@@ -8,12 +8,15 @@ This is my submission for the Front-end (UI Focused) position.
 - `npm run start`
 - point browser to `localhost:8080`
 
-> For storybook
+### Storybook
 - `npm run storybook`
+
+### Tests
+- `npm run test`
 
 ## Examples on the web
 
-[Live Site](https://yelp-viewer-9000.mattnihiser.now.sh/)
+[Live Site](https://matt-nihiser-challenge.mattnihiser.now.sh)
 
 [Storybook](https://sb-live.mattnihiser.now.sh)
 
