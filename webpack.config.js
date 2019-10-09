@@ -3,24 +3,38 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDevelopment = process.env.NODE_ENV === "development";
-const dotenv = require('dotenv').config().parsed;
+const { parsed: localEnv } = require("dotenv").config();
 
 // reduces to an object
-const envKeys = Object.keys(dotenv).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(dotenv[next]);
+const envKeys = Object.keys(localEnv).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(localEnv[next]);
   return prev;
 }, {});
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: ["./src/index.js"],
+    vendor: [
+      "@apollo/react-hooks",
+      "apollo-boost",
+      "graphql",
+      "react",
+      "react-dom",
+      "react-router-dom",
+    ],
+  },
   output: {
     path: path.resolve(__dirname, "public"),
-    filename: "index.js"
+    filename: "index.[hash].js",
+    publicPath: "/"
   },
   module: {
     rules: [
       { test: /\.(svg|png)$/, loader: "url-loader" },
-      { test: /\.(js)$/, loader: "babel-loader" },
+      { 
+        test: /\.(js)$/, 
+        exclude: "/node_modules/",
+        loader: "babel-loader" },
       {
         test: /\.(scss)$/,
         use: [
@@ -32,7 +46,7 @@ module.exports = {
             options: {
               sourceMap: true,
               config: {
-                path: 'postcss.config.js'
+                path: "postcss.config.js"
               }
             }
           },
@@ -46,7 +60,11 @@ module.exports = {
       },
     ]
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   mode: "none",
+  stats: "minimal",
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html"
@@ -55,6 +73,30 @@ module.exports = {
       filename: isDevelopment ? "[name].css" : "[name].[hash].css",
       chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css"
     }),
-    new webpack.DefinePlugin(envKeys)
-  ]
+    new webpack.DefinePlugin(envKeys),
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: "async",
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: "~",
+      automaticNameMaxLength: 30,
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  }
 };
