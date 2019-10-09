@@ -5,8 +5,8 @@
   "author": "Matt Nihiser",
   "main": "index.js",
   "scripts": {
-    "proxy": "node proxy/cors-proxy.js & webpack-dev-server",
-    "build": "node proxy/cors-proxy.js & webpack",
+    "start": "node proxy/cors-proxy.js & webpack-dev-server",
+    "build": "webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest"
