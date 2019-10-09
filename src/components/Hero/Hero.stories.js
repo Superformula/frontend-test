@@ -2,6 +2,8 @@ import React from "react";
 
 import Hero from "./Hero";
 import MetadataWrapper from "../MetadataWrapper/MetadataWrapper";
+import { storiesOf } from '@storybook/react';
+import notes from './Hero.md';
 
 export default {
   component: Hero,
@@ -15,10 +17,7 @@ const metadata = (
   <MetadataWrapper category="thai" price="$$$" status={true} large />
 );
 
-export const plain = () => <Hero>Restaurants</Hero>;
-
-export const withSubtext = () => <Hero subtext={subtext}>Restaurants</Hero>;
-
-export const withSubcomponent = () => (
-  <Hero subcomponent={metadata}>Restaurants</Hero>
-);
+storiesOf('Hero', module)
+  .add("Plain", () => <Hero>Restaurants</Hero>, {notes:{ notes }})
+  .add("With Subtext", () => <Hero subtext={subtext}>Restaurants</Hero>, {notes:{ notes }})
+  .add("With Component", ()  => <Hero subcomponent={metadata}>Restaurants</Hero>, {notes:{ notes }})
