@@ -1,0 +1,22 @@
+{
+  "name": "superformula",
+  "version": "1.0.0",
+  "description": "Superformula Front-end Developer Coding Test",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "superagent": "^5.1.0",
+    "webpack": "^4.41.2",
+    "webpack-dev-middleware": "^3.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Cameron Neblett",
+  "license": "MIT"
+}
