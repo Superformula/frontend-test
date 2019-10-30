@@ -24,6 +24,10 @@ const Select = ({ label, options, selectedOptions, toggleOption, isOpen, minWidt
       opacity: 0,
       height: '0rem'
     },
+    config: {
+      velocity: 10,
+      delay: 0
+    }
   })
 
   return (

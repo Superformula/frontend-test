@@ -15,7 +15,6 @@ const Loading = ({ isFullScreen }) =>
         position: ${isFullScreen ? 'absolute' : 'relative'};
         width: 100%;
         height: 100%;
-        backdrop-filter: blur(2px);
       }
 
       .loading-prompt {
