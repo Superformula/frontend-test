@@ -19,13 +19,26 @@ function buildApp() {
     const compiler = webpack({
         mode: 'production',
         entry: { client: './client.jsx' },
-        output: { filename: '[name].js', publicPath: '/' }
+        output: { filename: '[name].js', publicPath: '/' },
+        module: {
+            rules: [{
+                loader: 'babel-loader',
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                resolve: {
+                    extensions: ['.jsx', '.js']
+                },
+                options: {
+                    presets: ['@babel/react']
+                }
+            }]
+        }
     });
     app.use(webpackDevMiddleware(compiler, { stats: 'minimal' }));
 
     app.get('/api/:yelp_path', (req, res) => {
         superagent
-            .get(`https://api.yelp.com/v3/${req.params.yelp_path}`)
+            .get(`https://api.yelp.com/v3/${req.url.slice(5)}`)
             .set('Authorization', `Bearer ${process.env.YELP_KEY}`)
             .then(response => res.status(response.status).send(response.text))
             .catch(err => res.status(404).send(`API call unsuccessful: ${err.text}`));
