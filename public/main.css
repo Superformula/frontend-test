@@ -152,6 +152,11 @@ p {
     display: flex;
 }
 
+.review .rating {
+    align-self: end;
+    margin-left: 4px;
+}
+
 .user-info {
     flex-shrink: 0;
     margin-right: 8px;

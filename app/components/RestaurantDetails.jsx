@@ -25,6 +25,7 @@ export const RestaurantDetails = connect(mapState, mapDispatch)(
                 <div className='username'>{r.user.name}</div>
             </div>
             <div className='review-text'>{r.text}</div>
+            <Rating rating={r.rating} />
         </div>);
         return (<div className='modal' onClick={props.dismiss}>
             <div className='details'>
