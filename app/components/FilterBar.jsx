@@ -25,27 +25,35 @@ export const FilterBar = connect(mapState, mapDispatch)(
             props.selectPrice('0');
             props.selectOpen(false);
         };
-        return (<div className='filterBar'>
-            <span>Filter By:</span>
-            <input type='checkbox'
-                checked={props.open}
-                onChange={e => props.selectOpen(e.target.checked)} />
-            <label>Open Now</label>
-            <select name='Price'
-                value={`${props.price}`}
-                onChange={e => props.selectPrice(+e.target.value)}>
-                <option value='0'>All</option>
-                <option value='1'>$</option>
-                <option value='2'>$$</option>
-                <option value='3'>$$$</option>
-                <option value='4'>$$$$</option>
-            </select>
-            <select name='Categories'
-                value={props.filter}
-                onChange={e => props.selectCategory(e.target.value)}>
-                <option value=''>All</option>
-                {options}
-            </select>
+        return (<div className='filter-bar'>
+            <div className='filters'>
+                <span>Filter By:</span>
+                <label>
+                    <input type='checkbox'
+                        checked={props.open}
+                        onChange={e => props.selectOpen(e.target.checked)} />
+                    Open Now
+                </label>
+                <label>Price
+                    <select name='Price'
+                        value={`${props.price}`}
+                        onChange={e => props.selectPrice(+e.target.value)}>
+                        <option value='0'>All</option>
+                        <option value='1'>$</option>
+                        <option value='2'>$$</option>
+                        <option value='3'>$$$</option>
+                        <option value='4'>$$$$</option>
+                    </select>
+                </label>
+                <label>Categories
+                    <select name='Categories'
+                        value={props.filter}
+                        onChange={e => props.selectCategory(e.target.value)}>
+                        <option value=''>All</option>
+                        {options}
+                    </select>
+                </label>
+            </div>
             <button onClick={clearFilters}>Clear All</button>
         </div>);
 });

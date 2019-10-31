@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 
 import { reducer as businesses, loadBusinesses } from './app/actions/businesses';
 import { reducer as categories, loadCategories } from './app/actions/categories';
+import { reducer as reviews } from './app/actions/reviews';
 import { MainComponent } from './app/components/MainComponent';
 
 window.onload = () => {
@@ -20,7 +21,7 @@ window.onload = () => {
 
 export function createRootStore() {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    const reducers = combineReducers({ businesses, categories });
+    const reducers = combineReducers({ businesses, categories, reviews });
     const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
     store.dispatch(loadBusinesses());
     store.dispatch(loadCategories());

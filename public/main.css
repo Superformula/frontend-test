@@ -1,11 +1,165 @@
-.filterBar {
+body {
+    color: #666666;
+    font-family: HelveticaNeue-Light, Helvetica, sans-serif;
+}
+
+h1, h2 {
+    color: #333333;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 54px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+p {
+    font-size: 22px;
+}
+
+.filter-bar {
+    align-items: center;
     border-bottom: 1px solid gray;
     border-top: 1px solid gray;
+    display: flex;
     padding: 8px 0;
+}
+
+.filters label {
+    margin-left: 12px;
+}
+
+.filters select {
+    margin-left: 8px;
+}
+
+.search-results {
+    min-width: 1264px;
+    max-width: 1896px;
+}
+
+.load-more, .filter-bar button {
+    background: #ffffff;
+    border: 1px solid rgb(3, 44, 85);
+    color: rgb(3, 44, 85);
+    padding: 12px;
+    text-transform: uppercase;
+}
+
+.load-more {
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    width: 50vw;
+}
+
+.filters {
+    flex-grow: 1;
 }
 
 .restaurant {
     display: inline-block;
-    font-size: 8px;
-    width: 200px;
+    font-size: 12px;
+    margin: 8px;
+    text-transform: uppercase;
+    width: 300px;
+}
+
+.restaurant-image {
+    align-items: center;
+    display: flex;
+    height: 260px;
+    justify-content: center;
+    width: 300px;
+}
+
+.restaurant-image img {
+    max-height: 260px;
+    max-width: 300px;
+}
+
+.restaurant-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.restaurant-name {
+    color: #333333;
+    font-size: 20px;
+    margin: 12px 0 8px;
+    text-transform: none;
+}
+
+.closed:before, .open:before {
+    content: '\2022';
+    margin-right: 2px;
+}
+
+.closed:before {
+    color: rgb(252, 56, 77);
+}
+
+.open:before {
+    color: rgb(38, 231, 166);
+}
+
+.learn-more {
+    background: rgb(3, 44, 85);
+    border: none;
+    color: #ffffff;
+    margin-top: 12px;
+    padding: 12px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.no-results {
+    color: #ff6666;
+    font-style: italic;
+    text-align: center;
+}
+
+.modal {
+    align-items: center;
+    background: rgb(0, 0, 0, .65);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+.details {
+    background: #ffffff;
+    max-height: 80vh;
+    width: 80vw;
+    padding: 8px;
+}
+
+.reviews {
+    border-top: 1px solid #cccccc;
+    margin-top: 12px;
+    padding-top: 16px;
+}
+
+.review {
+    display: flex;
+}
+
+.user-info {
+    flex-shrink: 0;
+    margin-right: 8px;
+    text-align: center;
+    width: 80px;
+}
+
+.user-info img {
+    max-height: 80px;
+    max-width: 80px;
 }

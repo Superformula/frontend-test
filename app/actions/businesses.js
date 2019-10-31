@@ -24,6 +24,28 @@ export function loadBusinesses() {
     };
 }
 
+function loadMoreBusinessesAction(category) {
+    return { type: 'LOAD_MORE_BUSINESSES', category };
+}
+
+function loadedMoreBusinesses(businesses, category) {
+    return { type: 'LOADED_MORE_BUSINESSES', businesses, category };
+}
+
+export function loadMoreBusinesses() {
+    return (dispatch, getState) => {
+        const { category, businesses } = getState().businesses;
+        const query = `&offset=${businesses.length}${category ? `&categories=${category}` : ''}`;
+        dispatch(loadMoreBusinessesAction(category));
+        return fetch(`/api/businesses/search?term=restaurants&location=Las+Vegas${query}`)
+            .then(async res => {
+                const results = await res.json();
+                dispatch(loadedMoreBusinesses(results.businesses, category));
+            })
+            .catch(err => dispatch(loadBusinessesError(err)));
+    };
+}
+
 export function setCategoryAction(category) {
     return { type: 'FILTER_CATEGORY', category };
 }
@@ -56,11 +78,18 @@ const defaultNotice = Object.freeze({
 export function reducer(state = defaultNotice, action) {
     switch (action.type) {
         case 'LOAD_BUSINESSES':
+        case 'LOAD_MORE_BUSINESSES':
             return { ...state, loading: true, error: undefined };
         case 'LOADED_BUSINESSES':
             return { ...state, businesses: action.businesses, total: action.total, loading: false };
         case 'LOAD_BUSINESSES_ERROR':
             return { ...state, error: action.error, loading: false };
+        case 'LOADED_MORE_BUSINESSES':
+            return action.category === state.category
+                ? { ...state,
+                    businesses: [...state.businesses, ...action.businesses],
+                    loading: false }
+                : state;
         case 'FILTER_CATEGORY':
             return { ...state, category: action.category };
         case 'FILTER_OPEN':
