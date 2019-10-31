@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
+import { reducer as businesses, loadBusinesses } from './app/actions/businesses';
 import { reducer as categories, loadCategories } from './app/actions/categories';
 import { MainComponent } from './app/components/MainComponent';
 
@@ -19,8 +20,9 @@ window.onload = () => {
 
 export function createRootStore() {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    const reducers = combineReducers({ categories });
+    const reducers = combineReducers({ businesses, categories });
     const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+    store.dispatch(loadBusinesses());
     store.dispatch(loadCategories());
 
     return store;

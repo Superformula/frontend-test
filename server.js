@@ -36,9 +36,9 @@ function buildApp() {
     });
     app.use(webpackDevMiddleware(compiler, { stats: 'minimal' }));
 
-    app.get('/api/:yelp_path', (req, res) => {
+    app.use('/api', (req, res) => {
         superagent
-            .get(`https://api.yelp.com/v3/${req.url.slice(5)}`)
+            .get(`https://api.yelp.com/v3/${req.url.slice(1)}`)
             .set('Authorization', `Bearer ${process.env.YELP_KEY}`)
             .then(response => res.status(response.status).send(response.text))
             .catch(err => res.status(404).send(`API call unsuccessful: ${err.text}`));

@@ -1,17 +1,19 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-const mapDispatch = _dispatch => ({
-    selectCategory: (category => { console.log('Category', category); }),
-    selectPrice: (price => { console.log('Price', price); }),
-    toggleOpen: (() => { console.log('Toggling open'); })
+import { setCategory, setOpen, setPrice } from '../actions/businesses';
+
+const mapDispatch = dispatch => ({
+    selectCategory: (category => { dispatch(setCategory(category)); }),
+    selectPrice: (price => { dispatch(setPrice(price)); }),
+    selectOpen: (open => { dispatch(setOpen(open)); })
 });
 
 const mapState = state => ({
     categories: state.categories.categories,
-    filter: '',
-    open: false,
-    price: 0
+    filter: state.businesses.category,
+    open: state.businesses.onlyOpen,
+    price: state.businesses.price
 });
 
 export const FilterBar = connect(mapState, mapDispatch)(
@@ -21,13 +23,13 @@ export const FilterBar = connect(mapState, mapDispatch)(
         const clearFilters = () => {
             props.selectCategory('');
             props.selectPrice('0');
-            if (props.open) {
-                props.toggleOpen();
-            }
+            props.selectOpen(false);
         };
         return (<div className='filterBar'>
             <span>Filter By:</span>
-            <input type='checkbox' checked={props.open} onChange={() => props.toggleOpen()} />
+            <input type='checkbox'
+                checked={props.open}
+                onChange={e => props.selectOpen(e.target.checked)} />
             <label>Open Now</label>
             <select name='Price'
                 value={`${props.price}`}
