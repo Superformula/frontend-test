@@ -5,12 +5,16 @@ import { CheckboxProps } from './Checkbox.types';
 import { CheckboxIcon } from './CheckboxIcon/CheckboxIcon';
 import './Checkbox.scss';
 
-export const Checkbox: FC<CheckboxProps> = ({ name, onChange, className, style }) => {
+export const Checkbox: FC<CheckboxProps> = ({ name, checked: propChecked, onChange, className, style }) => {
   const [checked, setChecked] = useState(false);
+  const isChecked = propChecked !== undefined ? propChecked : checked;
 
   const handleChange = () => {
-    setChecked(!checked);
-    onChange(!checked);
+    if (propChecked === undefined) {
+      setChecked(!isChecked);
+    }
+
+    onChange(!isChecked);
   };
 
   return (
@@ -19,10 +23,10 @@ export const Checkbox: FC<CheckboxProps> = ({ name, onChange, className, style }
         id={name}
         type="checkbox"
         className="checkbox-wrapper__checkbox"
-        checked={checked}
+        checked={isChecked}
         onChange={handleChange}
       />
-      <CheckboxIcon checked={checked} />
+      <CheckboxIcon checked={isChecked} />
       <span className="checkbox-wrapper__label">Open Now</span>
     </label>
   );
