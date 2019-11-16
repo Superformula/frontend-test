@@ -1,0 +1,29 @@
+@import '../../../../styles/general/mixins';
+
+.restaurant-details-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 40px 0px;
+
+  @include atMedium {
+    margin: 35px 0 40px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    @include atMedium {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 17px;
+
+    @include atMedium {
+      margin-top: 25px;
+    }
+  }
+}
