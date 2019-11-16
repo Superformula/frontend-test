@@ -3,41 +3,15 @@ import React, { FC } from 'react';
 import { Grid } from 'shared/components/Grid/Grid';
 import { Header } from './components/Header/Header';
 import { RestaurantsFiltersWrapper } from './components/RestaurantsFiltersWrapper/RestaurantsFiltersWrapper';
-import { RestaurantsGrid } from './components/RestaurantsGrid/RestaurantsGrid';
 import { Button } from 'shared/components/Button/Button';
+import { RestaurantsGrid } from './components/RestaurantsGrid/RestaurantsGrid';
+import { RestaurantsProps } from './Restaurants.types';
+import { Loader } from 'shared/components/Loader/Loader';
 import './Restaurants.scss';
 
-const restaurants = [
-  {
-    name: 'Very Long Name Restaurants Number 1 In List',
-    photo: 'https://s3-media1.fl.yelpcdn.com/bphoto/SjqX67pNUnPoyMsDNe6xzA/o.jpg',
-    photoAlt: 'burger with juice',
-    rating: 4,
-    price: '$$$',
-    cuisineName: 'Thai',
-    isOpen: true,
-  },
-  {
-    name: 'Very Long Name Restaurants Number 1 In List Very Long Name Restaurants Number 1 In List',
-    photo: 'https://s3-media1.fl.yelpcdn.com/bphoto/SjqX67pNUnPoyMsDNe6xzA/o.jpg',
-    photoAlt: 'burger with juice',
-    rating: 2.5,
-    price: '$',
-    cuisineName: 'Thai',
-    isOpen: false,
-  },
-  {
-    name: 'Restaurants 2',
-    photo: 'https://s3-media1.fl.yelpcdn.com/bphoto/SjqX67pNUnPoyMsDNe6xzA/o.jpg',
-    photoAlt: 'burger with juice',
-    rating: 2.5,
-    price: '$',
-    cuisineName: 'Thai',
-    isOpen: false,
-  },
-];
+export const Restaurants: FC<RestaurantsProps> = ({ isLoading, isError, restaurants }) => {
+  if (isError) return <p>Error</p>;
 
-export const Restaurants: FC = () => {
   return (
     <Grid.Container>
       <Header
@@ -46,12 +20,20 @@ export const Restaurants: FC = () => {
       magna aliqua."
       />
       <RestaurantsFiltersWrapper />
-      <RestaurantsGrid restaurants={[...restaurants, ...restaurants, ...restaurants]} />
-      <Grid.Row>
-        <Button variant={Button.variant.WHITE} className="restaurants__load-more-button">
-          Load more
-        </Button>
-      </Grid.Row>
+      {isLoading && !restaurants.length ? (
+        <Loader />
+      ) : (
+        <>
+          <RestaurantsGrid restaurants={restaurants} />
+          {restaurants.length > 0 && (
+            <Grid.Row>
+              <Button variant={Button.variant.WHITE} className="restaurants__load-more-button">
+                Load more
+              </Button>
+            </Grid.Row>
+          )}
+        </>
+      )}
     </Grid.Container>
   );
 };

@@ -1,11 +1,3 @@
-export type RestaurantCardDetails = {
-  name: string;
-  photo: string;
-  photoAlt: string;
-  rating: number;
-  price: string;
-  cuisineName: string;
-  isOpen: boolean;
-};
+import { RestaurantInfo } from 'types/restaurants';
 
-export type RestaurantCardProps = RestaurantCardDetails;
+export type RestaurantCardProps = RestaurantInfo;

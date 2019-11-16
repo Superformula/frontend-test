@@ -1,5 +1,7 @@
 import { RestaurantInfo } from 'types/restaurants';
 
-export type RestaurantsGridProps = {
+export type RestaurantsProps = {
+  isLoading: boolean;
+  isError: boolean;
   restaurants: RestaurantInfo[];
 };

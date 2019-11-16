@@ -3,8 +3,8 @@ import './styles/core.scss';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-import { Restaurants } from 'screens/Restaurants/Restaurants';
 import { RestaurantDetails } from 'screens/RestaurantDetails/RestaurantDetails';
+import { RestaurantsContainer } from 'screens/Restaurants/RestaurantsContainer';
 import { client } from './api/client';
 
 export const App: React.FC = () => (
@@ -12,7 +12,7 @@ export const App: React.FC = () => (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <Restaurants />
+          <RestaurantsContainer />
         </Route>
         <Route path="/restaurants/:restaurantId">
           <RestaurantDetails />
