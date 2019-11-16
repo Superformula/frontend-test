@@ -1,0 +1,24 @@
+@import '../../../../styles/general/colors';
+@import '../../../../styles/general/mixins';
+
+.reviews-list {
+  padding: 40px 0px;
+
+  @include atMedium {
+    padding: 48px 0px;
+  }
+
+  &__amount-header {
+    margin-bottom: 30px;
+    font-size: 1.125rem;
+    font-weight: lighter;
+    line-height: 1.33;
+    letter-spacing: 0.75px;
+    color: $secondary-grey;
+
+    @include atMedium {
+      margin-bottom: 48px;
+      font-size: 1.375rem;
+    }
+  }
+}
