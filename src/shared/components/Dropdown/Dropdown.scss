@@ -1,0 +1,6 @@
+.dropdown {
+  &__target {
+    display: inline-block;
+    outline: none; // @todo: Style it properly if designs delivered (in case of accessability)
+  }
+}
