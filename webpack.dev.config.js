@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -20,6 +21,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
         test: /\.tsx?$/,
         use: ['ts-loader'],
         exclude: /node_modules'/,
@@ -39,6 +44,9 @@ module.exports = {
   },
   plugins: [
     new Dotenv(),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+    }),
     new HtmlWebpackPlugin({
       title: 'Frontend app',
       template: './index.html',
