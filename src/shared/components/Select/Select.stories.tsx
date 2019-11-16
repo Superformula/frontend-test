@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Select } from './Select';
@@ -26,21 +26,26 @@ const categoriesSelectWidth = 193;
 
 storiesOf('Select', module)
   .addDecorator(storyFn => <div style={{ display: 'flex' }}>{storyFn()}</div>)
-  .add('Default', () => (
+  .add('Default (without values prop)', () => (
     <Select
       title="Price"
       targetStyle={{ width: priceSelectWidth }}
       optionsStyle={{ width: priceSelectWidth }}
       options={priceOptions}
-      onChange={options => console.log(options)}
+      onChange={values => console.log(values)}
     />
   ))
-  .add('Categories', () => (
-    <Select
-      title="Categories"
-      targetStyle={{ width: categoriesSelectWidth }}
-      optionsStyle={{ width: categoriesSelectWidth, height: 206, overflowX: 'scroll' }}
-      options={categoriesOptions}
-      onChange={options => console.log(options)}
-    />
-  ));
+  .add('Categories (with values as prop)', () => {
+    const [values, setValues] = useState<string[]>([]);
+
+    return (
+      <Select
+        title="Categories"
+        targetStyle={{ width: categoriesSelectWidth }}
+        optionsStyle={{ width: categoriesSelectWidth, height: 206, overflowX: 'scroll' }}
+        options={categoriesOptions}
+        values={values}
+        onChange={setValues}
+      />
+    );
+  });

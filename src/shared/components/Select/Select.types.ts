@@ -8,6 +8,7 @@ type Option = {
 export type SelectProps = {
   title: string;
   options: Option[];
+  values?: string[];
   targetClassName?: string;
   optionsClassName?: string;
   targetStyle?: CSSProperties;

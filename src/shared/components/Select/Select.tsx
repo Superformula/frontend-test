@@ -12,19 +12,24 @@ export const Select: FC<SelectProps> = ({
   title,
   options,
   onChange,
+  values: valuesProp,
   targetClassName,
   optionsClassName,
   targetStyle,
   optionsStyle,
 }) => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const values = valuesProp || selectedOptions;
 
   const handleOptionSelect = (optionValue: string) => {
-    const newOptions = selectedOptions.includes(optionValue)
-      ? selectedOptions.filter(option => option !== optionValue)
-      : [...selectedOptions, optionValue];
+    const newOptions = values.includes(optionValue)
+      ? values.filter(option => option !== optionValue)
+      : [...values, optionValue];
 
-    setSelectedOptions(newOptions);
+    if (!valuesProp) {
+      setSelectedOptions(newOptions);
+    }
+
     onChange(newOptions);
   };
 
@@ -40,7 +45,7 @@ export const Select: FC<SelectProps> = ({
       {() => (
         <ul className={classNames('select__options-wrapper', optionsClassName)} style={optionsStyle}>
           {options.map(({ value, label }) => (
-            <Option key={value} value={value} selected={selectedOptions.includes(value)} onSelect={handleOptionSelect}>
+            <Option key={value} value={value} selected={values.includes(value)} onSelect={handleOptionSelect}>
               {label}
             </Option>
           ))}
