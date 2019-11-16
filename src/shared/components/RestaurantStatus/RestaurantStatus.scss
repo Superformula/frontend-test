@@ -1,0 +1,40 @@
+@import '../../../styles/general/colors';
+
+.restaurant-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: $green-color;
+
+    &--red {
+      background-color: $red-color;
+    }
+  }
+
+  &__label {
+    margin-left: 4px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $boulder-color;
+  }
+
+  &--big {
+    .restaurant-status__dot {
+      width: 22px;
+      height: 22px;
+    }
+
+    .restaurant-status__label {
+      margin-left: 8px;
+      font-size: 22px;
+      letter-spacing: 0.9px;
+      text-transform: none;
+    }
+  }
+}
