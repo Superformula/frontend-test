@@ -4,7 +4,8 @@
   "description": "Frontend app",
   "scripts": {
     "build": "webpack --config webpack.prod.config.js",
-    "watch": "webpack-dev-server --config webpack.dev.config.js --hot"
+    "watch": "webpack-dev-server --config webpack.dev.config.js --hot",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
