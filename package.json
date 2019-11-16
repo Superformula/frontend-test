@@ -8,7 +8,8 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint": "eslint \"src/**/*.{ts,tsx}\""
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint-fix": "eslint \"src/**/*.{ts,tsx}\" --fix"
   },
   "repository": {
     "type": "git",
