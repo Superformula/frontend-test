@@ -1,0 +1,21 @@
+@import '../../../styles/general/colors';
+
+.checkbox-wrapper {
+  display: flex;
+  border-bottom: 1px solid $silver;
+  padding: 8px 0px;
+  cursor: pointer;
+
+  &__label {
+    margin-left: 8px;
+    letter-spacing: 1px;
+    color: $primary-blue;
+  }
+
+  &__checkbox {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+  }
+}

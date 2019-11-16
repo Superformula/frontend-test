@@ -3,3 +3,4 @@ export * from './CuisinePriceInfo/CuisinePriceInfo';
 export * from './StarRating/StarRating';
 export * from './RestaurantStatus/RestaurantStatus';
 export * from './Button/Button';
+export * from './Checkbox/Checkbox';
