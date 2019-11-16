@@ -1,0 +1,20 @@
+@import '../../../../styles/general/screens';
+@import '../../../../styles/general/dimensions';
+@import '../../../../styles/general/mixins';
+
+.row {
+  display: flex;
+  width: 100%;
+  max-width: $max-screen-width;
+  margin: 0 auto;
+  padding: 0 $padding-mobile;
+
+  @include atMedium {
+    padding: 0 $padding-medium;
+  }
+
+  &--full-width {
+    max-width: 100%;
+    padding: 0;
+  }
+}
