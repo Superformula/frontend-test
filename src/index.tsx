@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { BigText } from './shared/components';
+import { App } from './App';
 
-ReactDOM.render(<BigText />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
