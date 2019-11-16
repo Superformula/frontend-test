@@ -15,6 +15,14 @@ module.exports = {
     index: 'index.html',
     port: 3010,
     historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'https://api.yelp.com/v3/graphql',
+        pathRewrite: { '^/api': '' },
+        secure: false,
+        changeOrigin: true,
+      },
+    },
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
