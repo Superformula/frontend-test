@@ -1,0 +1,18 @@
+.restaurants-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px -15px;
+
+  &__card-wrapper {
+    width: 100%;
+    padding: 40px 15px;
+
+    @include atMedium {
+      width: 50%;
+    }
+
+    @include atBig {
+      width: 25%;
+    }
+  }
+}

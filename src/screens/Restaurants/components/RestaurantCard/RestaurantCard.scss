@@ -1,3 +1,6 @@
+$name-line-height: 1.75;
+$name-lines-amount: 2;
+
 .restaurant-card {
   display: flex;
   flex-direction: column;
@@ -9,9 +12,11 @@
   }
 
   &__name {
+    height: ($name-line-height * $name-lines-amount) + rem;
     margin: 16px 0px 8px;
+    overflow: hidden;
     font-size: 1.25rem;
-    line-height: 1.4;
+    line-height: $name-line-height + rem;
     letter-spacing: 1px;
   }
 

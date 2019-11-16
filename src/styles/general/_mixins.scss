@@ -1,7 +1,14 @@
-$medium-scree-size: 600px;
+$medium-screen-size: 600px;
+$big-screen-size: 1128px;
 
 @mixin atMedium {
-  @media (min-width: $medium-scree-size) {
+  @media (min-width: $medium-screen-size) {
+    @content;
+  }
+}
+
+@mixin atBig {
+  @media (min-width: $big-screen-size) {
     @content;
   }
 }

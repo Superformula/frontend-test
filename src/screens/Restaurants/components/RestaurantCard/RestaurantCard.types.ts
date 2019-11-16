@@ -1,4 +1,4 @@
-export type RestaurantCardProps = {
+export type RestaurantCardDetails = {
   name: string;
   photo: string;
   photoAlt: string;
@@ -7,3 +7,5 @@ export type RestaurantCardProps = {
   cuisineName: string;
   isOpen: boolean;
 };
+
+export type RestaurantCardProps = RestaurantCardDetails;
