@@ -1,0 +1,87 @@
+@import '../../../../styles/general/colors';
+@import '../../../../styles/general/dimensions';
+@import '../../../../styles/general/mixins';
+
+.map-gallery-full-row {
+  border-bottom: 1px solid $mercury;
+
+  @include atMedium {
+    border-top: 1px solid $mercury;
+  }
+}
+
+.map-gallery-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 20px;
+
+  @include atBig {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 50px;
+  }
+
+  &__map-image {
+    width: calc(100% + (2 * #{$padding-mobile}));
+    height: 230px;
+    margin-left: -$padding-mobile;
+    object-fit: cover;
+
+    @include atMedium {
+      width: 500px;
+      margin-top: 0px;
+      margin-left: 0;
+    }
+
+    @include atBig {
+      width: 640px;
+    }
+  }
+
+  &__street-label {
+    margin: 20px 0px;
+    font-size: 1.125rem;
+    font-weight: lighter;
+    line-height: 1.22;
+    letter-spacing: 1px;
+
+    @include atMedium {
+      margin: 12px 0px 26px;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  }
+
+  &__gallery {
+    display: flex;
+    width: 100%;
+    margin: 20px 0px 10px;
+    padding-bottom: 10px;
+    overflow-x: scroll;
+
+    @include atBig {
+      margin: 0 0 0 32px;
+    }
+  }
+
+  &__image {
+    flex: 0 0 230px;
+    height: 170px;
+    object-fit: cover;
+
+    @include atMedium {
+      flex: 0 0 304px;
+      height: 230px;
+    }
+
+    & + & {
+      margin-left: 20px;
+
+      @include atMedium {
+        margin-left: 32px;
+      }
+    }
+  }
+}
