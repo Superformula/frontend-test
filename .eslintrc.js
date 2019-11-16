@@ -24,7 +24,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  plugins: ["prettier", "react", "@typescript-eslint"],
+  plugins: ["prettier", "react", "@typescript-eslint", "react-hooks"],
   settings: {
     'import/resolver': {
       node: {
@@ -50,6 +50,9 @@ module.exports = {
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
     "react/jsx-filename-extension": [1, { extensions: ['.ts', '.tsx'] }],
+    "react/no-array-index-key": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     'import/order': [
       'error',
       {
