@@ -1,0 +1,69 @@
+@import '../../../../styles/general/colors';
+@import '../../../../styles/general/mixins';
+
+.review {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $mercury;
+  padding: 35px 0px;
+
+  &:first-of-type {
+    padding-top: 0px;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0px;
+  }
+
+  @include atMedium {
+    flex-direction: row;
+    padding: 75px 0px;
+  }
+
+  &__reviewer-details {
+    display: flex;
+    margin-bottom: 16px;
+
+    @include atMedium {
+      flex: 0 0 20%;
+    }
+  }
+
+  &__reviewer-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  &__reviewer-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 18px;
+  }
+
+  &__reviewer-name {
+    margin-bottom: 4px;
+    font-size: 1.125rem;
+    line-height: 1.33;
+    letter-spacing: 0.75px;
+  }
+
+  &__date {
+    font-weight: lighter;
+    line-height: 1.5;
+    color: $secondary-grey;
+  }
+
+  &__details {
+    @include atMedium {
+      flex: 0 0 80%;
+    }
+  }
+
+  &__comment {
+    margin-top: 24px;
+    font-weight: lighter;
+    line-height: 1.375;
+    letter-spacing: 0.8px;
+  }
+}
