@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import { RestaurantCardProps } from './RestaurantCard.types';
 import { StarRating } from 'shared/components/StarRating/StarRating';
@@ -9,6 +10,7 @@ import { AspectRatio } from 'shared/components/AspectRatio/AspectRatio';
 import './RestaurantCard.scss';
 
 export const RestaurantCard: FC<RestaurantCardProps> = ({
+  id,
   name,
   photo,
   photoAlt,
@@ -27,6 +29,8 @@ export const RestaurantCard: FC<RestaurantCardProps> = ({
       <CuisinePriceInfo cuisineName={cuisineName} priceRange={price} />
       <RestaurantStatus isOpen={isOpen} />
     </div>
-    <Button>LEARN MORE</Button>
+    <Link to={`restaurants/${id}`}>
+      <Button className="restaurant-card__button">LEARN MORE</Button>
+    </Link>
   </article>
 );
