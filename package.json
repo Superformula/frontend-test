@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Frontend app",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.prod.config.js",
+    "watch": "webpack-dev-server --config webpack.dev.config.js --hot"
   },
   "repository": {
     "type": "git",
