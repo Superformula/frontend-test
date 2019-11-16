@@ -1,9 +1,13 @@
+@import '../../../../styles/general/mixins';
+
 .star {
   width: 20px;
   height: 20px;
 
   &--big {
-    width: 30px;
-    height: 30px;
+    @include atMedium {
+      width: 30px;
+      height: 30px;
+    }
   }
 }
