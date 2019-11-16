@@ -1,0 +1,62 @@
+@import '../../../styles/general/colors';
+
+.button {
+  border: none;
+  border-radius: 2px;
+  padding: 14px 45px;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color .3s, opacity .3s;
+
+  &:focus {
+    outline: 0; // @todo: Style it properly if designs delivered (in case of accessability)
+  }
+
+  &--blue {
+    color: $white;
+    background-color: $primary-blue;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  &--white {
+    border: 1px solid $primary-blue;
+    color: $primary-blue;
+    background-color: $white;
+
+    &:hover {
+      background-color: rgba($primary-blue, 0.05);
+    }
+
+    &:active {
+      background-color: rgba($primary-blue, 0.1);
+    }
+
+    &.button--disabled {
+      border: 1px solid $mercury;
+      color: $silver;
+    }
+  }
+
+  &--disabled {
+    cursor:  not-allowed;
+    pointer-events: none;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--small {
+    padding: 11px 39px;
+    font-size: 0.75rem;
+  }
+}
