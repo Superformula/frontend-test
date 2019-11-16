@@ -1,0 +1,15 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1em;
+  font-family: $font-family-base;
+  text-rendering: optimizeLegibility;
+}
