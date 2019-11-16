@@ -31,12 +31,12 @@ module.exports = {
         exclude: /node_modules'/,
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '/photos/[name].[ext]',
+              name: 'photos/[name].[ext]',
             },
           },
         ],
