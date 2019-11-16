@@ -1,0 +1,28 @@
+@import '../../../styles/general/colors';
+@import '../../../styles/general/mixins';
+
+.cuisine-price-info {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: $boulder-color;
+
+  &__price::before {
+    margin: 0px 3px;
+    content: '\2022';
+  }
+
+  &--big {
+    @include atMedium {
+      font-size: 1.375rem;
+      font-weight: lighter;
+      letter-spacing: 0.9px;
+      text-transform: none;
+
+      .cuisine-price-info__price::before {
+        margin: 0px 9px;
+        content: '\2022';
+      }
+    }
+  }
+}

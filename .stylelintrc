@@ -8,6 +8,7 @@
   "rules": {
     "declaration-block-no-duplicate-properties": true,
     "declaration-empty-line-before": "never",
+    "at-rule-no-unknown": null,
     "order/properties-order": [
       'position',
       'top',

@@ -1,0 +1,7 @@
+$medium-scree-size: 600px;
+
+@mixin atMedium {
+  @media (min-width: $medium-scree-size) {
+    @content;
+  }
+}
