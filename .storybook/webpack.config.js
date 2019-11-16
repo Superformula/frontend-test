@@ -5,6 +5,7 @@
 // IMPORTANT
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
+const path = require('path');
 
 module.exports = ({ config }) => {
   config.module.rules.push({
@@ -33,6 +34,11 @@ module.exports = ({ config }) => {
       }
     ]
   });
+
+  config.resolve.modules = [
+    ...(config.resolve.modules || []),
+    path.resolve('./src'),
+  ];
 
   config.resolve.extensions.push(".ts", ".tsx");
 

@@ -12,7 +12,8 @@ module.exports = {
   },
   mode: 'production',
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.tsx', '.ts', '.js'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   module: {
     rules: [
@@ -29,13 +30,13 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
               name: '/photos/[name].[ext]',
             },
-          }
-        ]
-      }
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -48,5 +49,5 @@ module.exports = {
       title: 'Frontend app',
       template: './index.html',
     }),
-  ]
-}
+  ],
+};
