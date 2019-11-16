@@ -47,8 +47,9 @@ export const Dropdown: FC<DropdownProps> = ({ target, children }) => {
           top: targetPosition.top,
           left: targetPosition.left,
         }}
+        isOpened={isOpened}
       >
-        {isOpened && children(toggleOpened)}
+        {children(toggleOpened)}
       </DropdownPopup>
     </>
   );

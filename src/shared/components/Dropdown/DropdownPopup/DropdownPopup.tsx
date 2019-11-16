@@ -3,14 +3,15 @@ import { createPortal } from 'react-dom';
 
 import { usePortal } from 'shared/hooks';
 import { DropdownPopupProps } from './DropdownPopup.types';
+import { AnimateOnAppear } from 'shared/components/AnimateOnAppear/AnimateOnAppear';
 
-export const DropdownPopup = forwardRef<HTMLDivElement, DropdownPopupProps>(({ children, style }, ref) => {
+export const DropdownPopup = forwardRef<HTMLDivElement, DropdownPopupProps>(({ isOpened, children, style }, ref) => {
   const target = usePortal('dropdown-portal');
 
   return createPortal(
-    <div ref={ref} style={style}>
+    <AnimateOnAppear ref={ref} style={style} isVisible={isOpened}>
       {children}
-    </div>,
+    </AnimateOnAppear>,
     target,
   );
 });
