@@ -1,3 +1,6 @@
-import { BigText } from './shared/components/BigText/BigText';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log(BigText);
+import { BigText } from './shared/components';
+
+ReactDOM.render(<BigText />, document.getElementById('root'));
