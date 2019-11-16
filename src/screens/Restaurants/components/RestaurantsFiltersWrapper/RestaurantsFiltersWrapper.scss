@@ -1,0 +1,46 @@
+@import '../../../../styles/general/colors';
+
+.restaurants-filters-wrapper {
+  border-top: 1px solid $mercury;
+  border-bottom: 1px solid $mercury;
+}
+
+.restaurants-filters {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin: 23px 0px;
+
+  &__filter-label {
+    margin-right: 25px;
+    letter-spacing: 1px;
+    color: $scorpion;
+  }
+
+  &__checkbox {
+    margin-right: 25px;
+  }
+
+  &__price-target {
+    width: 97px;
+    margin-right: 25px;
+  }
+
+  &__price-options {
+    width: 97px;
+  }
+
+  &__categories-target {
+    width: 190px;
+  }
+
+  &__categories-options {
+    width: 190px;
+    height: 206px;
+    overflow-x: scroll;
+  }
+
+  &__clear-button {
+    margin-left: auto;
+  }
+}
