@@ -1,0 +1,23 @@
+@import '../../../styles/general/colors';
+
+.select {
+  &__target {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 97px;
+    border-bottom: 1px solid $silver;
+    padding: 8px 0px;
+    letter-spacing: 1px;
+    color: $primary-blue;
+    cursor: pointer;
+  }
+
+  &__options-wrapper {
+    border: 1px solid $silver;
+    border-top: transparent;
+    padding: 6px 0px;
+    background-color: $white;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1), inset 0px -1px 0px $silver;
+  }
+}

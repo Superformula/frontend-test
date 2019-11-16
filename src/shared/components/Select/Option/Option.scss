@@ -1,0 +1,19 @@
+@import '../../../../styles/general/colors';
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 5px 16px;
+  cursor: pointer;
+  transition: background-color .3s;
+
+  &:hover {
+    background-color: rgba($secondary-grey, 0.05);
+  }
+
+  &__name {
+    margin-left: 8px;
+    line-height: 1.5;
+    color: $scorpion;
+  }
+}
