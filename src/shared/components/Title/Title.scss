@@ -1,8 +1,15 @@
 @import '../../../styles/general/colors';
+@import '../../../styles/general/mixins';
 
 .title {
-  font-size: 3.375rem;
+  font-size: 2rem;
   font-weight: lighter;
-  letter-spacing: 0.9px;
+  line-height: 1.25;
+  letter-spacing: 0.96px;
   color: $mine-shaft-color;
+
+  @include atMedium {
+    font-size: 3.375rem;
+    line-height: 1.18;
+  }
 }
