@@ -1,4 +1,5 @@
 @import '../../../styles/general/colors';
+@import '../../../styles/general/mixins';
 
 .restaurant-status {
   display: flex;
@@ -26,15 +27,20 @@
 
   &--big {
     .restaurant-status__dot {
-      width: 22px;
-      height: 22px;
+      @include atMedium {
+        width: 22px;
+        height: 22px;
+      }
     }
 
     .restaurant-status__label {
-      margin-left: 8px;
-      font-size: 22px;
-      letter-spacing: 0.9px;
-      text-transform: none;
+      @include atMedium {
+        margin-left: 8px;
+        font-size: 1.375rem;
+        font-weight: lighter;
+        letter-spacing: 0.9px;
+        text-transform: none;
+      }
     }
   }
 }
