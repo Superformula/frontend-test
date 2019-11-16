@@ -1,1 +1,1 @@
-export * from './BigText/BigText';
+export * from './Title/Title';

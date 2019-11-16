@@ -62,5 +62,6 @@ module.exports = {
       { blankLine: 'always', prev: '*', next: ['return', 'if', 'switch'] },
     ],
     'react/require-default-props': 0,
+    'react/prop-types': 0,
   }
 };
