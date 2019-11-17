@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { CuisinePriceInfoProps, Size } from './CuisinePriceInfo.types';
 import './CuisinePriceInfo.scss';
 
-const MAX_CUISINE_LENGTH = 17;
+const MAX_CUISINE_LENGTH = 14;
 
 /**
  * Displays information about cuisine and price range label
