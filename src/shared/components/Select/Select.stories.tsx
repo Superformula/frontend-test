@@ -4,14 +4,12 @@ import { storiesOf } from '@storybook/react';
 import { Select } from './Select';
 
 const priceOptions = [
-  { value: 'all', label: 'All' },
   { value: '$', label: '$' },
   { value: '$$', label: '$$' },
   { value: '$$$', label: '$$$' },
 ];
 
 const categoriesOptions = [
-  { value: 'all', label: 'All' },
   { value: 'italian', label: 'Italian' },
   { value: 'seafood', label: 'Seafood' },
   { value: 'steakhouses', label: 'Steakhouses' },

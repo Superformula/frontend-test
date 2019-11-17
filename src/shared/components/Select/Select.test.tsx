@@ -4,7 +4,6 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Select } from './Select';
 
 const priceOptions = [
-  { value: 'all', label: 'All' },
   { value: '$', label: '$' },
   { value: '$$', label: '$$' },
   { value: '$$$', label: '$$$' },

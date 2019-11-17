@@ -8,7 +8,6 @@ import { Select } from 'shared/components/Select/Select';
 import { Button } from 'shared/components/Button/Button';
 
 const priceOptions = [
-  { value: 'all', label: 'All' },
   { value: '1', label: '$' },
   { value: '2', label: '$$' },
   { value: '3', label: '$$$' },
@@ -16,7 +15,6 @@ const priceOptions = [
 ];
 
 const categoriesOptions = [
-  { value: 'all', label: 'All' },
   { value: 'italian', label: 'Italian' },
   { value: 'seafood', label: 'Seafood' },
   { value: 'steak', label: 'Steakhouses' },
