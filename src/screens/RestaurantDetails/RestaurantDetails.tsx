@@ -6,6 +6,7 @@ import { MapGalleryWrapper } from './components/MapGalleryWrapper/MapGalleryWrap
 import { ReviewsList } from './components/ReviewsList/ReviewsList';
 import { RestaurantDetailsProps } from './RestaurantDetails.types';
 import { Loader } from 'shared/components/Loader/Loader';
+import { ErrorMessage } from 'shared/components/ErrorMessage/ErrorMessage';
 
 export const RestaurantDetails: FC<RestaurantDetailsProps> = ({ isLoading, isError, restaurantDetails }) => {
   if (isLoading) {
@@ -13,7 +14,7 @@ export const RestaurantDetails: FC<RestaurantDetailsProps> = ({ isLoading, isErr
   }
 
   if (isError || !restaurantDetails) {
-    return <p>Error!</p>;
+    return <ErrorMessage />;
   }
 
   return (

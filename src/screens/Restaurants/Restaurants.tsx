@@ -8,9 +8,12 @@ import { RestaurantsGrid } from './components/RestaurantsGrid/RestaurantsGrid';
 import { RestaurantsProps } from './Restaurants.types';
 import { Loader } from 'shared/components/Loader/Loader';
 import './Restaurants.scss';
+import { ErrorMessage } from 'shared/components/ErrorMessage/ErrorMessage';
 
 export const Restaurants: FC<RestaurantsProps> = ({ isLoading, isError, restaurants, filters, onFiltersChange }) => {
-  if (isError) return <p>Error</p>;
+  if (isError) {
+    return <ErrorMessage />;
+  }
 
   return (
     <Grid.Container>
