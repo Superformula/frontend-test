@@ -1,98 +1,140 @@
 # Superformula Front-end Developer Coding Test
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
+Application is deployed on AWS, as well as storybook. Proxy for yelp API is deployed on AWS Lambda.
 
-## Context
+**Application url:** http://frontend-application-v1.s3-website.eu-central-1.amazonaws.com/
 
-Use HTML, CSS, and JavaScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
+**Storybook url:** http://frontend-application-v1-storybook.s3-website.eu-central-1.amazonaws.com/
 
-![Superformula-front-end-test-mockup](./mockup.png)
+![Application gif](https://user-images.githubusercontent.com/57920591/69098195-708e5f80-0a58-11ea-83ef-54911710fddc.gif)
 
-Use this Figma file to see button states, colors, and responsive design.  You should be sure to complete the test to mimic the design as seen.
+## Commands
 
-> [Source Figma file](https://www.figma.com/file/4MqQhKPsnKetTud9tm6kDY/Superformula-FE-test-264388d?node-id=0%3A1)
+**Run locally**
 
-## Requirements
-
-### Yelp API
-
-You can ask us and we will provide you a Yelp API Key to use for your PR.
-
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
-
-### Page Structure
-
+*Create .env with `API_URL=/api` and proper `YELP_API_TOKEN`
 ```
-Main
-  - Filter navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (navigate to Detail View)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
+npm i
+npm watch
 ```
 
-### Functionality
+**Storybook**
+```
+npm run storybook
+```
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
+**Build**
 
-### Tech stack
+*remember to add .env with proper `API_URL`
+```
+npm run build
+```
 
-- JS oriented
-  - Use **React**.
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor like SASS/SCSS/Less but _do not_ use any CSS frameworks or libraries.
+**Test**
+```
+npm test
+```
 
-### Bonus
+## Done / not done
 
-- Also create mobile version included in Figma comp.
-- Write clear **documentation** on how the app was designed and how to run the code.
-- Provide proper unit tests.
-- Provide components in [Storybook](https://storybook.js.org) with tests.
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages.
-- Provide an online demo of the application.
-- Include subtle animations to focus attention
-- Describe optimization opportunities when you conclude
+### Done
 
-## What We Care About
+- Most of components used inside Restaurants view are tested (96.68% Lines)
+- Used React
+- No boilerplate
+- SCSS Preprocessor
 
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your code & the way you solve the problem, not how well you can use a particular library or feature.
+### Not done (Lack of time)
+#### *if you want me to do something from this list, just me let know
 
-_We're interested in your method and how you approach the problem just as much as we're interested in the end result._
+- Mobile view is created only for second view (Restaurant details view)
+- Filter navigation filter only on server side queries
+- `Categories` are not pre-filled from endpoint
+- Tests for restaurant details view
+- Pagination
 
-Here's what you should strive for:
+## I would change/add (if more time)
+- Better accessability (+ get designs for focus on button)
+- 100% test coverage (with GraphQL MockedProvider)
+- E2E tests
+- Add filters to path
+- I changed restaurant card view (https://i.snipboard.io/3wp2xC.jpg), it's now possible to manage the height of card automatically, I can make it the same as on designs if needed of course
+- Add rest of components to storybook (some of components inside screens folder), add colors to storybook
+- Describe all components (I described only a few)
+- Add prop types
+- There are 6 variants of grey color, maybe its possible to "standardize" them?
+- Make dropdown more reusable (setting width automatically)
+- Consistently use style props or className
+- Canceling requests
+- Clean up shared imports
+- Add placeholders when loading
+- Improve tablet views
+- If you want I could use `em` for padding etc.
+- Clean up git commits a bit
+- Show loader in better place on filters change (now it's in filters row)
+- More manual tests
 
-- Good use of current HTML, CSS, and JavaScript & performance best practices.
-- Solid testing approach.
-- Extensible code.
+## Improvements
+- Configure CI/CD on github
+- Lazy loading
+- SSR (Next.js)
+- CSS (prefixes, theme)
+- Chunk app
+- Implement more views - some lack of designs (error view, 404, no restaurants view)
+- PWA - add manifest.json for mobile etc.
+- i11n
+- Visual regression testing
+- Add some addons to storybook
+- Add some plugins to webpack for compression
+- Consider changing apollo to https://github.com/FormidableLabs/urql - it's smaller
+- Consider removing react-spring and create animation from scratch
+- Add plop
+- Polyfills for older browsers if needed
+- Analyze bundle size and make it smaller
+- Showing images with proper resolution depending on screen size (`srcset`) + images compression
+- Configure CORS, CSP, HTTPS and other headers
+- CDN
 
-## Q&A
+## App structure
+```
+.storybook - storybook config
+dist - application files ready to be deployed
+src - core code of application
+  - api
+    - queries - all GraphQL queries, each file separated by feature
+    - client - configuration of GraphQL client
+  - assets - icons, images
+  - screens - every screen in app is separate folder here
+    - RestaurantDetails - view of restaurant details
+      - components - specific components for this view, each in separated folder
+    - Restaurants - view of restaurants
+      - components - specific components for this view, each in separated folder
+  - shared - folder with shared stuff, such as components and hooks
+    - components
+    - hooks
+  - styles - global styles/mixins
+  - types - global types for entities
+  App.tsx - core component of app
+  index.tsx - connecting with DOM
+storybook-static - storybook files ready to be deployed
+test - config files for tests, only fileMock.js is inside at the moment
+typings - global typings
+.env.dist - environment variables, pattern for creating .env file
+.eslintrc.js - config for eslint
+.gitignore
+.stylelintrc - stylelint config
+index.html - base for creating index.html inside /dist folder
+jest.config.js - config for tests
+package.json
+tsconfig.json
+webpack.dev.config.js - webpack configuration for development
+webpack.prod.config.js - webpack configuration for production
+```
 
-> Where should I send back the result when I'm done?
+## Good to know
+- There is a mismatch - first sentence in readme says "You are only required to complete the desktop views, unless otherwise instructed.", when later we have: "Also create mobile version included in Figma comp."
+- Figma do not show `font-weight` in styles, we need to click `Table` instead of  `Code` to read proper ones
+- I couldn't read buttons paddings on figma
+- Yelp API seems to be not working as expected, when we send `is_closed` as true, it still returns restaurants that are "open now"
 
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
-
-> What if I have a question?
-
-Just create a new issue in this repo and we will respond and get back to you quickly.
+PS. Any feedback regarding code quality + what You would change will be appreciated
