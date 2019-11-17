@@ -17,3 +17,28 @@ export const SEARCH_RESTAURANTS = gql`
     }
   }
 `;
+
+export const GET_RESTAURANT_INFO = gql`
+  query GetRestaurantInfo($id: String) {
+    business(id: $id) {
+      name
+      rating
+      price
+      photos
+      categories {
+        title
+      }
+      is_closed
+      review_count
+      reviews {
+        rating
+        text
+        time_created
+        user {
+          name
+          image_url
+        }
+      }
+    }
+  }
+`;

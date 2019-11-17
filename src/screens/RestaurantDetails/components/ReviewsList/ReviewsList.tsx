@@ -6,10 +6,10 @@ import { Grid } from 'shared/components/Grid/Grid';
 import './ReviewsList.scss';
 import { ReviewsListProps } from './ReviewsList.types';
 
-export const ReviewsList: FC<ReviewsListProps> = ({ reviews }) => (
+export const ReviewsList: FC<ReviewsListProps> = ({ reviewsCount, reviews }) => (
   <Grid.Row>
     <main className="reviews-list">
-      <h3 className="reviews-list__amount-header">321 Reviews</h3>
+      <h3 className="reviews-list__amount-header">{reviewsCount} Reviews</h3>
       {reviews.map((review, i) => (
         <Review key={i} {...review} />
       ))}

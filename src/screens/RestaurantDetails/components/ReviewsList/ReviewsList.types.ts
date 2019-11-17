@@ -1,5 +1,6 @@
-import { ReviewProps } from '../Review/Review.types';
+import { Review } from 'types/restaurants';
 
 export type ReviewsListProps = {
-  reviews: ReviewProps[];
+  reviewsCount: number;
+  reviews: Review[];
 };

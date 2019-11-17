@@ -1,7 +1,3 @@
-export type ReviewProps = {
-  reviewerAvatar: string;
-  reviewerName: string;
-  dateCreated: string;
-  rating: number;
-  comment: string;
-};
+import { Review } from 'types/restaurants';
+
+export type ReviewProps = Review;

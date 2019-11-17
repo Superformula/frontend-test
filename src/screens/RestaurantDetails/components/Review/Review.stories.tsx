@@ -4,8 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { Review } from './Review';
 
 const reviewDetails = {
-  reviewerAvatar: 'https://via.placeholder.com/64',
-  reviewerName: 'Brian B.',
+  user: {
+    imageUrl: 'https://via.placeholder.com/64',
+    name: 'Brian B.',
+  },
   dateCreated: '10/9/2018',
   rating: 4,
   comment: `Don't be fooled by the French name, this place oozes with Californian flair. Their space is phenomenal: bright,
