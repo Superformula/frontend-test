@@ -22,7 +22,11 @@ export const Restaurants: FC<RestaurantsProps> = ({ isLoading, isError, restaura
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua."
       />
-      <RestaurantsFiltersWrapper filters={filters} onChange={onFiltersChange} />
+      <RestaurantsFiltersWrapper
+        showLoader={isLoading && !!restaurants.length}
+        filters={filters}
+        onChange={onFiltersChange}
+      />
       {isLoading && !restaurants.length ? (
         <Loader />
       ) : (

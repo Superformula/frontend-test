@@ -91,4 +91,14 @@ describe('RestaurantsFiltersWrapper component', () => {
 
     expect(container.querySelector('.restaurants-filters__clear-button.button--disabled')).toBeFalsy();
   });
+
+  it('shows loader if showLoading prop is true', async () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <RestaurantsFiltersWrapper filters={{ ...clearFilters, openNow: true }} onChange={onChange} showLoader />,
+    );
+
+    expect(container.querySelector('.loader')).toBeTruthy();
+  });
 });

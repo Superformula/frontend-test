@@ -6,6 +6,7 @@ import { Grid } from 'shared/components/Grid/Grid';
 import { Checkbox } from 'shared/components/Checkbox/Checkbox';
 import { Select } from 'shared/components/Select/Select';
 import { Button } from 'shared/components/Button/Button';
+import { Loader } from 'shared/components/Loader/Loader';
 
 const priceOptions = [
   { value: '1', label: '$' },
@@ -24,7 +25,11 @@ const categoriesOptions = [
   { value: 'thai', label: 'Thai' },
 ];
 
-export const RestaurantsFiltersWrapper: FC<RestaurantsFiltersWrapperProps> = ({ filters, onChange }) => {
+export const RestaurantsFiltersWrapper: FC<RestaurantsFiltersWrapperProps> = ({
+  filters,
+  onChange,
+  showLoader = false,
+}) => {
   const handleChange = (fieldName: string, value: string[] | boolean) => {
     const newValues = {
       ...filters,
@@ -61,6 +66,7 @@ export const RestaurantsFiltersWrapper: FC<RestaurantsFiltersWrapperProps> = ({ 
             values={filters.categories}
             onChange={values => handleChange('categories', values)}
           />
+          {showLoader && <Loader isInline />}
           <Button
             className="restaurants-filters__clear-button"
             variant={Button.variant.WHITE}
