@@ -11,6 +11,10 @@
     left: calc(50% - 35px);
   }
 
+  &--inline {
+    margin: 0;
+  }
+
   &__bounce {
     display: inline-block;
     width: 18px;
