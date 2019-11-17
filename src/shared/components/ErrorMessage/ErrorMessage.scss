@@ -1,0 +1,11 @@
+@import '../../../styles/general/colors';
+
+.error-message {
+  margin: 35px auto;
+  text-align: center;
+
+  &__label {
+    font-size: 1.375rem;
+    color: $secondary-grey;
+  }
+}
