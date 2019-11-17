@@ -13,7 +13,7 @@ const getHeaders = () => {
 };
 
 export const client = new ApolloClient({
-  uri: '/api',
+  uri: process.env.API_URL,
   request: operation => {
     operation.setContext({
       headers: getHeaders(),
