@@ -8,6 +8,8 @@ import { Option } from './Option/Option';
 import { SelectProps } from './Select.types';
 import { Dropdown } from 'shared/components/Dropdown/Dropdown';
 
+const ALL_VALUE = 'ALL';
+
 export const Select: FC<SelectProps> = ({
   title,
   options,
@@ -22,9 +24,13 @@ export const Select: FC<SelectProps> = ({
   const values = valuesProp || selectedOptions;
 
   const handleOptionSelect = (optionValue: string) => {
-    const newOptions = values.includes(optionValue)
-      ? values.filter(option => option !== optionValue)
-      : [...values, optionValue];
+    let newOptions: string[] = [];
+
+    if (optionValue !== ALL_VALUE) {
+      newOptions = values.includes(optionValue)
+        ? values.filter(option => option !== optionValue)
+        : [...values, optionValue];
+    }
 
     if (!valuesProp) {
       setSelectedOptions(newOptions);
@@ -44,6 +50,9 @@ export const Select: FC<SelectProps> = ({
     >
       {() => (
         <ul className={classNames('select__options-wrapper', optionsClassName)} style={optionsStyle}>
+          <Option value={ALL_VALUE} selected={!values.length} onSelect={handleOptionSelect}>
+            All
+          </Option>
           {options.map(({ value, label }) => (
             <Option key={value} value={value} selected={values.includes(value)} onSelect={handleOptionSelect}>
               {label}
