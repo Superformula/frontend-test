@@ -9,7 +9,7 @@ import { RestaurantsProps } from './Restaurants.types';
 import { Loader } from 'shared/components/Loader/Loader';
 import './Restaurants.scss';
 
-export const Restaurants: FC<RestaurantsProps> = ({ isLoading, isError, restaurants }) => {
+export const Restaurants: FC<RestaurantsProps> = ({ isLoading, isError, restaurants, filters, onFiltersChange }) => {
   if (isError) return <p>Error</p>;
 
   return (
@@ -19,7 +19,7 @@ export const Restaurants: FC<RestaurantsProps> = ({ isLoading, isError, restaura
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua."
       />
-      <RestaurantsFiltersWrapper />
+      <RestaurantsFiltersWrapper filters={filters} onChange={onFiltersChange} />
       {isLoading && !restaurants.length ? (
         <Loader />
       ) : (

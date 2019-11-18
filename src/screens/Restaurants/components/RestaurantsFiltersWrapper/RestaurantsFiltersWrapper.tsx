@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 import { RestaurantsFiltersWrapperProps } from './RestaurantsFiltersWrapper.types';
 import './RestaurantsFiltersWrapper.scss';
@@ -9,31 +9,31 @@ import { Button } from 'shared/components/Button/Button';
 
 const priceOptions = [
   { value: 'all', label: 'All' },
-  { value: '$', label: '$' },
-  { value: '$$', label: '$$' },
-  { value: '$$$', label: '$$$' },
+  { value: '1', label: '$' },
+  { value: '2', label: '$$' },
+  { value: '3', label: '$$$' },
+  { value: '4', label: '$$$' },
 ];
 
 const categoriesOptions = [
   { value: 'all', label: 'All' },
   { value: 'italian', label: 'Italian' },
   { value: 'seafood', label: 'Seafood' },
-  { value: 'steakhouses', label: 'Steakhouses' },
+  { value: 'steak', label: 'Steakhouses' },
   { value: 'japanese', label: 'Japanese' },
-  { value: 'american', label: 'American' },
+  { value: 'tradamerican', label: 'American' },
   { value: 'mexican', label: 'Mexican' },
   { value: 'thai', label: 'Thai' },
 ];
 
-export const RestaurantsFiltersWrapper: FC<RestaurantsFiltersWrapperProps> = () => {
-  const [openNowChecked, setOpenNowChecked] = useState(false);
-  const [selectedPrices, setSelectedPrices] = useState<string[]>([]);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+export const RestaurantsFiltersWrapper: FC<RestaurantsFiltersWrapperProps> = ({ filters, onChange }) => {
+  const handleChange = (fieldName: string, value: string[] | boolean) => {
+    const newValues = {
+      ...filters,
+      [fieldName]: value,
+    };
 
-  const clearAllFilters = () => {
-    setOpenNowChecked(false);
-    setSelectedPrices([]);
-    setSelectedCategories([]);
+    onChange(newValues);
   };
 
   return (
@@ -43,8 +43,8 @@ export const RestaurantsFiltersWrapper: FC<RestaurantsFiltersWrapperProps> = () 
           <p className="restaurants-filters__filter-label">Filter By:</p>
           <Checkbox
             name="Open Now"
-            checked={openNowChecked}
-            onChange={setOpenNowChecked}
+            checked={filters.openNow}
+            onChange={checked => handleChange('openNow', checked)}
             className="restaurants-filters__checkbox"
           />
           <Select
@@ -52,22 +52,23 @@ export const RestaurantsFiltersWrapper: FC<RestaurantsFiltersWrapperProps> = () 
             targetClassName="restaurants-filters__price-target"
             optionsClassName="restaurants-filters__price-options"
             options={priceOptions}
-            values={selectedPrices}
-            onChange={setSelectedPrices}
+            values={filters.price}
+            onChange={values => handleChange('price', values)}
           />
           <Select
             title="Categories"
             targetClassName="restaurants-filters__categories-target"
             optionsClassName="restaurants-filters__categories-options"
             options={categoriesOptions}
-            values={selectedCategories}
-            onChange={setSelectedCategories}
+            values={filters.categories}
+            onChange={values => handleChange('categories', values)}
           />
           <Button
             className="restaurants-filters__clear-button"
             variant={Button.variant.WHITE}
             size={Button.size.SMALL}
-            onClick={clearAllFilters}
+            disabled={!filters.openNow && !filters.price.length && !filters.categories.length}
+            onClick={() => onChange({ openNow: false, price: [], categories: [] })}
           >
             Clear all
           </Button>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MemoryRouter } from 'react-router';
 import { storiesOf } from '@storybook/react';
 
 import { Restaurants } from './Restaurants';
+import { Filters } from './Restaurants.types';
 
 const restaurants = [
   {
@@ -67,6 +68,36 @@ const restaurants = [
   },
 ];
 
+const initialFilters = {
+  openNow: false,
+  price: [],
+  categories: [],
+};
+
 storiesOf('Restaurants screen', module)
   .addDecorator(story => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
-  .add('Default', () => <Restaurants isLoading={false} isError={false} restaurants={restaurants} />);
+  .add('Default', () => {
+    const [filters, setFilters] = useState<Filters>(initialFilters);
+
+    return (
+      <Restaurants
+        isLoading={false}
+        isError={false}
+        restaurants={restaurants}
+        filters={filters}
+        onFiltersChange={setFilters}
+      />
+    );
+  })
+  .add('With no restaurants information', () => {
+    const [filters, setFilters] = useState<Filters>(initialFilters);
+
+    return (
+      <Restaurants isLoading={false} isError={false} restaurants={[]} filters={filters} onFiltersChange={setFilters} />
+    );
+  })
+  .add('With loader', () => {
+    const [filters, setFilters] = useState<Filters>(initialFilters);
+
+    return <Restaurants isLoading isError={false} restaurants={[]} filters={filters} onFiltersChange={setFilters} />;
+  });
