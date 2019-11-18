@@ -3,12 +3,25 @@
 
 .restaurants-grid {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0px -15px;
+  flex-direction: column;
+
+  &__title {
+    margin-top: 64px;
+    font-size: 2.125rem;
+    font-weight: lighter;
+    line-height: 1.17;
+  }
+
+  &__restaurants {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    margin: 0px -15px;
+  }
 
   &__card-wrapper {
     width: 100%;
-    padding: 40px 15px;
+    padding: 43px 15px;
 
     @include atMedium {
       width: 50%;
