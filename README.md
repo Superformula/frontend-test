@@ -65,17 +65,20 @@ npm test
 - There are 6 variants of grey color, maybe its possible to "standardize" them?
 - Make dropdown more reusable (setting width automatically)
 - Consistently use style props or className
-- Canceling requests
-- Clean up shared imports
-- Add placeholders when loading
 - Improve tablet views
 - If you want I could use `em` for padding etc.
 - Clean up git commits a bit
 - Show loader in better place on filters change (now it's in filters row)
-- More manual tests
+- Remove/change grid
+- Add error boundaries
+- Fix bug with half star svg on safari + properly format date
+- Canceling requests
+- Clean up shared imports
+- Add placeholders when loading
+- More manual tests (especially on other browsers, mostly tested on Chrome)
 
 ## Improvements
-- Configure CI/CD on github
+- Configure CI/CD on github (+ add snyk, npm audit checks)
 - Lazy loading
 - SSR (Next.js)
 - CSS (prefixes, theme)
