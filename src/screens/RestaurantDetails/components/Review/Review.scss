@@ -26,26 +26,49 @@
     margin-bottom: 16px;
 
     @include atMedium {
-      flex: 0 0 20%;
+      flex: 0 0 25%;
+      flex-direction: column;
+    }
+
+    @include atBig {
+      flex-direction: row;
     }
   }
 
   &__reviewer-avatar {
     width: 64px;
     height: 64px;
+
+    @include atMedium {
+      width: 80px;
+      height: 80px;
+    }
   }
 
   &__reviewer-info {
     display: flex;
     flex-direction: column;
     margin-left: 18px;
+
+    @include atMedium {
+      margin-left: 0;
+    }
+
+    @include atBig {
+      margin-left: 32px;
+    }
   }
 
   &__reviewer-name {
     margin-bottom: 4px;
     font-size: 1.125rem;
-    line-height: 1.33;
-    letter-spacing: 0.75px;
+    letter-spacing: 0.91px;
+
+    @include atMedium {
+      font-size: 1.375rem;
+      line-height: 1.33;
+      letter-spacing: 0.75px;
+    }
   }
 
   &__date {
@@ -56,7 +79,8 @@
 
   &__details {
     @include atMedium {
-      flex: 0 0 80%;
+      flex: 0 0 75%;
+      margin-top: 5px;
     }
   }
 
@@ -65,5 +89,10 @@
     font-weight: lighter;
     line-height: 1.375;
     letter-spacing: 0.8px;
+
+    @include atMedium {
+      margin-top: 20px;
+      font-size: 1.25rem;
+    }
   }
 }
