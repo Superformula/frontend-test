@@ -24,6 +24,7 @@ describe('Select component', () => {
     );
 
     expect(container.querySelector('.select__target')).toBeTruthy();
+    expect(getByText('Price')).toBeTruthy();
 
     act(() => {
       fireEvent.click(getByText('Price'));
@@ -51,5 +52,33 @@ describe('Select component', () => {
     });
 
     expect(onChange).toBeCalledWith(['$$']);
+  });
+
+  it('renders with values as props', async () => {
+    const onChange = jest.fn();
+
+    const { container, getByText } = render(
+      <Select
+        title="Price"
+        targetStyle={{ width: 200 }}
+        optionsStyle={{ width: 200 }}
+        options={priceOptions}
+        onChange={onChange}
+        values={['$']}
+      />,
+    );
+
+    expect(container.querySelector('.select__target')).toBeTruthy();
+    expect(getByText('Price')).toBeTruthy();
+
+    act(() => {
+      fireEvent.click(getByText('Price'));
+    });
+
+    await act(async () => {
+      fireEvent.click(getByText('$$'));
+    });
+
+    expect(onChange).toBeCalledWith(['$', '$$']);
   });
 });

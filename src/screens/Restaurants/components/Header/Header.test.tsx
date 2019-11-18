@@ -5,14 +5,10 @@ import { Header } from './Header';
 
 describe('Header component', () => {
   it('renders correctly with default props', () => {
-    const { container } = render(
-      <Header
-        title="Restaurants"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-    magna aliqua."
-      />,
-    );
+    const { container, getByText } = render(<Header title="Restaurants" description="Lorem ipsum dolor sit amet" />);
 
     expect(container.querySelector('.restaurants-header')).toBeTruthy();
+    expect(getByText('Restaurants')).toBeTruthy();
+    expect(getByText('Lorem ipsum dolor sit amet')).toBeTruthy();
   });
 });

@@ -10,6 +10,24 @@ const clearFilters = {
 };
 
 describe('RestaurantsFiltersWrapper component', () => {
+  it('properly renders filters', () => {
+    const onChange = jest.fn();
+
+    const { container, getByText } = render(<RestaurantsFiltersWrapper filters={clearFilters} onChange={onChange} />);
+
+    expect(container.querySelector('.restaurants-filters')).toBeTruthy();
+    expect(getByText('Open Now')).toBeTruthy();
+    expect(getByText('Price')).toBeTruthy();
+    expect(getByText('Categories')).toBeTruthy();
+    expect(getByText('Clear all')).toBeTruthy();
+
+    act(() => {
+      fireEvent.click(container.querySelector('.checkbox-wrapper') as HTMLElement);
+    });
+
+    expect(onChange).toBeCalledWith({ ...clearFilters, openNow: true });
+  });
+
   it('calls onChange when open now checkbox clicked', () => {
     const onChange = jest.fn();
 

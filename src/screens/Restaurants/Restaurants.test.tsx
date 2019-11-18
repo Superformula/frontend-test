@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 
 import { Restaurants } from './Restaurants';
@@ -73,5 +73,27 @@ describe('Restaurants component', () => {
 
     expect(container.querySelector('.restaurants-grid__card-wrapper')).toBeTruthy();
     expect(container.querySelectorAll('.restaurant-card').length).toBe(2);
+  });
+
+  it('calls onFiltersChange on filter change', () => {
+    const onChange = jest.fn();
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <Restaurants
+          isError={false}
+          isLoading={false}
+          restaurants={restaurants}
+          filters={initialFilters}
+          onFiltersChange={onChange}
+        />
+      </MemoryRouter>,
+    );
+
+    act(() => {
+      fireEvent.click(container.querySelector('.checkbox-wrapper') as HTMLElement);
+    });
+
+    expect(container.querySelector('.restaurants-grid__card-wrapper')).toBeTruthy();
+    expect(onChange).toBeCalledWith({ ...initialFilters, openNow: true });
   });
 });

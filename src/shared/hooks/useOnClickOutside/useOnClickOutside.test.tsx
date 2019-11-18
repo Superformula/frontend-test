@@ -43,6 +43,10 @@ describe('useOnClickOutside test', () => {
 
   it('does nothing when ref is empty or handle is empty', () => {
     renderHook(() => {
+      useOnClickOutside((null as unknown) as RefObject<HTMLDivElement>, undefined);
+    });
+
+    renderHook(() => {
       useOnClickOutside((null as unknown) as RefObject<HTMLDivElement>, () => null);
     });
   });
