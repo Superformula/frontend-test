@@ -1,4 +1,5 @@
 @import '../../../../styles/general/colors';
+@import '../../../../styles/general/mixins';
 
 .restaurants-filters-wrapper {
   border-top: 1px solid $mercury;
@@ -8,8 +9,13 @@
 .restaurants-filters {
   display: flex;
   flex: 1;
-  align-items: center;
+  flex-direction: column;
   margin: 23px 0px;
+
+  @include atMedium {
+    flex-direction: row;
+    align-items: center;
+  }
 
   &__filter-label {
     margin-right: 25px;
@@ -41,6 +47,8 @@
   }
 
   &__clear-button {
-    margin-left: auto;
+    @include atMedium {
+      margin-left: auto;
+    }
   }
 }
