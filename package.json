@@ -11,7 +11,9 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint-fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
-    "stylelint-fix": "stylelint \"src/**/*.scss\" --fix"
+    "stylelint-fix": "stylelint \"src/**/*.scss\" --fix",
+    "deploy-site": "aws s3 sync ./dist s3://frontend-application-v1 --acl=public-read --profile s3",
+    "deploy-storybook": "aws s3 sync ./storybook-static s3://frontend-application-v1-storybook --acl=public-read --profile s3"
   },
   "repository": {
     "type": "git",
