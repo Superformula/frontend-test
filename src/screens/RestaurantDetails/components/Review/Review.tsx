@@ -7,7 +7,8 @@ import { ReviewProps } from './Review.types';
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
 
-  return `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
+  // eslint-disable-next-line no-restricted-globals
+  return isNaN((date as unknown) as number) ? dateString : `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
 };
 
 export const Review: FC<ReviewProps> = ({ dateCreated, rating, comment, user }) => (
