@@ -10,17 +10,22 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin: 23px 0px;
+  margin: 21px 0px;
 
   @include atMedium {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
   }
 
   &__filter-label {
     margin-right: 25px;
     letter-spacing: 1px;
     color: $scorpion;
+
+
+    @include atMedium {
+      margin-top: 9px;
+    }
   }
 
   &__checkbox {

@@ -20,7 +20,7 @@ export const RestaurantCard: FC<RestaurantCardProps> = ({
   isOpen,
 }) => (
   <article className="restaurant-card">
-    <AspectRatio ratio={0.6}>
+    <AspectRatio ratio={0.74}>
       <img className="restaurant-card__image" src={photo} alt={photoAlt || 'restaurant dishes'} />
     </AspectRatio>
     <h3 className="restaurant-card__name">{name}</h3>
