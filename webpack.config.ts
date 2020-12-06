@@ -13,6 +13,7 @@ const webpackConfig = (env): Configuration => ({
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "build.js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -41,6 +42,9 @@ const webpackConfig = (env): Configuration => ({
         use: ["file-loader"],
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
