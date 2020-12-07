@@ -1,0 +1,21 @@
+:root {
+  --white: #fff;
+  --light-gray: #e6e6e6;
+  --gray: #666666;
+  --dark-gray: #333333;
+  --black: #000;
+  --blue: #002b56;
+  --border: #c8c8c8;
+}
+
+:root {
+  --space-sm: 4px;
+  --space-md: 8px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+}
+
+* {
+  font-family: HelveticaNeue;
+}
