@@ -54,7 +54,7 @@ Runs linter, interactive Git file selector, and then git-cz for clean, consisten
 
 ### GraphQL `npm run graphql`
 
-Runs both sub GraphQL scripts in parallel
+Runs both sub GraphQL scripts in parallel. A valid `.env` file is required for these to be successful
 
 #### GraphQL:Schema `npm run graphql:schema`
 
