@@ -18,7 +18,7 @@ export const RestaurantsGql = gql`
     }
 `
 
-export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async () => {
     const client = initializeApollo()
 
     await client.query<RestaurantsQuery>({

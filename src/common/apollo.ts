@@ -20,7 +20,7 @@ const httpLink = createHttpLink({
 })
 const authLink = setContext((_, { headers }) => ({
     headers: {
-        ...headers,
+        ...((headers || {}) as Record<string, string>),
         authorization: `Bearer ${YELP_API_KEY}`,
         'Accept-Language': 'en_US',
     },
