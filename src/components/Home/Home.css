@@ -1,0 +1,16 @@
+.marginLeft {
+  margin: 0 var(--space-2xl);
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: lighter;
+  color: var(--dark-gray);
+  margin-bottom: var(--space-lg);
+}
+
+.description {
+  font-size: 1.2rem;
+  color: var(--gray);
+  margin-top: 0;
+}
