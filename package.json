@@ -1,0 +1,114 @@
+{
+    "name": "superformula",
+    "version": "0.0.0-development",
+    "description": "",
+    "scripts": {
+        "build": "next build",
+        "commit": "git add -i && npx git-cz",
+        "dev": "next dev",
+        "graphql": "run-p graphql:*",
+        "graphql:schema": "graphql-codegen --require dotenv/config --config .codegen-schema.yml",
+        "graphql:queries": "graphql-codegen --require dotenv/config --config .codegen-queries.yml",
+        "lint": "eslint \"src/**/*.[j|t]s?(x)\"",
+        "start": "next start",
+        "storybook": "start-storybook -s ./public",
+        "storybook:build": "build-storybook -s ./public --output-dir=.library",
+        "storybook:deploy": "storybook-to-ghpages --out=.library",
+        "test": "jest --silent",
+        "test:coverage": "jest --verbose --coverage",
+        "upgrade": "npm-check --update"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "post-commit": "git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+        }
+    },
+    "lint-staged": {
+        "**/*.{ts,tsx,json,md}": [
+            "prettier --write"
+        ]
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "dependencies": {
+        "@apollo/client": "^3.2.9",
+        "deepmerge": "^4.2.2",
+        "graphql": "^15.4.0",
+        "http-proxy-middleware": "^1.0.6",
+        "isomorphic-unfetch": "^3.1.0",
+        "next": "^10.0.3",
+        "polished": "^4.0.5",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "styled-components": "^5.2.1",
+        "styled-normalize": "^8.0.7"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0",
+        "@graphql-codegen/cli": "^1.19.4",
+        "@graphql-codegen/fragment-matcher": "^2.0.1",
+        "@graphql-codegen/schema-ast": "^1.18.1",
+        "@graphql-codegen/typescript": "^1.19.0",
+        "@graphql-codegen/typescript-operations": "^1.17.12",
+        "@graphql-codegen/typescript-react-apollo": "^2.2.1",
+        "@storybook/addon-actions": "^6.1.9",
+        "@storybook/addon-knobs": "^6.1.9",
+        "@storybook/addon-viewport": "^6.1.9",
+        "@storybook/react": "^6.1.9",
+        "@storybook/storybook-deployer": "^2.8.7",
+        "@testing-library/jest-dom": "^5.11.6",
+        "@testing-library/react": "^11.2.2",
+        "@testing-library/react-hooks": "^3.4.2",
+        "@types/express": "^4.17.9",
+        "@types/jest": "^26.0.15",
+        "@types/jest-expect-message": "^1.0.3",
+        "@types/node": "^14.14.10",
+        "@types/react": "^17.0.0",
+        "@types/styled-components": "^5.1.4",
+        "@typescript-eslint/eslint-plugin": "^4.8.2",
+        "@typescript-eslint/parser": "^4.8.2",
+        "babel-plugin-styled-components": "^1.12.0",
+        "babel-preset-react-app": "^10.0.0",
+        "cross-env": "^7.0.2",
+        "dotenv": "^8.2.0",
+        "eslint": "^7.14.0",
+        "eslint-config-prettier": "^7.0.0",
+        "eslint-config-react": "^1.1.7",
+        "eslint-plugin-jest-dom": "^3.3.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-testing-library": "^3.10.1",
+        "husky": "^4.3.4",
+        "jest": "^26.6.3",
+        "jest-environment-jsdom-fourteen": "^1.0.1",
+        "jest-expect-message": "^1.0.2",
+        "jest-mock-console": "^1.0.1",
+        "jest-svg-transformer": "^1.0.0",
+        "lint-staged": "^10.5.3",
+        "npm-check": "^5.9.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.2.1",
+        "react-svg-loader": "^3.0.3",
+        "react-test-renderer": "^17.0.1",
+        "storybook-addon-next-router": "^2.0.0",
+        "ts-jest": "^26.4.4",
+        "typescript": "^4.1.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ArrayKnight/superformula.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ArrayKnight/superformula/issues"
+    },
+    "homepage": "https://github.com/ArrayKnight/superformula#readme"
+}

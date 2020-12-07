@@ -1,0 +1,8 @@
+schema:
+    - ${GRAPHQL_SCHEMA_URL}:
+          headers:
+              Authorization: Bearer ${YELP_API_KEY}
+generates:
+    src/graphql/schema.graphql:
+        plugins:
+            - schema-ast

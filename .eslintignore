@@ -1,0 +1,5 @@
+/.library/
+/.next/
+/coverage/
+/node_modules/
+/src/graphql/index.tsx

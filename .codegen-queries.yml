@@ -1,0 +1,23 @@
+schema:
+    - ${GRAPHQL_SCHEMA_URL}:
+          headers:
+              Authorization: Bearer ${YELP_API_KEY}
+documents:
+    - 'src/**/*.{ts,tsx}'
+    - '!src/graphql/*'
+generates:
+    src/graphql/index.tsx:
+        plugins:
+            - typescript
+            - typescript-operations
+            - typescript-react-apollo
+            - fragment-matcher
+        config:
+            avoidOptionals: true
+            nonOptionalTypename: true
+            scalars:
+                DateTime: string
+                Number: number
+            withComponent: false
+            withHOC: false
+            withHooks: true

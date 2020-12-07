@@ -1,98 +1,41 @@
-# Superformula Front-end Developer Coding Test
+# Superformula Coding Challenge
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
+## Getting Started 🏃
 
-## Context
+Create an `.env` file and copy the contents of `.env.example`, insert your own Yelp API key
 
-Use HTML, CSS, and JavaScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
+### `npm install && npm run dev`
 
-![Superformula-front-end-test-mockup](./mockup.png)
+## Instructions 📚
 
-Use this Figma file to see button states, colors, and responsive design.  You should be sure to complete the test to mimic the design as seen.
+See [requirements](/.requirements/README.md) and [designs](https://www.figma.com/file/4MqQhKPsnKetTud9tm6kDY/Superformula-FE-test-264388d?node-id=0%3A1)
 
-> [Source Figma file](https://www.figma.com/file/4MqQhKPsnKetTud9tm6kDY/Superformula-FE-test-264388d?node-id=0%3A1)
+## Tech Stack 🤖
 
-## Requirements
+-   [Typescript](https://www.typescriptlang.org/)
+-   [React](https://reactjs.org/)
+-   [Next](https://nextjs.org/)
+-   [GraphQL](https://graphql.org/)
+-   [Apollo](https://www.apollographql.com/docs/react/)
+-   [Styled Components](https://styled-components.com/)
 
-### Yelp API
+## Tooling 🧰
 
-You can ask us and we will provide you a Yelp API Key to use for your PR.
+-   [Codegen](https://graphql-code-generator.com/)
+-   [CommitLint](https://commitlint.js.org/#/)
+-   [ESLint](https://eslint.org/)
+-   [Jest](https://jestjs.io/)
+-   [Prettier](https://prettier.io/)
+-   [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+-   [Storybook](https://storybook.js.org/)
 
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
+## Decisions 💭
 
-### Page Structure
+I opted to go against the guidelines in one important way: I decided to use NextJS which may fall within the bounds of "_Do not_ use any React boilerplate, such as Create React App". What this means:
 
-```
-Main
-  - Filter navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (navigate to Detail View)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
-```
+-   The project comes with a bunch of out of the box features, optimizations, etc
+-   **I won't be showing:** technical skills related to routing, bundler tooling, bundle optimization, or establishing server side rendering (I can speak to/provide examples of these as needed)
+-   **I will be showing:** writing clear, concise, testable and transferable code that is not specific to this or any other React template
+-   **Why I chose to do this:** I wanted to deliver quickly while focusing on the core "what you should strive for" skills, NextJS provides an extremely easy to establish API which I used to proxy the Yelp API and is readily deployable to a service like Vercel
 
-### Functionality
-
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
-
-### Tech stack
-
-- JS oriented
-  - Use **React**.
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor like SASS/SCSS/Less but _do not_ use any CSS frameworks or libraries.
-
-### Bonus
-
-- Also create mobile version included in Figma comp.
-- Write clear **documentation** on how the app was designed and how to run the code.
-- Provide proper unit tests.
-- Provide components in [Storybook](https://storybook.js.org) with tests.
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages.
-- Provide an online demo of the application.
-- Include subtle animations to focus attention
-- Describe optimization opportunities when you conclude
-
-## What We Care About
-
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your code & the way you solve the problem, not how well you can use a particular library or feature.
-
-_We're interested in your method and how you approach the problem just as much as we're interested in the end result._
-
-Here's what you should strive for:
-
-- Good use of current HTML, CSS, and JavaScript & performance best practices.
-- Solid testing approach.
-- Extensible code.
-
-## Q&A
-
-> Where should I send back the result when I'm done?
-
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
-
-> What if I have a question?
-
-Just create a new issue in this repo and we will respond and get back to you quickly.
+I opted to use a local Storybook deployment tool (that can be setup as part of a CI/CD pipeline as well) and Github pages simply down to ease of implementation. In its current state, it requires a developer to run the deployment command, but ideally for a long-standing production application this would be automated to be kept up-to-date
