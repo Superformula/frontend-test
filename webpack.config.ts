@@ -3,6 +3,7 @@ import webpack, { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
+import DotEnv from "dotenv-webpack";
 
 const webpackConfig = (env): Configuration => ({
   entry: "./src/index.tsx",
@@ -59,6 +60,7 @@ const webpackConfig = (env): Configuration => ({
         files: "./src/**/*.{ts,tsx,js,jsx}", // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
       },
     }),
+    new DotEnv(),
   ],
 });
 
