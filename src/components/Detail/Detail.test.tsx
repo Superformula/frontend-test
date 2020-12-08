@@ -4,6 +4,6 @@ import Detail from "./Detail";
 
 test("dummy test to check config", () => {
   const { getByText } = render(<Detail />);
-  const titleElement = getByText(/detail/i);
+  const titleElement = getByText(/restaurant/i);
   expect(titleElement).toBeInTheDocument();
 });
