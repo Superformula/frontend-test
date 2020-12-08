@@ -1,0 +1,58 @@
+.marginLeft {
+  margin: 0 var(--space-2xl);
+}
+
+.reviewsCount {
+  font-size: 1.1rem;
+  color: var(--gray);
+  margin-top: var(--space-xl);
+}
+.review {
+  display: flex;
+  padding: var(--space-xl) 0;
+  margin: var(--space-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+.user {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.userImg {
+  background-color: var(--light-gray);
+  margin-right: var(--space-xl);
+  width: 60px;
+  height: 60px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-md);
+}
+
+.userDate {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.reviewInfo {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.rating {
+  display: flex;
+  margin-bottom: var(--space-md);
+}
+
+.reviewText {
+  font-weight: lighter;
+}
