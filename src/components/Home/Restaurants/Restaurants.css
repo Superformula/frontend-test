@@ -28,31 +28,6 @@
   background: #d8d8d8;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  height: 130px;
-}
-
-.name {
-  letter-spacing: 1px;
-  font-weight: lighter;
-  font-size: 1rem;
-  margin: var(--space-sm) 0;
-}
-
-.stars {
-  padding: var(--space-md) 0;
-  margin-bottom: var(--space-md);
-}
-
-.details {
-  display: flex;
-  justify-content: space-between;
-  color: var(--gray);
-  margin-bottom: var(--space-lg);
-}
-
 .footer {
   width: 100%;
   display: flex;

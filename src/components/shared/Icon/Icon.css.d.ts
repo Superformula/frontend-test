@@ -3,10 +3,12 @@ declare namespace IconCssNamespace {
     arrow: string;
     check: string;
     checkbox: string;
-    openNow: string;
-    openNowGreen: string;
-    openNowRed: string;
+    circleFill: string;
+    circleFillGreen: string;
+    circleFillRed: string;
+    circleFillXl: string;
     star: string;
+    starXl: string;
   }
 }
 

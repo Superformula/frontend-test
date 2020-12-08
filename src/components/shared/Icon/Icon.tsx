@@ -48,6 +48,10 @@ const Icon: React.FC<IconProps> = ({ name, ...rest }) => {
 
 export default Icon;
 
+interface SizableProps {
+  size?: "md" | "xl";
+}
+
 const DownArrowIcon: React.FC = () => {
   return (
     <svg
@@ -139,13 +143,13 @@ const CheckboxFillIcon: React.FC = () => {
   );
 };
 
-const StarEmptyIcon: React.FC = () => {
+const StarEmptyIcon: React.FC<SizableProps> = ({ size = "md" }) => {
   return (
     <svg
       width="1em"
       height="1em"
       viewBox="0 0 16 16"
-      className={styles.star}
+      className={`${styles.star} ${size === "xl" && styles.starXl}`}
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -157,13 +161,13 @@ const StarEmptyIcon: React.FC = () => {
   );
 };
 
-const StarFillIcon: React.FC = () => {
+const StarFillIcon: React.FC<SizableProps> = ({ size = "md" }) => {
   return (
     <svg
       width="1em"
       height="1em"
       viewBox="0 0 16 16"
-      className={styles.star}
+      className={`${styles.star} ${size === "xl" && styles.starXl}`}
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -172,13 +176,13 @@ const StarFillIcon: React.FC = () => {
   );
 };
 
-const StarHalfIcon: React.FC = () => {
+const StarHalfIcon: React.FC<SizableProps> = ({ size = "md" }) => {
   return (
     <svg
       width="1em"
       height="1em"
       viewBox="0 0 16 16"
-      className={styles.star}
+      className={`${styles.star} ${size === "xl" && styles.starXl}`}
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -194,11 +198,16 @@ interface CircleFillIconProps {
   color?: "green" | "red";
 }
 
-const CircleFillIcon: React.FC<CircleFillIconProps> = ({ color = "green" }) => {
+const CircleFillIcon: React.FC<CircleFillIconProps & SizableProps> = ({
+  color = "green",
+  size = "md",
+}) => {
   return (
     <svg
       viewBox="0 0 16 16"
-      className={`${styles.openNow} ${color === "green" ? styles.openNowGreen : styles.openNowRed}`}
+      className={`${styles.circleFill} ${
+        color === "green" ? styles.circleFillGreen : styles.circleFillRed
+      } ${size === "xl" && styles.circleFillXl}`}
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >

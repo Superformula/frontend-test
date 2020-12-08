@@ -20,15 +20,26 @@
   margin-right: var(--space-sm);
 }
 
-.openNow {
+.starXl {
+  width: 30px;
+  height: 30px;
+  fill: var(--blue);
+  margin-right: var(--space-sm);
+}
+
+.circleFill {
   width: 10px;
   margin-right: var(--space-sm);
 }
 
-.openNowRed {
+.circleFillRed {
   fill: var(--red);
 }
 
-.openNowGreen {
+.circleFillGreen {
   fill: var(--green);
+}
+
+.circleFillXl {
+  width: 20px;
 }
