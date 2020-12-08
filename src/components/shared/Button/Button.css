@@ -1,11 +1,18 @@
 .primary {
   color: var(--white);
+  letter-spacing: 1px;
   background: var(--blue);
   border-radius: 2px;
 }
 
+.primary:hover {
+  color: var(--blue);
+  background: var(--white);
+}
+
 .secondary {
   color: var(--blue);
+  letter-spacing: 0.85px;
   background: var(--white);
   border-radius: 2px;
   border: 1px solid var(--blue);
@@ -18,13 +25,20 @@
 
 .btn {
   text-transform: uppercase;
-  letter-spacing: 0.85px;
-  padding: 12px var(--space-2xl);
   font-size: 0.8rem;
+  border: 1px solid var(--blue);
   cursor: pointer;
 }
 
 .btn:hover,
 .btn:focus {
   outline: none;
+}
+
+.sizeMd {
+  padding: 12px var(--space-2xl);
+}
+
+.sizeXl {
+  padding: var(--space-lg) 140px;
 }

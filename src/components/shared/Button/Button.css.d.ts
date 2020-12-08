@@ -3,6 +3,8 @@ declare namespace ButtonCssNamespace {
     btn: string;
     primary: string;
     secondary: string;
+    sizeMd: string;
+    sizeXl: string;
   }
 }
 
