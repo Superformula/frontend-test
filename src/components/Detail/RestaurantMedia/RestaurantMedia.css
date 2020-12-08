@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  padding: var(--space-2xl);
+  border: 1px solid var(--border);
+}
+
+.photo {
+  width: 150px;
+  height: 150px;
+  background-color: var(--light-gray);
+  margin-right: var(--space-xl);
+}
