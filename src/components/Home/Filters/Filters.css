@@ -23,11 +23,6 @@
   margin: 0 var(--space-lg);
 }
 
-.checkboxIcon {
-  width: 15px;
-  margin-right: var(--space-sm);
-}
-
 .selectOptions {
   position: absolute;
   top: 1.3rem;
@@ -48,14 +43,4 @@
 
 .selectOption:hover {
   background: var(--light-gray);
-}
-
-.arrowIcon {
-  width: 10px;
-  margin-left: var(--space-xl);
-}
-
-.checkIcon {
-  width: 20px;
-  margin-right: var(--space-md);
 }

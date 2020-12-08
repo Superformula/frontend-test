@@ -1,0 +1,34 @@
+.arrow {
+  width: 10px;
+  margin-left: var(--space-xl);
+}
+
+.check {
+  width: 20px;
+  margin-right: var(--space-md);
+}
+
+.checkbox {
+  width: 15px;
+  margin-right: var(--space-sm);
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+  fill: var(--blue);
+  margin-right: var(--space-sm);
+}
+
+.openNow {
+  width: 10px;
+  margin-right: var(--space-sm);
+}
+
+.openNowRed {
+  fill: var(--red);
+}
+
+.openNowGreen {
+  fill: var(--green);
+}

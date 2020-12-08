@@ -1,8 +1,5 @@
 declare namespace FiltersCssNamespace {
   export interface IFiltersCss {
-    arrowIcon: string;
-    checkIcon: string;
-    checkboxIcon: string;
     container: string;
     filter: string;
     filters: string;
