@@ -1,6 +1,9 @@
 .info {
   display: flex;
   flex-direction: column;
+}
+
+.infoCard {
   height: 130px;
 }
 

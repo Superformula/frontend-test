@@ -15,10 +15,12 @@ const RestaurantInfo: React.FC<Props> = ({
   variant = "card",
 }) => {
   const isHeader = variant === "header";
+  const isCard = variant === "card";
 
   return (
-    <div className={styles.info}>
-      {isHeader ? <h1>{name}</h1> : <h5 className={styles.name}>{name}</h5>}
+    <div className={`${styles.info} ${isCard && styles.infoCard}`}>
+      {isHeader && <h1>{name}</h1>}
+      {isCard && <h5 className={styles.name}>{name}</h5>}
       <div className={styles.stars}>
         <Rating variant={variant} rating={rating} />
       </div>
