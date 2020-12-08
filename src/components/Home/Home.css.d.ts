@@ -2,7 +2,6 @@ declare namespace HomeCssNamespace {
   export interface IHomeCss {
     description: string;
     marginLeft: string;
-    title: string;
   }
 }
 

@@ -2,14 +2,6 @@
   margin: 0 var(--space-2xl);
 }
 
-.title {
-  font-size: 2.4rem;
-  font-weight: lighter;
-  letter-spacing: 1px;
-  color: var(--dark-gray);
-  margin-bottom: var(--space-lg);
-}
-
 .description {
   font-size: 1.2rem;
   color: var(--gray);

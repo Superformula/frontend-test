@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     <FiltersContext.Provider value={contextValue}>
       <div>
         <header className={styles.marginLeft}>
-          <h1 className={styles.title}>Restaurants</h1>
+          <h1>Restaurants</h1>
           <p className={styles.description}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua.
