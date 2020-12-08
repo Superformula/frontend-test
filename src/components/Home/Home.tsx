@@ -2,6 +2,7 @@ import * as React from "react";
 import Filters from "./Filters/Filters";
 
 import styles from "./Home.css";
+import Restaurants from "./Restaurants/Restaurants";
 import { useFiltersState } from "./useFilterState";
 
 export const FiltersContext = React.createContext(null);
@@ -22,7 +23,7 @@ const Home: React.FC = () => {
           </p>
         </header>
         <Filters />
-        <section className={styles.marginLeft}>articles</section>
+        <Restaurants />
       </div>
     </FiltersContext.Provider>
   );
