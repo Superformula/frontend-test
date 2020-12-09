@@ -24,6 +24,8 @@
 }
 
 .selectOptions {
+  max-height: 350px;
+  overflow: scroll;
   position: absolute;
   top: 1.3rem;
   padding: var(--space-md) 0;

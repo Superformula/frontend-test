@@ -28,7 +28,7 @@ interface ClearAllAction {
 
 type IFiltersActions = ToggleOpenAction | UpdatePriceAction | UpdateCategoryAction | ClearAllAction;
 
-interface IRestaurantState {
+interface ISearchState {
   filterValues: IFilters;
   toggleOpen: () => void;
   updatePrice: (price: string) => void;
@@ -61,7 +61,7 @@ const filterCategory = (restaurant: ISearchRestaurant, category: string) => {
   return restaurant.category === category;
 };
 
-export const useRestaurantState = (): IRestaurantState => {
+export const useSearchState = (): ISearchState => {
   const initialState: IFilters = { isOpen: false, price: "All", category: "All" };
 
   const reducer = (state: IFilters, action: IFiltersActions) => {
@@ -109,7 +109,7 @@ export const useRestaurantState = (): IRestaurantState => {
     }
 
     init();
-  }, [setCategories]);
+  }, [setCategories, setLoadedRestaurants]);
 
   return {
     filterValues,

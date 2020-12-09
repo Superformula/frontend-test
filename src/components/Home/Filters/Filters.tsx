@@ -1,6 +1,6 @@
 import * as React from "react";
 import Button from "components/shared/Button/Button";
-import { RestaurantContext } from "../Home";
+import { SearchContext } from "../Home";
 import Select from "./Select";
 import Checkbox from "./Checkbox";
 
@@ -13,8 +13,9 @@ const Filters: React.FC = () => {
     updatePrice,
     updateCategory,
     priceOptions,
+    categoryOptions,
     clearAll,
-  } = React.useContext(RestaurantContext);
+  } = React.useContext(SearchContext);
   const { isOpen, price, category } = filterValues;
 
   return (
@@ -27,8 +28,8 @@ const Filters: React.FC = () => {
           label="Category"
           value={category}
           onSelect={updateCategory}
-          options={priceOptions}
-          width="140px"
+          options={categoryOptions}
+          width="300px"
         />
       </div>
       <Button type="secondary" handleClick={clearAll}>

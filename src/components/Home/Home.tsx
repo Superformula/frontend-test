@@ -3,17 +3,17 @@ import Filters from "./Filters/Filters";
 
 import styles from "./Home.css";
 import Restaurants from "./Restaurants/Restaurants";
-import { useRestaurantState } from "./useRestaurantState";
+import { useSearchState } from "./useSearchState";
 
-export const RestaurantContext = React.createContext(null);
+export const SearchContext = React.createContext(null);
 
 const Home: React.FC = () => {
-  const restaurantState = useRestaurantState();
+  const searchState = useSearchState();
   // useMemo to avoid re-rendering everything everytime state changes
-  const contextValue = React.useMemo(() => restaurantState, [restaurantState]);
+  const contextValue = React.useMemo(() => searchState, [searchState]);
 
   return (
-    <RestaurantContext.Provider value={contextValue}>
+    <SearchContext.Provider value={contextValue}>
       <div>
         <header className={styles.marginLeft}>
           <h1>Restaurants</h1>
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
         <Filters />
         <Restaurants />
       </div>
-    </RestaurantContext.Provider>
+    </SearchContext.Provider>
   );
 };
 

@@ -1,17 +1,17 @@
 import * as React from "react";
-import { IRestaurantInfo, restaurantInfoExample } from "../../../declarations";
 import OpenNow from "./OpenNow";
 import Rating from "../Rating";
+import { ISearchRestaurant } from "../../../api/yelpDeclarations";
 
 import styles from "./RestaurantInfo.css";
 
 interface Props {
-  info: IRestaurantInfo;
+  restaurant: ISearchRestaurant;
   variant?: "card" | "header";
 }
 
 const RestaurantInfo: React.FC<Props> = ({
-  info: { name, rating, price, category, isOpen },
+  restaurant: { name, rating, price, category, isOpen },
   variant = "card",
 }) => {
   const isHeader = variant === "header";
@@ -30,11 +30,6 @@ const RestaurantInfo: React.FC<Props> = ({
       </div>
     </div>
   );
-};
-
-RestaurantInfo.defaultProps = {
-  variant: "card",
-  info: restaurantInfoExample,
 };
 
 export default RestaurantInfo;
