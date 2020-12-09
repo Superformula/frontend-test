@@ -14,7 +14,7 @@ const reducer = (state: IState, action: IDetailActions) => {
     case "FETCH_RESTAURANT_ERROR":
       return { ...state, loadingState: "ERROR" as ILoadingState };
     default:
-      throw new Error("action type not found");
+      return state;
   }
 };
 
@@ -22,11 +22,11 @@ export const useRestaurantState = (id: string): IState => {
   const [{ restaurant, loadingState }, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     async function init() {
-      dispatch({ type: "FETCH_RESTAURANT" });
-      const restaurant = await fetchRestaurant(id);
-      if (restaurant) {
+      try {
+        dispatch({ type: "FETCH_RESTAURANT" });
+        const restaurant = await fetchRestaurant(id);
         dispatch({ type: "FETCH_RESTAURANT_SUCCESS", restaurant });
-      } else {
+      } catch {
         dispatch({ type: "FETCH_RESTAURANT_ERROR" });
       }
     }

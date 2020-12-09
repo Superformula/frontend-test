@@ -1,7 +1,13 @@
 import { useState, useEffect, useCallback, useReducer } from "react";
-import { ICategory, ISearchRestaurant } from "../../declarations";
+import { ICategory, ILoadingState, ISearchRestaurant } from "../../declarations";
 import { fetchCategories, fetchRestaurants } from "../../api/yelp";
-import { ISearchState, IFiltersActions, IFilters } from "./useSearchStateDeclarations";
+import {
+  ISearchState,
+  IFiltersActions,
+  IFilters,
+  IRestaurantsAction,
+  IRestaurants,
+} from "./useSearchStateDeclarations";
 
 const filterOpen = (restaurant: ISearchRestaurant, isOpen: boolean) => {
   if (!isOpen) {
@@ -25,9 +31,9 @@ const filterCategory = (restaurant: ISearchRestaurant, category: string) => {
   return restaurant.category === category;
 };
 
-const initialState: IFilters = { isOpen: false, price: "All", category: "All" };
+const initialFilters: IFilters = { isOpen: false, price: "All", category: "All" };
 
-const reducer = (state: IFilters, action: IFiltersActions) => {
+const filtersReducer = (state: IFilters, action: IFiltersActions) => {
   switch (action.type) {
     case "TOGGLE_OPEN":
       return { ...state, isOpen: !state.isOpen };
@@ -36,14 +42,29 @@ const reducer = (state: IFilters, action: IFiltersActions) => {
     case "UPDATE_CATEGORY":
       return { ...state, category: action.category };
     case "CLEAR_ALL":
-      return initialState;
+      return initialFilters;
     default:
-      throw new Error("action type not found");
+      return state;
+  }
+};
+
+const initialRestaurants: IRestaurants = { restaurants: [], loadingState: "LOADING" };
+
+const restaurantsReducer = (state: IRestaurants, action: IRestaurantsAction) => {
+  switch (action.type) {
+    case "FETCH_RESTAURANTS":
+      return { ...state, loadingState: "LOADING" as ILoadingState };
+    case "FETCH_RESTAURANTS_SUCCESS":
+      return { loadingState: "SUCCESS" as ILoadingState, restaurants: action.restaurants };
+    case "FETCH_RESTAURANTS_ERROR":
+      return { ...state, loadingState: "ERROR" as ILoadingState };
+    default:
+      return state;
   }
 };
 
 export const useSearchState = (): ISearchState => {
-  const [filterValues, dispatch] = useReducer(reducer, initialState);
+  const [filterValues, dispatch] = useReducer(filtersReducer, initialFilters);
   const toggleOpen = useCallback(() => dispatch({ type: "TOGGLE_OPEN" }), []);
   const updatePrice = useCallback((price: string) => dispatch({ type: "UPDATE_PRICE", price }), []);
   const updateCategory = useCallback(
@@ -55,23 +76,30 @@ export const useSearchState = (): ISearchState => {
   const categoryOptions = categories.map((category: ICategory) => category.title);
   const priceOptions = ["$", "$$", "$$$", "$$$$"];
 
-  const [loadedRestaurants, setLoadedRestaurants] = useState<ISearchRestaurant[]>([]);
+  const [{ restaurants, loadingState }, dispatchRestaurants] = useReducer(
+    restaurantsReducer,
+    initialRestaurants
+  );
 
-  const filteredRestaurants = loadedRestaurants
+  const filteredRestaurants = restaurants
     .filter((restaurant) => filterOpen(restaurant, filterValues.isOpen))
     .filter((restaurant) => filterPrice(restaurant, filterValues.price))
     .filter((restaurant) => filterCategory(restaurant, filterValues.category));
 
   useEffect(() => {
     async function init() {
-      const categoryList = await fetchCategories();
-      setCategories(categoryList);
-      const restaurantList = await fetchRestaurants();
-      setLoadedRestaurants(restaurantList);
+      try {
+        const categoryList = await fetchCategories();
+        setCategories(categoryList);
+        const restaurants = await fetchRestaurants();
+        dispatchRestaurants({ type: "FETCH_RESTAURANTS_SUCCESS", restaurants });
+      } catch (error) {
+        dispatchRestaurants({ type: "FETCH_RESTAURANTS_ERROR" });
+      }
     }
 
     init();
-  }, [setCategories, setLoadedRestaurants]);
+  }, [setCategories, dispatchRestaurants]);
 
   return {
     filterValues,
@@ -82,5 +110,6 @@ export const useSearchState = (): ISearchState => {
     priceOptions,
     categoryOptions,
     restaurants: filteredRestaurants,
+    loadingState,
   };
 };

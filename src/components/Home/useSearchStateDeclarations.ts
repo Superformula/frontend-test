@@ -1,4 +1,4 @@
-import { ISearchRestaurant } from "../../declarations";
+import { ILoadingState, ISearchRestaurant } from "../../declarations";
 
 export interface IFilters {
   isOpen: boolean;
@@ -30,6 +30,29 @@ export type IFiltersActions =
   | UpdateCategoryAction
   | ClearAllAction;
 
+export interface IRestaurants {
+  restaurants: ISearchRestaurant[];
+  loadingState: ILoadingState;
+}
+
+interface FetchRestaurantsAction {
+  type: "FETCH_RESTAURANTS";
+}
+
+interface FetchRestaurantsSuccessAction {
+  type: "FETCH_RESTAURANTS_SUCCESS";
+  restaurants: ISearchRestaurant[];
+}
+
+interface FetchRestaurantsErrorAction {
+  type: "FETCH_RESTAURANTS_ERROR";
+}
+
+export type IRestaurantsAction =
+  | FetchRestaurantsAction
+  | FetchRestaurantsErrorAction
+  | FetchRestaurantsSuccessAction;
+
 export interface ISearchState {
   filterValues: IFilters;
   toggleOpen: () => void;
@@ -39,4 +62,5 @@ export interface ISearchState {
   priceOptions: string[];
   categoryOptions: string[];
   restaurants: ISearchRestaurant[];
+  loadingState: ILoadingState;
 }

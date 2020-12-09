@@ -5,25 +5,33 @@ import { SearchContext } from "../Home";
 import { ISearchRestaurant } from "../../../declarations";
 
 import styles from "./Restaurants.css";
+import Spinner from "../../shared/Spinner/Spinner";
 
 const Restaurants: React.FC = () => {
-  const { restaurants } = React.useContext(SearchContext);
+  const { restaurants, loadingState } = React.useContext(SearchContext);
 
-  return (
-    <section className={styles.container}>
-      <h2 className={styles.header}>All Restaurants</h2>
-      <div className={styles.restaurants}>
-        {restaurants.map((restaurant: ISearchRestaurant) => (
-          <RestaurantCard key={restaurant.id} restaurant={restaurant} />
-        ))}
-      </div>
-      <div className={styles.footer}>
-        <Button size="xl" type="secondary" handleClick={() => console.log("clicked")}>
-          Load More
-        </Button>
-      </div>
-    </section>
-  );
+  switch (loadingState) {
+    case "LOADING":
+      return <Spinner />;
+    case "ERROR":
+      return <div>An error ocurred.</div>;
+    case "SUCCESS":
+      return (
+        <section className={styles.container}>
+          <h2 className={styles.header}>All Restaurants</h2>
+          <div className={styles.restaurants}>
+            {restaurants.map((restaurant: ISearchRestaurant) => (
+              <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+            ))}
+          </div>
+          <div className={styles.footer}>
+            <Button size="xl" type="secondary" handleClick={() => console.log("clicked")}>
+              Load More
+            </Button>
+          </div>
+        </section>
+      );
+  }
 };
 
 export default Restaurants;

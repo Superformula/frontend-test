@@ -20,7 +20,7 @@ const Detail: React.FC = () => {
     case "LOADING":
       return <Spinner />;
     case "ERROR":
-      return <div>Error</div>;
+      return <div>An error ocurred.</div>;
     case "SUCCESS":
       return (
         <div>
