@@ -7,7 +7,7 @@ import RestaurantMedia from "./RestaurantMedia/RestaurantMedia";
 import Reviews from "./Reviews/Reviews";
 import Spinner from "../shared/Spinner/Spinner";
 import { useRestaurantState } from "./useRestaurantState";
-import Button from "components/shared/Button/Button";
+import Button from "../shared/Button/Button";
 
 interface RouteParams {
   id: string;

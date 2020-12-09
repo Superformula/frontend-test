@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import { fetchRestaurant } from "src/api/yelp";
+import { fetchRestaurant } from "../../api/yelp";
 import { IState, IDetailActions } from "./useRestaurantStateDeclarations";
 import { ILoadingState } from "../../declarations";
 

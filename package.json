@@ -22,6 +22,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
     "@teamsupercell/typings-for-css-modules-loader": "^2.4.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -71,8 +72,9 @@
   },
   "babel": {
     "presets": [
-      "@babel/env",
-      "@babel/react"
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
     ]
   },
   "jest": {

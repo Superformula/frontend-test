@@ -1,5 +1,5 @@
 import * as React from "react";
-import Button from "components/shared/Button/Button";
+import Button from "../../shared/Button/Button";
 import { SearchContext } from "../Home";
 import Select from "./Select";
 import Checkbox from "./Checkbox";
