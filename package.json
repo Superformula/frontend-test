@@ -76,11 +76,5 @@
       "@babel/preset-react",
       "@babel/preset-typescript"
     ]
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "setupFilesAfterEnv": [
-      "./src/jest.setup.ts"
-    ]
   }
 }
