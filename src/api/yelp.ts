@@ -6,7 +6,10 @@ import {
   ISearchResponse,
   ISearchData,
   ISearchRestaurant,
+  testRestaurant,
 } from "./yelpDeclarations";
+
+const MOCK_API = true;
 
 const fetchData = async (query: string) => {
   const res = await fetch("/graphql", {
@@ -24,19 +27,33 @@ const fetchData = async (query: string) => {
 };
 
 export const fetchCategories = async (): Promise<ICategory[]> => {
+  // Request limit reached, mocking this endpoint to save requests
+  if (MOCK_API) {
+    return [
+      {
+        title: "Category 1",
+        alias: "category-1",
+      },
+      {
+        title: "Category 2",
+        alias: "category-2",
+      },
+    ];
+  }
+
   const data: ICategoriesResponse = await fetchData(`
-    {
-      categories(country: "US", locale: "en_US") {
-        category {
-          title
-          alias
-          parent_categories {
+      {
+        categories(country: "US", locale: "en_US") {
+          category {
             title
+            alias
+            parent_categories {
+              title
+            }
           }
         }
       }
-    }
-  `);
+    `);
 
   return data.categories.category
     .filter((category: ICategoryData) => {
@@ -58,6 +75,10 @@ export const fetchRestaurants = async (
 ): Promise<ISearchRestaurant[]> => {
   const newOffset = offset ? `, offset: ${offset}` : ``;
   const newCategory = category ? `, categories: "${category}"` : "";
+
+  if (MOCK_API) {
+    return [testRestaurant];
+  }
 
   const data: ISearchResponse = await fetchData(`
     {
