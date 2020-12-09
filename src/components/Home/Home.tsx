@@ -3,9 +3,9 @@ import Filters from "./Filters/Filters";
 
 import styles from "./Home.css";
 import Restaurants from "./Restaurants/Restaurants";
-import { useSearchState } from "./useSearchState";
+import { ISearchState, useSearchState } from "./useSearchState";
 
-export const SearchContext = React.createContext(null);
+export const SearchContext = React.createContext<ISearchState>(null);
 
 const Home: React.FC = () => {
   const searchState = useSearchState();

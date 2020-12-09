@@ -28,7 +28,7 @@ interface ClearAllAction {
 
 type IFiltersActions = ToggleOpenAction | UpdatePriceAction | UpdateCategoryAction | ClearAllAction;
 
-interface ISearchState {
+export interface ISearchState {
   filterValues: IFilters;
   toggleOpen: () => void;
   updatePrice: (price: string) => void;
