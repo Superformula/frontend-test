@@ -10,67 +10,68 @@ export enum Kind {
 }
 
 export interface ButtonTheme extends Theme {
+    disabled: boolean
     kind: Kind
 }
 
 const styles = {
     [Kind.Primary]: (theme: ButtonTheme) => css`
-        padding: ${theme.spacing.xl}px;
-        border: 1px solid ${theme.colors.primary};
-        background: ${theme.colors.primary};
-        text-transform: uppercase;
-        text-align: center;
-        font-size: ${rem(12)};
-        color: ${theme.colors.white};
+        border: 1px solid
+            ${theme.disabled ? theme.colors['gray-5'] : theme.colors.primary};
+        background: ${theme.disabled
+            ? theme.colors['gray-5']
+            : theme.colors.primary};
+        color: ${theme.disabled ? theme.colors['gray-4'] : theme.colors.white};
         transition: background 250ms;
 
-        &:hover {
+        &:not(:disabled):hover {
             background: ${lighten(0.1, theme.colors.primary)};
-        }
-
-        ${minWidthStyles.md} {
-            font-size: ${rem(13)};
-        }
-
-        ${minWidthStyles.xl} {
-            font-size: ${rem(14)};
         }
     `,
     [Kind.Outline]: (theme: ButtonTheme) => css`
-        padding: ${theme.spacing.xl}px;
-        border: 1px solid ${theme.colors.primary};
+        border: 1px solid
+            ${theme.disabled ? theme.colors['gray-5'] : theme.colors.primary};
         background: ${theme.colors.white};
-        text-transform: uppercase;
-        text-align: center;
-        font-size: ${rem(12)};
-        color: ${theme.colors.primary};
+        color: ${theme.disabled
+            ? theme.colors['gray-4']
+            : theme.colors.primary};
         transition: background 250ms;
 
         &:hover {
             background: ${theme.colors['gray-5']};
         }
-
-        ${minWidthStyles.md} {
-            font-size: ${rem(13)};
-        }
-
-        ${minWidthStyles.xl} {
-            font-size: ${rem(14)};
-        }
     `,
-    [Kind.Blank]: () => css`
+    [Kind.Blank]: (theme: ButtonTheme) => css`
         padding: 0;
         border: 0;
         background: none;
+        color: ${theme.disabled ? theme.colors['gray-4'] : 'currentColor'};
     `,
 }
 
-export const Root = styled.button`
-    appearance: none;
-    display: inline-flex;
-    cursor: pointer;
-    ${({ theme }: ThemeProps<ButtonTheme>) => styles[theme.kind](theme)};
-`
+export const Root = styled.button(
+    ({ theme }: ThemeProps<ButtonTheme>) => css`
+        appearance: none;
+        display: inline-flex;
+        cursor: ${theme.disabled ? 'not-allowed' : 'pointer'};
+        ${theme.kind !== Kind.Blank &&
+        css`
+            padding: ${theme.spacing.xl}px;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: ${rem(12)};
+
+            ${minWidthStyles.md} {
+                font-size: ${rem(13)};
+            }
+
+            ${minWidthStyles.xl} {
+                font-size: ${rem(14)};
+            }
+        `};
+        ${styles[theme.kind](theme)};
+    `,
+)
 
 export const Content = styled.span`
     display: flex;

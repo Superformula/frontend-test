@@ -1,5 +1,5 @@
 import { withActions } from '@storybook/addon-actions'
-import { select, text, withKnobs } from '@storybook/addon-knobs'
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'
 import React, { ReactElement } from 'react'
 
 import { Button, StyledButton } from '.'
@@ -20,6 +20,7 @@ export const button = (): ReactElement => (
             ],
             StyledButton.Kind.Primary,
         )}
+        disabled={boolean('disabled', false)}
     >
         {text('label', 'Take Action')}
     </Button>

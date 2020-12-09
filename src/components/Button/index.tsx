@@ -13,10 +13,15 @@ export interface OwnProps {
 export type Props = Omit<JSX.IntrinsicElements['button'], 'ref'> & OwnProps
 
 export const Button = memo(
-    ({ children, kind = Kind.Primary, ...rest }: Props): ReactElement => {
+    ({
+        children,
+        disabled = false,
+        kind = Kind.Primary,
+        ...rest
+    }: Props): ReactElement => {
         return (
-            <ThemeProvider theme={{ kind }}>
-                <Root {...rest}>
+            <ThemeProvider theme={{ disabled, kind }}>
+                <Root disabled={disabled} {...rest}>
                     <Content>{children}</Content>
                 </Root>
             </ThemeProvider>
