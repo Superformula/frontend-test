@@ -1,6 +1,6 @@
 import * as React from "react";
 import Button from "components/shared/Button/Button";
-import { FiltersContext } from "../Home";
+import { RestaurantContext } from "../Home";
 import Select from "./Select";
 import Checkbox from "./Checkbox";
 
@@ -14,7 +14,7 @@ const Filters: React.FC = () => {
     updateCategory,
     priceOptions,
     clearAll,
-  } = React.useContext(FiltersContext);
+  } = React.useContext(RestaurantContext);
   const { isOpen, price, category } = filterValues;
 
   return (

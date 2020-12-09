@@ -37,7 +37,7 @@ const Select: React.FC<SelectProps> = ({ label, value, onSelect, options, width 
   const OptionsList = () => {
     return (
       <div className={styles.selectOptions} style={{ width }}>
-        {options.map((option: string) => (
+        {["All", ...options].map((option: string) => (
           <SelectOption
             handleClick={() => onSelect(option)}
             key={option}

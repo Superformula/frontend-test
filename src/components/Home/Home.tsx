@@ -3,28 +3,17 @@ import Filters from "./Filters/Filters";
 
 import styles from "./Home.css";
 import Restaurants from "./Restaurants/Restaurants";
-import { useFiltersState } from "./useFilterState";
+import { useRestaurantState } from "./useRestaurantState";
 
-import { fetchCategories } from "../../api/yelp";
-
-export const FiltersContext = React.createContext(null);
+export const RestaurantContext = React.createContext(null);
 
 const Home: React.FC = () => {
-  const filterState = useFiltersState();
+  const restaurantState = useRestaurantState();
   // useMemo to avoid re-rendering everything everytime state changes
-  const contextValue = React.useMemo(() => filterState, [filterState]);
-
-  React.useEffect(() => {
-    async function loadCategories() {
-      const data = await fetchCategories();
-      console.log(data);
-    }
-
-    loadCategories();
-  }, []);
+  const contextValue = React.useMemo(() => restaurantState, [restaurantState]);
 
   return (
-    <FiltersContext.Provider value={contextValue}>
+    <RestaurantContext.Provider value={contextValue}>
       <div>
         <header className={styles.marginLeft}>
           <h1>Restaurants</h1>
@@ -36,7 +25,7 @@ const Home: React.FC = () => {
         <Filters />
         <Restaurants />
       </div>
-    </FiltersContext.Provider>
+    </RestaurantContext.Provider>
   );
 };
 
