@@ -56,7 +56,7 @@ export const Root = styled.button(
         cursor: ${theme.disabled ? 'not-allowed' : 'pointer'};
         ${theme.kind !== Kind.Blank &&
         css`
-            padding: ${theme.spacing.xl}px;
+            padding: ${theme.spacing.lg}px;
             text-transform: uppercase;
             text-align: center;
             font-size: ${rem(12)};

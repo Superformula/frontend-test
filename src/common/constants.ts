@@ -40,9 +40,9 @@ export const spacing = {
     xs: 2,
     sm: 4,
     md: 8,
-    lg: 12,
-    xl: 16,
-    xxl: 20,
+    lg: 16,
+    xl: 32,
+    xxl: 64,
 }
 
 export const theme = {
