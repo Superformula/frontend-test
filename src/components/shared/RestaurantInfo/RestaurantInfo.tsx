@@ -1,12 +1,12 @@
 import * as React from "react";
 import OpenNow from "./OpenNow";
 import Rating from "../Rating";
-import { ISearchRestaurant } from "../../../api/yelpDeclarations";
+import { IRestaurantDetail, ISearchRestaurant } from "../../../api/yelpDeclarations";
 
 import styles from "./RestaurantInfo.css";
 
 interface Props {
-  restaurant: ISearchRestaurant;
+  restaurant: ISearchRestaurant | IRestaurantDetail;
   variant?: "card" | "header";
 }
 

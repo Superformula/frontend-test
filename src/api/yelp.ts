@@ -1,12 +1,15 @@
 import {
   ICategoriesResponse,
-  ICategories,
   ICategoryData,
   ICategory,
   ISearchResponse,
   ISearchData,
   ISearchRestaurant,
   testRestaurant,
+  IDetailResponse,
+  IRestaurantDetail,
+  IReview,
+  testRestaurantDetail,
 } from "./yelpDeclarations";
 
 const MOCK_API = true;
@@ -112,4 +115,81 @@ export const fetchRestaurants = async (
       category: categories[0].title,
     })
   );
+};
+
+export const fetchRestaurant = async (restaurantID: string): Promise<IRestaurantDetail> => {
+  if (MOCK_API) {
+    return testRestaurantDetail;
+  }
+
+  const data: IDetailResponse = await fetchData(`
+    {
+      business(id: "${restaurantID}") {
+        id
+        name
+        is_closed
+        rating
+        price
+        review_count
+        categories {
+          title
+        }
+        location {
+          formatted_address
+        }
+        coordinates {
+          latitude
+          longitude
+        }
+        photos
+        hours {
+          is_open_now
+        }
+        reviews {
+          id
+          text
+          rating
+          time_created
+          user {
+            id
+            name
+            image_url
+          }
+        }
+      }
+    }
+  `);
+
+  const {
+    id,
+    name,
+    is_closed,
+    rating,
+    price,
+    review_count,
+    categories,
+    location,
+    coordinates,
+    photos,
+    hours,
+    reviews,
+  } = data.business;
+  return {
+    id,
+    name,
+    isOpen: !is_closed && hours.is_open_now,
+    rating,
+    price,
+    review_count,
+    category: categories[0].title,
+    address: location.formatted_address,
+    coordinates,
+    photos,
+    reviews: reviews.map((r: IReview) => {
+      return {
+        ...r,
+        time_created: new Date(r.time_created).toLocaleDateString(),
+      };
+    }),
+  };
 };
