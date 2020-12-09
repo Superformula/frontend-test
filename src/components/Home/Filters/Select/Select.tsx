@@ -1,6 +1,6 @@
 import * as React from "react";
-import Icon from "../../shared/Icon/Icon";
-import styles from "./Filters.css";
+import Icon from "../../../shared/Icon/Icon";
+import styles from "../Filters.css";
 
 interface SelectProps {
   label: string;
@@ -66,7 +66,7 @@ interface SelectOptionProps {
 
 const SelectOption: React.FC<SelectOptionProps> = ({ option, active, handleClick }) => {
   return (
-    <div className={styles.selectOption} onClick={handleClick}>
+    <div data-testid="selectOption" className={styles.selectOption} onClick={handleClick}>
       {active ? <Icon name="selected" /> : <Icon name="unselected" />}
       <div>{option}</div>
     </div>

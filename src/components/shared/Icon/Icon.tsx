@@ -115,6 +115,7 @@ const UnselectedIcon: React.FC = () => {
 const CheckboxEmptyIcon: React.FC = () => {
   return (
     <svg
+      data-testid="uncheckedIcon"
       className={styles.checkbox}
       xmlns="http://www.w3.org/2000/svg"
       enableBackground="new 0 0 426.667 426.667"
@@ -130,6 +131,7 @@ const CheckboxEmptyIcon: React.FC = () => {
 const CheckboxFillIcon: React.FC = () => {
   return (
     <svg
+      data-testid="checkedIcon"
       className={styles.checkbox}
       enableBackground="new 0 0 426.667 426.667"
       version="1.1"

@@ -1,7 +1,7 @@
 import * as React from "react";
-import Icon from "../../shared/Icon/Icon";
+import Icon from "../../../shared/Icon/Icon";
 
-import styles from "./Filters.css";
+import styles from "../Filters.css";
 
 interface CheckboxProps {
   isChecked: boolean;

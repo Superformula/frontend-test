@@ -1,8 +1,8 @@
 import * as React from "react";
 import Button from "../../shared/Button/Button";
 import { SearchContext } from "../Home";
-import Select from "./Select";
-import Checkbox from "./Checkbox";
+import Select from "./Select/Select";
+import Checkbox from "./Checkbox/Checkbox";
 
 import styles from "./Filters.css";
 
