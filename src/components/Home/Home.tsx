@@ -3,7 +3,8 @@ import Filters from "./Filters/Filters";
 
 import styles from "./Home.css";
 import Restaurants from "./Restaurants/Restaurants";
-import { ISearchState, useSearchState } from "./useSearchState";
+import { useSearchState } from "./useSearchState";
+import { ISearchState } from "./useSearchStateDeclarations";
 
 export const SearchContext = React.createContext<ISearchState>(null);
 

@@ -1,43 +1,7 @@
-import * as React from "react";
+import { useState, useEffect, useCallback, useReducer } from "react";
 import { ICategory, ISearchRestaurant } from "../../api/yelpDeclarations";
 import { fetchCategories, fetchRestaurants } from "../../api/yelp";
-
-interface IFilters {
-  isOpen: boolean;
-  price: string;
-  category: string;
-}
-
-interface ToggleOpenAction {
-  type: "TOGGLE_OPEN";
-}
-
-interface UpdatePriceAction {
-  type: "UPDATE_PRICE";
-  price: string;
-}
-
-interface UpdateCategoryAction {
-  type: "UPDATE_CATEGORY";
-  category: string;
-}
-
-interface ClearAllAction {
-  type: "CLEAR_ALL";
-}
-
-type IFiltersActions = ToggleOpenAction | UpdatePriceAction | UpdateCategoryAction | ClearAllAction;
-
-export interface ISearchState {
-  filterValues: IFilters;
-  toggleOpen: () => void;
-  updatePrice: (price: string) => void;
-  updateCategory: (category: string) => void;
-  clearAll: () => void;
-  priceOptions: string[];
-  categoryOptions: string[];
-  restaurants: ISearchRestaurant[];
-}
+import { ISearchState, IFiltersActions, IFilters } from "./useSearchStateDeclarations";
 
 const filterOpen = (restaurant: ISearchRestaurant, isOpen: boolean) => {
   if (!isOpen) {
@@ -61,46 +25,44 @@ const filterCategory = (restaurant: ISearchRestaurant, category: string) => {
   return restaurant.category === category;
 };
 
-export const useSearchState = (): ISearchState => {
-  const initialState: IFilters = { isOpen: false, price: "All", category: "All" };
+const initialState: IFilters = { isOpen: false, price: "All", category: "All" };
 
-  const reducer = (state: IFilters, action: IFiltersActions) => {
-    switch (action.type) {
-      case "TOGGLE_OPEN":
-        return { ...state, isOpen: !state.isOpen };
-      case "UPDATE_PRICE":
-        return { ...state, price: action.price };
-      case "UPDATE_CATEGORY":
-        return { ...state, category: action.category };
-      case "CLEAR_ALL":
-        return initialState;
-      default:
-        throw new Error("action type not found");
-    }
-  };
-  const [filterValues, dispatch] = React.useReducer(reducer, initialState);
-  const toggleOpen = React.useCallback(() => dispatch({ type: "TOGGLE_OPEN" }), []);
-  const updatePrice = React.useCallback(
-    (price: string) => dispatch({ type: "UPDATE_PRICE", price }),
-    []
-  );
-  const updateCategory = React.useCallback(
+const reducer = (state: IFilters, action: IFiltersActions) => {
+  switch (action.type) {
+    case "TOGGLE_OPEN":
+      return { ...state, isOpen: !state.isOpen };
+    case "UPDATE_PRICE":
+      return { ...state, price: action.price };
+    case "UPDATE_CATEGORY":
+      return { ...state, category: action.category };
+    case "CLEAR_ALL":
+      return initialState;
+    default:
+      throw new Error("action type not found");
+  }
+};
+
+export const useSearchState = (): ISearchState => {
+  const [filterValues, dispatch] = useReducer(reducer, initialState);
+  const toggleOpen = useCallback(() => dispatch({ type: "TOGGLE_OPEN" }), []);
+  const updatePrice = useCallback((price: string) => dispatch({ type: "UPDATE_PRICE", price }), []);
+  const updateCategory = useCallback(
     (category: string) => dispatch({ type: "UPDATE_CATEGORY", category }),
     []
   );
-  const clearAll = React.useCallback(() => dispatch({ type: "CLEAR_ALL" }), []);
-  const priceOptions = ["$", "$$", "$$$", "$$$$"];
-  const [categories, setCategories] = React.useState<ICategory[]>([]);
+  const clearAll = useCallback(() => dispatch({ type: "CLEAR_ALL" }), []);
+  const [categories, setCategories] = useState<ICategory[]>([]);
   const categoryOptions = categories.map((category: ICategory) => category.title);
+  const priceOptions = ["$", "$$", "$$$", "$$$$"];
 
-  const [loadedRestaurants, setLoadedRestaurants] = React.useState<ISearchRestaurant[]>([]);
+  const [loadedRestaurants, setLoadedRestaurants] = useState<ISearchRestaurant[]>([]);
 
-  const restaurants = loadedRestaurants
+  const filteredRestaurants = loadedRestaurants
     .filter((restaurant) => filterOpen(restaurant, filterValues.isOpen))
     .filter((restaurant) => filterPrice(restaurant, filterValues.price))
     .filter((restaurant) => filterCategory(restaurant, filterValues.category));
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function init() {
       const categoryList = await fetchCategories();
       setCategories(categoryList);
@@ -119,6 +81,6 @@ export const useSearchState = (): ISearchState => {
     clearAll,
     priceOptions,
     categoryOptions,
-    restaurants,
+    restaurants: filteredRestaurants,
   };
 };
