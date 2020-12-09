@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
 import DotEnv from "dotenv-webpack";
+import FaviconsWebpackPlugin from "favicons-webpack-plugin";
 
 const webpackConfig = (env): Configuration => ({
   entry: "./src/index.tsx",
@@ -58,6 +59,7 @@ const webpackConfig = (env): Configuration => ({
       },
     }),
     new DotEnv(),
+    new FaviconsWebpackPlugin("./public/favicon.png"),
   ],
   devServer: {
     historyApiFallback: true,
