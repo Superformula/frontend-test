@@ -12,7 +12,7 @@ export interface Props {
 }
 
 export const Rating = memo(
-    ({ maxRating = 5, rating = 0, onChange }: Props): ReactElement => {
+    ({ maxRating = 5, rating = 0, onChange, ...rest }: Props): ReactElement => {
         const stars = useMemo(() => new Array(maxRating).fill(null), [
             maxRating,
         ])
@@ -26,7 +26,7 @@ export const Rating = memo(
         }
 
         return (
-            <Root>
+            <Root {...rest}>
                 {stars.map((_, index) => (
                     <ThemeProvider
                         key={index}

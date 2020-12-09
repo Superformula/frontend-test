@@ -1,3 +1,4 @@
+import { rem } from 'polished'
 import { createGlobalStyle, css } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
@@ -62,6 +63,13 @@ export const minWidthMediaQueries = orderedBreakpointKeys.reduce(
     }),
     {} as MinWidthMediaQueries,
 )
+export const minWidthStyles = Object.entries(minWidthMediaQueries).reduce(
+    (mediaQueries, [breakpoint, mediaQuery]) => ({
+        ...mediaQueries,
+        [breakpoint]: `@media ${mediaQuery}`,
+    }),
+    {} as MinWidthMediaQueries,
+)
 
 export const GlobalStyles = createGlobalStyle`
     ${normalize};
@@ -101,14 +109,14 @@ export const GlobalStyles = createGlobalStyle`
     ${[54, 44, 34, 30, 26, 24].map(
         (size, index) => css`
             ${`h${index + 1}`}, .${`h${index + 1}`} {
-                font-size: ${(size / 16) * (3 / 5)}rem;
+                font-size: ${rem(size * (3 / 5))};
 
-                ${minWidthMediaQueries.md} {
-                    font-size: ${(size / 16) * (4 / 5)}rem;
+                ${minWidthStyles.md} {
+                    font-size: ${rem(size * (4 / 5))};
                 }
 
-                ${minWidthMediaQueries.xl} {
-                    font-size: ${size / 16}rem;
+                ${minWidthStyles.xl} {
+                    font-size: ${rem(size)};
                 }
             }
         `,
@@ -117,25 +125,25 @@ export const GlobalStyles = createGlobalStyle`
     p {
         margin-top: 0;
         
-        ${minWidthMediaQueries.md} {
+        ${minWidthStyles.md} {
             max-width: 600px;
-            font-size: ${18 / 16}rem;
+            font-size: ${rem(18)};
         }
 
-        ${minWidthMediaQueries.xl} {
+        ${minWidthStyles.xl} {
             max-width: 800px;
-            font-size: ${20 / 16}rem;
+            font-size: ${rem(20)};
         }
 
         &.large {
-            font-size: ${18 / 16}rem;
+            font-size: ${rem(18)};
 
-            ${minWidthMediaQueries.md} {
-                font-size: ${20 / 16}rem;
+            ${minWidthStyles.md} {
+                font-size: ${rem(20)};
             }
 
-            ${minWidthMediaQueries.xl} {
-                font-size: ${22 / 16}rem;
+            ${minWidthStyles.xl} {
+                font-size: ${rem(22)};
             }
         }
     }

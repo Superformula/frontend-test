@@ -2,6 +2,7 @@ import styled, { ThemeProps } from 'styled-components'
 
 import { Star } from '~/assets'
 import { Theme } from '~/common'
+import { Button, StyledButton } from '../Button'
 
 export interface StarTheme extends Theme {
     fill: boolean
@@ -13,12 +14,9 @@ export const StarIcon = styled(Star)`
     stroke: ${({ theme }: ThemeProps<StarTheme>) => theme.colors.primary};
 `
 
-export const StarButton = styled.button`
-    appearance: none;
-    padding: 0;
-    border: 0;
-    background: none;
-`
+export const StarButton = styled(Button).attrs({
+    kind: StyledButton.Kind.Blank,
+})``
 
 export const Root = styled.div`
     display: inline-flex;
