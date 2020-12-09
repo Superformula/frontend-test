@@ -5,72 +5,17 @@ import { useParams } from "react-router-dom";
 import styles from "./Detail.css";
 import RestaurantMedia from "./RestaurantMedia/RestaurantMedia";
 import Reviews from "./Reviews/Reviews";
-import { IRestaurantDetail } from "../../api/yelpDeclarations";
-import { fetchRestaurant } from "src/api/yelp";
 import Spinner from "../shared/Spinner/Spinner";
+import { useRestaurantState } from "./useRestaurantState";
 
 interface RouteParams {
   id: string;
 }
 
-export type ILoadingState = "IDLE" | "SUCCESS" | "LOADING" | "ERROR";
-
-interface IState {
-  restaurant: IRestaurantDetail;
-  loadingState: ILoadingState;
-}
-
-interface fetchRestaurantAction {
-  type: "FETCH_RESTAURANT";
-}
-
-interface fetchRestaurantSuccessAction {
-  type: "FETCH_RESTAURANT_SUCCESS";
-  restaurant: IRestaurantDetail;
-}
-
-interface fetchRestaurantErrorAction {
-  type: "FETCH_RESTAURANT_ERROR";
-}
-
-type IDetailActions =
-  | fetchRestaurantAction
-  | fetchRestaurantSuccessAction
-  | fetchRestaurantErrorAction;
-
 const Detail: React.FC = () => {
-  const initialState: IState = { restaurant: null, loadingState: "IDLE" };
-
-  const reducer = (state: IState, action: IDetailActions) => {
-    switch (action.type) {
-      case "FETCH_RESTAURANT":
-        return { ...state, loadingState: "LOADING" };
-      case "FETCH_RESTAURANT_SUCCESS":
-        return { loadingState: "SUCCESS", restaurant: action.restaurant };
-      case "FETCH_RESTAURANT_ERROR":
-        return { ...state, loadingState: "ERROR" };
-      default:
-        throw new Error("action type not found");
-    }
-  };
-
-  const [{ restaurant, loadingState }, dispatch] = React.useReducer(reducer, initialState);
   const { id } = useParams<RouteParams>();
 
-  React.useEffect(() => {
-    async function init() {
-      dispatch({ type: "FETCH_RESTAURANT" });
-      const restaurant = await fetchRestaurant(id);
-      if (restaurant) {
-        dispatch({ type: "FETCH_RESTAURANT_SUCCESS", restaurant });
-      } else {
-        dispatch({ type: "FETCH_RESTAURANT_ERROR" });
-      }
-    }
-
-    init();
-  }, [id]);
-
+  const { restaurant, loadingState } = useRestaurantState(id);
   switch (loadingState) {
     case "IDLE":
     case "LOADING":
