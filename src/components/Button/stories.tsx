@@ -2,7 +2,7 @@ import { withActions } from '@storybook/addon-actions'
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'
 import React, { ReactElement } from 'react'
 
-import { Button, StyledButton } from '.'
+import { Button, ButtonKind } from '.'
 
 export default {
     title: 'Components',
@@ -13,12 +13,8 @@ export const button = (): ReactElement => (
     <Button
         kind={select(
             'kind',
-            [
-                StyledButton.Kind.Primary,
-                StyledButton.Kind.Outline,
-                StyledButton.Kind.Blank,
-            ],
-            StyledButton.Kind.Primary,
+            [ButtonKind.Primary, ButtonKind.Outline, ButtonKind.Blank],
+            ButtonKind.Primary,
         )}
         disabled={boolean('disabled', false)}
     >

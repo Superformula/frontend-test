@@ -1,9 +1,10 @@
 import React, { memo, ReactElement, ReactNode } from 'react'
-
-import { Kind, Root, Content } from './styled'
 import { ThemeProvider } from 'styled-components'
 
+import { Kind, Root, Content } from './styled'
+
 export * as StyledButton from './styled'
+export const ButtonKind = Kind
 
 export interface OwnProps {
     children: ReactNode

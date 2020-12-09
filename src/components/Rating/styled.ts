@@ -2,7 +2,7 @@ import styled, { ThemeProps } from 'styled-components'
 
 import { Star } from '~/assets'
 import { Theme } from '~/common'
-import { Button, StyledButton } from '../Button'
+import { Button, ButtonKind } from '../Button'
 
 export interface StarTheme extends Theme {
     fill: boolean
@@ -15,7 +15,7 @@ export const StarIcon = styled(Star)`
 `
 
 export const StarButton = styled(Button).attrs({
-    kind: StyledButton.Kind.Blank,
+    kind: ButtonKind.Blank,
 })``
 
 export const Root = styled.div`

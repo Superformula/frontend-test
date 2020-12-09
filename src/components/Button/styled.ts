@@ -57,6 +57,7 @@ export const Root = styled.button(
         ${theme.kind !== Kind.Blank &&
         css`
             padding: ${theme.spacing.lg}px;
+            border-radius: 2px;
             text-transform: uppercase;
             text-align: center;
             font-size: ${rem(12)};
