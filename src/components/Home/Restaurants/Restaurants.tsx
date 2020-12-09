@@ -24,11 +24,11 @@ const Restaurants: React.FC = () => {
               <RestaurantCard key={restaurant.id} restaurant={restaurant} />
             ))}
           </div>
-          <div className={styles.footer}>
+          <footer>
             <Button size="xl" type="secondary" handleClick={loadMore}>
               Load More
             </Button>
-          </div>
+          </footer>
         </section>
       );
   }

@@ -28,10 +28,3 @@
   margin-bottom: var(--space-md);
   background: #d8d8d8;
 }
-
-.footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: var(--space-2xl) 0;
-}

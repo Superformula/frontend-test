@@ -2,7 +2,6 @@ declare namespace RestaurantsCssNamespace {
   export interface IRestaurantsCss {
     card: string;
     container: string;
-    footer: string;
     header: string;
     img: string;
     restaurants: string;

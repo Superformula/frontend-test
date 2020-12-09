@@ -29,3 +29,10 @@ h1 {
   color: var(--dark-gray);
   margin-bottom: var(--space-lg);
 }
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2xl) 0;
+}
