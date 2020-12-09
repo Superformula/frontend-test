@@ -3,7 +3,6 @@ declare namespace RestaurantInfoCssNamespace {
     details: string;
     detailsXl: string;
     info: string;
-    infoCard: string;
     name: string;
     openNow: string;
     stars: string;

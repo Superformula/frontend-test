@@ -12,7 +12,7 @@
 
 .restaurants {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
   grid-gap: var(--space-xl);
 }
 
@@ -24,6 +24,7 @@
 
 .img {
   height: 200px;
+  object-fit: cover;
   margin-bottom: var(--space-md);
   background: #d8d8d8;
 }

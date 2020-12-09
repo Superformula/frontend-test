@@ -30,7 +30,7 @@ const RestaurantMedia: React.FC<Props> = ({ urls }) => {
         </GoogleMapReact>
       </div>
       {urls.map((url: string) => {
-        return <img key={url} src={url} alt="restaurant-photo" className={styles.photo} />;
+        return <img key={url} src={url} alt="restaurant" className={styles.photo} />;
       })}
     </section>
   );

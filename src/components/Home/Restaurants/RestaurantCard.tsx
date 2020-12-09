@@ -16,7 +16,7 @@ const RestaurantCard: React.FC<Props> = ({ restaurant }) => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.img} />
+      <img src={restaurant.photo} alt="restaurant" className={styles.img} />
       <RestaurantInfo variant="card" restaurant={restaurant} />
       <Button type="primary" handleClick={handleClick}>
         Learn More

@@ -27,7 +27,7 @@ const Review: React.FC<ReviewProps> = ({ review: { text, rating, time_created, u
   return (
     <div className={styles.review}>
       <div className={styles.user}>
-        <img src={user.image_url} alt="user image" className={styles.userImg} />
+        <img src={user.image_url} alt="user" className={styles.userImg} />
         <div className={styles.userInfo}>
           <div className={styles.userName}>{user.name}</div>
           <div className={styles.userDate}>{time_created}</div>
