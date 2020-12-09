@@ -49,6 +49,8 @@ export const theme = {
     spacing,
 }
 
+export type Theme = typeof theme
+
 export const orderedBreakpointKeys = Object.entries(breakpoints)
     .sort(([, a], [, b]) => (a === b ? 0 : a > b ? 1 : -1))
     .map(([breakpoint]) => breakpoint) as BreakpointKey[]
@@ -68,6 +70,11 @@ export const GlobalStyles = createGlobalStyle`
         &, &::before, &::after {
             box-sizing: border-box;
         }
+    }
+    
+    :focus {
+        outline: none;
+        box-shadow: 0 0 3px 1.5px ${colors.success};
     }
     
     html {
@@ -131,6 +138,12 @@ export const GlobalStyles = createGlobalStyle`
                 font-size: ${22 / 16}rem;
             }
         }
+    }
+    
+    svg {
+        width: 1em;
+        display: block;
+        fill: currentColor;
     }
     
     ${Object.entries(colors).map(

@@ -5,16 +5,17 @@
 .vscode/
 
 # Local
+/src/assets/
 /src/graphql/
 .env*
 .*ignore
 
 # Generated
-build/
-coverage/
-.next/
-out/
-node_modules/
+/build/
+/coverage/
+/.next/
+/out/
+/node_modules/
 package-lock.json
 yarn.lock
 
