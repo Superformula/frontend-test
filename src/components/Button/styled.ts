@@ -53,12 +53,14 @@ export const Root = styled.button(
     ({ theme }: ThemeProps<ButtonTheme>) => css`
         appearance: none;
         display: inline-flex;
+        flex-direction: column;
         cursor: ${theme.disabled ? 'not-allowed' : 'pointer'};
         ${theme.kind !== Kind.Blank &&
         css`
             padding: ${theme.spacing.lg}px;
             border-radius: 2px;
             text-transform: uppercase;
+            text-decoration: none;
             text-align: center;
             font-size: ${rem(12)};
 
@@ -77,4 +79,5 @@ export const Root = styled.button(
 export const Content = styled.span`
     display: flex;
     flex-direction: row;
+    justify-content: center;
 `

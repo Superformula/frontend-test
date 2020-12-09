@@ -10,14 +10,16 @@ export default {
 }
 
 export const review = (): ReactElement => (
-    <Review
-        avatar={text('avatar', 'https://picsum.photos/300/300')}
-        name={text('name', 'Cindy Lou')}
-        date={new Date(date('date')).toISOString()}
-        rating={number('rating', 0)}
-        comments={text(
-            'comments',
-            loremIpsum({ units: 'paragraphs', count: 2 }),
-        )}
-    />
+    <div style={{ maxWidth: '1200px' }}>
+        <Review
+            avatar={text('avatar', 'https://picsum.photos/300/300')}
+            name={text('name', 'Cindy Lou')}
+            date={new Date(date('date')).toISOString()}
+            rating={number('rating', 0)}
+            comments={text(
+                'comments',
+                loremIpsum({ units: 'paragraphs', count: 2 }),
+            )}
+        />
+    </div>
 )
