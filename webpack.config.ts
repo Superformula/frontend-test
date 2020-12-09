@@ -43,9 +43,6 @@ const webpackConfig = (env): Configuration => ({
       },
     ],
   },
-  devServer: {
-    historyApiFallback: true,
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
@@ -62,6 +59,18 @@ const webpackConfig = (env): Configuration => ({
     }),
     new DotEnv(),
   ],
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    port: 3003,
+    proxy: {
+      "/graphql": {
+        target: "https://api.yelp.com/v3",
+        secure: false,
+        changeOrigin: true,
+      },
+    },
+  },
 });
 
 export default webpackConfig;

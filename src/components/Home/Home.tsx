@@ -5,12 +5,23 @@ import styles from "./Home.css";
 import Restaurants from "./Restaurants/Restaurants";
 import { useFiltersState } from "./useFilterState";
 
+import { fetchCategories } from "../../api/yelp";
+
 export const FiltersContext = React.createContext(null);
 
 const Home: React.FC = () => {
   const filterState = useFiltersState();
   // useMemo to avoid re-rendering everything everytime state changes
   const contextValue = React.useMemo(() => filterState, [filterState]);
+
+  React.useEffect(() => {
+    async function loadCategories() {
+      const data = await fetchCategories();
+      console.log(data);
+    }
+
+    loadCategories();
+  }, []);
 
   return (
     <FiltersContext.Provider value={contextValue}>
