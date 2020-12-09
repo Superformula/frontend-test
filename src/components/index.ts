@@ -1,4 +1,6 @@
 export { Button, ButtonKind, StyledButton } from './Button'
 export { Rating, StyledRating } from './Rating'
+export { Ratio, StyledRatio } from './Ratio'
+export { Review, StyledReview } from './Review'
 export { Status, StatusKind, StyledStatus } from './Status'
 export { Toggle, StyledToggle } from './Toggle'

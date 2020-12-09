@@ -19,6 +19,7 @@ export const StarButton = styled(Button).attrs({
 })``
 
 export const Root = styled.div`
+    margin-bottom: 1em;
     display: inline-flex;
     flex-direction: row;
 
