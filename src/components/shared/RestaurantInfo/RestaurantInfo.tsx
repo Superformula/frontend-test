@@ -1,7 +1,7 @@
 import * as React from "react";
 import OpenNow from "./OpenNow";
 import Rating from "../Rating";
-import { IRestaurantDetail, ISearchRestaurant } from "../../../api/yelpDeclarations";
+import { IRestaurantDetail, ISearchRestaurant } from "../../../declarations";
 
 import styles from "./RestaurantInfo.css";
 

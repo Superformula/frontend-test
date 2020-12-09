@@ -2,7 +2,7 @@ import React from "react";
 import Rating from "components/shared/Rating";
 
 import styles from "./Reviews.css";
-import { IRestaurantDetail, IReview } from "src/api/yelpDeclarations";
+import { IRestaurantDetail, IReview } from "../../../declarations";
 
 interface Props {
   restaurant: IRestaurantDetail;

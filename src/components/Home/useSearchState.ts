@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useReducer } from "react";
-import { ICategory, ISearchRestaurant } from "../../api/yelpDeclarations";
+import { ICategory, ISearchRestaurant } from "../../declarations";
 import { fetchCategories, fetchRestaurants } from "../../api/yelp";
 import { ISearchState, IFiltersActions, IFilters } from "./useSearchStateDeclarations";
 

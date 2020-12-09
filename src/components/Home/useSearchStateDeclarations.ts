@@ -1,4 +1,4 @@
-import { ISearchRestaurant } from "../../api/yelpDeclarations";
+import { ISearchRestaurant } from "../../declarations";
 
 export interface IFilters {
   isOpen: boolean;

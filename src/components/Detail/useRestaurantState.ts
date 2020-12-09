@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { fetchRestaurant } from "src/api/yelp";
-import { IState, IDetailActions, ILoadingState } from "./useRestaurantStateDeclarations";
+import { IState, IDetailActions } from "./useRestaurantStateDeclarations";
+import { ILoadingState } from "../../declarations";
 
 const initialState: IState = { restaurant: null, loadingState: "LOADING" };
 
