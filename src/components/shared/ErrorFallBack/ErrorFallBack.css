@@ -1,0 +1,4 @@
+.container {
+  padding: var(--space-xl);
+  color: var(--red);
+}
