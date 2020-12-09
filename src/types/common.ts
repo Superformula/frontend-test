@@ -14,3 +14,11 @@ export type ApolloClient = Client<ApolloCache>
 export type PageProps<T = unknown> = T & {
     initialApolloState: ApolloCache
 }
+
+export type BreakpointKey = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+export type Breakpoints = {
+    [P in BreakpointKey]: number
+}
+export type MinWidthMediaQueries = {
+    [P in BreakpointKey]: string
+}

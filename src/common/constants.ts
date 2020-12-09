@@ -1,13 +1,143 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 import { normalize } from 'styled-normalize'
+
+import { BreakpointKey, Breakpoints, MinWidthMediaQueries } from '~/types'
 
 export const GRAPHQL_SCHEMA_URL = process.env.GRAPHQL_SCHEMA_URL
 export const YELP_API_KEY = process.env.YELP_API_KEY
 
 export const SSR = typeof window === 'undefined'
 
-export const theme = {}
+export const SSR_BREAKPOINT: BreakpointKey = 'xs'
+
+export const breakpoints: Breakpoints = {
+    xxs: 1,
+    xs: 321,
+    sm: 481,
+    md: 769,
+    lg: 1025,
+    xl: 1201,
+    xxl: 1401,
+}
+
+export const colors = {
+    primary: '#002B56',
+    error: '#FF3548',
+    success: '#00E8A4',
+    black: '#000',
+    'gray-1': '#333333',
+    'gray-2': '#666666',
+    'gray-3': '#757575',
+    'gray-4': '#C8C8C8',
+    'gray-5': '#E6E6E6',
+    white: '#fff',
+}
+
+export const spacing = {
+    xxs: 1,
+    xs: 2,
+    sm: 4,
+    md: 8,
+    lg: 12,
+    xl: 16,
+    xxl: 20,
+}
+
+export const theme = {
+    breakpoints,
+    colors,
+    spacing,
+}
+
+export const orderedBreakpointKeys = Object.entries(breakpoints)
+    .sort(([, a], [, b]) => (a === b ? 0 : a > b ? 1 : -1))
+    .map(([breakpoint]) => breakpoint) as BreakpointKey[]
+
+export const minWidthMediaQueries = orderedBreakpointKeys.reduce(
+    (mediaQueries, breakpoint) => ({
+        ...mediaQueries,
+        [breakpoint]: `(min-width: ${breakpoints[breakpoint]}px)`,
+    }),
+    {} as MinWidthMediaQueries,
+)
 
 export const GlobalStyles = createGlobalStyle`
     ${normalize};
+
+    * {
+        &, &::before, &::after {
+            box-sizing: border-box;
+        }
+    }
+    
+    html {
+        font-size: 16px;
+    }
+    
+    body {
+        font-family: HelveticaNeue, Helvetica, sans-serif;
+        line-height: 1.4;
+        letter-spacing: 1px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        margin-bottom: 0.5em;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+    
+    h4, h5, h6 {
+        font-weight: 600;
+    }
+
+    ${[54, 44, 34, 30, 26, 24].map(
+        (size, index) => css`
+            ${`h${index + 1}`}, .${`h${index + 1}`} {
+                font-size: ${(size / 16) * (3 / 5)}rem;
+
+                ${minWidthMediaQueries.md} {
+                    font-size: ${(size / 16) * (4 / 5)}rem;
+                }
+
+                ${minWidthMediaQueries.xl} {
+                    font-size: ${size / 16}rem;
+                }
+            }
+        `,
+    )};
+    
+    p {
+        margin-top: 0;
+        
+        ${minWidthMediaQueries.md} {
+            max-width: 600px;
+            font-size: ${18 / 16}rem;
+        }
+
+        ${minWidthMediaQueries.xl} {
+            max-width: 800px;
+            font-size: ${20 / 16}rem;
+        }
+
+        &.large {
+            font-size: ${18 / 16}rem;
+
+            ${minWidthMediaQueries.md} {
+                font-size: ${20 / 16}rem;
+            }
+
+            ${minWidthMediaQueries.xl} {
+                font-size: ${22 / 16}rem;
+            }
+        }
+    }
+    
+    ${Object.entries(colors).map(
+        ([name, color]) => css`
+            .color-${name} {
+                color: ${color};
+            }
+        `,
+    )};
 `

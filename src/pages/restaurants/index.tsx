@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client'
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 import React, { ReactElement } from 'react'
 
 import { initializeApollo, SSR } from '~/common'
@@ -39,5 +40,16 @@ export default function Restaurants(): ReactElement {
 
     console.log(data)
 
-    return <></>
+    return (
+        <>
+            <Head>
+                <title>Restaurants</title>
+            </Head>
+            <h1>Restaurants</h1>
+            <p className="large color-gray-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </>
+    )
 }

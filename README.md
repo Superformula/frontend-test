@@ -44,6 +44,8 @@ I opted to use a local Storybook deployment tool (that can be setup as part of a
 
 ## Scripts 💻
 
+**A valid `.env` file is required for these to be successful**
+
 ### Build `npm run build`
 
 Creates a production build
@@ -54,7 +56,7 @@ Runs linter, interactive Git file selector, and then git-cz for clean, consisten
 
 ### GraphQL `npm run graphql`
 
-Runs both sub GraphQL scripts in parallel. A valid `.env` file is required for these to be successful
+Runs both sub GraphQL scripts in parallel.
 
 #### GraphQL:Schema `npm run graphql:schema`
 

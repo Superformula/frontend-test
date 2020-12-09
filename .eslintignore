@@ -3,3 +3,4 @@
 /coverage/
 /node_modules/
 /src/graphql/index.tsx
+/src/**/stories.tsx
