@@ -17,7 +17,6 @@ const Detail: React.FC = () => {
 
   const { restaurant, loadingState } = useRestaurantState(id);
   switch (loadingState) {
-    case "IDLE":
     case "LOADING":
       return <Spinner />;
     case "ERROR":

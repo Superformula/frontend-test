@@ -1,6 +1,6 @@
 import { IRestaurantDetail } from "../../api/yelpDeclarations";
 
-export type ILoadingState = "IDLE" | "SUCCESS" | "LOADING" | "ERROR";
+export type ILoadingState = "SUCCESS" | "LOADING" | "ERROR";
 
 export interface IState {
   restaurant: IRestaurantDetail;

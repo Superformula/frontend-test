@@ -2,7 +2,7 @@ import { useEffect, useReducer } from "react";
 import { fetchRestaurant } from "src/api/yelp";
 import { IState, IDetailActions, ILoadingState } from "./useRestaurantStateDeclarations";
 
-const initialState: IState = { restaurant: null, loadingState: "IDLE" };
+const initialState: IState = { restaurant: null, loadingState: "LOADING" };
 
 const reducer = (state: IState, action: IDetailActions) => {
   switch (action.type) {
