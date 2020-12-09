@@ -33,6 +33,7 @@ export type IFiltersActions =
 export interface IRestaurants {
   restaurants: ISearchRestaurant[];
   loadingState: ILoadingState;
+  offset: number;
 }
 
 interface FetchRestaurantsAction {
@@ -48,10 +49,15 @@ interface FetchRestaurantsErrorAction {
   type: "FETCH_RESTAURANTS_ERROR";
 }
 
+interface ResetOffsetAction {
+  type: "RESET_OFFSET";
+}
+
 export type IRestaurantsAction =
   | FetchRestaurantsAction
   | FetchRestaurantsErrorAction
-  | FetchRestaurantsSuccessAction;
+  | FetchRestaurantsSuccessAction
+  | ResetOffsetAction;
 
 export interface ISearchState {
   filterValues: IFilters;
@@ -63,4 +69,5 @@ export interface ISearchState {
   categoryOptions: string[];
   restaurants: ISearchRestaurant[];
   loadingState: ILoadingState;
+  loadMore: () => void;
 }

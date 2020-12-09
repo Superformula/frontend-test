@@ -23,14 +23,6 @@ const filterPrice = (restaurant: ISearchRestaurant, price: string) => {
   return restaurant.price === price;
 };
 
-const filterCategory = (restaurant: ISearchRestaurant, category: string) => {
-  if (category === "All") {
-    return true;
-  }
-
-  return restaurant.category === category;
-};
-
 const initialFilters: IFilters = { isOpen: false, price: "All", category: "All" };
 
 const filtersReducer = (state: IFilters, action: IFiltersActions) => {
@@ -48,16 +40,22 @@ const filtersReducer = (state: IFilters, action: IFiltersActions) => {
   }
 };
 
-const initialRestaurants: IRestaurants = { restaurants: [], loadingState: "LOADING" };
+const initialRestaurants: IRestaurants = { restaurants: [], loadingState: "LOADING", offset: 0 };
 
 const restaurantsReducer = (state: IRestaurants, action: IRestaurantsAction) => {
   switch (action.type) {
     case "FETCH_RESTAURANTS":
       return { ...state, loadingState: "LOADING" as ILoadingState };
     case "FETCH_RESTAURANTS_SUCCESS":
-      return { loadingState: "SUCCESS" as ILoadingState, restaurants: action.restaurants };
+      return {
+        loadingState: "SUCCESS" as ILoadingState,
+        restaurants: action.restaurants,
+        offset: action.restaurants.length,
+      };
     case "FETCH_RESTAURANTS_ERROR":
       return { ...state, loadingState: "ERROR" as ILoadingState };
+    case "RESET_OFFSET":
+      return { ...state, offset: 0 };
     default:
       return state;
   }
@@ -76,30 +74,54 @@ export const useSearchState = (): ISearchState => {
   const categoryOptions = categories.map((category: ICategory) => category.title);
   const priceOptions = ["$", "$$", "$$$", "$$$$"];
 
-  const [{ restaurants, loadingState }, dispatchRestaurants] = useReducer(
+  const [{ restaurants, loadingState, offset }, dispatchRestaurants] = useReducer(
     restaurantsReducer,
     initialRestaurants
   );
 
   const filteredRestaurants = restaurants
     .filter((restaurant) => filterOpen(restaurant, filterValues.isOpen))
-    .filter((restaurant) => filterPrice(restaurant, filterValues.price))
-    .filter((restaurant) => filterCategory(restaurant, filterValues.category));
+    .filter((restaurant) => filterPrice(restaurant, filterValues.price));
 
   useEffect(() => {
     async function init() {
+      const categoryList = await fetchCategories();
+      setCategories(categoryList);
+    }
+
+    init();
+  }, [setCategories]);
+
+  useEffect(() => {
+    async function filterByCategory() {
       try {
-        const categoryList = await fetchCategories();
-        setCategories(categoryList);
-        const restaurants = await fetchRestaurants();
-        dispatchRestaurants({ type: "FETCH_RESTAURANTS_SUCCESS", restaurants });
+        dispatchRestaurants({ type: "FETCH_RESTAURANTS" });
+        dispatchRestaurants({ type: "RESET_OFFSET" });
+        const category = categories.find((category) => category.title === filterValues.category);
+        const newRestaurants = await fetchRestaurants(0, category?.alias);
+        dispatchRestaurants({ type: "FETCH_RESTAURANTS_SUCCESS", restaurants: newRestaurants });
       } catch (error) {
         dispatchRestaurants({ type: "FETCH_RESTAURANTS_ERROR" });
       }
     }
 
-    init();
-  }, [setCategories, dispatchRestaurants]);
+    filterByCategory();
+  }, [categories, filterValues.category, dispatchRestaurants]);
+
+  async function loadMore() {
+    try {
+      dispatchRestaurants({ type: "FETCH_RESTAURANTS" });
+      const category = categories.find((category) => category.title === filterValues.category);
+      const oldRestaurants = restaurants;
+      const newRestaurants = await fetchRestaurants(offset, category?.alias);
+      dispatchRestaurants({
+        type: "FETCH_RESTAURANTS_SUCCESS",
+        restaurants: [...oldRestaurants, ...newRestaurants],
+      });
+    } catch (error) {
+      dispatchRestaurants({ type: "FETCH_RESTAURANTS_ERROR" });
+    }
+  }
 
   return {
     filterValues,
@@ -111,5 +133,6 @@ export const useSearchState = (): ISearchState => {
     categoryOptions,
     restaurants: filteredRestaurants,
     loadingState,
+    loadMore,
   };
 };

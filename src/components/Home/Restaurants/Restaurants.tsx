@@ -8,7 +8,7 @@ import styles from "./Restaurants.css";
 import Spinner from "../../shared/Spinner/Spinner";
 
 const Restaurants: React.FC = () => {
-  const { restaurants, loadingState } = React.useContext(SearchContext);
+  const { restaurants, loadingState, loadMore } = React.useContext(SearchContext);
 
   switch (loadingState) {
     case "LOADING":
@@ -25,7 +25,7 @@ const Restaurants: React.FC = () => {
             ))}
           </div>
           <div className={styles.footer}>
-            <Button size="xl" type="secondary" handleClick={() => console.log("clicked")}>
+            <Button size="xl" type="secondary" handleClick={loadMore}>
               Load More
             </Button>
           </div>
