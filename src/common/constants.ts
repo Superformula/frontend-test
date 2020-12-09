@@ -29,8 +29,9 @@ export const colors = {
     'gray-1': '#333333',
     'gray-2': '#666666',
     'gray-3': '#757575',
-    'gray-4': '#C8C8C8',
-    'gray-5': '#E6E6E6',
+    'gray-4': '#969696',
+    'gray-5': '#C8C8C8',
+    'gray-6': '#E6E6E6',
     white: '#fff',
 }
 

@@ -17,11 +17,11 @@ export interface ButtonTheme extends Theme {
 const styles = {
     [Kind.Primary]: (theme: ButtonTheme) => css`
         border: 1px solid
-            ${theme.disabled ? theme.colors['gray-5'] : theme.colors.primary};
+            ${theme.disabled ? theme.colors['gray-6'] : theme.colors.primary};
         background: ${theme.disabled
-            ? theme.colors['gray-5']
+            ? theme.colors['gray-6']
             : theme.colors.primary};
-        color: ${theme.disabled ? theme.colors['gray-4'] : theme.colors.white};
+        color: ${theme.disabled ? theme.colors['gray-5'] : theme.colors.white};
         transition: background 250ms;
 
         &:not(:disabled):hover {
@@ -30,22 +30,22 @@ const styles = {
     `,
     [Kind.Outline]: (theme: ButtonTheme) => css`
         border: 1px solid
-            ${theme.disabled ? theme.colors['gray-5'] : theme.colors.primary};
+            ${theme.disabled ? theme.colors['gray-6'] : theme.colors.primary};
         background: ${theme.colors.white};
         color: ${theme.disabled
-            ? theme.colors['gray-4']
+            ? theme.colors['gray-5']
             : theme.colors.primary};
         transition: background 250ms;
 
         &:hover {
-            background: ${theme.colors['gray-5']};
+            background: ${theme.colors['gray-6']};
         }
     `,
     [Kind.Blank]: (theme: ButtonTheme) => css`
         padding: 0;
         border: 0;
         background: none;
-        color: ${theme.disabled ? theme.colors['gray-4'] : 'currentColor'};
+        color: ${theme.disabled ? theme.colors['gray-5'] : 'currentColor'};
     `,
 }
 
