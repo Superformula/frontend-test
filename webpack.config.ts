@@ -55,7 +55,7 @@ const webpackConfig = (env): Configuration => ({
     }),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
-        files: "./src/**/*.{ts,tsx,js,jsx}", // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
+        files: "./src/**/*.{ts,tsx,js,jsx}",
       },
     }),
     new DotEnv(),
