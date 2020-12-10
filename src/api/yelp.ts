@@ -10,7 +10,7 @@ import {
   IReview,
 } from "../declarations";
 
-const MOCK_API = true;
+const MOCK_API = false;
 
 const fetchData = async (query: string) => {
   const res = await fetch("/graphql", {
