@@ -51,7 +51,7 @@ const Select: React.FC<SelectProps> = ({ label, value, onSelect, options, width 
 
   return (
     <div ref={wrapperRef} onClick={toggleSelect} className={styles.filter} style={{ width }}>
-      <label>{label}</label>
+      <label>{value !== "All" ? value : label}</label>
       {isOpen ? <Icon name="upArrow" /> : <Icon name="downArrow" />}
       {isOpen ? <OptionsList /> : null}
     </div>
