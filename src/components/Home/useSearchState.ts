@@ -94,6 +94,11 @@ export const useSearchState = (): ISearchState => {
 
   useEffect(() => {
     async function filterByCategory() {
+      // wait until categories are fetched.
+      if (!categories.length) {
+        return;
+      }
+
       try {
         dispatchRestaurants({ type: "FETCH_RESTAURANTS" });
         dispatchRestaurants({ type: "RESET_OFFSET" });
