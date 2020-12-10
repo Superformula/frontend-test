@@ -10,6 +10,7 @@ import {
   IReview,
 } from "../declarations";
 
+// Yelp's API has a daily limit, mocking calls to save requests
 const MOCK_API = false;
 
 const fetchData = async (query: string) => {
@@ -28,7 +29,6 @@ const fetchData = async (query: string) => {
 };
 
 export const fetchCategories = async (): Promise<ICategory[]> => {
-  // Request limit reached, mocking this endpoint to save requests
   if (MOCK_API) {
     return [
       {
