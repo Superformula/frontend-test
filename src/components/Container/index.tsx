@@ -9,8 +9,8 @@ export interface Props {
 }
 
 export const Container = memo(
-    ({ children }: Props): ReactElement => {
-        return <Root>{children}</Root>
+    ({ children, ...rest }: Props): ReactElement => {
+        return <Root {...rest}>{children}</Root>
     },
 )
 

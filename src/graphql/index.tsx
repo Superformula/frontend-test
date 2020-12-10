@@ -527,10 +527,10 @@ export type RestaurantsQuery = (
     & Pick<Businesses, 'total'>
     & { business: Maybe<Array<Maybe<(
       { __typename: 'Business' }
-      & Pick<Business, 'id' | 'photos' | 'name' | 'price'>
+      & Pick<Business, 'id' | 'photos' | 'name' | 'rating' | 'price' | 'is_closed'>
       & { categories: Maybe<Array<Maybe<(
         { __typename: 'Category' }
-        & Pick<Category, 'title'>
+        & Pick<Category, 'alias' | 'title'>
       )>>> }
     )>>> }
   )> }
@@ -647,10 +647,13 @@ export const RestaurantsDocument = gql`
       id
       photos
       name
+      rating
       categories {
+        alias
         title
       }
       price
+      is_closed
     }
   }
 }

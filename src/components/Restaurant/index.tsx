@@ -38,6 +38,7 @@ export const Restaurant = memo(
         type,
         cost,
         open,
+        ...rest
     }: Props): ReactElement => {
         const { lte } = useTargetBreakpoint('sm')
         const kind = useBreakpointValue({
@@ -46,7 +47,7 @@ export const Restaurant = memo(
         })
 
         return (
-            <Root>
+            <Root {...rest}>
                 <Thumbnail>
                     <Ratio />
                     <ImageContainer>

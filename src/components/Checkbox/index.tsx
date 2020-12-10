@@ -10,10 +10,10 @@ export interface Props {
 }
 
 export const Checkbox = memo(
-    ({ checked = false }: Props): ReactElement => {
+    ({ checked = false, ...rest }: Props): ReactElement => {
         return (
             <ThemeProvider theme={{ checked }}>
-                <Root />
+                <Root {...rest} />
             </ThemeProvider>
         )
     },

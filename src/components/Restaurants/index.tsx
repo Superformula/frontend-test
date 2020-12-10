@@ -1,9 +1,10 @@
 import React, { memo, ReactElement, ReactNode } from 'react'
 
 import { Button, ButtonKind } from '../Button'
-import { Container } from '../Container'
 import { Props as RestaurantProps, Restaurant } from '../Restaurant'
 import { Root, Grid, Cell, Footer } from './styled'
+
+export * as StyledRestaurants from './styled'
 
 export interface Props {
     children?: ReactNode
@@ -27,41 +28,41 @@ export const Restaurants = memo(
         more = false,
         restaurants,
         onLoadMore,
+        ...rest
     }: Props): ReactElement | null => {
         if (restaurants.length === 0 && !children) {
             return null
         }
 
         return (
-            <Root data-testid={TEST_IDS.root}>
-                <Container>
-                    {restaurants.length > 0 ? (
-                        <Grid data-testid={TEST_IDS.grid}>
-                            {restaurants.map((restaurant) => (
-                                <Cell
-                                    key={restaurant.id}
-                                    data-testid={TEST_IDS.cell}
+            <Root {...rest} data-testid={TEST_IDS.root}>
+                <h2>All Restaurants</h2>
+                {restaurants.length > 0 ? (
+                    <Grid data-testid={TEST_IDS.grid}>
+                        {restaurants.map((restaurant) => (
+                            <Cell
+                                key={restaurant.id}
+                                data-testid={TEST_IDS.cell}
+                            >
+                                <Restaurant {...restaurant} />
+                            </Cell>
+                        ))}
+                        {(loading || more) && (
+                            <Footer>
+                                <Button
+                                    kind={ButtonKind.Outline}
+                                    disabled={loading}
+                                    onClick={onLoadMore}
+                                    data-testid={TEST_IDS.load}
                                 >
-                                    <Restaurant {...restaurant} />
-                                </Cell>
-                            ))}
-                            {(loading || more) && (
-                                <Footer>
-                                    <Button
-                                        kind={ButtonKind.Outline}
-                                        disabled={loading}
-                                        onClick={onLoadMore}
-                                        data-testid={TEST_IDS.load}
-                                    >
-                                        {loading ? 'Loading' : 'Load More'}
-                                    </Button>
-                                </Footer>
-                            )}
-                        </Grid>
-                    ) : (
-                        children
-                    )}
-                </Container>
+                                    {loading ? 'Loading' : 'Load More'}
+                                </Button>
+                            </Footer>
+                        )}
+                    </Grid>
+                ) : (
+                    children
+                )}
             </Root>
         )
     },

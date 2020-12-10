@@ -94,7 +94,7 @@ export const Filters = memo(
                                         </Button>
                                     </MobileModalActions>
                                     <MobileModalFilters>
-                                        Filters
+                                        {/* TODO: Mobile filters */}
                                     </MobileModalFilters>
                                 </MobileModal>
                             )}
@@ -145,26 +145,27 @@ export const Filters = memo(
                                         <span>All</span>
                                     </Button>
                                     {new Array(4).fill(null).map((_, index) => {
-                                        const cost = new Array(index + 1)
-                                            .fill('$')
-                                            .join('')
+                                        const cost = index + 1
 
                                         return (
                                             <Button
                                                 key={index}
                                                 kind={ButtonKind.Blank}
                                                 onClick={updatePrice(
-                                                    cost,
+                                                    `${index + 1}`,
                                                     true,
                                                 )}
                                             >
                                                 <Checkbox
                                                     checked={
-                                                        index + 1 ===
-                                                        price?.length
+                                                        `${cost}` === price
                                                     }
                                                 />
-                                                <span>{cost}</span>
+                                                <span>
+                                                    {new Array(cost)
+                                                        .fill('$')
+                                                        .join('')}
+                                                </span>
                                             </Button>
                                         )
                                     })}

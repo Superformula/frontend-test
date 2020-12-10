@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
-import { BreakpointKey } from '~/types'
+import { BreakpointKey, MaybeArray } from '~/types'
 import {
     minWidthMediaQueries,
     orderedBreakpointKeys,
@@ -17,6 +17,32 @@ export function getBreakpoint(): BreakpointKey {
               .find(
                   (key) => window.matchMedia(minWidthMediaQueries[key]).matches,
               ) || SSR_BREAKPOINT
+}
+
+export function isNil(value: unknown): value is null | undefined {
+    return isNull(value) || isUndefined(value)
+}
+
+export function isNull(value: unknown): value is null {
+    return value === null
+}
+
+export function isUndefined(value: unknown): value is undefined {
+    return value === undefined
+}
+
+export function nonNilFilter<T>(array?: MaybeArray<T>): T[] {
+    if (!array) {
+        return []
+    }
+
+    return array.reduce((values: T[], value) => {
+        if (!isNil(value)) {
+            values.push(value)
+        }
+
+        return values
+    }, [])
 }
 
 interface RandomOptions {

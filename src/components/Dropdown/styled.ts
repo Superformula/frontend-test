@@ -22,6 +22,7 @@ export const Root = styled.div`
 export const Drop = styled.div(
     ({ theme }: ThemeProps<Theme>) => css`
         min-width: 100%;
+        max-height: 300px;
         border: 1px solid ${theme.colors['gray-5']};
         box-shadow: 0 6px 5px 0 ${transparentize(0.9, theme.colors.black)};
         background: ${theme.colors.white};
@@ -30,6 +31,8 @@ export const Drop = styled.div(
         position: absolute;
         top: 100%;
         left: 0;
+        z-index: 1;
+        overflow: auto;
         white-space: nowrap;
     `,
 )

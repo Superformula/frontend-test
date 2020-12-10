@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps<PageProps, { id: string }> = async (
     }
 }
 
-export default function Restaurant({
+export default function RestaurantPage({
     id,
 }: PageProps<{ id: string }>): ReactElement | null {
     const [restaurantVariables] = useState<RestaurantQueryVariables>({
@@ -102,11 +102,7 @@ export default function Restaurant({
         return null
     }
 
-    console.log({
-        restaurant: data.business,
-    })
-
-    const { review_count } = data.business
+    const { name, review_count } = data.business
 
     return (
         <>
@@ -114,7 +110,7 @@ export default function Restaurant({
                 <title>Restaurant</title>
             </Head>
             <Container>
-                <h1>Restaurant</h1>
+                <h1>{name}</h1>
             </Container>
             <Container>
                 <h2>{review_count} Reviews</h2>

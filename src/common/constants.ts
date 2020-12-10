@@ -10,7 +10,7 @@ export const YELP_API_KEY = process.env.YELP_API_KEY
 
 export const SSR = typeof window === 'undefined'
 
-export const SSR_BREAKPOINT: BreakpointKey = 'xs'
+export const SSR_BREAKPOINT: BreakpointKey = 'xl'
 
 export const breakpoints: Breakpoints = {
     xxs: 1,

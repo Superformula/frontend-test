@@ -2,9 +2,10 @@ import styled, { css, ThemeProps } from 'styled-components'
 
 import { minWidthStyles, Theme } from '~/common'
 import { StyledButton } from '../Button'
+import { Container } from '../Container'
 import { StyledRestaurant } from '../Restaurant'
 
-export const Root = styled.div``
+export const Root = styled(Container)``
 
 export const Grid = styled.div(
     ({ theme }: ThemeProps<Theme>) => css`

@@ -21,7 +21,12 @@ export interface Props {
 }
 
 export const Dropdown = memo(
-    ({ children, kind = ButtonKind.Blank, label }: Props): ReactElement => {
+    ({
+        children,
+        kind = ButtonKind.Blank,
+        label,
+        ...rest
+    }: Props): ReactElement => {
         const [open, setOpen] = useState(false)
         const ref = useRef<HTMLDivElement>(null)
 
@@ -44,7 +49,7 @@ export const Dropdown = memo(
 
         return (
             <ThemeProvider theme={{ open }}>
-                <Root ref={ref}>
+                <Root ref={ref} {...rest}>
                     <Button kind={kind} onClick={toggle}>
                         <span>{label}</span>
                         {open ? <CaretUp /> : <CaretDown />}

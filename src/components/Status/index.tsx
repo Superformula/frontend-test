@@ -12,10 +12,10 @@ export interface Props {
 }
 
 export const Status = memo(
-    ({ kind = Kind.Dot, open = false }: Props): ReactElement => {
+    ({ kind = Kind.Dot, open = false, ...rest }: Props): ReactElement => {
         return (
             <ThemeProvider theme={{ kind, open }}>
-                <Root>{open ? 'Open' : 'Closed'}</Root>
+                <Root {...rest}>{open ? 'Open' : 'Closed'}</Root>
             </ThemeProvider>
         )
     },

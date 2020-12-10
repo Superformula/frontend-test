@@ -26,9 +26,16 @@ export interface Props {
 }
 
 export const Review = memo(
-    ({ avatar, name, date, rating, comments }: Props): ReactElement => {
+    ({
+        avatar,
+        name,
+        date,
+        rating,
+        comments,
+        ...rest
+    }: Props): ReactElement => {
         return (
-            <Root>
+            <Root {...rest}>
                 <Profile>
                     <AvatarContainer>
                         <Ratio ratio={100}>
