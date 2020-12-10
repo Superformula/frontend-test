@@ -25,7 +25,7 @@ const RestaurantInfo: React.FC<Props> = ({
         <Rating variant={variant} rating={rating} />
       </div>
       <div className={`${styles.details} ${isHeader && styles.detailsXl}`}>
-        <div>{`${category} • ${price}`}</div>
+        <div>{`${category}  ${price ? `• ${price}` : ""}`}</div>
         <OpenNow variant={variant} isOpen={isOpen} />
       </div>
     </div>
