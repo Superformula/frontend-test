@@ -106,6 +106,7 @@ export const useSearchState = (): ISearchState => {
         const newRestaurants = await fetchRestaurants(0, category?.alias);
         dispatchRestaurants({ type: "FETCH_RESTAURANTS_SUCCESS", restaurants: newRestaurants });
       } catch (error) {
+        console.error(error);
         dispatchRestaurants({ type: "FETCH_RESTAURANTS_ERROR" });
       }
     }
@@ -124,6 +125,7 @@ export const useSearchState = (): ISearchState => {
         restaurants: [...oldRestaurants, ...newRestaurants],
       });
     } catch (error) {
+      console.error(error);
       dispatchRestaurants({ type: "FETCH_RESTAURANTS_ERROR" });
     }
   }

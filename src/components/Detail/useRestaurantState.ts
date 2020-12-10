@@ -26,7 +26,8 @@ export const useRestaurantState = (id: string): IState => {
         dispatch({ type: "FETCH_RESTAURANT" });
         const restaurant = await fetchRestaurant(id);
         dispatch({ type: "FETCH_RESTAURANT_SUCCESS", restaurant });
-      } catch {
+      } catch (error) {
+        console.error(error);
         dispatch({ type: "FETCH_RESTAURANT_ERROR" });
       }
     }
