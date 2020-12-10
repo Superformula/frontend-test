@@ -1,6 +1,7 @@
 export { Button, ButtonKind, StyledButton } from './Button'
 export { Checkbox, StyledCheckbox } from './Checkbox'
 export { Container, StyledContainer } from './Container'
+export { Dropdown, StyledDropdown } from './Dropdown'
 export { Filters, StyledFilters } from './Filters'
 export { Rating, StyledRating } from './Rating'
 export { Ratio, StyledRatio } from './Ratio'
