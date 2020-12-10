@@ -1,10 +1,11 @@
 import { gql } from '@apollo/client'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useMemo, useState } from 'react'
 
 import { initializeApollo, SSR } from '~/common'
 import { Container, Filters } from '~/components'
+import type { Values } from '~/components/Filters'
 import {
     CategoriesQuery,
     RestaurantsQuery,
@@ -80,7 +81,10 @@ export default function Restaurants(): ReactElement | null {
     const categoriesQuery = useCategoriesQuery({
         fetchPolicy: SSR ? 'cache-only' : 'cache-and-network',
     })
-    const [restaurantsVariables] = useState<RestaurantsQueryVariables>({
+    const [
+        restaurantsVariables,
+        setRestaurantsVariables,
+    ] = useState<RestaurantsQueryVariables>({
         offset: undefined,
         limit: undefined,
         categories: null,
@@ -91,6 +95,29 @@ export default function Restaurants(): ReactElement | null {
         fetchPolicy: SSR ? 'cache-only' : 'cache-and-network',
         variables: restaurantsVariables,
     })
+    const categories = useMemo(
+        () =>
+            categoriesQuery.data?.categories?.category?.reduce(
+                (acc: Array<{ label: string; value: string }>, category) => {
+                    if (
+                        !!category?.alias &&
+                        !!category?.title &&
+                        category?.parent_categories?.some(
+                            (parent) => parent?.alias === 'restaurants',
+                        )
+                    ) {
+                        acc.push({
+                            label: category.title,
+                            value: category.alias,
+                        })
+                    }
+
+                    return acc
+                },
+                [],
+            ) || [],
+        [categoriesQuery.data?.categories?.category],
+    )
 
     if (!categoriesQuery.data?.categories?.category) {
         return null
@@ -101,18 +128,22 @@ export default function Restaurants(): ReactElement | null {
         restaurants: restaurantsQuery.data,
     })
 
-    const categories = categoriesQuery.data.categories.category.filter(
-        (category) =>
-            !!category?.alias &&
-            !!category?.title &&
-            category?.parent_categories?.some(
-                (parent) => parent?.alias === 'restaurants',
-            ),
-    )
-
     console.log({
         categories,
     })
+
+    function onChange(values: Values): void {
+        setRestaurantsVariables({
+            ...restaurantsVariables,
+            categories: values.categories.length
+                ? values.categories.join()
+                : null,
+            open_now: values.open ? true : null,
+            price: values.price
+                ? new Array(values.price).fill('$').join('')
+                : null,
+        })
+    }
 
     return (
         <>
@@ -127,7 +158,7 @@ export default function Restaurants(): ReactElement | null {
                     aliqua.
                 </p>
             </Container>
-            <Filters />
+            <Filters categories={categories} onChange={onChange} />
             <Container>
                 <h2>All Restaurants</h2>
             </Container>

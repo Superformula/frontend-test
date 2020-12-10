@@ -24,6 +24,9 @@ export const Drop = styled.div(
         min-width: 100%;
         border: 1px solid ${theme.colors['gray-5']};
         box-shadow: 0 6px 5px 0 ${transparentize(0.9, theme.colors.black)};
+        background: ${theme.colors.white};
+        display: flex;
+        flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;

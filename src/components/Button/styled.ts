@@ -37,7 +37,7 @@ const styles = {
             : theme.colors.primary};
         transition: background 250ms;
 
-        &:hover {
+        &:not(:disabled):hover {
             background: ${theme.colors['gray-6']};
         }
     `,
@@ -45,7 +45,13 @@ const styles = {
         padding: 0;
         border: 0;
         background: none;
-        color: ${theme.disabled ? theme.colors['gray-5'] : 'currentColor'};
+        color: ${theme.disabled
+            ? theme.colors['gray-5']
+            : theme.colors.primary};
+
+        &:not(:disabled):hover {
+            color: ${theme.colors.black};
+        }
     `,
 }
 
@@ -77,7 +83,9 @@ export const Root = styled.button(
 )
 
 export const Content = styled.span`
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 `
