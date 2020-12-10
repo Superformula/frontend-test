@@ -3,6 +3,8 @@ import { ThemeProvider } from 'styled-components'
 
 import { Root } from './styled'
 
+export * as StyledCheckbox from './styled'
+
 export interface Props {
     checked?: boolean
 }

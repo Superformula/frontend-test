@@ -1,20 +1,60 @@
 import { gql } from '@apollo/client'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 
 import { initializeApollo, SSR } from '~/common'
-import { RestaurantsQuery, useRestaurantsQuery } from '~/graphql'
+import { Container, Filters } from '~/components'
+import {
+    CategoriesQuery,
+    RestaurantsQuery,
+    RestaurantsQueryVariables,
+    useCategoriesQuery,
+    useRestaurantsQuery,
+} from '~/graphql'
 import { PageProps } from '~/types'
 
+export const CategoriesGql = gql`
+    query Categories {
+        categories(country: "US") {
+            category {
+                alias
+                title
+                parent_categories {
+                    alias
+                    title
+                }
+            }
+        }
+    }
+`
+
 export const RestaurantsGql = gql`
-    query Restaurants {
-        business(id: "garaje-san-francisco") {
-            name
-            id
-            alias
-            rating
-            url
+    query Restaurants(
+        $offset: Int = 0
+        $limit: Int = 8
+        $categories: String
+        $open_now: Boolean
+        $price: String
+    ) {
+        search(
+            location: "Las Vegas"
+            offset: $offset
+            limit: $limit
+            categories: $categories
+            open_now: $open_now
+            price: $price
+        ) {
+            total
+            business {
+                id
+                photos
+                name
+                categories {
+                    title
+                }
+                price
+            }
         }
     }
 `
@@ -22,6 +62,9 @@ export const RestaurantsGql = gql`
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
     const client = initializeApollo()
 
+    await client.query<CategoriesQuery>({
+        query: CategoriesGql,
+    })
     await client.query<RestaurantsQuery>({
         query: RestaurantsGql,
     })
@@ -33,23 +76,61 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
     }
 }
 
-export default function Restaurants(): ReactElement {
-    const { data } = useRestaurantsQuery({
+export default function Restaurants(): ReactElement | null {
+    const categoriesQuery = useCategoriesQuery({
         fetchPolicy: SSR ? 'cache-only' : 'cache-and-network',
     })
+    const [restaurantsVariables] = useState<RestaurantsQueryVariables>({
+        offset: undefined,
+        limit: undefined,
+        categories: null,
+        open_now: null,
+        price: null,
+    })
+    const restaurantsQuery = useRestaurantsQuery({
+        fetchPolicy: SSR ? 'cache-only' : 'cache-and-network',
+        variables: restaurantsVariables,
+    })
 
-    console.log(data)
+    if (!categoriesQuery.data?.categories?.category) {
+        return null
+    }
+
+    console.log({
+        categories: categoriesQuery.data,
+        restaurants: restaurantsQuery.data,
+    })
+
+    const categories = categoriesQuery.data.categories.category.filter(
+        (category) =>
+            !!category?.alias &&
+            !!category?.title &&
+            category?.parent_categories?.some(
+                (parent) => parent?.alias === 'restaurants',
+            ),
+    )
+
+    console.log({
+        categories,
+    })
 
     return (
         <>
             <Head>
                 <title>Restaurants</title>
             </Head>
-            <h1>Restaurants</h1>
-            <p className="large color-gray-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <Container>
+                <h1>Restaurants</h1>
+                <p className="large color-gray-2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                </p>
+            </Container>
+            <Filters />
+            <Container>
+                <h2>All Restaurants</h2>
+            </Container>
         </>
     )
 }

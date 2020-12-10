@@ -464,26 +464,194 @@ export type Categories = {
   total: Maybe<Scalars['Int']>;
 };
 
-export type RestaurantsQueryVariables = Exact<{ [key: string]: never; }>;
+export type RestaurantQueryVariables = Exact<{
+  id: Scalars['String'];
+  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+}>;
+
+
+export type RestaurantQuery = (
+  { __typename: 'Query' }
+  & { business: Maybe<(
+    { __typename: 'Business' }
+    & Pick<Business, 'id' | 'photos' | 'name' | 'price' | 'review_count'>
+    & { categories: Maybe<Array<Maybe<(
+      { __typename: 'Category' }
+      & Pick<Category, 'title'>
+    )>>>, location: Maybe<(
+      { __typename: 'Location' }
+      & Pick<Location, 'formatted_address'>
+    )>, reviews: Maybe<Array<Maybe<(
+      { __typename: 'Review' }
+      & Pick<Review, 'id' | 'time_created' | 'rating' | 'text'>
+      & { user: Maybe<(
+        { __typename: 'User' }
+        & Pick<User, 'id' | 'image_url' | 'name'>
+      )> }
+    )>>> }
+  )> }
+);
+
+export type CategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CategoriesQuery = (
+  { __typename: 'Query' }
+  & { categories: Maybe<(
+    { __typename: 'Categories' }
+    & { category: Maybe<Array<Maybe<(
+      { __typename: 'Category' }
+      & Pick<Category, 'alias' | 'title'>
+      & { parent_categories: Maybe<Array<Maybe<(
+        { __typename: 'Category' }
+        & Pick<Category, 'alias' | 'title'>
+      )>>> }
+    )>>> }
+  )> }
+);
+
+export type RestaurantsQueryVariables = Exact<{
+  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  categories: Maybe<Scalars['String']>;
+  open_now: Maybe<Scalars['Boolean']>;
+  price: Maybe<Scalars['String']>;
+}>;
 
 
 export type RestaurantsQuery = (
   { __typename: 'Query' }
-  & { business: Maybe<(
-    { __typename: 'Business' }
-    & Pick<Business, 'name' | 'id' | 'alias' | 'rating' | 'url'>
+  & { search: Maybe<(
+    { __typename: 'Businesses' }
+    & Pick<Businesses, 'total'>
+    & { business: Maybe<Array<Maybe<(
+      { __typename: 'Business' }
+      & Pick<Business, 'id' | 'photos' | 'name' | 'price'>
+      & { categories: Maybe<Array<Maybe<(
+        { __typename: 'Category' }
+        & Pick<Category, 'title'>
+      )>>> }
+    )>>> }
   )> }
 );
 
 
-export const RestaurantsDocument = gql`
-    query Restaurants {
-  business(id: "garaje-san-francisco") {
-    name
+export const RestaurantDocument = gql`
+    query Restaurant($id: String!, $offset: Int = 0, $limit: Int = 3) {
+  business(id: $id) {
     id
-    alias
-    rating
-    url
+    photos
+    name
+    categories {
+      title
+    }
+    price
+    location {
+      formatted_address
+    }
+    review_count
+    reviews(offset: $offset, limit: $limit) {
+      id
+      user {
+        id
+        image_url
+        name
+      }
+      time_created
+      rating
+      text
+    }
+  }
+}
+    `;
+
+/**
+ * __useRestaurantQuery__
+ *
+ * To run a query within a React component, call `useRestaurantQuery` and pass it any options that fit your needs.
+ * When your component renders, `useRestaurantQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useRestaurantQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *   },
+ * });
+ */
+export function useRestaurantQuery(baseOptions: Apollo.QueryHookOptions<RestaurantQuery, RestaurantQueryVariables>) {
+        return Apollo.useQuery<RestaurantQuery, RestaurantQueryVariables>(RestaurantDocument, baseOptions);
+      }
+export function useRestaurantLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<RestaurantQuery, RestaurantQueryVariables>) {
+          return Apollo.useLazyQuery<RestaurantQuery, RestaurantQueryVariables>(RestaurantDocument, baseOptions);
+        }
+export type RestaurantQueryHookResult = ReturnType<typeof useRestaurantQuery>;
+export type RestaurantLazyQueryHookResult = ReturnType<typeof useRestaurantLazyQuery>;
+export type RestaurantQueryResult = Apollo.QueryResult<RestaurantQuery, RestaurantQueryVariables>;
+export const CategoriesDocument = gql`
+    query Categories {
+  categories(country: "US") {
+    category {
+      alias
+      title
+      parent_categories {
+        alias
+        title
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useCategoriesQuery__
+ *
+ * To run a query within a React component, call `useCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCategoriesQuery(baseOptions?: Apollo.QueryHookOptions<CategoriesQuery, CategoriesQueryVariables>) {
+        return Apollo.useQuery<CategoriesQuery, CategoriesQueryVariables>(CategoriesDocument, baseOptions);
+      }
+export function useCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CategoriesQuery, CategoriesQueryVariables>) {
+          return Apollo.useLazyQuery<CategoriesQuery, CategoriesQueryVariables>(CategoriesDocument, baseOptions);
+        }
+export type CategoriesQueryHookResult = ReturnType<typeof useCategoriesQuery>;
+export type CategoriesLazyQueryHookResult = ReturnType<typeof useCategoriesLazyQuery>;
+export type CategoriesQueryResult = Apollo.QueryResult<CategoriesQuery, CategoriesQueryVariables>;
+export const RestaurantsDocument = gql`
+    query Restaurants($offset: Int = 0, $limit: Int = 8, $categories: String, $open_now: Boolean, $price: String) {
+  search(
+    location: "Las Vegas"
+    offset: $offset
+    limit: $limit
+    categories: $categories
+    open_now: $open_now
+    price: $price
+  ) {
+    total
+    business {
+      id
+      photos
+      name
+      categories {
+        title
+      }
+      price
+    }
   }
 }
     `;
@@ -500,6 +668,11 @@ export const RestaurantsDocument = gql`
  * @example
  * const { data, loading, error } = useRestaurantsQuery({
  *   variables: {
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *      categories: // value for 'categories'
+ *      open_now: // value for 'open_now'
+ *      price: // value for 'price'
  *   },
  * });
  */

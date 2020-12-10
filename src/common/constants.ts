@@ -25,14 +25,14 @@ export const colors = {
     primary: '#002B56',
     error: '#FF3548',
     success: '#00E8A4',
-    black: '#000',
+    black: '#000000',
     'gray-1': '#333333',
     'gray-2': '#666666',
     'gray-3': '#757575',
     'gray-4': '#969696',
     'gray-5': '#C8C8C8',
     'gray-6': '#E6E6E6',
-    white: '#fff',
+    white: '#FFFFFF',
 }
 
 export const spacing = {
