@@ -16,10 +16,12 @@ test("renders checkedIcon icon when value is true", () => {
   expect(screen.getByTestId("checkedIcon")).toBeInTheDocument();
 });
 
-test("onSelect handler is being called", () => {
+test("handleCheck is being called", () => {
   const handleCheck = jest.fn();
   render(<Checkbox label="test" isChecked={false} handleCheck={handleCheck} />);
-  expect(screen.getByText("test")).toBeInTheDocument();
-  fireEvent.click(screen.getByText("test"));
-  expect(handleCheck).toBeCalledTimes(1);
+  const checkbox = screen.getByText(/test/i);
+  expect(checkbox).toBeInTheDocument();
+  fireEvent.click(checkbox);
+  fireEvent.click(checkbox);
+  expect(handleCheck).toBeCalledTimes(2);
 });
