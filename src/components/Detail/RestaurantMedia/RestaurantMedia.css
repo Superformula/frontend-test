@@ -1,7 +1,10 @@
 .container {
-  display: flex;
   padding: var(--space-2xl);
   border: 1px solid var(--border);
+}
+
+.media {
+  display: flex;
 }
 
 .photo {
@@ -9,4 +12,9 @@
   height: 200px;
   background-color: var(--light-gray);
   margin-right: var(--space-xl);
+}
+
+.address {
+  font-style: normal;
+  margin-top: var(--space-lg);
 }

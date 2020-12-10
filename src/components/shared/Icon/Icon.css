@@ -43,3 +43,8 @@
 .circleFillXl {
   width: 20px;
 }
+
+.mapMarker {
+  width: 15px;
+  height: 15px;
+}

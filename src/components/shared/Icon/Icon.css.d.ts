@@ -7,6 +7,7 @@ declare namespace IconCssNamespace {
     circleFillGreen: string;
     circleFillRed: string;
     circleFillXl: string;
+    mapMarker: string;
     star: string;
     starXl: string;
   }

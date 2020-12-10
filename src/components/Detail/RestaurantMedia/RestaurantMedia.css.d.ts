@@ -1,6 +1,8 @@
 declare namespace RestaurantMediaCssNamespace {
   export interface IRestaurantMediaCss {
+    address: string;
     container: string;
+    media: string;
     photo: string;
   }
 }

@@ -12,7 +12,8 @@ type IconName =
   | "starEmpty"
   | "starFill"
   | "starHalf"
-  | "circleFill";
+  | "circleFill"
+  | "mapMarker";
 
 interface IconProps {
   name: IconName;
@@ -41,6 +42,8 @@ const Icon: React.FC<IconProps> = ({ name, ...rest }) => {
       return <StarHalfIcon {...rest} />;
     case "circleFill":
       return <CircleFillIcon {...rest} />;
+    case "mapMarker":
+      return <MapMarkerIcon {...rest} />;
     default:
       return null;
   }
@@ -214,6 +217,28 @@ const CircleFillIcon: React.FC<CircleFillIconProps & SizableProps> = ({
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle cx="8" cy="8" r="8" />
+    </svg>
+  );
+};
+
+const MapMarkerIcon: React.FC = () => {
+  return (
+    <svg
+      className={styles.mapMarker}
+      enableBackground="new 0 0 512 512"
+      version="1.1"
+      viewBox="0 0 512 512"
+      xmlSpace="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="m256 0c-99.302 0-180 80.7-180 180 0 33.6 9.302 66.301 27.001 94.501l140.8 230.41c2.402 3.9 6.002 6.301 10.203 6.901 5.698 0.899 12.001-1.5 15.3-7.2l141.2-232.52c16.798-27.599 25.499-59.699 25.499-92.1 0-99.3-80.698-180-180-180zm0 270c-50.398 0-90-40.8-90-90 0-49.501 40.499-90 90-90s90 40.499 90 90c0 48.9-39.001 90-90 90z"
+        fill="#FD003A"
+      />
+      <path
+        d="m256 0v90c49.501 0 90 40.499 90 90 0 48.9-39.001 90-90 90v241.99c5.119 0.119 10.383-2.335 13.3-7.375l141.2-232.52c16.799-27.599 25.5-59.699 25.5-92.1 0-99.3-80.698-180-180-180z"
+        fill="#E50027"
+      />
     </svg>
   );
 };

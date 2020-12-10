@@ -79,7 +79,7 @@ interface ILocation {
   formatted_address: string;
 }
 
-interface ICoordinates {
+export interface ICoordinates {
   latitude: number;
   longitude: number;
 }

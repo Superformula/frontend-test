@@ -30,7 +30,11 @@ const Detail: React.FC = () => {
           <header className={styles.marginLeft}>
             <RestaurantInfo variant="header" restaurant={restaurant} />
           </header>
-          <RestaurantMedia urls={restaurant.photos} />
+          <RestaurantMedia
+            coordinates={restaurant.coordinates}
+            address={restaurant.address}
+            urls={restaurant.photos}
+          />
           <Reviews restaurant={restaurant} />
           <footer>
             <Button type="secondary" size="xl" handleClick={navigateHome}>
