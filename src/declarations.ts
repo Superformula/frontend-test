@@ -31,7 +31,7 @@ export interface ISearchData {
   id: string;
   name: string;
   is_closed: boolean;
-  hours: IHours;
+  hours: IHour[];
   rating: number;
   price: string;
   photos: string[];
@@ -48,7 +48,7 @@ export interface ISearchRestaurant {
   category: string;
 }
 
-interface IHours {
+interface IHour {
   is_open_now: boolean;
 }
 
@@ -71,7 +71,7 @@ export interface IDetailData {
   location: ILocation;
   coordinates: ICoordinates;
   photos: string[];
-  hours: IHours;
+  hours: IHour[];
   reviews: IReview[];
 }
 

@@ -106,7 +106,7 @@ export const fetchRestaurants = async (
     ({ id, name, is_closed, hours, rating, price, photos, categories }: ISearchData) => ({
       id,
       name,
-      isOpen: !is_closed && hours.is_open_now,
+      isOpen: !is_closed && hours[0].is_open_now,
       rating,
       price,
       photo: photos[0],
@@ -172,10 +172,11 @@ export const fetchRestaurant = async (restaurantID: string): Promise<IRestaurant
     hours,
     reviews,
   } = data.business;
+
   return {
     id,
     name,
-    isOpen: !is_closed && hours.is_open_now,
+    isOpen: !is_closed && hours[0].is_open_now,
     rating,
     price,
     review_count,
