@@ -1,4 +1,8 @@
 .container {
-  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
   color: var(--red);
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
 }
