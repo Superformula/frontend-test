@@ -15,22 +15,30 @@ const Restaurants: React.FC = () => {
       return <Spinner />;
     case "ERROR":
       return <div>An error ocurred.</div>;
-    case "SUCCESS":
-      return (
-        <section className={styles.container}>
-          <h2 className={styles.header}>All Restaurants</h2>
-          <div className={styles.restaurants}>
-            {restaurants.map((restaurant: ISearchRestaurant) => (
-              <RestaurantCard key={restaurant.id} restaurant={restaurant} />
-            ))}
-          </div>
-          <footer>
-            <Button size="xl" type="secondary" handleClick={loadMore}>
-              Load More
-            </Button>
-          </footer>
-        </section>
-      );
+    case "SUCCESS": {
+      const areRestaurants = Boolean(restaurants.length);
+      if (!areRestaurants) {
+        return (
+          <div className={styles.noRestaurants}>No restaurants found with current filters</div>
+        );
+      } else {
+        return (
+          <section className={styles.container}>
+            <h2 className={styles.header}>All Restaurants</h2>
+            <div className={styles.restaurants}>
+              {restaurants.map((restaurant: ISearchRestaurant) => (
+                <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+              ))}
+            </div>
+            <footer>
+              <Button size="xl" type="secondary" handleClick={loadMore}>
+                Load More
+              </Button>
+            </footer>
+          </section>
+        );
+      }
+    }
   }
 };
 

@@ -28,3 +28,11 @@
   margin-bottom: var(--space-md);
   background: #d8d8d8;
 }
+
+.noRestaurants {
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--blue);
+  padding: var(--space-2xl);
+}

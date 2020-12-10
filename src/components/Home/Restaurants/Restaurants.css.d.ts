@@ -4,6 +4,7 @@ declare namespace RestaurantsCssNamespace {
     container: string;
     header: string;
     img: string;
+    noRestaurants: string;
     restaurants: string;
   }
 }
