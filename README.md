@@ -27,30 +27,31 @@ npm test
 The app was made with the [KISS principle](https://en.wikipedia.org/wiki/KISS_principle) principle in mind.  
 Most overkill approaches like [Redux](https://redux.js.org/) were not used.  
 Did unit tests for atomic components that are being reused by several components.  
+To fetch data the app is consuming the [GraphQL endpoint](./src/api/yelp.ts#L16).  
 ### File Structure
 ```
 declarations
 index
 - api
-	- yelp 
+  yelp 
 - components
-	App 
-	- Home 
-		- Restaurants
-		- Filters
-			- Checkbox
-			- Select 
-		hook
-	- Detail 
-		- RestaurantMedia
-		- Reviews
-		hook
-    - Shared
-    	- Icon
-    	- Button
-    	- Spinner
-    	- ErrorFallBack
-    	- Rating 
+  App 
+  - Home 
+    - Restaurants
+    - Filters
+    - Checkbox
+    - Select 
+    hook
+  - Detail 
+    - RestaurantMedia
+    - Reviews
+    hook
+  - Shared
+    - Icon
+    - Button
+    - Spinner
+    - ErrorFallBack
+    - Rating 
 ```
 The approach is to have a tree file structure where the more deep a file is in the structure the more atomic it is.  
 All shared types and interfaces are stored in the [declarations](./src/declarations.ts) file.  
@@ -61,7 +62,7 @@ Home page state is being handle using the [Context API](https://en.reactjs.org/d
 A [custom hook](./src/components/Home/useSearchState.ts#L64) handles the state to keep the components as clean as possible. It uses most of react hooks to handle state, side effects and memoize functions to prevent re renders.  
 Since the Detail page was more straight forward, the state is passed via props to its childs. Another [custom hook](./src/components/Detail/useRestaurantState.ts#L21) handles the state of the page.  
 
-If the app starts growing it could be a good idea to create a single source of truth for the shared state. [Context API](https://en.reactjs.org/docs/context.html) or [Redux](https://redux.js.org/) would be good candidates.
+If the app starts growing it could be a good idea to create a single source of truth for the shared state. [Context API](https://en.reactjs.org/docs/context.html) or [Redux](https://redux.js.org/) would be good candidates.  
 ### Stack
 - React v17
 - Typescript
