@@ -88,6 +88,7 @@ export const Meta = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex: 1 1 auto;
 `
 
 export const Details = styled.span`

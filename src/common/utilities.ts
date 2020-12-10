@@ -19,6 +19,20 @@ export function getBreakpoint(): BreakpointKey {
               ) || SSR_BREAKPOINT
 }
 
+interface RandomOptions {
+    min?: number
+    max?: number
+    round?: (value: number) => number
+}
+
+export function randomInt({
+    min = 0,
+    max = 10,
+    round = Math.round,
+}: RandomOptions = {}): number {
+    return Math.max(min, round(Math.random() * max))
+}
+
 export function useBreakpoint(): BreakpointKey {
     const [current, setCurrent] = useState<BreakpointKey>(getBreakpoint())
 

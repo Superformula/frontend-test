@@ -5,6 +5,7 @@ import { normalize } from 'styled-normalize'
 import { BreakpointKey, Breakpoints, MinWidthMediaQueries } from '~/types'
 
 export const GRAPHQL_SCHEMA_URL = process.env.GRAPHQL_SCHEMA_URL
+export const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
 export const YELP_API_KEY = process.env.YELP_API_KEY
 
 export const SSR = typeof window === 'undefined'

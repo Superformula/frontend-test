@@ -1,7 +1,8 @@
 import React, { memo, ReactElement, useMemo } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { Root, StarButton, StarIcon } from './styled'
+import { Button, ButtonKind } from '../Button'
+import { Root, StarIcon } from './styled'
 
 export * as StyledRating from './styled'
 
@@ -35,9 +36,12 @@ export const Rating = memo(
                         }}
                     >
                         {onChange ? (
-                            <StarButton onClick={onClick(index + 1)}>
+                            <Button
+                                kind={ButtonKind.Blank}
+                                onClick={onClick(index + 1)}
+                            >
                                 <StarIcon />
-                            </StarButton>
+                            </Button>
                         ) : (
                             <StarIcon />
                         )}

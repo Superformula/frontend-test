@@ -2,7 +2,7 @@ import styled, { css, ThemeProps } from 'styled-components'
 
 import { Star } from '~/assets'
 import { Theme } from '~/common'
-import { Button, ButtonKind } from '../Button'
+import { StyledButton } from '../Button'
 
 export interface StarTheme extends Theme {
     fill: boolean
@@ -15,10 +15,6 @@ export const StarIcon = styled(Star)(
     `,
 )
 
-export const StarButton = styled(Button).attrs({
-    kind: ButtonKind.Blank,
-})``
-
 export const Root = styled.div(
     ({ theme }: ThemeProps<StarTheme>) => css`
         margin-bottom: 1em;
@@ -27,14 +23,14 @@ export const Root = styled.div(
 
         &:hover,
         &:focus-within {
-            ${StarButton} {
+            ${StyledButton.Root} {
                 ${StarIcon} {
                     fill: ${theme.colors.success};
                 }
 
                 &:focus,
                 &:hover {
-                    & ~ ${StarButton} ${StarIcon} {
+                    & ~ ${StyledButton.Root} ${StarIcon} {
                         fill: ${theme.colors.white};
                     }
                 }

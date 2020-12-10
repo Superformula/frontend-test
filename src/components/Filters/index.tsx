@@ -2,6 +2,7 @@ import React, { memo, ReactElement, useState } from 'react'
 
 import { CaretDown } from '~/assets'
 import { useTargetBreakpoint } from '~/common'
+import { Maybe } from '~/graphql'
 import { Button, ButtonKind } from '../Button'
 import { Checkbox } from '../Checkbox'
 import { Container } from '../Container'
@@ -23,7 +24,7 @@ export * as StyledFilters from './styled'
 
 export interface Values {
     categories: string[]
-    price: number | null
+    price: Maybe<string>
     open: boolean
 }
 
@@ -143,25 +144,30 @@ export const Filters = memo(
                                         <Checkbox checked={!price} />
                                         <span>All</span>
                                     </Button>
-                                    {new Array(4).fill(null).map((_, index) => (
-                                        <Button
-                                            key={index}
-                                            kind={ButtonKind.Blank}
-                                            onClick={updatePrice(
-                                                index + 1,
-                                                true,
-                                            )}
-                                        >
-                                            <Checkbox
-                                                checked={index + 1 === price}
-                                            />
-                                            <span>
-                                                {new Array(index + 1)
-                                                    .fill('$')
-                                                    .join('')}
-                                            </span>
-                                        </Button>
-                                    ))}
+                                    {new Array(4).fill(null).map((_, index) => {
+                                        const cost = new Array(index + 1)
+                                            .fill('$')
+                                            .join('')
+
+                                        return (
+                                            <Button
+                                                key={index}
+                                                kind={ButtonKind.Blank}
+                                                onClick={updatePrice(
+                                                    cost,
+                                                    true,
+                                                )}
+                                            >
+                                                <Checkbox
+                                                    checked={
+                                                        index + 1 ===
+                                                        price?.length
+                                                    }
+                                                />
+                                                <span>{cost}</span>
+                                            </Button>
+                                        )
+                                    })}
                                 </Dropdown>
                                 <Button
                                     kind={ButtonKind.Blank}
@@ -209,7 +215,7 @@ export interface FiltersHookResult extends Values {
         selected: boolean,
         apply?: boolean,
     ) => () => void
-    updatePrice: (value: number | null, apply?: boolean) => () => void
+    updatePrice: (value: Maybe<string>, apply?: boolean) => () => void
     toggleOpen: (apply?: boolean) => void
 }
 
@@ -277,7 +283,7 @@ export function useFilters(onChange: Props['onChange']): FiltersHookResult {
                 apply,
             )
         },
-        updatePrice: (value: number | null, apply = false) => (): void => {
+        updatePrice: (value: Maybe<string>, apply = false) => (): void => {
             update(
                 {
                     ...state.next,

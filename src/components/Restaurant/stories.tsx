@@ -16,7 +16,7 @@ export const restaurant = (): ReactElement => (
             name={text('name', 'Backyard BBQ')}
             rating={number('rating', 0)}
             type={text('type', 'Barbeque')}
-            cost={number('cost', 2)}
+            cost={text('cost', '$$')}
             open={boolean('open', true)}
         />
     </div>

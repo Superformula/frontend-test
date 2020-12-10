@@ -25,7 +25,7 @@ export interface Props {
     name: string
     rating: number
     type: string
-    cost: number
+    cost: string
     open: boolean
 }
 
@@ -58,7 +58,7 @@ export const Restaurant = memo(
                     <Rating rating={rating} />
                     <Meta>
                         <Details>
-                            {type} &bull; {new Array(cost).fill('$').join('')}
+                            {type} &bull; {cost}
                         </Details>
                         <Status kind={kind} open={open} />
                     </Meta>
