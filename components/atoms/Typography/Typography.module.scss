@@ -1,0 +1,49 @@
+$title-color: #333333;
+$headline-color: #000000;
+$body-color: #666666;
+$status-color: #757575;
+
+$title-font-size: 54px;
+$subtitle-font-size: 34px;
+$headline-font-size: 20px;
+$body-font-size: 22px;
+$status-font-size: 12px;
+
+$title-line-height: 64px;
+$subtitle-line-height: 40px;
+$headline-line-height: 28px;
+$body-line-height: 32px;
+$status-line-height: 16px;
+
+@mixin font-settings($color, $font-size, $line-height, $font-weight: 300) {
+  font-family: HelveticaNeue, Helvetica, sans-serif;
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+.title {
+  @include font-settings($title-color, $title-font-size, $title-line-height);
+}
+
+.subtitle {
+  @include font-settings($title-color, $subtitle-font-size, $subtitle-line-height);
+  letter-spacing: 1px;
+}
+
+.headline {
+  @include font-settings($headline-color, $headline-font-size, $headline-line-height, 400);
+  letter-spacing: 1px;
+}
+
+.body {
+  @include font-settings($body-color, $body-font-size, $body-line-height);
+  letter-spacing: 0.916667px;
+}
+
+.status {
+  @include font-settings($status-color, $status-font-size, $status-line-height);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
