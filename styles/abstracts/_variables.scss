@@ -1,0 +1,62 @@
+// theme colors
+$primary-color: #002B56;
+$secondary-color: #FFFFFF;
+
+// typography colors
+$typography-title-color: #333333;
+$typography-headline-color: #000000;
+$typography-body-color: #666666;
+$typography-status-color: #757575;
+$typography-label-color: #606060;
+
+// typography-title
+$typography-title-font-size: 54px;
+$typography-title-line-height: 64px;
+
+// typography-subtitle
+$typography-subtitle-font-size: 34px;
+$typography-subtitle-line-height: 40px;
+$typography-subtitle-letter-spacing: 1px;
+
+// typography-headline
+$typography-headline-font-size: 20px;
+$typography-headline-line-height: 28px;
+$typography-headline-font-weight: bold;
+$typography-headline-letter-spacing: 1px;
+
+// typography-body
+$typography-body-font-size: 22px;
+$typography-body-line-height: 32px;
+$typography-body-letter-spacing: 0.916667px;
+
+// typography-status
+$typography-status-font-size: 12px;
+$typography-status-line-height: 16px;
+$typography-status-letter-spacing: 0.5px;
+$typography-status-text-transform: uppercase;
+
+// typography-label
+$typography-label-font-size: 16px;
+$typography-label-line-height: 24px;
+$typography-label-letter-spacing: 1px;
+
+// button colors
+$button-disabled-color: #C8C8C8;
+$button-disabled-border-color: #E6E6E6;
+$button-hover-background: lighten($primary-color, 7%);
+
+// button text
+$button-text-line-height: 16px;
+$button-text-font-size: 14px;
+$button-text-font-weight: normal;
+$button-text-letter-spacing: 1px;
+$button-text-text-transform: uppercase;
+
+// button sizes
+$button-size-small-width: 151px;
+$button-size-normal-width: 416px;
+
+// button misc
+$button-height: 48px;
+$button-border-radius: 2px;
+
