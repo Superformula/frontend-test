@@ -2,18 +2,21 @@ $title-color: #333333;
 $headline-color: #000000;
 $body-color: #666666;
 $status-color: #757575;
+$label-color: #606060;
 
 $title-font-size: 54px;
 $subtitle-font-size: 34px;
 $headline-font-size: 20px;
 $body-font-size: 22px;
 $status-font-size: 12px;
+$label-font-size: 16px;
 
 $title-line-height: 64px;
 $subtitle-line-height: 40px;
 $headline-line-height: 28px;
 $body-line-height: 32px;
 $status-line-height: 16px;
+$label-line-height: 24px;
 
 @mixin font-settings($color, $font-size, $line-height, $font-weight: 300) {
   font-family: HelveticaNeue, Helvetica, sans-serif;
@@ -46,4 +49,9 @@ $status-line-height: 16px;
   @include font-settings($status-color, $status-font-size, $status-line-height);
   letter-spacing: 0.5px;
   text-transform: uppercase;
+}
+
+.label {
+  @include font-settings($label-color, $label-font-size, $label-line-height);
+  letter-spacing: 1px;
 }

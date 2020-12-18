@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import styles from './Typography.module.scss';
 
 export interface TypographyProps {
-  variant: 'title' | 'subtitle' | 'headline' | 'body' | 'status';
+  variant: 'title' | 'subtitle' | 'headline' | 'body' | 'status' | 'label';
 }
 
 export const Typography: FC<TypographyProps> = ({ variant, children }) => {
@@ -13,6 +13,7 @@ export const Typography: FC<TypographyProps> = ({ variant, children }) => {
     case 'headline': return <h3 className={styles.headline}>{children}</h3>;
     case 'body': return <p className={styles.body}>{children}</p>;
     case 'status': return <p className={styles.status}>{children}</p>;
+    case 'label': return <p className={styles.label}>{children}</p>;
     default: return <p>{children}</p>;
   }
 };

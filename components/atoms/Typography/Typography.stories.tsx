@@ -39,3 +39,9 @@ Status.args = {
   ...Title.args,
   variant: 'status',
 };
+
+export const Label = Template.bind({});
+Label.args = {
+  ...Title.args,
+  variant: 'label',
+};
