@@ -1,0 +1,64 @@
+@import 'styles/abstracts/_variables';
+@import 'styles/abstracts/_mixins';
+
+.button {
+  @include font-family();
+  @include typography-settings($primary-color, $button-text-font-size, $button-text-line-height, $button-text-font-weight);
+
+  border-radius: $button-border-radius;
+  height: $button-height;
+  letter-spacing: $button-text-letter-spacing;
+  text-transform: $button-text-text-transform;
+
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease-in;
+
+  &:focus, &:hover {
+    background-color: $button-hover-background;
+    outline: none;
+  }
+
+  &--size-small {
+    width: $button-size-small-width;
+  }
+
+  &--size-normal {
+    width: $button-size-normal-width;
+  }
+
+  &--size-full-width {
+    width: 100%;
+  }
+
+  &--color-primary {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+
+  &--color-secondary {
+    background-color: $secondary-color;
+    border: $primary-color 1px solid;
+    color: $primary-color;
+    font-weight: bold;
+
+    &:focus, &:hover {
+      font-weight: normal;
+      color: $secondary-color;
+    }
+  }
+
+  &--disabled {
+    background-color: $secondary-color;
+    border: $button-disabled-border-color 1px solid;
+    color: $button-disabled-color;
+    cursor: unset;
+    font-weight: bold;
+
+    &:focus, &:hover {
+      background-color: $secondary-color;
+      color: $button-disabled-color;
+      font-weight: bold;
+    }
+  }
+}
