@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import classNames from 'classnames';
 
 import styles from './Typography.module.scss';
 
@@ -7,13 +8,15 @@ export interface TypographyProps {
 }
 
 export const Typography: FC<TypographyProps> = ({ variant, children }) => {
+  const elementClass = classNames({
+    [styles.typography]: true,
+    [styles[`typography--variant-${variant}`]]: true,
+  });
+
   switch (variant) {
-    case 'title': return <h1 className={styles.title}>{children}</h1>;
-    case 'subtitle': return <h2 className={styles.subtitle}>{children}</h2>;
-    case 'headline': return <h3 className={styles.headline}>{children}</h3>;
-    case 'body': return <p className={styles.body}>{children}</p>;
-    case 'status': return <p className={styles.status}>{children}</p>;
-    case 'label': return <p className={styles.label}>{children}</p>;
-    default: return <p>{children}</p>;
+    case 'title': return <h1 className={elementClass}>{children}</h1>;
+    case 'subtitle': return <h2 className={elementClass}>{children}</h2>;
+    case 'headline': return <h3 className={elementClass}>{children}</h3>;
+    default: return <p className={elementClass}>{children}</p>;
   }
 };
