@@ -15,7 +15,7 @@ const ClosedStatus: FC<HTMLAttributes<HTMLElement>> = (props) => <img {...props}
 
 export const Status: FC<StatusProps> = ({ variant = 'open' }) => {
   const elementClass = classNames({
-    [styles.star]: true,
+    [styles.status]: true,
   });
 
   switch (variant) {
