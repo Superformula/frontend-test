@@ -10,6 +10,11 @@ export default {
 
 const Template: Story<StatusProps> = (args) => <Status {...args} />;
 
+export const Default = Template.bind({});
+Default.args = {
+  variant: 'open',
+};
+
 export const Open = Template.bind({});
 Open.args = {
   variant: 'open',

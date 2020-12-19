@@ -13,7 +13,7 @@ export const Button: FC<ButtonProps> = ({
   children,
   color = 'primary',
   size = 'normal',
-  disabled,
+  disabled = false,
 }) => {
   const elementClass = classNames({
     [styles.button]: true,

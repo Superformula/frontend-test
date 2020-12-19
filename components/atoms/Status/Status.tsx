@@ -7,7 +7,7 @@ import openStatus from './assets/status-open.svg';
 import closedStatus from './assets/status-closed.svg';
 
 export interface StatusProps {
-  variant: 'open' | 'close';
+  variant?: 'open' | 'close';
 }
 
 const OpenStatus: FC<HTMLAttributes<HTMLElement>> = (props) => <img {...props} src={openStatus} alt="open status" />;

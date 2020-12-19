@@ -10,38 +10,43 @@ export default {
 
 const Template: Story<TypographyProps> = (args) => <Typography {...args} />;
 
+export const Default = Template.bind({});
+Default.args = {
+  children: 'The quick brown fox jumps over the lazy dog.',
+};
+
 export const Title = Template.bind({});
 Title.args = {
+  ...Default.args,
   variant: 'title',
-  children: 'The quick brown fox jumps over the lazy dog.',
 };
 
 export const Subtitle = Template.bind({});
 Subtitle.args = {
-  ...Title.args,
+  ...Default.args,
   variant: 'subtitle',
 };
 
 export const Headline = Template.bind({});
 Headline.args = {
-  ...Title.args,
+  ...Default.args,
   variant: 'headline',
 };
 
 export const Body = Template.bind({});
 Body.args = {
-  ...Title.args,
+  ...Default.args,
   variant: 'body',
 };
 
 export const Status = Template.bind({});
 Status.args = {
-  ...Title.args,
+  ...Default.args,
   variant: 'status',
 };
 
 export const Label = Template.bind({});
 Label.args = {
-  ...Title.args,
+  ...Default.args,
   variant: 'label',
 };

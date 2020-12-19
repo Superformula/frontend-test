@@ -10,34 +10,39 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
+export const Default = Template.bind({});
+Default.args = {
+  children: 'Click Me',
+};
+
 export const Primary = Template.bind({});
 Primary.args = {
+  ...Default.args,
   color: 'primary',
-  children: 'Click Me',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  ...Primary.args,
+  ...Default.args,
   color: 'secondary',
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  ...Primary.args,
+  ...Default.args,
   size: 'small',
   color: 'secondary',
 };
 
 export const FullWidth = Template.bind({});
 FullWidth.args = {
-  ...Primary.args,
+  ...Default.args,
   size: 'full-width',
   color: 'secondary',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  ...Primary.args,
+  ...Default.args,
   disabled: true,
 };

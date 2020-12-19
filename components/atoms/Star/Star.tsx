@@ -8,7 +8,7 @@ import fullStar from './assets/star-full.svg';
 import halfStar from './assets/star-half.svg';
 
 export interface StarProps {
-  variant: 'empty' | 'full' | 'half';
+  variant?: 'empty' | 'full' | 'half';
 }
 
 const EmptyStar: FC<HTMLAttributes<HTMLElement>> = (props) => <img {...props} src={emptyStar} alt="empty star" />;

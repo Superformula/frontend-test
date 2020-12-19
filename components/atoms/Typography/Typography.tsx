@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './Typography.module.scss';
 
 export interface TypographyProps {
-  variant: 'title' | 'subtitle' | 'headline' | 'body' | 'status' | 'label';
+  variant?: 'title' | 'subtitle' | 'headline' | 'body' | 'status' | 'label';
 }
 
 interface TextProps extends HTMLAttributes<HTMLElement> {
@@ -17,7 +17,7 @@ const Text: FC<TextProps> = ({
   ...props
 }) => createElement(element, props, children);
 
-export const Typography: FC<TypographyProps> = ({ variant, children }) => {
+export const Typography: FC<TypographyProps> = ({ variant = 'title', children }) => {
   const elementClass = classNames({
     [styles.typography]: true,
     [styles[`typography--variant-${variant}`]]: true,
