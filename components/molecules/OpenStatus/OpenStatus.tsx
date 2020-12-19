@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
 import classNames from 'classnames';
+import React, { FC } from 'react';
 
 import { Status, StatusProps, Typography } from '~/components/atoms';
 import styles from './OpenStatus.module.scss';

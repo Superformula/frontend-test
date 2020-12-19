@@ -1,5 +1,8 @@
-import React, { FC } from 'react';
 import classNames from 'classnames';
+import React, {
+  FC,
+  useCallback,
+} from 'react';
 
 import styles from './Button.module.scss';
 
@@ -12,10 +15,10 @@ export interface ButtonProps {
 
 export const Button: FC<ButtonProps> = ({
   children,
+  onClick,
   color = 'primary',
   size = 'normal',
   disabled = false,
-  onClick,
 }) => {
   const elementClass = classNames({
     [styles.button]: true,
@@ -24,9 +27,9 @@ export const Button: FC<ButtonProps> = ({
     [styles['button--disabled']]: disabled,
   });
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (!disabled) onClick();
-  };
+  }, [disabled]);
 
   return <button type="button" className={elementClass} onClick={handleClick}>{children}</button>;
 };

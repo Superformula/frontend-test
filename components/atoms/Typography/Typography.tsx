@@ -1,5 +1,11 @@
-import React, { createElement, FC, HTMLAttributes } from 'react';
 import classNames from 'classnames';
+import React, {
+  createElement,
+  FC,
+  HTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
 
 import styles from './Typography.module.scss';
 
@@ -18,15 +24,31 @@ const Text: FC<TextProps> = ({
 }) => createElement(element, props, children);
 
 export const Typography: FC<TypographyProps> = ({ variant = 'title', children }) => {
+  const [element, setElement] = useState<TextProps['element']>('h1');
+
   const elementClass = classNames({
     [styles.typography]: true,
     [styles[`typography--variant-${variant}`]]: true,
   });
 
-  switch (variant) {
-    case 'title': return <Text element="h1" className={elementClass}>{children}</Text>;
-    case 'subtitle': return <Text element="h2" className={elementClass}>{children}</Text>;
-    case 'headline': return <Text element="h3" className={elementClass}>{children}</Text>;
-    default: return <Text element="p" className={elementClass}>{children}</Text>;
-  }
+  useEffect(() => {
+    switch (variant) {
+      case 'title':
+        setElement('h1');
+        break;
+
+      case 'subtitle':
+        setElement('h2');
+        break;
+
+      case 'headline':
+        setElement('h3');
+        break;
+
+      default:
+        setElement('p');
+    }
+  }, [variant]);
+
+  return <Text element={element} className={elementClass}>{children}</Text>;
 };

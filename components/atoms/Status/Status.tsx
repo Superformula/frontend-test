@@ -1,8 +1,11 @@
-import React, { FC, HTMLAttributes } from 'react';
 import classNames from 'classnames';
+import React, {
+  FC,
+  useEffect,
+  useState,
+} from 'react';
 
 import styles from './Status.module.scss';
-
 import openStatus from './assets/status-open.svg';
 import closedStatus from './assets/status-closed.svg';
 
@@ -10,17 +13,31 @@ export interface StatusProps {
   variant?: 'open' | 'close';
 }
 
-const OpenStatus: FC<HTMLAttributes<HTMLElement>> = (props) => <img {...props} src={openStatus} alt="open status" />;
-const ClosedStatus: FC<HTMLAttributes<HTMLElement>> = (props) => <img {...props} src={closedStatus} alt="closed status" />;
-
 export const Status: FC<StatusProps> = ({ variant = 'open' }) => {
+  const [src, setSrc] = useState<string>('');
+  const [alt, setAlt] = useState<string>('');
+
   const elementClass = classNames({
     [styles.status]: true,
   });
 
-  switch (variant) {
-    case 'open': return <OpenStatus className={elementClass} />;
-    case 'close': return <ClosedStatus className={elementClass} />;
-    default: return <OpenStatus className={elementClass} />;
-  }
+  useEffect(() => {
+    switch (variant) {
+      case 'open':
+        setSrc(openStatus);
+        setAlt('open status');
+        break;
+
+      case 'close':
+        setSrc(closedStatus);
+        setAlt('closed status');
+        break;
+
+      default:
+        setSrc(openStatus);
+        setAlt('open status');
+    }
+  }, [variant]);
+
+  return <img className={elementClass} src={src} alt={alt} />;
 };

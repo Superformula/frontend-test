@@ -1,8 +1,12 @@
-import React, { FC, HTMLAttributes } from 'react';
 import classNames from 'classnames';
+import React, {
+  FC,
+  HTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
 
 import styles from './Checkbox.module.scss';
-
 import checkboxChecked from './assets/checkbox-checked.svg';
 import checkboxUnchecked from './assets/checkbox-unchecked.svg';
 
@@ -17,25 +21,24 @@ interface IndicatorProps extends HTMLAttributes<HTMLElement>{
 }
 
 const Indicator: FC<IndicatorProps> = ({ checked }) => {
-  let src = '';
-  let alt = '';
+  const [src, setSrc] = useState<string>('');
+  const [alt, setAlt] = useState<string>('');
 
-  if (checked) {
-    src = checkboxChecked;
-    alt = 'checked checkbox input';
-  } else {
-    src = checkboxUnchecked;
-    alt = 'unchecked checkbox input';
-  }
+  useEffect(() => {
+    if (checked) {
+      setSrc(checkboxChecked);
+      setAlt('checked checkbox input');
+    } else {
+      setSrc(checkboxUnchecked);
+      setAlt('unchecked checkbox input');
+    }
+  }, [checked]);
 
   return <img src={src} alt={alt} />;
 };
 
 export const Checkbox: FC<CheckboxProps> = ({
-  children,
-  name = '',
-  checked = false,
-  onChange,
+  children, name = '', checked = false, onChange,
 }) => {
   const elementClass = classNames({
     [styles.checkbox]: true,

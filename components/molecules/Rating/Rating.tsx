@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { Star, StarProps } from '~/components/atoms';
 
@@ -7,14 +7,20 @@ export interface RatingProps {
 }
 
 export const Rating: FC<RatingProps> = ({ value = 0 }) => {
-  const stars: StarProps['variant'][] = [];
+  const [stars, setStars] = useState<StarProps['variant'][]>([]);
 
-  for (let i = 0; i < 5; i += 1) {
-    if (value < i) stars.push('empty');
-    if (value === i) stars.push('empty');
-    if (value === i + 0.5) stars.push('half');
-    if (value > i + 0.5) stars.push('full');
-  }
+  useEffect(() => {
+    const values: StarProps['variant'][] = [];
+
+    for (let i = 0; i < 5; i += 1) {
+      if (value < i) values.push('empty');
+      if (value === i) values.push('empty');
+      if (value === i + 0.5) values.push('half');
+      if (value > i + 0.5) values.push('full');
+    }
+
+    setStars(values);
+  }, [value]);
 
   return (
     <div>

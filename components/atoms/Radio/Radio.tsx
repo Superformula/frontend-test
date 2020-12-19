@@ -1,8 +1,12 @@
-import React, { FC, HTMLAttributes } from 'react';
 import classNames from 'classnames';
+import React, {
+  FC,
+  HTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
 
 import styles from './Radio.module.scss';
-
 import radioChecked from './assets/radio-checked.svg';
 import radioUnchecked from './assets/radio-unchecked.svg';
 
@@ -14,30 +18,28 @@ export interface RadioProps {
 }
 
 interface IndicatorProps extends HTMLAttributes<HTMLElement>{
-  checked: boolean;
+  checked?: boolean;
 }
 
 const Indicator: FC<IndicatorProps> = ({ checked }) => {
-  let src = '';
-  let alt = '';
+  const [src, setSrc] = useState<string>('');
+  const [alt, setAlt] = useState<string>('');
 
-  if (checked) {
-    src = radioChecked;
-    alt = 'checked radio input';
-  } else {
-    src = radioUnchecked;
-    alt = 'unchecked radio input';
-  }
+  useEffect(() => {
+    if (checked) {
+      setSrc(radioChecked);
+      setAlt('checked radio input');
+    } else {
+      setSrc(radioUnchecked);
+      setAlt('unchecked radio input');
+    }
+  }, [checked]);
 
   return <img src={src} alt={alt} />;
 };
 
 export const Radio: FC<RadioProps> = ({
-  children,
-  name = '',
-  value = '',
-  checked = false,
-  onChange,
+  children, name = '', value = '', checked = false, onChange,
 }) => {
   const elementClass = classNames({
     [styles.radio]: true,

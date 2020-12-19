@@ -1,8 +1,11 @@
-import React, { FC, HTMLAttributes } from 'react';
 import classNames from 'classnames';
+import React, {
+  FC,
+  useEffect,
+  useState,
+} from 'react';
 
 import styles from './Star.module.scss';
-
 import emptyStar from './assets/star-empty.svg';
 import fullStar from './assets/star-full.svg';
 import halfStar from './assets/star-half.svg';
@@ -11,19 +14,36 @@ export interface StarProps {
   variant?: 'empty' | 'full' | 'half';
 }
 
-const EmptyStar: FC<HTMLAttributes<HTMLElement>> = (props) => <img {...props} src={emptyStar} alt="empty star" />;
-const FullStar: FC<HTMLAttributes<HTMLElement>> = (props) => <img {...props} src={fullStar} alt="full star" />;
-const HalfStar: FC<HTMLAttributes<HTMLElement>> = (props) => <img {...props} src={halfStar} alt="half star" />;
-
 export const Star: FC<StarProps> = ({ variant = 'empty' }) => {
+  const [src, setSrc] = useState<string>('');
+  const [alt, setAlt] = useState<string>('');
+
   const elementClass = classNames({
     [styles.star]: true,
   });
 
-  switch (variant) {
-    case 'empty': return <EmptyStar className={elementClass} />;
-    case 'full': return <FullStar className={elementClass} />;
-    case 'half': return <HalfStar className={elementClass} />;
-    default: return <EmptyStar className={elementClass} />;
-  }
+  useEffect(() => {
+    switch (variant) {
+      case 'empty':
+        setSrc(emptyStar);
+        setAlt('empty star');
+        break;
+
+      case 'full':
+        setSrc(fullStar);
+        setAlt('full star');
+        break;
+
+      case 'half':
+        setSrc(halfStar);
+        setAlt('half star');
+        break;
+
+      default:
+        setSrc(emptyStar);
+        setAlt('empty star');
+    }
+  }, [variant]);
+
+  return <img className={elementClass} src={src} alt={alt} />;
 };
