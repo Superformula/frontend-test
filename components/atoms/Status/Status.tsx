@@ -10,7 +10,7 @@ import openStatus from './assets/status-open.svg';
 import closedStatus from './assets/status-closed.svg';
 
 export interface StatusProps {
-  variant?: 'open' | 'close';
+  variant?: 'open' | 'closed';
 }
 
 export const Status: FC<StatusProps> = ({ variant = 'open' }) => {
@@ -28,7 +28,7 @@ export const Status: FC<StatusProps> = ({ variant = 'open' }) => {
         setAlt('open status');
         break;
 
-      case 'close':
+      case 'closed':
         setSrc(closedStatus);
         setAlt('closed status');
         break;

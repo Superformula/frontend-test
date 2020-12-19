@@ -22,5 +22,5 @@ Open.args = {
 
 export const Closed = Template.bind({});
 Closed.args = {
-  variant: 'close',
+  variant: 'closed',
 };
