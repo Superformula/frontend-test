@@ -1,0 +1,22 @@
+@import 'styles/abstracts/_mixins';
+@import 'styles/abstracts/_variables';
+
+.checkbox {
+  @include font-family();
+
+  display: inline-flex;
+  align-items: center;
+  font-size: $checkbox-text-font-size;
+  letter-spacing: $checkbox-text-letter-spacing;
+  line-height: $checkbox-text-line-height;
+  color: $primary-color;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  img {
+    height: 16px;
+    margin-right: 8px;
+  }
+}
