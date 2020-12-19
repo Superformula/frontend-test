@@ -27,6 +27,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'react/jsx-props-no-spreading': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
+    'react/no-array-index-key': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true, optionalDependencies: false, peerDependencies: false }],
     '@typescript-eslint/no-unused-vars': ['error'],
   },
