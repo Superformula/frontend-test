@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Rating, RatingProps } from './Rating';
 
 export default {
-  title: 'atoms/Rating',
+  title: 'molecules/Rating',
   component: Rating,
   argTypes: {
     value: {
