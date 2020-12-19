@@ -22,5 +22,5 @@ Open.args = {
 
 export const Closed = Template.bind({});
 Closed.args = {
-  status: 'close',
+  status: 'closed',
 };
