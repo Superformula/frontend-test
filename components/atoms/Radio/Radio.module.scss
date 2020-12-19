@@ -5,9 +5,11 @@
   @include font-family();
 
   display: inline-flex;
+  align-items: center;
   font-size: $radio-text-font-size;
   letter-spacing: $radio-text-letter-spacing;
   line-height: $radio-text-line-height;
+  color: $primary-color;
 
   input[type="radio"] {
     display: none;
