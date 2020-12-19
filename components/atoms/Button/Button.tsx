@@ -7,6 +7,7 @@ export interface ButtonProps {
   color?: 'primary' | 'secondary';
   size?: 'small' | 'normal' | 'full-width';
   disabled?: boolean;
+  onClick: () => void;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ export const Button: FC<ButtonProps> = ({
   color = 'primary',
   size = 'normal',
   disabled = false,
+  onClick,
 }) => {
   const elementClass = classNames({
     [styles.button]: true,
@@ -22,5 +24,9 @@ export const Button: FC<ButtonProps> = ({
     [styles['button--disabled']]: disabled,
   });
 
-  return <button type="button" className={elementClass}>{children}</button>;
+  const handleClick = () => {
+    if (!disabled) onClick();
+  };
+
+  return <button type="button" className={elementClass} onClick={handleClick}>{children}</button>;
 };
