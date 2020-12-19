@@ -16,7 +16,8 @@
   }
 
   img {
-    height: 16px;
+    height: $radio-height;
+    width: $radio-width;
     margin-right: 8px;
   }
 }

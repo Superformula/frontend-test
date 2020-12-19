@@ -16,7 +16,8 @@
   }
 
   img {
-    height: 16px;
+    height: $checkbox-height;
+    width: $checkbox-width;
     margin-right: 8px;
   }
 }
