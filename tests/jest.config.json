@@ -1,0 +1,11 @@
+{
+  "rootDir": "../",
+  "verbose": true,
+  "collectCoverageFrom": ["src/**/*.js"],
+  "coverageDirectory": "<rootDir>/tests/coverage",
+  "coverageReporters": ["text-summary", "lcovonly"],
+  "setupFilesAfterEnv": ["<rootDir>/tests/setupTests.js"],
+  "snapshotSerializers": ["enzyme-to-json/serializer"],
+  "timers": "fake",
+  "transform": { "^.+\\.js$": "babel-jest" }
+}
