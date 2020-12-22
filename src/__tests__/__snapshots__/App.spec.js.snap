@@ -2,6 +2,10 @@
 
 exports[`App should render without failing 1`] = `
 <App__Paragraph>
-   Superformula app 
+  Superformula app 
+  <Rating
+    max={5}
+    rating={0}
+  />
 </App__Paragraph>
 `;

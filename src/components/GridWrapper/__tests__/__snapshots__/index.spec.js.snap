@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridWrapper should render flex grid wrapper 1`] = `
+.c0 {
+  width: 100%;
+  padding-right: 24px;
+  padding-left: 24px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+}
+
+<GridWrapper
+  flex={true}
+>
+  <div
+    className="c0"
+  />
+</GridWrapper>
+`;
+
+exports[`GridWrapper should render without failing 1`] = `
+.c0 {
+  width: 100%;
+  padding-right: 24px;
+  padding-left: 24px;
+  position: relative;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+}
+
+<GridWrapper>
+  <div
+    className="c0"
+  />
+</GridWrapper>
+`;

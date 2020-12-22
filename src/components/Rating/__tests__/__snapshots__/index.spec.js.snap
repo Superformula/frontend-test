@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rating should render a custom number of stars 1`] = `
+<Wrapper>
+  <Star
+    fill={true}
+  />
+  <Star
+    fill={false}
+  />
+</Wrapper>
+`;
+
+exports[`Rating should render without failing 1`] = `
+<Wrapper>
+  <Star
+    fill={false}
+  />
+  <Star
+    fill={false}
+  />
+  <Star
+    fill={false}
+  />
+  <Star
+    fill={false}
+  />
+  <Star
+    fill={false}
+  />
+</Wrapper>
+`;

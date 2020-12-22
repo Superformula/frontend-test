@@ -4,9 +4,7 @@ import { COLORS } from '../../constants/colors';
 import { MEDIA_MIN } from '../../utils/mediaQuery';
 
 export const Button = styled.button`
-  color: ${COLORS.WHITE};
   padding: 11px 5px;
-  background-color: ${COLORS.PRIMARY};
   border: 1px solid ${COLORS.PRIMARY};
   border-radius: 2px;
   font-size: 12px;
@@ -22,7 +20,12 @@ export const Button = styled.button`
     letter-spacing: 1px;
   `}
 
-  ${({ secondary }) => secondary && SECONDARY}
+  ${({ secondary }) => (secondary ? SECONDARY : PRIMARY)}
+`;
+
+const PRIMARY = css`
+  color: ${COLORS.WHITE};
+  background-color: ${COLORS.PRIMARY};
 `;
 
 const SECONDARY = css`
