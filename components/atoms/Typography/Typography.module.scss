@@ -63,4 +63,15 @@
 
     letter-spacing: $typography-label-letter-spacing;
   }
+
+  &--variant-span {
+    @include typography-settings(
+      $typography-span-color,
+      $typography-span-font-size,
+      $typography-span-line-height,
+      $typography-span-font-weight
+    );
+
+    letter-spacing: $typography-span-letter-spacing;
+  }
 }

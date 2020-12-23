@@ -10,11 +10,11 @@ import React, {
 import styles from './Typography.module.scss';
 
 export interface TypographyProps {
-  variant?: 'title' | 'subtitle' | 'headline' | 'body' | 'status' | 'label';
+  variant?: 'title' | 'subtitle' | 'headline' | 'body' | 'status' | 'label' | 'span';
 }
 
 interface TextProps extends HTMLAttributes<HTMLElement> {
-  element: 'h1' | 'h2' | 'h3' | 'p';
+  element: 'h1' | 'h2' | 'h3' | 'p' | 'span';
 }
 
 const Text: FC<TextProps> = ({
@@ -43,6 +43,10 @@ export const Typography: FC<TypographyProps> = ({ variant = 'title', children })
 
       case 'headline':
         setElement('h3');
+        break;
+
+      case 'span':
+        setElement('span');
         break;
 
       default:

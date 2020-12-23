@@ -50,3 +50,9 @@ Label.args = {
   ...Default.args,
   variant: 'label',
 };
+
+export const Span = Template.bind({});
+Span.args = {
+  ...Default.args,
+  variant: 'span',
+};
