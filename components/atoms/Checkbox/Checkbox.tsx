@@ -44,6 +44,10 @@ export const Checkbox: FC<CheckboxProps> = ({
     [styles.checkbox]: true,
   });
 
+  const handleChange = (value: boolean) => {
+    if (value && onChange) onChange(value);
+  };
+
   return (
     <label className={elementClass}>
       <Indicator checked={checked} />
@@ -52,7 +56,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         type="checkbox"
         name={name}
         checked={checked}
-        onChange={(event) => onChange(event.target.checked)}
+        onChange={(event) => handleChange(event.target.checked)}
       />
 
       {children}

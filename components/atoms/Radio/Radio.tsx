@@ -45,6 +45,10 @@ export const Radio: FC<RadioProps> = ({
     [styles.radio]: true,
   });
 
+  const handleChange = (newValue: string) => {
+    if (newValue && onChange) onChange(newValue);
+  };
+
   return (
     <label className={elementClass}>
       <Indicator checked={checked} />
@@ -54,7 +58,7 @@ export const Radio: FC<RadioProps> = ({
         name={name}
         checked={checked}
         value={value}
-        onChange={(event) => onChange(event.target.value)}
+        onChange={(event) => handleChange(event.target.value)}
       />
 
       {children}
