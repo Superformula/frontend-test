@@ -8,6 +8,7 @@ $typography-headline-color: #000000;
 $typography-body-color: #666666;
 $typography-status-color: #757575;
 $typography-label-color: #606060;
+$typography-span-color: $primary-color;
 
 // typography-title
 $typography-title-font-size: 54px;
@@ -39,6 +40,12 @@ $typography-status-text-transform: uppercase;
 $typography-label-font-size: 16px;
 $typography-label-line-height: 24px;
 $typography-label-letter-spacing: 1px;
+
+// typography-span
+$typography-span-font-size: 16px;
+$typography-span-line-height: 16px;
+$typography-span-font-weight: normal;
+$typography-span-letter-spacing: 1px;
 
 // button colors
 $button-disabled-color: #C8C8C8;
