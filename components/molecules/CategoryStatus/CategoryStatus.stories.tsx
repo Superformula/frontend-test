@@ -11,7 +11,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: 5,
+        max: 4,
         step: 1,
       },
     },
@@ -49,12 +49,6 @@ PriceFour.args = {
   price: 4,
 };
 
-export const PriceFive = Template.bind({});
-PriceFive.args = {
-  ...Default.args,
-  price: 5,
-};
-
 export const NoCategory = Template.bind({});
 NoCategory.args = {};
 
@@ -76,9 +70,4 @@ NoCategoryPriceThree.args = {
 export const NoCategoryPriceFour = Template.bind({});
 NoCategoryPriceFour.args = {
   price: 4,
-};
-
-export const NoCategoryPriceFive = Template.bind({});
-NoCategoryPriceFive.args = {
-  price: 5,
 };

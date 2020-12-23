@@ -4,7 +4,7 @@ import { Typography } from '~/components/atoms';
 
 export interface CategoryStatusProps {
   category?: string;
-  price?: 1 | 2 | 3 | 4 | 5;
+  price?: 1 | 2 | 3 | 4;
 }
 
 export const CategoryStatus: FC<CategoryStatusProps> = ({ category = '', price = 1 }) => {
