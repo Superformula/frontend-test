@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  p {
+  h1, p, input {
     padding: 0;
     margin: 0;
   }

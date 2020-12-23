@@ -36,6 +36,8 @@ exports[`Button should render secondary button 1`] = `
 
 <button
   className="c0"
+  disabled={false}
+  type="button"
 >
   Click me!
 </button>
@@ -73,6 +75,8 @@ exports[`Button should render without failing 1`] = `
 
 <button
   className="c0"
+  disabled={false}
+  type="button"
 >
   Click me!
 </button>

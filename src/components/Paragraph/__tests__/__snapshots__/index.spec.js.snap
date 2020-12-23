@@ -2,7 +2,7 @@
 
 exports[`Paragraph should render without failing 1`] = `
 .c0 {
-  color: #606060;
+  color: #666666;
   max-width: 792px;
   font-size: 16px;
 }

@@ -3,13 +3,11 @@ import { Button } from './';
 
 const Template = args => <Button {...args}>Click me!</Button>;
 
-export const Primary = Template.bind({});
-Primary.args = { secondary: false };
-
-export const Secondary = Template.bind({});
-Secondary.args = { secondary: true };
+export const Default = Template.bind({});
+Default.args = { secondary: false, disabled: false };
 
 export default {
   title: 'Button',
   component: Button,
+  argTypes: { onClick: { action: 'clicked' } },
 };

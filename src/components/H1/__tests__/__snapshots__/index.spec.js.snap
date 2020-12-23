@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`H1 should render without failing 1`] = `
+.c0 {
+  color: #333;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 40px;
+  margin-bottom: 9px;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    font-size: 54px;
+    line-height: 64px;
+    -webkit-letter-spacing: .96px;
+    -moz-letter-spacing: .96px;
+    -ms-letter-spacing: .96px;
+    letter-spacing: .96px;
+    margin-bottom: 24px;
+  }
+}
+
+<H1>
+  <h1
+    className="c0"
+  >
+    Restaurants
+  </h1>
+</H1>
+`;
