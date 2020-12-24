@@ -1,21 +1,21 @@
 @import 'styles/abstracts/_mixins';
+@import 'styles/abstracts/_variables';
 
 .dropdown {
   @include font-family();
   position: relative;
-
   user-select: none;
 
   &-header {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
-    cursor: pointer;
+    padding: $select-header-padding;
 
     &-arrow {
-      transition-duration: 0.5s;
-      transition-property: transform;
-      transition-timing-function: ease-out;
+      transition-duration: $select-header-transition-duration;
+      transition-property: $select-header-transition-property;
+      transition-timing-function: $select-header-transition-timing;
 
       &--rotate {
         transform: rotate(-180deg);
@@ -23,44 +23,39 @@
     }
   }
 
-  & > hr {
-    width: 100%;
-    height: 1px;
-    background: #C8C8C8;
-    border: none;
-    margin-top: 0;
-    margin-bottom: -1px;
-  }
-
   &-container {
-    position: absolute;
-    width: 100%;
-
-    box-sizing: border-box;
-    background: #FFFFFF;
-    border: 1px solid #C8C8C8;
-    padding: 0 16px;
-
-    max-height: 0;
+    background: $white;
+    border: 1px solid $light-gray;
+    border-top-width: 0;
     box-shadow: none;
-
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    max-height: 0;
     overflow: hidden;
-    transition-property: all;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-out;
+    padding: $select-container-padding;
+    position: absolute;
+    transition-duration: $select-container-transition-duration;
+    transition-property: $select-container-transition-property;
+    transition-timing-function: $select-container-transition-timing;
+    width: 100%;
+    z-index: $select-container-z-index;
 
     &--open {
-      max-height: 500px;
-      box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1), inset 0px -1px 0px #C8C8C8;
+      border: 1px solid $light-gray;
+      box-shadow: $select-container-shadow;
+      max-height: 300px;
     }
 
-    & > label:first-child {
-      padding-top: 11px;
-    }
+    & > li {
+      &:first-child > label {
+        padding-top: $select-container-item-padding;
+      }
 
-    & > label {
-      cursor: pointer;
-      padding-bottom: 11px;
+      & > label {
+        cursor: pointer;
+        padding-bottom: $select-container-item-padding;
+      }
     }
   }
 }

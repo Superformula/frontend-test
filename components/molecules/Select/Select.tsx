@@ -71,19 +71,19 @@ export const Select: FC<SelectProps> = ({
         <img className={arrowClass} src={arrow} alt="dropdown arrow" />
       </div>
 
-      <hr />
-
-      <div ref={ref} className={containerClass}>
+      <ul ref={ref} className={containerClass}>
         {options.map(({ id, text }) => (
-          <Checkbox
-            key={id}
-            checked={value === id}
-            onChange={() => handleChange(id)}
-          >
-            {text}
-          </Checkbox>
+          <li>
+            <Checkbox
+              key={id}
+              checked={value === id}
+              onChange={() => handleChange(id)}
+            >
+              {text}
+            </Checkbox>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
