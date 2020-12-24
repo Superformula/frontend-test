@@ -2,16 +2,25 @@
 
 .dropdown {
   @include font-family();
-
-  width: 10.5em;
-  margin: 0 auto;
   position: relative;
+
+  user-select: none;
 
   &-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
+    padding-bottom: 8px;
     cursor: pointer;
+
+    &-arrow {
+      transition-duration: 0.5s;
+      transition-property: transform;
+      transition-timing-function: ease-out;
+
+      &--rotate {
+        transform: rotate(-180deg);
+      }
+    }
   }
 
   & > hr {

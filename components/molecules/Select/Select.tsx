@@ -1,5 +1,7 @@
 import classNames from 'classnames';
-import React, { FC, useRef, useState } from 'react';
+import React, {
+  FC, useEffect, useRef, useState,
+} from 'react';
 
 import arrow from './assets/arrow.svg';
 import styles from './Select.module.scss';
@@ -13,44 +15,23 @@ export type SelectOption = {
 }
 
 export interface SelectProps {
-
+  label: string;
+  options: SelectOption[];
+  value: string | null;
+  onChange: (value: string) => void;
 }
 
-export const Select: FC<SelectProps> = () => {
+export const Select: FC<SelectProps> = ({
+  label, options, value, onChange,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selectedText, setSelectedText] = useState<string | null>(null);
 
   const ref = useRef();
 
   useOutsideClick(ref, () => {
     if (isOpen) setIsOpen(false);
   });
-
-  const options: SelectOption[] = [{
-    id: 'all',
-    text: 'All',
-  }, {
-    id: 'italian',
-    text: 'Italian',
-  }, {
-    id: 'seafood',
-    text: 'Seafood',
-  }, {
-    id: 'steakhouses',
-    text: 'Steakhouses',
-  }, {
-    id: 'japanese',
-    text: 'Japanese',
-  }, {
-    id: 'american',
-    text: 'American',
-  }, {
-    id: 'mexican',
-    text: 'Mexican',
-  }, {
-    id: 'thai',
-    text: 'Thai',
-  }];
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -62,20 +43,31 @@ export const Select: FC<SelectProps> = () => {
     [styles['dropdown-header']]: true,
   });
 
+  const arrowClass = classNames({
+    [styles['dropdown-header-arrow']]: true,
+    [styles['dropdown-header-arrow--rotate']]: isOpen,
+  });
+
   const containerClass = classNames({
     [styles['dropdown-container']]: true,
   });
 
-  const handleChange = (value: string) => {
-    setSelected(value);
+  const handleChange = (newValue: string) => {
+    onChange(newValue);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const item = options.find(({ id }) => id === value);
+    if (item) setSelectedText(item.text);
+    else setSelectedText(null);
+  }, [options, value]);
 
   return (
     <div className={dropdownClass}>
       <div className={headerClass} onClick={toggle}>
-        <Typography variant="span">Categories</Typography>
-        <img src={arrow} alt="dropdown arrow" />
+        <Typography variant="span">{selectedText || label}</Typography>
+        <img className={arrowClass} src={arrow} alt="dropdown arrow" />
       </div>
 
       <hr />
@@ -86,7 +78,7 @@ export const Select: FC<SelectProps> = () => {
             {options.map(({ id, text }) => (
               <Checkbox
                 key={id}
-                checked={selected === id}
+                checked={value === id}
                 onChange={() => handleChange(id)}
               >
                 {text}
