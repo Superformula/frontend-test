@@ -8,7 +8,9 @@ export const COLORS = Object.freeze({
   GRAY_200: '#E6E6E6',
   GRAY_300: '#D8D8D8',
   GRAY_400: '#C8C8C8',
-  GRAY_500: '#757575',
-  GRAY_600: '#666666',
-  GRAY_700: '#606060',
+  GRAY_500: '#969696',
+  GRAY_600: '#757575',
+  GRAY_700: '#666666',
+  GRAY_800: '#606060',
+  GRAY_900: '#333',
 });

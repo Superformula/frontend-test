@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Separator should render a spaced separator 1`] = `
+.c0 {
+  border: 0;
+  border-top: 1px solid #E6E6E6;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+<Separator
+  spaced={true}
+>
+  <hr
+    className="c0"
+  />
+</Separator>
+`;
+
+exports[`Separator should render without failing 1`] = `
+.c0 {
+  border: 0;
+  border-top: 1px solid #E6E6E6;
+}
+
+<Separator>
+  <hr
+    className="c0"
+  />
+</Separator>
+`;

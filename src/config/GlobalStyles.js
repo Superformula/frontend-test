@@ -9,8 +9,17 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     width: 100%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
     color: ${COLORS.BLACK};
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, p, input {
+    padding: 0;
+    margin: 0;
   }
 
   #root {

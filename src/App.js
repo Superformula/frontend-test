@@ -1,8 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Routes } from './routes';
+import { GlobalStyles } from './config/GlobalStyles';
+import { Lazy } from './components/Lazy';
 
-const Paragraph = styled.p`
-  color: red;
-`;
-
-export const App = () => <Paragraph> Superformula app </Paragraph>;
+export const App = () => (
+  <>
+    <GlobalStyles />
+    <Lazy component={Routes} />
+  </>
+);

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ROUTES should have proper values 1`] = `
+Object {
+  "RESTAURANT": "/restaurants/:id",
+  "RESTAURANTS": "/restaurants",
+}
+`;

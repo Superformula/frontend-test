@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BREAKPOINTS should have proper values 1`] = `
+Object {
+  "LG": 992,
+  "MD": 758,
+  "SM": 576,
+  "XL": 1200,
+  "XS": 320,
+}
+`;

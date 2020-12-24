@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { COLORS } from '../../constants/colors';
 import { MEDIA_MIN } from '../../utils/mediaQuery';
 
-export const Button = styled.button`
-  color: ${COLORS.WHITE};
+export const Button = styled.button.attrs({ type: 'button' })`
   padding: 11px 5px;
-  background-color: ${COLORS.PRIMARY};
   border: 1px solid ${COLORS.PRIMARY};
   border-radius: 2px;
   font-size: 12px;
@@ -22,7 +20,14 @@ export const Button = styled.button`
     letter-spacing: 1px;
   `}
 
-  ${({ secondary }) => secondary && SECONDARY}
+  /* Only apply styles if button is not disabled */
+  ${({ secondary, disabled }) => !disabled && (secondary ? SECONDARY : PRIMARY)}
+  ${({ disabled }) => disabled && DISABLED}
+`;
+
+const PRIMARY = css`
+  color: ${COLORS.WHITE};
+  background-color: ${COLORS.PRIMARY};
 `;
 
 const SECONDARY = css`
@@ -34,12 +39,22 @@ const SECONDARY = css`
   }
 `;
 
+const DISABLED = css`
+  background-color: ${({ secondary }) =>
+    secondary ? COLORS.WHITE : COLORS.GRAY_400};
+  color: ${({ secondary }) => (secondary ? COLORS.GRAY_400 : COLORS.WHITE)};
+  border-color: ${COLORS.GRAY_400};
+  cursor: not-allowed;
+`;
+
 Button.displayName = 'Button';
 
 Button.propTypes = {
   secondary: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
   secondary: false,
+  disabled: false,
 };

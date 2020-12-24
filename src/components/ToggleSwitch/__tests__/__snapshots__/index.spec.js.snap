@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleSwitch should render without failing 1`] = `
+.c2 {
+  cursor: pointer;
+  text-indent: -9999px;
+  margin: 5px 10px;
+  width: 30px;
+  height: 10px;
+  background: #E6E6E6;
+  border-radius: 100px;
+  display: inline-block;
+  position: relative;
+}
+
+.c2:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: #969696;
+  border-radius: 90px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c0 {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.c0:checked + .c1:after {
+  background-color: #00E8A4;
+  left: 100%;
+}
+
+<ToggleSwitch
+  id="toggle-1"
+>
+  <Input
+    id="toggle-1"
+  >
+    <input
+      className="c0"
+      id="toggle-1"
+      type="checkbox"
+    />
+  </Input>
+  <Label
+    htmlFor="toggle-1"
+  >
+    <label
+      className="c1 c2"
+      htmlFor="toggle-1"
+    >
+      toggle
+    </label>
+  </Label>
+</ToggleSwitch>
+`;

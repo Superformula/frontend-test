@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should render without failing 1`] = `
+.c0 {
+  cursor: pointer;
+}
+
+.c3 {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: #606060;
+}
+
+.c3::before {
+  content: '';
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+  border: 1px solid #C8C8C8;
+  margin-right: 8px;
+  border-radius: 50%;
+  -webkit-transition: .2s background-color,.2s border-color;
+  transition: .2s background-color,.2s border-color;
+  background-image: url(-react-component:;);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px;
+}
+
+.c1 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.c1:checked + .c2::before {
+  background-color: #000;
+  border: 2px solid #000;
+}
+
+.c1:focus + .c2::before {
+  outline: auto;
+}
+
+<Checkbox
+  id="check-1"
+>
+  <Wrapper>
+    <div
+      className="c0"
+    >
+      <Input
+        id="check-1"
+      >
+        <input
+          className="c1"
+          id="check-1"
+          type="checkbox"
+        />
+      </Input>
+      <Label
+        htmlFor="check-1"
+      >
+        <label
+          className="c2 c3"
+          htmlFor="check-1"
+        >
+          Click me!
+        </label>
+      </Label>
+    </div>
+  </Wrapper>
+</Checkbox>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph should render without failing 1`] = `
+.c0 {
+  color: #666666;
+  max-width: 792px;
+  font-size: 16px;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    font-size: 22px;
+    -webkit-letter-spacing: .92px;
+    -moz-letter-spacing: .92px;
+    -ms-letter-spacing: .92px;
+    letter-spacing: .92px;
+    font-weight: 300;
+  }
+}
+
+<Paragraph>
+  <p
+    className="c0"
+  >
+    Lorem ipsum
+  </p>
+</Paragraph>
+`;
