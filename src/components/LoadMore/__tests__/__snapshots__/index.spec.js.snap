@@ -5,8 +5,6 @@ exports[`LoadMore should render without failing 1`] = `
   <ActionButton
     $fill={false}
     $secondary={false}
-    0={Object {}}
-    1={Object {}}
     disabled={false}
   />
 </ButtonWrapper>

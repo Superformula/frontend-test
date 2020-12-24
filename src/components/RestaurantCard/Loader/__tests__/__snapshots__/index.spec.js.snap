@@ -9,6 +9,9 @@ exports[`RestaurantCardLoader should render without failing 1`] = `
     <Title>
       <SkeletonLoader />
     </Title>
+    <GenericLabel>
+      <SkeletonLoader />
+    </GenericLabel>
   </ContentWrapper>
 </Wrapper>
 `;

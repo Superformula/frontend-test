@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { DICTIONARY } from 'consts/dictionary';
 import { useIsMobileWidth } from 'hooks/useIsMobileWidth';
+import { getRestaurantUrl } from 'utils/restaurants';
 import { Button } from '../Button';
 import { Rating } from '../Rating';
 import { StatusIndicator } from '../StatusIndicator';
@@ -17,9 +18,11 @@ import { DetailsWrapper } from './DetailsWrapper';
 import { ImageWrapper } from './ImageWrapper';
 
 export const RestaurantCard = memo(
-  ({ id, picture, name, rating, type, cost, isOpen }) => {
+  ({ id, picture, name, rating, type, price, isOpen }) => {
     const isMobile = useIsMobileWidth();
     const StatusComponent = isMobile ? StatusBadge : StatusIndicator;
+    const restaurantUrl = getRestaurantUrl(id);
+
     return (
       <Wrapper>
         <ImageWrapper>
@@ -30,14 +33,16 @@ export const RestaurantCard = memo(
           <Rating {...{ rating, $xs: isMobile }} />
           <DetailsWrapper>
             <GenericLabel>
-              {type} • {cost}
+              {type} • {price}
             </GenericLabel>
             <StatusComponent {...{ isOpen }} />
           </DetailsWrapper>
           {isMobile ? (
-            <LearnMoreLink>{DICTIONARY.LEARN_MORE}</LearnMoreLink>
+            <LearnMoreLink to={restaurantUrl}>
+              {DICTIONARY.LEARN_MORE}
+            </LearnMoreLink>
           ) : (
-            <Button $fill as={Link}>
+            <Button $fill as={Link} to={restaurantUrl}>
               {DICTIONARY.LEARN_MORE}
             </Button>
           )}
@@ -53,7 +58,7 @@ RestaurantCard.propTypes = {
   name: PropTypes.string,
   rating: PropTypes.number,
   type: PropTypes.string,
-  cost: PropTypes.string,
+  price: PropTypes.string,
   isOpen: PropTypes.bool,
 };
 

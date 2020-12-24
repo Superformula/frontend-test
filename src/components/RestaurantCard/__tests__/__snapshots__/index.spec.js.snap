@@ -22,13 +22,14 @@ exports[`RestaurantCard should render with mobile components 1`] = `
       <GenericLabel>
         Thai
          • 
-        $$$$
       </GenericLabel>
       <StatusBadge
         isOpen={true}
       />
     </DetailsWrapper>
-    <LearnMoreLink>
+    <LearnMoreLink
+      to="/restaurants/abc123"
+    >
       Learn more
     </LearnMoreLink>
   </ContentWrapper>
@@ -57,7 +58,6 @@ exports[`RestaurantCard should render without failing 1`] = `
       <GenericLabel>
         Thai
          • 
-        $$$$
       </GenericLabel>
       <StatusIndicator
         isOpen={true}
@@ -80,6 +80,7 @@ exports[`RestaurantCard should render without failing 1`] = `
         }
       }
       disabled={false}
+      to="/restaurants/abc123"
     >
       Learn more
     </Button>

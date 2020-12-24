@@ -4,6 +4,7 @@ import { Wrapper } from '../Wrapper';
 import { Title } from '../Title';
 import { ImageWrapper } from '../ImageWrapper';
 import { ContentWrapper } from '../ContentWrapper';
+import { GenericLabel } from '../../GenericLabel';
 
 export const RestaurantCardLoader = memo(() => (
   <Wrapper>
@@ -14,6 +15,9 @@ export const RestaurantCardLoader = memo(() => (
       <Title>
         <SkeletonLoader />
       </Title>
+      <GenericLabel>
+        <SkeletonLoader />
+      </GenericLabel>
     </ContentWrapper>
   </Wrapper>
 ));

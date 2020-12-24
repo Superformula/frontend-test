@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Restaurants View should render without failing 1`] = `
+exports[`Restaurants View should render with loading cards 1`] = `
 <Fragment>
   <GridWrapper>
     <H1>
@@ -28,19 +28,35 @@ exports[`Restaurants View should render without failing 1`] = `
       <RestaurantCardLoader />
       <RestaurantCardLoader />
       <RestaurantCardLoader />
-      <RestaurantCard />
-      <RestaurantCard
-        name="Taste of Italy"
-      />
-      <RestaurantCard
-        isOpen={true}
-      />
-      <RestaurantCard />
-      <RestaurantCard
-        isOpen={true}
-      />
-      <RestaurantCard />
     </Restaurants>
+  </GridWrapper>
+</Fragment>
+`;
+
+exports[`Restaurants View should render without failing 1`] = `
+<Fragment>
+  <GridWrapper>
+    <H1>
+      Restaurants
+    </H1>
+    <Paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </Paragraph>
+  </GridWrapper>
+  <Separator
+    spaced={true}
+  />
+  <GridWrapper>
+    Filters placeholder
+  </GridWrapper>
+  <Separator
+    spaced={true}
+  />
+  <GridWrapper>
+    <H2>
+      All Restaurants
+    </H2>
+    <Restaurants />
     <LoadMore />
   </GridWrapper>
 </Fragment>
