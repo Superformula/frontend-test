@@ -8,6 +8,7 @@ module.exports = merge(webpackBaseConfig, {
   devtool: 'inline-source-map',
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
+    historyApiFallback: true,
     contentBase: path.resolve(__dirname, './dist'),
     open: true,
     compress: true,

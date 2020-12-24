@@ -1,13 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Rating } from './components/Rating';
-
-const Paragraph = styled.p`
-  color: red;
-`;
+import { Routes } from './routes';
+import { GlobalStyles } from './config/GlobalStyles';
+import { Lazy } from './components/Lazy';
 
 export const App = () => (
-  <Paragraph>
-    Superformula app <Rating />
-  </Paragraph>
+  <>
+    <GlobalStyles />
+    <Lazy component={Routes} />
+  </>
 );

@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should render without failing 1`] = `
-<App__Paragraph>
-  Superformula app 
-  <Rating
-    max={5}
-    rating={0}
+<Fragment>
+  <Memo(l) />
+  <Lazy
+    component={[Function]}
   />
-</App__Paragraph>
+</Fragment>
 `;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lazy should render without failing 1`] = `
+<Suspense
+  component={[Function]}
+  fallback="loading..."
+>
+  <Test />
+</Suspense>
+`;
