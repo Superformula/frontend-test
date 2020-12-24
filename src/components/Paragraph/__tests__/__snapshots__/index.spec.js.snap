@@ -5,6 +5,7 @@ exports[`Paragraph should render without failing 1`] = `
   color: #666666;
   max-width: 792px;
   font-size: 16px;
+  line-height: 24px;
 }
 
 @media (min-width:758px) {
@@ -15,6 +16,7 @@ exports[`Paragraph should render without failing 1`] = `
     -ms-letter-spacing: .92px;
     letter-spacing: .92px;
     font-weight: 300;
+    line-height: 32px;
   }
 }
 

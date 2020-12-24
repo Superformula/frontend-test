@@ -9,7 +9,12 @@ describe('Button', () => {
   });
 
   it('should render secondary button', () => {
-    const wrapper = shallow(<Button secondary>Click me!</Button>);
+    const wrapper = shallow(<Button $secondary>Click me!</Button>);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render button filling the width', () => {
+    const wrapper = shallow(<Button $fill>Click me!</Button>);
     expect(wrapper).toMatchSnapshot();
   });
 });

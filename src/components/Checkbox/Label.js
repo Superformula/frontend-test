@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constants/colors';
-import CheckImage from '../../assets/check.svg';
+import { COLORS } from 'consts/colors';
+import CheckImage from 'assets/check.svg';
 
 export const Label = styled.label`
   cursor: pointer;
@@ -21,7 +21,7 @@ export const Label = styled.label`
     border: 1px solid ${COLORS.GRAY_400};
     margin-right: 8px;
     border-radius: 50%;
-    transition: .2s background-color, .2s border-color;
+    transition: 0.2s background-color, 0.2s border-color;
 
     background-image: url(${CheckImage});
     background-repeat: no-repeat;

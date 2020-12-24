@@ -24,6 +24,15 @@ module.exports = {
       filename: 'index.html',
     }),
   ],
+  resolve: {
+    alias: {
+      assets: path.resolve(__dirname, './src/assets'),
+      components: path.resolve(__dirname, './src/components'),
+      consts: path.resolve(__dirname, './src/consts'),
+      utils: path.resolve(__dirname, './src/utils'),
+      hooks: path.resolve(__dirname, './src/hooks'),
+    },
+  },
   module: {
     rules: [
       {

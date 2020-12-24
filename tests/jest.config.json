@@ -9,6 +9,13 @@
   "timers": "fake",
   "transform": { "^.+\\.js$": "babel-jest" },
   "moduleNameMapper": {
-    "^.+\\.svg$": "<rootDir>/tests/__mocks__/fileMock.js"
+    "^.+\\.svg$": "<rootDir>/tests/__mocks__/fileMock.js",
+
+    "^assets(.*)$": "<rootDir>/src/assets$1",
+    "^components(.*)$": "<rootDir>/src/components$1",
+    "^consts(.*)$": "<rootDir>/src/consts$1",
+    "^config(.*)$": "<rootDir>/src/config$1",
+    "^utils(.*)$": "<rootDir>/src/utils$1",
+    "^hooks(.*)$": "<rootDir>/src/hooks$1"
   }
 }

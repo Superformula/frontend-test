@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { COLORS } from '../../constants/colors';
-import { MEDIA_MIN } from '../../utils/mediaQuery';
+import { COLORS } from 'consts/colors';
+import { MEDIA_MIN } from 'utils/mediaQuery';
 
 export const Button = styled.button.attrs({ type: 'button' })`
   padding: 11px 5px;
@@ -11,8 +11,14 @@ export const Button = styled.button.attrs({ type: 'button' })`
   line-height: 16px;
   letter-spacing: 0.85px;
   text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
   transition: 0.3s;
   cursor: pointer;
+
+  /* Clears default button appearence */
+  appearance: none !important;
+  -webkit-appearance: none !important;
 
   ${MEDIA_MIN.MD`
     padding: 16px 5px;
@@ -21,8 +27,10 @@ export const Button = styled.button.attrs({ type: 'button' })`
   `}
 
   /* Only apply styles if button is not disabled */
-  ${({ secondary, disabled }) => !disabled && (secondary ? SECONDARY : PRIMARY)}
+  ${({ $secondary, disabled }) =>
+    !disabled && ($secondary ? SECONDARY : PRIMARY)}
   ${({ disabled }) => disabled && DISABLED}
+  ${({ $fill }) => $fill && FILL}
 `;
 
 const PRIMARY = css`
@@ -40,21 +48,27 @@ const SECONDARY = css`
 `;
 
 const DISABLED = css`
-  background-color: ${({ secondary }) =>
-    secondary ? COLORS.WHITE : COLORS.GRAY_400};
-  color: ${({ secondary }) => (secondary ? COLORS.GRAY_400 : COLORS.WHITE)};
+  background-color: ${({ $secondary }) =>
+    $secondary ? COLORS.WHITE : COLORS.GRAY_400};
+  color: ${({ $secondary }) => ($secondary ? COLORS.GRAY_400 : COLORS.WHITE)};
   border-color: ${COLORS.GRAY_400};
   cursor: not-allowed;
+`;
+
+const FILL = css`
+  width: 100%;
 `;
 
 Button.displayName = 'Button';
 
 Button.propTypes = {
-  secondary: PropTypes.bool,
   disabled: PropTypes.bool,
+  $secondary: PropTypes.bool,
+  $fill: PropTypes.bool,
 };
 
 Button.defaultProps = {
-  secondary: false,
   disabled: false,
+  $secondary: false,
+  $fill: false,
 };

@@ -1,5 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button should render button filling the width 1`] = `
+.c0 {
+  padding: 11px 5px;
+  border: 1px solid #002B56;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 16px;
+  -webkit-letter-spacing: 0.85px;
+  -moz-letter-spacing: 0.85px;
+  -ms-letter-spacing: 0.85px;
+  letter-spacing: 0.85px;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  color: #FFF;
+  background-color: #002B56;
+  width: 100%;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    padding: 16px 5px;
+    font-size: 14px;
+    -webkit-letter-spacing: 1px;
+    -moz-letter-spacing: 1px;
+    -ms-letter-spacing: 1px;
+    letter-spacing: 1px;
+  }
+}
+
+<button
+  className="c0"
+  disabled={false}
+  type="button"
+>
+  Click me!
+</button>
+`;
+
 exports[`Button should render secondary button 1`] = `
 .c0 {
   padding: 11px 5px;
@@ -12,9 +59,16 @@ exports[`Button should render secondary button 1`] = `
   -ms-letter-spacing: 0.85px;
   letter-spacing: 0.85px;
   text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
   color: #002B56;
   background-color: #FFF;
 }
@@ -55,9 +109,16 @@ exports[`Button should render without failing 1`] = `
   -ms-letter-spacing: 0.85px;
   letter-spacing: 0.85px;
   text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
   color: #FFF;
   background-color: #002B56;
 }

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { MEDIA_MIN } from '../../utils/mediaQuery';
+import { MEDIA_MIN } from 'utils/mediaQuery';
 
 export const GridWrapper = styled.div`
   width: 100%;

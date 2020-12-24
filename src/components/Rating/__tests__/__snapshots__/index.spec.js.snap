@@ -1,32 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Rating should render a custom number of stars 1`] = `
-<Wrapper>
+<Wrapper
+  $lg={false}
+  $xs={false}
+>
   <Star
-    fill={true}
+    $fill={true}
+    key="0"
   />
   <Star
-    fill={false}
+    $fill={false}
+    key="1"
+  />
+</Wrapper>
+`;
+
+exports[`Rating should render a large rating 1`] = `
+<Wrapper
+  $lg={true}
+  $xs={false}
+>
+  <Star
+    $fill={false}
+    key="0"
+  />
+  <Star
+    $fill={false}
+    key="1"
+  />
+  <Star
+    $fill={false}
+    key="2"
+  />
+  <Star
+    $fill={false}
+    key="3"
+  />
+  <Star
+    $fill={false}
+    key="4"
+  />
+</Wrapper>
+`;
+
+exports[`Rating should render a small rating 1`] = `
+<Wrapper
+  $lg={false}
+  $xs={true}
+>
+  <Star
+    $fill={false}
+    key="0"
+  />
+  <Star
+    $fill={false}
+    key="1"
+  />
+  <Star
+    $fill={false}
+    key="2"
+  />
+  <Star
+    $fill={false}
+    key="3"
+  />
+  <Star
+    $fill={false}
+    key="4"
   />
 </Wrapper>
 `;
 
 exports[`Rating should render without failing 1`] = `
-<Wrapper>
+<Wrapper
+  $lg={false}
+  $xs={false}
+>
   <Star
-    fill={false}
+    $fill={false}
+    key="0"
   />
   <Star
-    fill={false}
+    $fill={false}
+    key="1"
   />
   <Star
-    fill={false}
+    $fill={false}
+    key="2"
   />
   <Star
-    fill={false}
+    $fill={false}
+    key="3"
   />
   <Star
-    fill={false}
+    $fill={false}
+    key="4"
   />
 </Wrapper>
 `;

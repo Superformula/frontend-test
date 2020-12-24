@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constants/colors';
+import { COLORS } from 'consts/colors';
 
 export const Label = styled.label`
   cursor: pointer;
-	text-indent: -9999px;
+  text-indent: -9999px;
   margin: 5px 10px;
-	width: 30px;
-	height: 10px;
-	background: ${COLORS.GRAY_200};
-	border-radius: 100px;
-	display: inline-block;
-	position: relative;
+  width: 30px;
+  height: 10px;
+  background: ${COLORS.GRAY_200};
+  border-radius: 100px;
+  display: inline-block;
+  position: relative;
 
   &:after {
     content: '';

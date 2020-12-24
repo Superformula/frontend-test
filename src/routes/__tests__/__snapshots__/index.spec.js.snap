@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes should render routes without failing 1`] = `
+<BrowserRouter>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/restaurants"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/restaurants/:id"
+    />
+    <Redirect
+      from="*"
+      to="/restaurants"
+    />
+  </Switch>
+</BrowserRouter>
+`;

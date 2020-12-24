@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { COLORS } from 'consts/colors';
 import { Label } from './Label';
-import { COLORS } from '../../constants/colors';
 
-export const Input = styled.input.attrs({type: 'checkbox'})`
+export const Input = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
   margin: 0;
   padding: 0;

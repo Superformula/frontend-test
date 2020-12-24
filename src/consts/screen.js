@@ -4,4 +4,5 @@ export const BREAKPOINTS = Object.freeze({
   MD: 758,
   LG: 992,
   XL: 1200,
+  XXL: 1600,
 });

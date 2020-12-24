@@ -36,8 +36,8 @@ exports[`Checkbox should render without failing 1`] = `
   border: 1px solid #C8C8C8;
   margin-right: 8px;
   border-radius: 50%;
-  -webkit-transition: .2s background-color,.2s border-color;
-  transition: .2s background-color,.2s border-color;
+  -webkit-transition: 0.2s background-color,0.2s border-color;
+  transition: 0.2s background-color,0.2s border-color;
   background-image: url(-react-component:;);
   background-repeat: no-repeat;
   background-position: center;
