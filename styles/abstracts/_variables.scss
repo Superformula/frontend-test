@@ -1,13 +1,23 @@
+// base colors
+$blue: #002B56;
+$black: #000000;
+$white: #FFFFFF;
+$lighter-gray: #E6E6E6;
+$light-gray: #C8C8C8;
+$gray: #666666;
+$dark-gray: #757575;
+$darker-gray: #333333;
+
 // theme colors
-$primary-color: #002B56;
-$secondary-color: #FFFFFF;
+$primary-color: $blue;
+$secondary-color: $white;
 
 // typography colors
-$typography-title-color: #333333;
-$typography-headline-color: #000000;
-$typography-body-color: #666666;
-$typography-status-color: #757575;
-$typography-label-color: #606060;
+$typography-title-color: $darker-gray;
+$typography-headline-color: $black;
+$typography-body-color: $gray;
+$typography-status-color: $dark-gray;
+$typography-label-color: $gray;
 $typography-span-color: $primary-color;
 
 // typography-title
@@ -48,8 +58,8 @@ $typography-span-font-weight: normal;
 $typography-span-letter-spacing: 1px;
 
 // button colors
-$button-disabled-color: #C8C8C8;
-$button-disabled-border-color: #E6E6E6;
+$button-disabled-color: $light-gray;
+$button-disabled-border-color: $lighter-gray;
 $button-hover-background: lighten($primary-color, 7%);
 
 // button text
@@ -91,3 +101,19 @@ $checkbox-text-letter-spacing: 0.5px;
 // checkbox size
 $checkbox-height: 16px;
 $checkbox-width: 16px;
+
+// select
+$select-header-padding: 8px 0;
+
+$select-header-transition-duration: 0.5s;
+$select-header-transition-property: transform;
+$select-header-transition-timing: ease-out;
+
+$select-container-transition-duration: 0.4s;
+$select-container-transition-property: all;
+$select-container-transition-timing: ease-out;
+$select-container-padding: 0 16px;
+
+$select-container-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1), inset 0px -1px 0px $light-gray;
+$select-container-item-padding: 11px;
+$select-container-z-index: 1;
