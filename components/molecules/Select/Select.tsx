@@ -50,6 +50,7 @@ export const Select: FC<SelectProps> = ({
 
   const containerClass = classNames({
     [styles['dropdown-container']]: true,
+    [styles['dropdown-container--open']]: isOpen,
   });
 
   const handleChange = (newValue: string) => {
@@ -72,22 +73,17 @@ export const Select: FC<SelectProps> = ({
 
       <hr />
 
-      {
-        isOpen && (
-          <div ref={ref} className={containerClass}>
-            {options.map(({ id, text }) => (
-              <Checkbox
-                key={id}
-                checked={value === id}
-                onChange={() => handleChange(id)}
-              >
-                {text}
-              </Checkbox>
-            ))}
-          </div>
-        )
-      }
-
+      <div ref={ref} className={containerClass}>
+        {options.map(({ id, text }) => (
+          <Checkbox
+            key={id}
+            checked={value === id}
+            onChange={() => handleChange(id)}
+          >
+            {text}
+          </Checkbox>
+        ))}
+      </div>
     </div>
   );
 };

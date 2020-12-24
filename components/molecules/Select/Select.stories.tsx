@@ -7,6 +7,11 @@ export default {
   title: 'molecules/Select',
   component: Select,
   argTypes: {
+    options: {
+      table: {
+        disable: true,
+      },
+    },
     value: {
       control: {
         type: 'select',
