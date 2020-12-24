@@ -27,6 +27,10 @@ exports[`Button should render button filling the width 1`] = `
   width: 100%;
 }
 
+.c0:hover {
+  background-color: #00182f;
+}
+
 @media (min-width:758px) {
   .c0 {
     padding: 16px 5px;
@@ -121,6 +125,10 @@ exports[`Button should render without failing 1`] = `
   -webkit-appearance: none !important;
   color: #FFF;
   background-color: #002B56;
+}
+
+.c0:hover {
+  background-color: #00182f;
 }
 
 @media (min-width:758px) {

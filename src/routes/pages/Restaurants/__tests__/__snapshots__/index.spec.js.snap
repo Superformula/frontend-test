@@ -24,17 +24,24 @@ exports[`Restaurants View should render without failing 1`] = `
       All Restaurants
     </H2>
     <Restaurants>
-      <Memo() />
-      <Memo()
-        name="Pizzinha"
+      <RestaurantCardLoader />
+      <RestaurantCardLoader />
+      <RestaurantCardLoader />
+      <RestaurantCardLoader />
+      <RestaurantCard />
+      <RestaurantCard
+        name="Taste of Italy"
       />
-      <Memo()
+      <RestaurantCard
         isOpen={true}
       />
-      <Memo() />
-      <Memo() />
-      <Memo() />
+      <RestaurantCard />
+      <RestaurantCard
+        isOpen={true}
+      />
+      <RestaurantCard />
     </Restaurants>
+    <LoadMore />
   </GridWrapper>
 </Fragment>
 `;

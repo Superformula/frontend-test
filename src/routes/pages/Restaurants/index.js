@@ -6,7 +6,9 @@ import { Paragraph } from 'components/Paragraph';
 import { GridWrapper } from 'components/GridWrapper';
 import { Separator } from 'components/Separator';
 import { RestaurantCard } from 'components/RestaurantCard';
+import { RestaurantCardLoader } from 'components/RestaurantCard/Loader';
 import { Restaurants as RestaurantsWrapper } from 'components/Restaurants';
+import { LoadMore } from 'components/LoadMore';
 
 export const Restaurants = () => (
   <>
@@ -20,13 +22,18 @@ export const Restaurants = () => (
     <GridWrapper>
       <H2>{DICTIONARY.ALL_RESTAURANTS}</H2>
       <RestaurantsWrapper>
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
         <RestaurantCard />
-        <RestaurantCard name="Pizzinha" />
+        <RestaurantCard name="Taste of Italy" />
         <RestaurantCard isOpen />
         <RestaurantCard />
-        <RestaurantCard />
+        <RestaurantCard isOpen />
         <RestaurantCard />
       </RestaurantsWrapper>
+      <LoadMore />
     </GridWrapper>
   </>
 );

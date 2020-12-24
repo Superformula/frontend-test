@@ -36,6 +36,10 @@ export const Button = styled.button.attrs({ type: 'button' })`
 const PRIMARY = css`
   color: ${COLORS.WHITE};
   background-color: ${COLORS.PRIMARY};
+
+  &:hover {
+    background-color: ${COLORS.DARK_PRIMARY};
+  }
 `;
 
 const SECONDARY = css`

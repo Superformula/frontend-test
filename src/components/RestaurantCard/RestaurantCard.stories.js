@@ -1,5 +1,6 @@
 import React from 'react';
 import { RestaurantCard } from '.';
+import { RestaurantCardLoader } from './Loader';
 
 export const Default = args => <RestaurantCard {...args} />;
 Default.args = {
@@ -11,6 +12,8 @@ Default.args = {
   cost: '$$$$',
   isOpen: true,
 };
+
+export const Loader = () => <RestaurantCardLoader />;
 
 export default {
   title: 'Restaurant Card',

@@ -2,10 +2,12 @@
 
 exports[`RestaurantCard should render with mobile components 1`] = `
 <Wrapper>
-  <Image
-    alt="Ut ipsum magna non laborum eiusmod"
-    src="https://picute.com/something.png"
-  />
+  <ImageWrapper>
+    <Image
+      alt="Ut ipsum magna non laborum eiusmod"
+      src="https://picute.com/something.png"
+    />
+  </ImageWrapper>
   <ContentWrapper>
     <Title>
       Ut ipsum magna non laborum eiusmod
@@ -35,10 +37,12 @@ exports[`RestaurantCard should render with mobile components 1`] = `
 
 exports[`RestaurantCard should render without failing 1`] = `
 <Wrapper>
-  <Image
-    alt="Ut ipsum magna non laborum eiusmod"
-    src="https://picute.com/something.png"
-  />
+  <ImageWrapper>
+    <Image
+      alt="Ut ipsum magna non laborum eiusmod"
+      src="https://picute.com/something.png"
+    />
+  </ImageWrapper>
   <ContentWrapper>
     <Title>
       Ut ipsum magna non laborum eiusmod

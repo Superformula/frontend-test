@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import normalize from 'styled-normalize';
 import { COLORS } from 'consts/colors';
+import { MEDIA_MIN } from 'utils/mediaQuery';
 
 export const GlobalStyles = createGlobalStyle`
   ${normalize}
@@ -15,6 +16,14 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    padding-bottom: 50px;
+
+    ${MEDIA_MIN.MD`
+      padding-bottom: 80px;
+    `}
   }
 
   h1, h2, h3, h4, p, input {

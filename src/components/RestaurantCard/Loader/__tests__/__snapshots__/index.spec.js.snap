@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RestaurantCardLoader should render without failing 1`] = `
+<Wrapper>
+  <ImageWrapper>
+    <SkeletonLoader />
+  </ImageWrapper>
+  <ContentWrapper>
+    <Title>
+      <SkeletonLoader />
+    </Title>
+  </ContentWrapper>
+</Wrapper>
+`;

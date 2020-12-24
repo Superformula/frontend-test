@@ -14,6 +14,7 @@ import { Image } from './Image';
 import { LearnMoreLink } from './LearnMoreLink';
 import { ContentWrapper } from './ContentWrapper';
 import { DetailsWrapper } from './DetailsWrapper';
+import { ImageWrapper } from './ImageWrapper';
 
 export const RestaurantCard = memo(
   ({ id, picture, name, rating, type, cost, isOpen }) => {
@@ -21,7 +22,9 @@ export const RestaurantCard = memo(
     const StatusComponent = isMobile ? StatusBadge : StatusIndicator;
     return (
       <Wrapper>
-        <Image src={picture} alt={name} />
+        <ImageWrapper>
+          <Image src={picture} alt={name} />
+        </ImageWrapper>
         <ContentWrapper>
           <Title>{name}</Title>
           <Rating {...{ rating, $xs: isMobile }} />
@@ -53,3 +56,5 @@ RestaurantCard.propTypes = {
   cost: PropTypes.string,
   isOpen: PropTypes.bool,
 };
+
+RestaurantCard.displayName = 'RestaurantCard';
