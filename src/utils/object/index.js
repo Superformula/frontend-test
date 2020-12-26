@@ -1,8 +1,3 @@
-/**
- * TODO:
- * @param {*} source
- * @param {*} path
- */
 export const get = (source, path) => {
   if (!isValidPath(path)) return source;
 
@@ -14,12 +9,6 @@ export const get = (source, path) => {
   return source;
 };
 
-/**
- * TODO:
- * @param {*} obj
- * @param {*} path
- * @param {*} val
- */
 export const set = (source, path, val) => {
   if (!isValidPath(path)) return;
   let current = { ...source };

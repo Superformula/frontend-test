@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Review should render a complete review 1`] = `
+<Wrapper>
+  <UserWrapper>
+    <ImageWrapper>
+      <FitImg
+        alt="tester"
+        src="http://path.to/image.png"
+      />
+    </ImageWrapper>
+    <div>
+      <Name>
+        tester
+      </Name>
+      <PostedAt>
+        01/01/2021
+      </PostedAt>
+    </div>
+  </UserWrapper>
+  <div>
+    <Rating
+      $lg={false}
+      $xs={false}
+      max={5}
+      rating={5}
+    />
+    <Paragraph
+      extraWeight={true}
+    >
+      lorem ipsum
+    </Paragraph>
+  </div>
+</Wrapper>
+`;
+
+exports[`Review should render without failing 1`] = `
+<Wrapper>
+  <UserWrapper>
+    <ImageWrapper>
+      <FitImg />
+    </ImageWrapper>
+    <div>
+      <Name />
+      <PostedAt />
+    </div>
+  </UserWrapper>
+  <div>
+    <Rating
+      $lg={false}
+      $xs={false}
+      max={5}
+      rating={0}
+    />
+    <Paragraph
+      extraWeight={true}
+    />
+  </div>
+</Wrapper>
+`;

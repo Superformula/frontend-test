@@ -1,9 +1,13 @@
 {
   "rootDir": "../",
   "verbose": true,
-  "collectCoverageFrom": ["src/**/*.js"],
+  "collectCoverageFrom": [
+    "src/**/*.js",
+    "!src/**/*stories.js",
+    "!src/index.js"
+  ],
   "coverageDirectory": "<rootDir>/tests/coverage",
-  "coverageReporters": ["text-summary", "lcovonly"],
+  "coverageReporters": ["text-summary", "lcovonly", "html"],
   "setupFilesAfterEnv": ["<rootDir>/tests/setupTests.js"],
   "snapshotSerializers": ["enzyme-to-json/serializer"],
   "timers": "fake",

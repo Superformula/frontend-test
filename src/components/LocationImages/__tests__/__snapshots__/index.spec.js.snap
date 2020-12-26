@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LocationImages should render with photos 1`] = `
+.c3 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .c0 {
   width: 100%;
   padding: 0 0 39px;
@@ -47,12 +53,6 @@ exports[`LocationImages should render with photos 1`] = `
   display: inline-flex;
   overflow: scroll;
   padding: 0 24px;
-}
-
-.c3 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
 }
 
 @media (min-width:758px) {
@@ -130,7 +130,7 @@ exports[`LocationImages should render with photos 1`] = `
             <div
               className="c2"
             >
-              <Image
+              <FitImg
                 onError={[Function]}
                 src="https://maps.googleapis.com/maps/api/staticmap?center=undefined&scale=1&size=640x228&maptype=roadmap&format=png&key=undefined"
               >
@@ -139,7 +139,7 @@ exports[`LocationImages should render with photos 1`] = `
                   onError={[Function]}
                   src="https://maps.googleapis.com/maps/api/staticmap?center=undefined&scale=1&size=640x228&maptype=roadmap&format=png&key=undefined"
                 />
-              </Image>
+              </FitImg>
             </div>
           </MapWrapper>
           <Address>
@@ -159,14 +159,14 @@ exports[`LocationImages should render with photos 1`] = `
             <div
               className="c6"
             >
-              <Image
+              <FitImg
                 src="http://pathtoimage.com/image-1.png"
               >
                 <img
                   className="c3"
                   src="http://pathtoimage.com/image-1.png"
                 />
-              </Image>
+              </FitImg>
             </div>
           </ImageWrapper>
           <ImageWrapper
@@ -175,14 +175,14 @@ exports[`LocationImages should render with photos 1`] = `
             <div
               className="c6"
             >
-              <Image
+              <FitImg
                 src="http://pathtoimage.com/image-2.png"
               >
                 <img
                   className="c3"
                   src="http://pathtoimage.com/image-2.png"
                 />
-              </Image>
+              </FitImg>
             </div>
           </ImageWrapper>
         </div>
@@ -193,6 +193,12 @@ exports[`LocationImages should render with photos 1`] = `
 `;
 
 exports[`LocationImages should render without failing 1`] = `
+.c3 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .c0 {
   width: 100%;
   padding: 0 0 39px;
@@ -222,12 +228,6 @@ exports[`LocationImages should render without failing 1`] = `
   -ms-letter-spacing: 1px;
   letter-spacing: 1px;
   margin: 0 24px;
-}
-
-.c3 {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
 }
 
 @media (min-width:758px) {
@@ -281,7 +281,7 @@ exports[`LocationImages should render without failing 1`] = `
             <div
               className="c2"
             >
-              <Image
+              <FitImg
                 onError={[Function]}
                 src="https://maps.googleapis.com/maps/api/staticmap?center=undefined&scale=1&size=640x228&maptype=roadmap&format=png&key=undefined"
               >
@@ -290,7 +290,7 @@ exports[`LocationImages should render without failing 1`] = `
                   onError={[Function]}
                   src="https://maps.googleapis.com/maps/api/staticmap?center=undefined&scale=1&size=640x228&maptype=roadmap&format=png&key=undefined"
                 />
-              </Image>
+              </FitImg>
             </div>
           </MapWrapper>
           <Address>

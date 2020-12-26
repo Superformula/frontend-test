@@ -10,6 +10,7 @@ import { Rating } from 'components/Rating';
 import { StatusIndicator } from 'components/StatusIndicator';
 import { LocationImages } from 'components/LocationImages';
 import { SpaceBetween } from 'components/SpaceBetween';
+import { Reviews } from 'components/Reviews';
 
 export const Restaurant = () => {
   const isMobile = useIsMobileWidth();
@@ -18,22 +19,28 @@ export const Restaurant = () => {
 
   if (loading) {
     return (
-      <>
-        {id}
-        <GridWrapper>
-          <H1>
-            <SkeletonLoader />
-          </H1>
-          <Paragraph bottomSpaced>
-            <SkeletonLoader />
-          </Paragraph>
-        </GridWrapper>
-      </>
+      <GridWrapper>
+        <H1>
+          <SkeletonLoader />
+        </H1>
+        <Paragraph>
+          <SkeletonLoader />
+        </Paragraph>
+      </GridWrapper>
     );
   }
 
-  const { address, isOpen, name, photos, price, rating, reviewCount, type } =
-    restaurant || {};
+  const {
+    address,
+    isOpen,
+    name,
+    photos,
+    price,
+    rating,
+    type,
+    reviewCount,
+    reviews,
+  } = restaurant || {};
 
   return (
     <>
@@ -50,6 +57,7 @@ export const Restaurant = () => {
         </SpaceBetween>
       </GridWrapper>
       <LocationImages {...{ address, photos }} />
+      <Reviews {...{ reviewCount, reviews }} />
     </>
   );
 };

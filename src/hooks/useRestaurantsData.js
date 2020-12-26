@@ -3,18 +3,13 @@ import { useQuery } from '@apollo/client';
 import { restaurantsQuery } from '../graphql/queries/restaurants';
 import { StoreContext } from '../store';
 
-// Mock
-import data from '../graphql/mocks/restaurants.json';
-const fetchMore = () => console.log('FETCHING MORE...');
-const loading = true;
-
 export const useRestaurantsData = () => {
   const [state = {}] = useContext(StoreContext) || [];
   const { filters = {} } = state;
-  // const { loading, data, fetchMore } = useQuery(restaurantsQuery, {
-  //   notifyOnNetworkStatusChange: true,
-  //   variables: { categories: filters.category },
-  // });
+  const { loading, data, fetchMore } = useQuery(restaurantsQuery, {
+    notifyOnNetworkStatusChange: true,
+    variables: { categories: filters.category },
+  });
 
   const { business = [] } = data?.search || {};
   const offset = business.length;

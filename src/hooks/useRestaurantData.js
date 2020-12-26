@@ -2,16 +2,13 @@ import { useMemo } from 'react';
 import { useQuery } from '@apollo/client';
 import { restaurantQuery } from '../graphql/queries/restaurant';
 
-// Mock
-import data from '../graphql/mocks/restaurant.json';
-
 export const useRestaurantData = id => {
-  // const { data, loading } = useQuery(restaurantQuery, { variables: { id } });
-  const restaurant = useMemo(() => reshapeData(data?.business), [
+  const { data, loading } = useQuery(restaurantQuery, { variables: { id } });
+  const restaurant = useMemo(() => reshapeData(data?.business || {}), [
     data?.business,
   ]);
   console.log({ restaurant });
-  return { restaurant, loading: false };
+  return { restaurant, loading };
 };
 
 const reshapeData = ({
@@ -33,7 +30,7 @@ const reshapeData = ({
   rating,
   reviewCount: review_count,
   type: categories?.[0]?.title,
-  reviews: reviews.map(buildReviews),
+  reviews: reviews?.map(buildReviews),
 });
 
 const buildReviews = ({ rating, time_created, text, user }) => ({

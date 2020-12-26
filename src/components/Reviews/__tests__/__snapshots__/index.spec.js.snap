@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reviews should render with reviews 1`] = `
+<GridWrapper>
+  <Paragraph
+    bottomSpaced={true}
+  >
+    10
+     
+    Reviews
+  </Paragraph>
+  <Memo()
+    date="01/01/2021"
+    key="lorem ipsum"
+    rating={5}
+    text="lorem ipsum"
+    user={
+      Object {
+        "avatar": "http://path.to/image.png",
+        "name": "tester",
+      }
+    }
+  />
+</GridWrapper>
+`;
+
+exports[`Reviews should render without failing 1`] = `
+.c0 {
+  width: 100%;
+  padding-right: 24px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.c1 {
+  color: #666666;
+  max-width: 792px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 42px;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+}
+
+@media (min-width:758px) {
+  .c1 {
+    font-size: 22px;
+    -webkit-letter-spacing: .92px;
+    -moz-letter-spacing: .92px;
+    -ms-letter-spacing: .92px;
+    letter-spacing: .92px;
+    font-weight: 300;
+    line-height: 32px;
+  }
+}
+
+@media (min-width:758px) {
+  .c1 {
+    margin-bottom: 36px;
+  }
+}
+
+<Reviews>
+  <GridWrapper>
+    <div
+      className="c0"
+    >
+      <Paragraph
+        bottomSpaced={true}
+      >
+        <p
+          className="c1"
+        >
+           
+          Reviews
+        </p>
+      </Paragraph>
+    </div>
+  </GridWrapper>
+</Reviews>
+`;

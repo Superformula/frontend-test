@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { PageLoader } from 'components/PageLoader';
 import Lazy from '../';
 
 describe('Lazy', () => {
@@ -13,6 +14,6 @@ describe('Lazy', () => {
     const Test = () => <div />;
     const wrapper = shallow(<Lazy component={Test} />);
     const { fallback } = wrapper.find('Suspense').props();
-    expect(fallback).toBe('loading...');
+    expect(fallback).toEqual(<PageLoader />);
   });
 });

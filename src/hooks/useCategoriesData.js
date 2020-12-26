@@ -2,13 +2,8 @@ import { useMemo } from 'react';
 import { useQuery } from '@apollo/client';
 import { categoriesQuery } from '../graphql/queries/categories';
 
-// Mock
-import data from '../graphql/mocks/categories.json';
-
 export const useCategoriesData = () => {
-  // const { data } = useQuery(categoriesQuery, {
-  //   notifyOnNetworkStatusChange: true,
-  // });
+  const { data } = useQuery(categoriesQuery);
   const { category = [] } = data?.categories || {};
   const restaurantCategories = category.filter(keepOnlyRestaurants);
   const categories = useMemo(() => reshapeData(restaurantCategories), [

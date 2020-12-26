@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusBadge should render with the status of open 1`] = `
+<Badge
+  isOpen={true}
+>
+  open
+</Badge>
+`;
+
+exports[`StatusBadge should render without failing 1`] = `
+.c0 {
+  display: inline-block;
+  border-radius: 40px;
+  padding: 0 6px;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0.57px;
+  -moz-letter-spacing: 0.57px;
+  -ms-letter-spacing: 0.57px;
+  letter-spacing: 0.57px;
+  line-height: 16px;
+  font-size: 8px;
+  font-weight: 500;
+  background-color: #FF3548;
+  color: #FFF;
+}
+
+<StatusBadge>
+  <Badge>
+    <span
+      className="c0"
+    >
+      closed
+    </span>
+  </Badge>
+</StatusBadge>
+`;

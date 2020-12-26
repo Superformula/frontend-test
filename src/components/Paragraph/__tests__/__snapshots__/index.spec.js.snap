@@ -38,6 +38,55 @@ exports[`Paragraph should render a bottom spaced paragraph 1`] = `
 </Paragraph>
 `;
 
+exports[`Paragraph should render a paragraph with extra weight 1`] = `
+.c0 {
+  color: #666666;
+  max-width: 792px;
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-letter-spacing: 0.8px;
+  -moz-letter-spacing: 0.8px;
+  -ms-letter-spacing: 0.8px;
+  letter-spacing: 0.8px;
+  line-height: 22px;
+  margin-top: 24px;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    font-size: 22px;
+    -webkit-letter-spacing: .92px;
+    -moz-letter-spacing: .92px;
+    -ms-letter-spacing: .92px;
+    letter-spacing: .92px;
+    font-weight: 300;
+    line-height: 32px;
+  }
+}
+
+@media (min-width:758px) {
+  .c0 {
+    font-size: 20px;
+    line-height: 28px;
+    -webkit-letter-spacing: 1px;
+    -moz-letter-spacing: 1px;
+    -ms-letter-spacing: 1px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+  }
+}
+
+<Paragraph
+  extraWeight={true}
+>
+  <p
+    className="c0"
+  >
+    Lorem ipsum
+  </p>
+</Paragraph>
+`;
+
 exports[`Paragraph should render without failing 1`] = `
 .c0 {
   color: #666666;
