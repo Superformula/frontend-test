@@ -12,4 +12,14 @@ describe('Rating', () => {
     const wrapper = shallow(<Rating max={2} rating={1} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should render a small rating', () => {
+    const wrapper = shallow(<Rating $xs />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render a large rating', () => {
+    const wrapper = shallow(<Rating $lg />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

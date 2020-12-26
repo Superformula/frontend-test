@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { BREAKPOINTS } from '../../constants/screen';
+import { BREAKPOINTS } from 'consts/screen';
 
 const mediaQuery = type =>
   Object.keys(BREAKPOINTS).reduce((acc, label) => {

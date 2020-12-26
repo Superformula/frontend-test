@@ -13,6 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].[hash:8].js',
+    publicPath: '/',
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -24,6 +25,17 @@ module.exports = {
       filename: 'index.html',
     }),
   ],
+  resolve: {
+    alias: {
+      actions: path.resolve(__dirname, './src/actions'),
+      assets: path.resolve(__dirname, './src/assets'),
+      components: path.resolve(__dirname, './src/components'),
+      consts: path.resolve(__dirname, './src/consts'),
+      hooks: path.resolve(__dirname, './src/hooks'),
+      paths: path.resolve(__dirname, './src/paths'),
+      utils: path.resolve(__dirname, './src/utils'),
+    },
+  },
   module: {
     rules: [
       {

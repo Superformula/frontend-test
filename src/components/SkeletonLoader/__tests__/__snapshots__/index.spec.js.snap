@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonLoader should render without failing 1`] = `
+.c0 {
+  display: inline-block;
+  line-height: 1;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  background: #D8D8D8;
+  background: linear-gradient(90deg,#D8D8D8,#F2F2F2);
+  background-size: 400% 400%;
+  -webkit-animation: jzvvOC 2s ease infinite;
+  animation: jzvvOC 2s ease infinite;
+}
+
+<SkeletonLoader>
+  <span
+    className="c0"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "&nbsp;",
+      }
+    }
+    role="progressbar"
+  />
+</SkeletonLoader>
+`;

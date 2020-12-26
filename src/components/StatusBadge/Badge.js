@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { COLORS } from '../../constants/colors';
+import { COLORS } from 'consts/colors';
 
 export const Badge = styled.span`
   display: inline-block;

@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RestaurantCard should render with mobile components 1`] = `
+<Wrapper>
+  <ImageWrapper>
+    <Image
+      alt="Ut ipsum magna non laborum eiusmod"
+      src="https://picute.com/something.png"
+    />
+  </ImageWrapper>
+  <ContentWrapper>
+    <Title>
+      Ut ipsum magna non laborum eiusmod
+    </Title>
+    <Rating
+      $lg={false}
+      $xs={true}
+      max={5}
+      rating={3}
+    />
+    <DetailsWrapper>
+      <GenericLabel>
+        Thai
+         • 
+      </GenericLabel>
+      <StatusBadge
+        isOpen={true}
+      />
+    </DetailsWrapper>
+    <LearnMoreLink
+      to="/restaurants/abc123"
+    >
+      Learn more
+    </LearnMoreLink>
+  </ContentWrapper>
+</Wrapper>
+`;
+
+exports[`RestaurantCard should render without failing 1`] = `
+<Wrapper>
+  <ImageWrapper>
+    <Image
+      alt="Ut ipsum magna non laborum eiusmod"
+      src="https://picute.com/something.png"
+    />
+  </ImageWrapper>
+  <ContentWrapper>
+    <Title>
+      Ut ipsum magna non laborum eiusmod
+    </Title>
+    <Rating
+      $lg={false}
+      $xs={false}
+      max={5}
+      rating={3}
+    />
+    <DetailsWrapper>
+      <GenericLabel>
+        Thai
+         • 
+      </GenericLabel>
+      <StatusIndicator
+        isOpen={true}
+      />
+    </DetailsWrapper>
+    <Button
+      $fill={true}
+      $secondary={false}
+      as={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      disabled={false}
+      to="/restaurants/abc123"
+    >
+      Learn more
+    </Button>
+  </ContentWrapper>
+</Wrapper>
+`;

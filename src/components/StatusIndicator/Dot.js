@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../../constants/colors';
+import { COLORS } from 'consts/colors';
 
 export const Dot = styled.span`
   width: 8px;

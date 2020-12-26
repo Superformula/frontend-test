@@ -4,7 +4,7 @@ import { Button } from './';
 const Template = args => <Button {...args}>Click me!</Button>;
 
 export const Default = Template.bind({});
-Default.args = { secondary: false, disabled: false };
+Default.args = { disabled: false, $secondary: false, $fill: false };
 
 export default {
   title: 'Button',

@@ -7,6 +7,7 @@ exports[`Checkbox should render without failing 1`] = `
 
 .c3 {
   cursor: pointer;
+  text-transform: capitalize;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -36,9 +37,8 @@ exports[`Checkbox should render without failing 1`] = `
   border: 1px solid #C8C8C8;
   margin-right: 8px;
   border-radius: 50%;
-  -webkit-transition: .2s background-color,.2s border-color;
-  transition: .2s background-color,.2s border-color;
-  background-image: url(-react-component:;);
+  -webkit-transition: 0.2s background-color,0.2s border-color;
+  transition: 0.2s background-color,0.2s border-color;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 11px;
@@ -54,9 +54,21 @@ exports[`Checkbox should render without failing 1`] = `
   pointer-events: none;
 }
 
-.c1:checked + .c2::before {
+.c1:checked + .c2 {
+  color: #002B56;
+}
+
+.c1[type='checkbox']:checked + .c2::before {
+  background-image: url(-react-component:;);
   background-color: #000;
-  border: 2px solid #000;
+  border-color: #000;
+}
+
+.c1[type='radio']:checked + .c2::before {
+  background-image: url(-react-component:;);
+  background-size: 10px;
+  background-color: #FFF;
+  border-color: #C8C8C8;
 }
 
 .c1:focus + .c2::before {
@@ -66,30 +78,36 @@ exports[`Checkbox should render without failing 1`] = `
 <Checkbox
   id="check-1"
 >
-  <Wrapper>
-    <div
-      className="c0"
-    >
-      <Input
-        id="check-1"
+  <OptionInput
+    id="check-1"
+    type="checkbox"
+  >
+    <Wrapper>
+      <div
+        className="c0"
       >
-        <input
-          className="c1"
+        <Input
           id="check-1"
           type="checkbox"
-        />
-      </Input>
-      <Label
-        htmlFor="check-1"
-      >
-        <label
-          className="c2 c3"
+        >
+          <input
+            className="c1"
+            id="check-1"
+            type="checkbox"
+          />
+        </Input>
+        <Label
           htmlFor="check-1"
         >
-          Click me!
-        </label>
-      </Label>
-    </div>
-  </Wrapper>
+          <label
+            className="c2 c3"
+            htmlFor="check-1"
+          >
+            Click me!
+          </label>
+        </Label>
+      </div>
+    </Wrapper>
+  </OptionInput>
 </Checkbox>
 `;

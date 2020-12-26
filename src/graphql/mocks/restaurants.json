@@ -1,0 +1,190 @@
+{
+  "search": {
+    "__typename": "Businesses",
+    "total": 5028,
+    "business": [
+      {
+        "__typename": "Business",
+        "id": "faPVqws-x-5k2CQKDNtHxw",
+        "photos": [
+          "https://s3-media4.fl.yelpcdn.com/bphoto/_zXRdYX4r1OBfF86xKMbDw/o.jpg"
+        ],
+        "name": "Yardbird Southern Table & Bar",
+        "rating": 4.5,
+        "categories": [
+          {
+            "__typename": "Category",
+            "alias": "southern",
+            "title": "Southern"
+          },
+          {
+            "__typename": "Category",
+            "alias": "newamerican",
+            "title": "American (New)"
+          },
+          {
+            "__typename": "Category",
+            "alias": "cocktailbars",
+            "title": "Cocktail Bars"
+          }
+        ],
+        "price": "$$",
+        "is_closed": true
+      },
+      {
+        "__typename": "Business",
+        "id": "4JNXUYY8wbaaDmk3BPzlWw",
+        "photos": [
+          "https://s3-media1.fl.yelpcdn.com/bphoto/tEcdu80k_iS4OIqEVSDkZw/o.jpg"
+        ],
+        "name": "Mon Ami Gabi",
+        "rating": 4,
+        "categories": [
+          { "__typename": "Category", "alias": "french", "title": "French" },
+          {
+            "__typename": "Category",
+            "alias": "steak",
+            "title": "Steakhouses"
+          },
+          {
+            "__typename": "Category",
+            "alias": "breakfast_brunch",
+            "title": "Breakfast & Brunch"
+          }
+        ],
+        "price": "$$",
+        "is_closed": true
+      },
+      {
+        "__typename": "Business",
+        "id": "vHz2RLtfUMVRPFmd7VBEHA",
+        "photos": [
+          "https://s3-media4.fl.yelpcdn.com/bphoto/mFimEc6u8JCmbM5X1qgCeQ/o.jpg"
+        ],
+        "name": "Gordon Ramsay Hell's Kitchen",
+        "rating": 4.5,
+        "categories": [
+          {
+            "__typename": "Category",
+            "alias": "newamerican",
+            "title": "American (New)"
+          }
+        ],
+        "price": "$$$",
+        "is_closed": false
+      },
+      {
+        "__typename": "Business",
+        "id": "hihud--QRriCYZw1zZvW4g",
+        "photos": [
+          "https://s3-media4.fl.yelpcdn.com/bphoto/SrM8q-cGpbX5RJUYiEFFrQ/o.jpg"
+        ],
+        "name": "Gangnam Asian BBQ Dining",
+        "rating": 4.5,
+        "categories": [
+          {
+            "__typename": "Category",
+            "alias": "japanese",
+            "title": "Japanese"
+          },
+          { "__typename": "Category", "alias": "korean", "title": "Korean" },
+          { "__typename": "Category", "alias": "bbq", "title": "Barbeque" }
+        ],
+        "price": "$$",
+        "is_closed": true
+      },
+      {
+        "__typename": "Business",
+        "id": "3kdSl5mo9dWC4clrQjEDGg",
+        "photos": [
+          "https://s3-media3.fl.yelpcdn.com/bphoto/tDnWv0HCj3YgRRIzLuMfww/o.jpg"
+        ],
+        "name": "Egg & I",
+        "rating": 4.5,
+        "categories": [
+          {
+            "__typename": "Category",
+            "alias": "breakfast_brunch",
+            "title": "Breakfast & Brunch"
+          },
+          { "__typename": "Category", "alias": "burgers", "title": "Burgers" },
+          {
+            "__typename": "Category",
+            "alias": "tradamerican",
+            "title": "American (Traditional)"
+          }
+        ],
+        "price": "$$",
+        "is_closed": false
+      },
+      {
+        "__typename": "Business",
+        "id": "JDZ6_yycNQFTpUZzLIKHUg",
+        "photos": [
+          "https://s3-media3.fl.yelpcdn.com/bphoto/C2rDffzQgMayXBDNknx7fQ/o.jpg"
+        ],
+        "name": "El Dorado Cantina - Las Vegas Strip",
+        "rating": 4.5,
+        "categories": [
+          { "__typename": "Category", "alias": "mexican", "title": "Mexican" },
+          { "__typename": "Category", "alias": "bars", "title": "Bars" },
+          {
+            "__typename": "Category",
+            "alias": "latin",
+            "title": "Latin American"
+          }
+        ],
+        "price": "$$",
+        "is_closed": false
+      },
+      {
+        "__typename": "Business",
+        "id": "QXV3L_QFGj8r6nWX2kS2hA",
+        "photos": [
+          "https://s3-media4.fl.yelpcdn.com/bphoto/pu9doqMplB5x5SEs8ikW6w/o.jpg"
+        ],
+        "name": "Nacho Daddy",
+        "rating": 4.5,
+        "categories": [
+          {
+            "__typename": "Category",
+            "alias": "newamerican",
+            "title": "American (New)"
+          },
+          { "__typename": "Category", "alias": "mexican", "title": "Mexican" },
+          {
+            "__typename": "Category",
+            "alias": "breakfast_brunch",
+            "title": "Breakfast & Brunch"
+          }
+        ],
+        "price": "$$",
+        "is_closed": false
+      },
+      {
+        "__typename": "Business",
+        "id": "mDR12Hafvr84ctpsV6YLag",
+        "photos": [
+          "https://s3-media1.fl.yelpcdn.com/bphoto/goAZephpY5xHQlkXWZFYvw/o.jpg"
+        ],
+        "name": "Mr. Mamas Breakfast and Lunch",
+        "rating": 4.5,
+        "categories": [
+          {
+            "__typename": "Category",
+            "alias": "breakfast_brunch",
+            "title": "Breakfast & Brunch"
+          },
+          {
+            "__typename": "Category",
+            "alias": "tradamerican",
+            "title": "American (Traditional)"
+          },
+          { "__typename": "Category", "alias": "burgers", "title": "Burgers" }
+        ],
+        "price": "$",
+        "is_closed": false
+      }
+    ]
+  }
+}

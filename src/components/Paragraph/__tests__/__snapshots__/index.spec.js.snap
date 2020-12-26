@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Paragraph should render without failing 1`] = `
+exports[`Paragraph should render a bottom spaced paragraph 1`] = `
 .c0 {
   color: #666666;
   max-width: 792px;
   font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 42px;
 }
 
 @media (min-width:758px) {
@@ -15,6 +17,44 @@ exports[`Paragraph should render without failing 1`] = `
     -ms-letter-spacing: .92px;
     letter-spacing: .92px;
     font-weight: 300;
+    line-height: 32px;
+  }
+}
+
+@media (min-width:758px) {
+  .c0 {
+    margin-bottom: 36px;
+  }
+}
+
+<Paragraph
+  bottomSpaced={true}
+>
+  <p
+    className="c0"
+  >
+    Lorem ipsum
+  </p>
+</Paragraph>
+`;
+
+exports[`Paragraph should render without failing 1`] = `
+.c0 {
+  color: #666666;
+  max-width: 792px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    font-size: 22px;
+    -webkit-letter-spacing: .92px;
+    -moz-letter-spacing: .92px;
+    -ms-letter-spacing: .92px;
+    letter-spacing: .92px;
+    font-weight: 300;
+    line-height: 32px;
   }
 }
 

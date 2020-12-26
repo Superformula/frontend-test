@@ -14,5 +14,13 @@ module.exports = merge(webpackBaseConfig, {
     compress: true,
     hot: true,
     port: 3000,
+    proxy: {
+      '/api': {
+        target: process.env.YELP_URL,
+        pathRewrite: { '^/api': '' },
+        secure: false,
+        changeOrigin: true,
+      },
+    },
   },
 });

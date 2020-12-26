@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Wrapper } from './Wrapper';
 import { Dot } from './Dot';
 import { GenericLabel } from '../GenericLabel';
-import { DICTIONARY } from '../../constants/dictionary';
+import { DICTIONARY } from 'consts/dictionary';
 
 export const StatusIndicator = ({ isOpen }) => (
   <Wrapper>

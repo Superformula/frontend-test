@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadMore should render without failing 1`] = `
+<ButtonWrapper>
+  <ActionButton
+    $fill={false}
+    $secondary={false}
+    disabled={false}
+  >
+     
+    Load more
+  </ActionButton>
+</ButtonWrapper>
+`;

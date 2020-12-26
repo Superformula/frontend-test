@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Restaurants should render without failing 1`] = `
+.c0 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 32px;
+  padding-bottom: 48px;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    padding-bottom: 80px;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 80px 32px;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+@media (min-width:1600px) {
+  .c0 {
+    grid-template-columns: repeat(6,1fr);
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
