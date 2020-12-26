@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filters should render without failing 1`] = `
+.c1 {
+  cursor: pointer;
+}
+
+.c4 {
+  cursor: pointer;
+  text-transform: capitalize;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: #606060;
+}
+
+.c4::before {
+  content: '';
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #FFF;
+  border: 1px solid #C8C8C8;
+  margin-right: 8px;
+  border-radius: 50%;
+  -webkit-transition: 0.2s background-color,0.2s border-color;
+  transition: 0.2s background-color,0.2s border-color;
+  background-image: url(-react-component:;);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px;
+}
+
+.c2 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.c2:checked + .c3 {
+  color: #002B56;
+}
+
+.c2:checked + .c3::before {
+  background-color: #000;
+  border: 2px solid #000;
+}
+
+.c2:focus + .c3::before {
+  outline: auto;
+}
+
+.c0 {
+  margin-right: 33px;
+  position: relative;
+  color: #002B56;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.c0::after {
+  content: '';
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 7px);
+  background-color: #C8C8C8;
+}
+
+<Filters>
+  <FilterWrapper>
+    <div
+      className="c0"
+    >
+      <Checkbox
+        checked={false}
+        name="open-now-filter-desktop"
+        onChange={[Function]}
+      >
+        <OptionInput
+          checked={false}
+          name="open-now-filter-desktop"
+          onChange={[Function]}
+          type="checkbox"
+        >
+          <Wrapper>
+            <div
+              className="c1"
+            >
+              <Input
+                checked={false}
+                id="open-now-filter-desktop"
+                name="open-now-filter-desktop"
+                onChange={[Function]}
+                type="checkbox"
+              >
+                <input
+                  checked={false}
+                  className="c2"
+                  id="open-now-filter-desktop"
+                  name="open-now-filter-desktop"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+              </Input>
+              <Label
+                htmlFor="open-now-filter-desktop"
+              >
+                <label
+                  className="c3 c4"
+                  htmlFor="open-now-filter-desktop"
+                >
+                  open now
+                </label>
+              </Label>
+            </div>
+          </Wrapper>
+        </OptionInput>
+      </Checkbox>
+    </div>
+  </FilterWrapper>
+  <FilterWrapper>
+    <div
+      className="c0"
+    >
+      FILTERS 2
+    </div>
+  </FilterWrapper>
+</Filters>
+`;

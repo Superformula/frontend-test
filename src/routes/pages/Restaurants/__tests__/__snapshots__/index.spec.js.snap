@@ -6,19 +6,13 @@ exports[`Restaurants View should render with loading cards 1`] = `
     <H1>
       Restaurants
     </H1>
-    <Paragraph>
+    <Paragraph
+      bottomSpaced={true}
+    >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </Paragraph>
   </GridWrapper>
-  <Separator
-    spaced={true}
-  />
-  <GridWrapper>
-    Filters placeholder
-  </GridWrapper>
-  <Separator
-    spaced={true}
-  />
+  <FiltersBar />
   <GridWrapper>
     <H2>
       All Restaurants
@@ -39,19 +33,13 @@ exports[`Restaurants View should render without failing 1`] = `
     <H1>
       Restaurants
     </H1>
-    <Paragraph>
+    <Paragraph
+      bottomSpaced={true}
+    >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </Paragraph>
   </GridWrapper>
-  <Separator
-    spaced={true}
-  />
-  <GridWrapper>
-    Filters placeholder
-  </GridWrapper>
-  <Separator
-    spaced={true}
-  />
+  <FiltersBar />
   <GridWrapper>
     <H2>
       All Restaurants

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { COLORS } from 'consts/colors';
 import { Label } from './Label';
 
-export const Input = styled.input.attrs({ type: 'checkbox' })`
+export const Input = styled.input`
   position: absolute;
   margin: 0;
   padding: 0;
@@ -11,9 +11,12 @@ export const Input = styled.input.attrs({ type: 'checkbox' })`
   width: 0;
   pointer-events: none;
 
-  &:checked + ${Label}::before {
-    background-color: ${COLORS.BLACK};
-    border: 2px solid ${COLORS.BLACK};
+  &:checked + ${Label} {
+    color: ${COLORS.PRIMARY};
+    &::before {
+      background-color: ${COLORS.BLACK};
+      border: 2px solid ${COLORS.BLACK};
+    }
   }
 
   &:focus + ${Label}::before {

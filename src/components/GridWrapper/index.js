@@ -18,6 +18,7 @@ export const GridWrapper = styled.div`
 const FLEX = css`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 `;
 
 GridWrapper.displayName = 'GridWrapper';

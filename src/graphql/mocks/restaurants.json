@@ -29,7 +29,7 @@
           }
         ],
         "price": "$$",
-        "is_closed": false
+        "is_closed": true
       },
       {
         "__typename": "Business",
@@ -53,7 +53,7 @@
           }
         ],
         "price": "$$",
-        "is_closed": false
+        "is_closed": true
       },
       {
         "__typename": "Business",
@@ -91,7 +91,7 @@
           { "__typename": "Category", "alias": "bbq", "title": "Barbeque" }
         ],
         "price": "$$",
-        "is_closed": false
+        "is_closed": true
       },
       {
         "__typename": "Business",

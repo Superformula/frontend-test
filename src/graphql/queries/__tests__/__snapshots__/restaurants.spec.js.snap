@@ -247,7 +247,7 @@ Object {
         Object {
           "defaultValue": Object {
             "kind": "IntValue",
-            "value": "8",
+            "value": "12",
           },
           "directives": Array [],
           "kind": "VariableDefinition",
@@ -350,7 +350,7 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 497,
+    "end": 498,
     "start": 0,
   },
 }

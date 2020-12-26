@@ -6,6 +6,9 @@ exports[`LoadMore should render without failing 1`] = `
     $fill={false}
     $secondary={false}
     disabled={false}
-  />
+  >
+     
+    Load more
+  </ActionButton>
 </ButtonWrapper>
 `;

@@ -11,11 +11,13 @@
   "moduleNameMapper": {
     "^.+\\.svg$": "<rootDir>/tests/__mocks__/fileMock.js",
 
+    "^actions(.*)$": "<rootDir>/src/actions$1",
     "^assets(.*)$": "<rootDir>/src/assets$1",
     "^components(.*)$": "<rootDir>/src/components$1",
-    "^consts(.*)$": "<rootDir>/src/consts$1",
     "^config(.*)$": "<rootDir>/src/config$1",
-    "^utils(.*)$": "<rootDir>/src/utils$1",
-    "^hooks(.*)$": "<rootDir>/src/hooks$1"
+    "^consts(.*)$": "<rootDir>/src/consts$1",
+    "^hooks(.*)$": "<rootDir>/src/hooks$1",
+    "^paths(.*)$": "<rootDir>/src/paths$1",
+    "^utils(.*)$": "<rootDir>/src/utils$1"
   }
 }

@@ -3,10 +3,7 @@ import { DICTIONARY } from 'consts/dictionary';
 import { MEDIA_MIN } from 'utils/mediaQuery';
 import { Button } from '../Button';
 
-export const ActionButton = styled(Button).attrs({
-  children: DICTIONARY.LOAD_MORE,
-  $secondary: true,
-})`
+export const ActionButton = styled(Button).attrs({ $secondary: true })`
   width: 100%;
   max-width: 212px;
   font-weight: 500;

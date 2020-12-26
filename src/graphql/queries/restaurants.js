@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const restaurantsQuery = gql`
   query Restaurants(
-    $limit: Int = 8
+    $limit: Int = 12
     $offset: Int = 0
     $open_now: Boolean
     $price: String

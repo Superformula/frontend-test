@@ -4,6 +4,7 @@ import CheckImage from 'assets/check.svg';
 
 export const Label = styled.label`
   cursor: pointer;
+  text-transform: capitalize;
   display: inline-flex;
   align-items: center;
   user-select: none;

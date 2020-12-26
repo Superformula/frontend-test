@@ -7,6 +7,7 @@ exports[`Checkbox should render without failing 1`] = `
 
 .c3 {
   cursor: pointer;
+  text-transform: capitalize;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -54,6 +55,10 @@ exports[`Checkbox should render without failing 1`] = `
   pointer-events: none;
 }
 
+.c1:checked + .c2 {
+  color: #002B56;
+}
+
 .c1:checked + .c2::before {
   background-color: #000;
   border: 2px solid #000;
@@ -66,30 +71,36 @@ exports[`Checkbox should render without failing 1`] = `
 <Checkbox
   id="check-1"
 >
-  <Wrapper>
-    <div
-      className="c0"
-    >
-      <Input
-        id="check-1"
+  <OptionInput
+    id="check-1"
+    type="checkbox"
+  >
+    <Wrapper>
+      <div
+        className="c0"
       >
-        <input
-          className="c1"
+        <Input
           id="check-1"
           type="checkbox"
-        />
-      </Input>
-      <Label
-        htmlFor="check-1"
-      >
-        <label
-          className="c2 c3"
+        >
+          <input
+            className="c1"
+            id="check-1"
+            type="checkbox"
+          />
+        </Input>
+        <Label
           htmlFor="check-1"
         >
-          Click me!
-        </label>
-      </Label>
-    </div>
-  </Wrapper>
+          <label
+            className="c2 c3"
+            htmlFor="check-1"
+          >
+            Click me!
+          </label>
+        </Label>
+      </div>
+    </Wrapper>
+  </OptionInput>
 </Checkbox>
 `;

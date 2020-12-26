@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 import { COLORS } from 'consts/colors';
 import { MEDIA_MIN } from 'utils/mediaQuery';
 
@@ -14,6 +15,20 @@ export const Paragraph = styled.p`
     font-weight: 300;
     line-height: 32px;
   `}
+
+  ${({ bottomSpaced }) => bottomSpaced && BOTTOM_SPACED}
+`;
+
+const BOTTOM_SPACED = css`
+  margin-bottom: 42px;
+
+  ${MEDIA_MIN.MD`
+    margin-bottom: 36px; 
+  `}
 `;
 
 Paragraph.displayName = 'Paragraph';
+
+Paragraph.propTypes = {
+  bottomSpaced: PropTypes.bool,
+};

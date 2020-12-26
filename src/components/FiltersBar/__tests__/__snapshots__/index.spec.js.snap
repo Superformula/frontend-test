@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FiltersBar should render without failing 1`] = `
+.c0 {
+  display: none;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    display: block;
+  }
+}
+
+<div
+  className="c0"
+>
+  <Separator
+    spaced={true}
+  />
+  <GridWrapper
+    flex={true}
+  >
+    <Label>
+      Filter by
+      :
+    </Label>
+    <Filters />
+    <ClearAll
+      $fill={false}
+      $secondary={false}
+      disabled={false}
+    >
+      Clear all
+    </ClearAll>
+  </GridWrapper>
+  <Separator
+    spaced={true}
+  />
+</div>
+`;

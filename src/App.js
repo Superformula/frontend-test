@@ -4,10 +4,13 @@ import { Routes } from './routes';
 import { GlobalStyles } from './config/GlobalStyles';
 import { Lazy } from './components/Lazy';
 import { client } from './graphql';
+import { StoreProvider } from './store';
 
 export const App = () => (
-  <ApolloProvider client={client}>
-    <GlobalStyles />
-    <Lazy component={Routes} />
-  </ApolloProvider>
+  <StoreProvider>
+    <ApolloProvider client={client}>
+      <GlobalStyles />
+      <Lazy component={Routes} />
+    </ApolloProvider>
+  </StoreProvider>
 );

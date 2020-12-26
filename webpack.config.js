@@ -27,11 +27,13 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      actions: path.resolve(__dirname, './src/actions'),
       assets: path.resolve(__dirname, './src/assets'),
       components: path.resolve(__dirname, './src/components'),
       consts: path.resolve(__dirname, './src/consts'),
-      utils: path.resolve(__dirname, './src/utils'),
       hooks: path.resolve(__dirname, './src/hooks'),
+      paths: path.resolve(__dirname, './src/paths'),
+      utils: path.resolve(__dirname, './src/utils'),
     },
   },
   module: {

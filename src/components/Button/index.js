@@ -53,9 +53,10 @@ const SECONDARY = css`
 
 const DISABLED = css`
   background-color: ${({ $secondary }) =>
-    $secondary ? COLORS.WHITE : COLORS.GRAY_400};
-  color: ${({ $secondary }) => ($secondary ? COLORS.GRAY_400 : COLORS.WHITE)};
-  border-color: ${COLORS.GRAY_400};
+    $secondary ? COLORS.WHITE : COLORS.GRAY_200};
+  color: ${({ $secondary }) =>
+    $secondary ? COLORS.GRAY_400 : COLORS.GRAY_400};
+  border-color: ${COLORS.GRAY_200};
   cursor: not-allowed;
 `;
 
