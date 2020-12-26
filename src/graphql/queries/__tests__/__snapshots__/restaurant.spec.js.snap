@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`restaurantsQuery should build correct restaurant query 1`] = `
+exports[`restaurantQuery should build correct restaurant query 1`] = `
 Object {
   "definitions": Array [
     Object {
@@ -8,7 +8,7 @@ Object {
       "kind": "OperationDefinition",
       "name": Object {
         "kind": "Name",
-        "value": "GetRestaurants",
+        "value": "GetRestaurantDetails",
       },
       "operation": "query",
       "selectionSet": Object {
@@ -21,81 +21,13 @@ Object {
                 "kind": "Argument",
                 "name": Object {
                   "kind": "Name",
-                  "value": "location",
-                },
-                "value": Object {
-                  "block": false,
-                  "kind": "StringValue",
-                  "value": "Las Vegas",
-                },
-              },
-              Object {
-                "kind": "Argument",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "offset",
+                  "value": "id",
                 },
                 "value": Object {
                   "kind": "Variable",
                   "name": Object {
                     "kind": "Name",
-                    "value": "offset",
-                  },
-                },
-              },
-              Object {
-                "kind": "Argument",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "limit",
-                },
-                "value": Object {
-                  "kind": "Variable",
-                  "name": Object {
-                    "kind": "Name",
-                    "value": "limit",
-                  },
-                },
-              },
-              Object {
-                "kind": "Argument",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "open_now",
-                },
-                "value": Object {
-                  "kind": "Variable",
-                  "name": Object {
-                    "kind": "Name",
-                    "value": "open_now",
-                  },
-                },
-              },
-              Object {
-                "kind": "Argument",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "price",
-                },
-                "value": Object {
-                  "kind": "Variable",
-                  "name": Object {
-                    "kind": "Name",
-                    "value": "price",
-                  },
-                },
-              },
-              Object {
-                "kind": "Argument",
-                "name": Object {
-                  "kind": "Name",
-                  "value": "categories",
-                },
-                "value": Object {
-                  "kind": "Variable",
-                  "name": Object {
-                    "kind": "Name",
-                    "value": "categories",
+                    "value": "id",
                   },
                 },
               },
@@ -104,7 +36,7 @@ Object {
             "kind": "Field",
             "name": Object {
               "kind": "Name",
-              "value": "search",
+              "value": "business",
             },
             "selectionSet": Object {
               "kind": "SelectionSet",
@@ -116,7 +48,7 @@ Object {
                   "kind": "Field",
                   "name": Object {
                     "kind": "Name",
-                    "value": "total",
+                    "value": "name",
                   },
                   "selectionSet": undefined,
                 },
@@ -127,7 +59,18 @@ Object {
                   "kind": "Field",
                   "name": Object {
                     "kind": "Name",
-                    "value": "business",
+                    "value": "rating",
+                  },
+                  "selectionSet": undefined,
+                },
+                Object {
+                  "alias": undefined,
+                  "arguments": Array [],
+                  "directives": Array [],
+                  "kind": "Field",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "categories",
                   },
                   "selectionSet": Object {
                     "kind": "SelectionSet",
@@ -139,10 +82,58 @@ Object {
                         "kind": "Field",
                         "name": Object {
                           "kind": "Name",
-                          "value": "id",
+                          "value": "title",
                         },
                         "selectionSet": undefined,
                       },
+                    ],
+                  },
+                },
+                Object {
+                  "alias": undefined,
+                  "arguments": Array [],
+                  "directives": Array [],
+                  "kind": "Field",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "price",
+                  },
+                  "selectionSet": undefined,
+                },
+                Object {
+                  "alias": undefined,
+                  "arguments": Array [],
+                  "directives": Array [],
+                  "kind": "Field",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "is_closed",
+                  },
+                  "selectionSet": undefined,
+                },
+                Object {
+                  "alias": undefined,
+                  "arguments": Array [],
+                  "directives": Array [],
+                  "kind": "Field",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "photos",
+                  },
+                  "selectionSet": undefined,
+                },
+                Object {
+                  "alias": undefined,
+                  "arguments": Array [],
+                  "directives": Array [],
+                  "kind": "Field",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "location",
+                  },
+                  "selectionSet": Object {
+                    "kind": "SelectionSet",
+                    "selections": Array [
                       Object {
                         "alias": undefined,
                         "arguments": Array [],
@@ -150,10 +141,65 @@ Object {
                         "kind": "Field",
                         "name": Object {
                           "kind": "Name",
-                          "value": "name",
+                          "value": "formatted_address",
                         },
                         "selectionSet": undefined,
                       },
+                    ],
+                  },
+                },
+                Object {
+                  "alias": undefined,
+                  "arguments": Array [],
+                  "directives": Array [],
+                  "kind": "Field",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "review_count",
+                  },
+                  "selectionSet": undefined,
+                },
+                Object {
+                  "alias": undefined,
+                  "arguments": Array [
+                    Object {
+                      "kind": "Argument",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "offset",
+                      },
+                      "value": Object {
+                        "kind": "Variable",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "offset",
+                        },
+                      },
+                    },
+                    Object {
+                      "kind": "Argument",
+                      "name": Object {
+                        "kind": "Name",
+                        "value": "limit",
+                      },
+                      "value": Object {
+                        "kind": "Variable",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "limit",
+                        },
+                      },
+                    },
+                  ],
+                  "directives": Array [],
+                  "kind": "Field",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "reviews",
+                  },
+                  "selectionSet": Object {
+                    "kind": "SelectionSet",
+                    "selections": Array [
                       Object {
                         "alias": undefined,
                         "arguments": Array [],
@@ -172,7 +218,7 @@ Object {
                         "kind": "Field",
                         "name": Object {
                           "kind": "Name",
-                          "value": "photos",
+                          "value": "text",
                         },
                         "selectionSet": undefined,
                       },
@@ -183,7 +229,7 @@ Object {
                         "kind": "Field",
                         "name": Object {
                           "kind": "Name",
-                          "value": "price",
+                          "value": "time_created",
                         },
                         "selectionSet": undefined,
                       },
@@ -194,18 +240,7 @@ Object {
                         "kind": "Field",
                         "name": Object {
                           "kind": "Name",
-                          "value": "is_closed",
-                        },
-                        "selectionSet": undefined,
-                      },
-                      Object {
-                        "alias": undefined,
-                        "arguments": Array [],
-                        "directives": Array [],
-                        "kind": "Field",
-                        "name": Object {
-                          "kind": "Name",
-                          "value": "categories",
+                          "value": "user",
                         },
                         "selectionSet": Object {
                           "kind": "SelectionSet",
@@ -217,7 +252,7 @@ Object {
                               "kind": "Field",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "alias",
+                                "value": "name",
                               },
                               "selectionSet": undefined,
                             },
@@ -228,7 +263,7 @@ Object {
                               "kind": "Field",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "title",
+                                "value": "image_url",
                               },
                               "selectionSet": undefined,
                             },
@@ -245,24 +280,21 @@ Object {
       },
       "variableDefinitions": Array [
         Object {
-          "defaultValue": Object {
-            "kind": "IntValue",
-            "value": "12",
-          },
+          "defaultValue": undefined,
           "directives": Array [],
           "kind": "VariableDefinition",
           "type": Object {
             "kind": "NamedType",
             "name": Object {
               "kind": "Name",
-              "value": "Int",
+              "value": "String",
             },
           },
           "variable": Object {
             "kind": "Variable",
             "name": Object {
               "kind": "Name",
-              "value": "limit",
+              "value": "id",
             },
           },
         },
@@ -289,59 +321,24 @@ Object {
           },
         },
         Object {
-          "defaultValue": undefined,
+          "defaultValue": Object {
+            "kind": "IntValue",
+            "value": "6",
+          },
           "directives": Array [],
           "kind": "VariableDefinition",
           "type": Object {
             "kind": "NamedType",
             "name": Object {
               "kind": "Name",
-              "value": "Boolean",
+              "value": "Int",
             },
           },
           "variable": Object {
             "kind": "Variable",
             "name": Object {
               "kind": "Name",
-              "value": "open_now",
-            },
-          },
-        },
-        Object {
-          "defaultValue": undefined,
-          "directives": Array [],
-          "kind": "VariableDefinition",
-          "type": Object {
-            "kind": "NamedType",
-            "name": Object {
-              "kind": "Name",
-              "value": "String",
-            },
-          },
-          "variable": Object {
-            "kind": "Variable",
-            "name": Object {
-              "kind": "Name",
-              "value": "price",
-            },
-          },
-        },
-        Object {
-          "defaultValue": undefined,
-          "directives": Array [],
-          "kind": "VariableDefinition",
-          "type": Object {
-            "kind": "NamedType",
-            "name": Object {
-              "kind": "Name",
-              "value": "String",
-            },
-          },
-          "variable": Object {
-            "kind": "Variable",
-            "name": Object {
-              "kind": "Name",
-              "value": "categories",
+              "value": "limit",
             },
           },
         },
@@ -350,7 +347,7 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 501,
+    "end": 455,
     "start": 0,
   },
 }

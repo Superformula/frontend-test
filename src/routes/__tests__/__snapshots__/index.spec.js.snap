@@ -4,12 +4,30 @@ exports[`Routes should render routes without failing 1`] = `
 <BrowserRouter>
   <Switch>
     <Route
-      component={[Function]}
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
+        }
+      }
       exact={true}
       path="/restaurants"
     />
     <Route
-      component={[Function]}
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_init": [Function],
+          "_payload": Object {
+            "_result": [Function],
+            "_status": -1,
+          },
+        }
+      }
       exact={true}
       path="/restaurants/:id"
     />

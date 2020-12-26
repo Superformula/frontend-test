@@ -7,10 +7,30 @@ exports[`Rating should render a custom number of stars 1`] = `
 >
   <Star
     $fill={true}
+    as={[Function]}
     key="0"
   />
   <Star
     $fill={false}
+    as=""
+    key="1"
+  />
+</Wrapper>
+`;
+
+exports[`Rating should render a half stars 1`] = `
+<Wrapper
+  $lg={false}
+  $xs={false}
+>
+  <Star
+    $fill={true}
+    as={[Function]}
+    key="0"
+  />
+  <Star
+    $fill={false}
+    as={[Function]}
     key="1"
   />
 </Wrapper>
@@ -23,22 +43,27 @@ exports[`Rating should render a large rating 1`] = `
 >
   <Star
     $fill={false}
+    as=""
     key="0"
   />
   <Star
     $fill={false}
+    as=""
     key="1"
   />
   <Star
     $fill={false}
+    as=""
     key="2"
   />
   <Star
     $fill={false}
+    as=""
     key="3"
   />
   <Star
     $fill={false}
+    as=""
     key="4"
   />
 </Wrapper>
@@ -51,22 +76,27 @@ exports[`Rating should render a small rating 1`] = `
 >
   <Star
     $fill={false}
+    as=""
     key="0"
   />
   <Star
     $fill={false}
+    as=""
     key="1"
   />
   <Star
     $fill={false}
+    as=""
     key="2"
   />
   <Star
     $fill={false}
+    as=""
     key="3"
   />
   <Star
     $fill={false}
+    as=""
     key="4"
   />
 </Wrapper>
@@ -79,22 +109,27 @@ exports[`Rating should render without failing 1`] = `
 >
   <Star
     $fill={false}
+    as=""
     key="0"
   />
   <Star
     $fill={false}
+    as=""
     key="1"
   />
   <Star
     $fill={false}
+    as=""
     key="2"
   />
   <Star
     $fill={false}
+    as=""
     key="3"
   />
   <Star
     $fill={false}
+    as=""
     key="4"
   />
 </Wrapper>

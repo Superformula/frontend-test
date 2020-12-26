@@ -18,7 +18,12 @@ exports[`Restaurants View should render with loading cards 1`] = `
       <H2>
         All Restaurants
       </H2>
-      <Component />
+      <Restaurants>
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
+      </Restaurants>
     </GridWrapper>
   </div>
 </Fragment>

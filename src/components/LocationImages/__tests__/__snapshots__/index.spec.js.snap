@@ -1,0 +1,306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationImages should render with photos 1`] = `
+.c0 {
+  width: 100%;
+  padding: 0 0 39px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.c1 {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.c2 {
+  background-color: #D8D8D8;
+  width: 100%;
+  height: 228px;
+  margin-bottom: 20px;
+}
+
+.c6 {
+  background-color: #D8D8D8;
+  min-width: 229px;
+  height: 171px;
+  margin-right: 19px;
+}
+
+.c4 {
+  color: #000;
+  font-size: 18px;
+  line-height: 22px;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  margin: 0 24px;
+}
+
+.c5 {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: scroll;
+  padding: 0 24px;
+}
+
+.c3 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    border-top: 1px solid #E6E6E6;
+    overflow: scroll;
+    padding: 48px 64px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width:758px) {
+  .c1 {
+    margin-right: 32px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width:758px) {
+  .c2 {
+    min-width: 640px;
+    margin-bottom: 15px;
+    margin-right: 32px;
+  }
+}
+
+@media (min-width:758px) {
+  .c6 {
+    width: 304px;
+    min-width: 304px;
+    height: 228px;
+    margin-right: 32px;
+  }
+}
+
+@media (min-width:758px) {
+  .c4 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 300;
+    margin: 0;
+  }
+}
+
+@media (min-width:758px) {
+  .c5 {
+    overflow: unset;
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+}
+
+<LocationImages
+  photos={
+    Array [
+      "http://pathtoimage.com/image-1.png",
+      "http://pathtoimage.com/image-2.png",
+    ]
+  }
+>
+  <Wrapper>
+    <div
+      className="c0"
+    >
+      <MapSection>
+        <div
+          className="c1"
+        >
+          <MapWrapper>
+            <div
+              className="c2"
+            >
+              <Image
+                onError={[Function]}
+                src="https://maps.googleapis.com/maps/api/staticmap?center=undefined&scale=1&size=640x228&maptype=roadmap&format=png&key=undefined"
+              >
+                <img
+                  className="c3"
+                  onError={[Function]}
+                  src="https://maps.googleapis.com/maps/api/staticmap?center=undefined&scale=1&size=640x228&maptype=roadmap&format=png&key=undefined"
+                />
+              </Image>
+            </div>
+          </MapWrapper>
+          <Address>
+            <p
+              className="c4"
+            />
+          </Address>
+        </div>
+      </MapSection>
+      <Gallery>
+        <div
+          className="c5"
+        >
+          <ImageWrapper
+            key="http://pathtoimage.com/image-1.png"
+          >
+            <div
+              className="c6"
+            >
+              <Image
+                src="http://pathtoimage.com/image-1.png"
+              >
+                <img
+                  className="c3"
+                  src="http://pathtoimage.com/image-1.png"
+                />
+              </Image>
+            </div>
+          </ImageWrapper>
+          <ImageWrapper
+            key="http://pathtoimage.com/image-2.png"
+          >
+            <div
+              className="c6"
+            >
+              <Image
+                src="http://pathtoimage.com/image-2.png"
+              >
+                <img
+                  className="c3"
+                  src="http://pathtoimage.com/image-2.png"
+                />
+              </Image>
+            </div>
+          </ImageWrapper>
+        </div>
+      </Gallery>
+    </div>
+  </Wrapper>
+</LocationImages>
+`;
+
+exports[`LocationImages should render without failing 1`] = `
+.c0 {
+  width: 100%;
+  padding: 0 0 39px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.c1 {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.c2 {
+  background-color: #D8D8D8;
+  width: 100%;
+  height: 228px;
+  margin-bottom: 20px;
+}
+
+.c4 {
+  color: #000;
+  font-size: 18px;
+  line-height: 22px;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  margin: 0 24px;
+}
+
+.c3 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width:758px) {
+  .c0 {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    border-top: 1px solid #E6E6E6;
+    overflow: scroll;
+    padding: 48px 64px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width:758px) {
+  .c1 {
+    margin-right: 32px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width:758px) {
+  .c2 {
+    min-width: 640px;
+    margin-bottom: 15px;
+    margin-right: 32px;
+  }
+}
+
+@media (min-width:758px) {
+  .c4 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 300;
+    margin: 0;
+  }
+}
+
+<LocationImages>
+  <Wrapper>
+    <div
+      className="c0"
+    >
+      <MapSection>
+        <div
+          className="c1"
+        >
+          <MapWrapper>
+            <div
+              className="c2"
+            >
+              <Image
+                onError={[Function]}
+                src="https://maps.googleapis.com/maps/api/staticmap?center=undefined&scale=1&size=640x228&maptype=roadmap&format=png&key=undefined"
+              >
+                <img
+                  className="c3"
+                  onError={[Function]}
+                  src="https://maps.googleapis.com/maps/api/staticmap?center=undefined&scale=1&size=640x228&maptype=roadmap&format=png&key=undefined"
+                />
+              </Image>
+            </div>
+          </MapWrapper>
+          <Address>
+            <p
+              className="c4"
+            />
+          </Address>
+        </div>
+      </MapSection>
+    </div>
+  </Wrapper>
+</LocationImages>
+`;

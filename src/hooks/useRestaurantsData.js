@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useMemo, useContext } from 'react';
 import { useQuery } from '@apollo/client';
 import { restaurantsQuery } from '../graphql/queries/restaurants';
 import { StoreContext } from '../store';
@@ -11,15 +11,17 @@ const loading = true;
 export const useRestaurantsData = () => {
   const [state = {}] = useContext(StoreContext) || [];
   const { filters = {} } = state;
-  const { loading, data, fetchMore } = useQuery(restaurantsQuery, {
-    notifyOnNetworkStatusChange: true,
-    variables: { categories: filters.category },
-  });
+  // const { loading, data, fetchMore } = useQuery(restaurantsQuery, {
+  //   notifyOnNetworkStatusChange: true,
+  //   variables: { categories: filters.category },
+  // });
 
   const { business = [] } = data?.search || {};
   const offset = business.length;
-  const onLoadMore = loadMore(fetchMore, offset);
-  const restaurants = reshapeData(business);
+  const onLoadMore = loadMore(fetchMore, offset, filters);
+  const restaurants = useMemo(() => reshapeData(business), [
+    data?.search?.business,
+  ]);
 
   return { restaurants, loading, onLoadMore };
 };

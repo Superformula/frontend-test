@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const categoriesQuery = gql`
-  query Categories {
+  query GetCategories {
     categories(country: "US") {
       category {
         alias

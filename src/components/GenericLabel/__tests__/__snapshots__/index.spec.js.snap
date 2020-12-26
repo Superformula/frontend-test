@@ -2,8 +2,9 @@
 
 exports[`GenericLabel should render without failing 1`] = `
 .c0 {
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 12px;
+  font-weight: 400;
   color: #757575;
 }
 

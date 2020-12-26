@@ -13,6 +13,11 @@ describe('Rating', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render a half stars', () => {
+    const wrapper = shallow(<Rating max={2} rating={1.5} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should render a small rating', () => {
     const wrapper = shallow(<Rating $xs />);
     expect(wrapper).toMatchSnapshot();

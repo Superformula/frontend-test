@@ -32,10 +32,10 @@ export const RestaurantCard = memo(
           <Title>{name}</Title>
           <Rating {...{ rating, $xs: isMobile }} />
           <DetailsWrapper>
-            <GenericLabel>
+            <GenericLabel uppercase>
               {type} • {price}
             </GenericLabel>
-            <StatusComponent {...{ isOpen }} />
+            <StatusComponent uppercase {...{ isOpen }} />
           </DetailsWrapper>
           {isMobile ? (
             <LearnMoreLink to={restaurantUrl}>
