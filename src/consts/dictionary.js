@@ -15,4 +15,6 @@ export const DICTIONARY = Object.freeze({
   SELECT_ONE: 'Select One',
   FILTER_BY: 'Filter by',
   TOGGLE: 'toggle',
+  ALL: 'All',
+  NO_RESULTS: `Sorry, we didn't find any results for your search. Try changing the selected filters.`,
 });

@@ -12,18 +12,15 @@ exports[`Restaurants View should render with loading cards 1`] = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </Paragraph>
   </GridWrapper>
-  <FiltersBar />
-  <GridWrapper>
-    <H2>
-      All Restaurants
-    </H2>
-    <Restaurants>
-      <RestaurantCardLoader />
-      <RestaurantCardLoader />
-      <RestaurantCardLoader />
-      <RestaurantCardLoader />
-    </Restaurants>
-  </GridWrapper>
+  <div>
+    <FiltersBar />
+    <GridWrapper>
+      <H2>
+        All Restaurants
+      </H2>
+      <Component />
+    </GridWrapper>
+  </div>
 </Fragment>
 `;
 
@@ -39,13 +36,18 @@ exports[`Restaurants View should render without failing 1`] = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     </Paragraph>
   </GridWrapper>
-  <FiltersBar />
-  <GridWrapper>
-    <H2>
-      All Restaurants
-    </H2>
-    <Restaurants />
-    <LoadMore />
-  </GridWrapper>
+  <div>
+    <FiltersBar />
+    <GridWrapper>
+      <H2>
+        All Restaurants
+      </H2>
+      <Paragraph
+        bottomSpaced={true}
+      >
+        Sorry, we didn't find any results for your search. Try changing the selected filters.
+      </Paragraph>
+    </GridWrapper>
+  </div>
 </Fragment>
 `;

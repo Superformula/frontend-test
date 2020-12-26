@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PRICES should have proper values 1`] = `
+Array [
+  Object {
+    "label": "$",
+    "value": "$",
+  },
+  Object {
+    "label": "$$",
+    "value": "$$",
+  },
+  Object {
+    "label": "$$$",
+    "value": "$$$",
+  },
+  Object {
+    "label": "$$$$",
+    "value": "$$$$",
+  },
+]
+`;

@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioSelect should render options when expanded 1`] = `
+<Wrapper
+  expanded={true}
+>
+  <Trigger
+    onClick={[Function]}
+  >
+    Price
+  </Trigger>
+  <Options>
+    <RadioButton
+      checked={true}
+      value=""
+    >
+      All
+    </RadioButton>
+    <RadioButton
+      checked={true}
+      id="undefined-undefined"
+    />
+    <RadioButton
+      checked={true}
+      id="undefined-undefined"
+    />
+  </Options>
+</Wrapper>
+`;
+
+exports[`RadioSelect should render without failing 1`] = `
+.c0 {
+  cursor: pointer;
+  position: relative;
+}
+
+.c0::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-image: url(-react-component:;);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.c1 {
+  display: block;
+  position: relative;
+  border: 0;
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-transform: capitalize;
+  padding-right: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  color: #002B56;
+}
+
+<RadioSelect
+  label="Price"
+  options={
+    Array [
+      Object {
+        "label": "$",
+        "value": "$",
+      },
+      Object {
+        "label": "$$",
+        "value": "$$",
+      },
+      Object {
+        "label": "$$$",
+        "value": "$$$",
+      },
+      Object {
+        "label": "$$$$",
+        "value": "$$$$",
+      },
+    ]
+  }
+>
+  <Wrapper
+    expanded={false}
+  >
+    <div
+      className="c0"
+    >
+      <Trigger
+        onClick={[Function]}
+      >
+        <button
+          className="c1"
+          onClick={[Function]}
+        >
+          Price
+        </button>
+      </Trigger>
+    </div>
+  </Wrapper>
+</RadioSelect>
+`;

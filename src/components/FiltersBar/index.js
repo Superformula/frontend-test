@@ -14,8 +14,10 @@ import { Label } from './Label';
 
 export const FiltersBar = () => {
   const clearAll = useAction(clearFilters);
-  const filters = useSelector(filtersPath);
-  const hasNoFilters = isObjectEmpty(filters);
+  const filters = useSelector(filtersPath) || {};
+  const hasNoFilters =
+    isObjectEmpty(filters) ||
+    Object.entries(filters).every(([, value]) => !value);
 
   return (
     <Wrapper>

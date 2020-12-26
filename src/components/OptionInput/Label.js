@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { COLORS } from 'consts/colors';
-import CheckImage from 'assets/check.svg';
 
 export const Label = styled.label`
   cursor: pointer;
@@ -24,7 +23,6 @@ export const Label = styled.label`
     border-radius: 50%;
     transition: 0.2s background-color, 0.2s border-color;
 
-    background-image: url(${CheckImage});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 11px;

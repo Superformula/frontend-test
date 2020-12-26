@@ -8,6 +8,11 @@ exports[`FiltersBar should render without failing 1`] = `
 @media (min-width:758px) {
   .c0 {
     display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+    z-index: 1;
   }
 }
 
@@ -28,7 +33,7 @@ exports[`FiltersBar should render without failing 1`] = `
     <ClearAll
       $fill={false}
       $secondary={false}
-      disabled={false}
+      disabled={true}
     >
       Clear all
     </ClearAll>

@@ -16,7 +16,7 @@ exports[`Restaurants should render without failing 1`] = `
   }
 }
 
-@media (min-width:992px) {
+@media (min-width:1200px) {
   .c0 {
     grid-template-columns: repeat(4,1fr);
   }

@@ -6,14 +6,20 @@ import { useSelector } from 'hooks/useSelector';
 import { filtersPath } from 'paths';
 import { setFilter } from 'actions/filters';
 import { FilterWrapper } from './FilterWrapper';
+import { RadioSelect } from '../RadioSelect';
+import { useCategoriesData } from 'hooks/useCategoriesData';
 
 export const Filters = () => {
+  const categories = useCategoriesData();
   const updateFilter = useAction(setFilter);
-  const { isOpen = false } = useSelector(filtersPath) || {};
+  const { isOpen = false, price, category } = useSelector(filtersPath) || {};
+
   const toggleIsOpenFilter = useCallback(
-    event => {
-      updateFilter('isOpen', event?.target?.checked);
-    },
+    event => updateFilter('isOpen', event?.target?.checked),
+    [setFilter]
+  );
+  const updateSelectFilter = useCallback(
+    key => event => updateFilter(key, event?.target?.value),
     [setFilter]
   );
 
@@ -28,7 +34,24 @@ export const Filters = () => {
           {DICTIONARY.OPEN_NOW}
         </Checkbox>
       </FilterWrapper>
-      <FilterWrapper>FILTERS 2</FilterWrapper>
+      <FilterWrapper>
+        <RadioSelect
+          name="price"
+          onChange={updateSelectFilter('price')}
+          selected={price}
+        />
+      </FilterWrapper>
+      {categories && (
+        <FilterWrapper>
+          <RadioSelect
+            name="category"
+            onChange={updateSelectFilter('category')}
+            selected={category}
+            options={categories}
+            label={DICTIONARY.CATEGORIES}
+          />
+        </FilterWrapper>
+      )}
     </>
   );
 };

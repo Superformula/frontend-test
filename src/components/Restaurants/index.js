@@ -13,7 +13,7 @@ export const Restaurants = styled.div`
     grid-gap: 80px 32px;
   `}
 
-  ${MEDIA_MIN.LG`
+  ${MEDIA_MIN.XL`
     grid-template-columns: repeat(4, 1fr);
   `}
 

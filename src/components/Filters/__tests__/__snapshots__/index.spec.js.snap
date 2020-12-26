@@ -39,7 +39,6 @@ exports[`Filters should render without failing 1`] = `
   border-radius: 50%;
   -webkit-transition: 0.2s background-color,0.2s border-color;
   transition: 0.2s background-color,0.2s border-color;
-  background-image: url(-react-component:;);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 11px;
@@ -59,9 +58,17 @@ exports[`Filters should render without failing 1`] = `
   color: #002B56;
 }
 
-.c2:checked + .c3::before {
+.c2[type='checkbox']:checked + .c3::before {
+  background-image: url(-react-component:;);
   background-color: #000;
-  border: 2px solid #000;
+  border-color: #000;
+}
+
+.c2[type='radio']:checked + .c3::before {
+  background-image: url(-react-component:;);
+  background-size: 10px;
+  background-color: #FFF;
+  border-color: #C8C8C8;
 }
 
 .c2:focus + .c3::before {
@@ -84,6 +91,43 @@ exports[`Filters should render without failing 1`] = `
   left: 0;
   top: calc(100% + 7px);
   background-color: #C8C8C8;
+}
+
+.c5 {
+  cursor: pointer;
+  position: relative;
+}
+
+.c5::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-image: url(-react-component:;);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.c6 {
+  display: block;
+  position: relative;
+  border: 0;
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-transform: capitalize;
+  padding-right: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  color: #002B56;
 }
 
 <Filters>
@@ -142,7 +186,104 @@ exports[`Filters should render without failing 1`] = `
     <div
       className="c0"
     >
-      FILTERS 2
+      <RadioSelect
+        label="Price"
+        name="price"
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "label": "$",
+              "value": "$",
+            },
+            Object {
+              "label": "$$",
+              "value": "$$",
+            },
+            Object {
+              "label": "$$$",
+              "value": "$$$",
+            },
+            Object {
+              "label": "$$$$",
+              "value": "$$$$",
+            },
+          ]
+        }
+      >
+        <Wrapper
+          expanded={false}
+        >
+          <div
+            className="c5"
+          >
+            <Trigger
+              onClick={[Function]}
+            >
+              <button
+                className="c6"
+                onClick={[Function]}
+              >
+                Price
+              </button>
+            </Trigger>
+          </div>
+        </Wrapper>
+      </RadioSelect>
+    </div>
+  </FilterWrapper>
+  <FilterWrapper>
+    <div
+      className="c0"
+    >
+      <RadioSelect
+        label="Categories"
+        name="category"
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "label": "Afghan",
+              "value": "afghani",
+            },
+            Object {
+              "label": "African",
+              "value": "african",
+            },
+            Object {
+              "label": "Arabian",
+              "value": "arabian",
+            },
+            Object {
+              "label": "Argentine",
+              "value": "argentine",
+            },
+            Object {
+              "label": "Armenian",
+              "value": "armenian",
+            },
+          ]
+        }
+      >
+        <Wrapper
+          expanded={false}
+        >
+          <div
+            className="c5"
+          >
+            <Trigger
+              onClick={[Function]}
+            >
+              <button
+                className="c6"
+                onClick={[Function]}
+              >
+                Categories
+              </button>
+            </Trigger>
+          </div>
+        </Wrapper>
+      </RadioSelect>
     </div>
   </FilterWrapper>
 </Filters>
