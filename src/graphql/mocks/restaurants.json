@@ -10,7 +10,7 @@
           "https://s3-media4.fl.yelpcdn.com/bphoto/_zXRdYX4r1OBfF86xKMbDw/o.jpg"
         ],
         "name": "Yardbird Southern Table & Bar",
-        "rating": 4.5,
+        "rating": 1.5,
         "categories": [
           {
             "__typename": "Category",
@@ -80,7 +80,7 @@
           "https://s3-media4.fl.yelpcdn.com/bphoto/SrM8q-cGpbX5RJUYiEFFrQ/o.jpg"
         ],
         "name": "Gangnam Asian BBQ Dining",
-        "rating": 4.5,
+        "rating": 5,
         "categories": [
           {
             "__typename": "Category",

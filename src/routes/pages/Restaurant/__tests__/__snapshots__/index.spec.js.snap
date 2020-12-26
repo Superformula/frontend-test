@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Restaurant View should render with loading sections 1`] = `
+<GridWrapper>
+  <H1>
+    <SkeletonLoader />
+  </H1>
+  <Paragraph>
+    <SkeletonLoader />
+  </Paragraph>
+</GridWrapper>
+`;
+
+exports[`Restaurant View should render without failing 1`] = `
+<Fragment>
+  <GridWrapper>
+    <H1 />
+    <Rating
+      $lg={true}
+      $xs={false}
+      max={5}
+      rating={0}
+    />
+    <SpaceBetween
+      spaced={true}
+    >
+      <Paragraph>
+         • 
+      </Paragraph>
+      <StatusIndicator
+        uppercase={null}
+        xl={true}
+      />
+    </SpaceBetween>
+  </GridWrapper>
+  <LocationImages />
+  <Reviews />
+</Fragment>
+`;

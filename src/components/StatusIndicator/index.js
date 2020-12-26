@@ -5,10 +5,10 @@ import { Dot } from './Dot';
 import { GenericLabel } from '../GenericLabel';
 import { DICTIONARY } from 'consts/dictionary';
 
-export const StatusIndicator = ({ isOpen }) => (
+export const StatusIndicator = ({ isOpen, xl, uppercase }) => (
   <Wrapper>
-    <Dot {...{ isOpen }} />
-    <GenericLabel>
+    <Dot {...{ isOpen, xl }} />
+    <GenericLabel {...{ xl, uppercase }}>
       {isOpen ? DICTIONARY.OPEN_NOW : DICTIONARY.CLOSED}
     </GenericLabel>
   </Wrapper>
@@ -16,4 +16,6 @@ export const StatusIndicator = ({ isOpen }) => (
 
 StatusIndicator.propTypes = {
   isOpen: PropTypes.bool,
+  xl: PropTypes.bool,
+  uppercase: PropTypes.bool,
 };

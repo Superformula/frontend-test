@@ -24,8 +24,9 @@ exports[`StatusIndicator should render as open 1`] = `
 }
 
 .c2 {
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 12px;
+  font-weight: 400;
   color: #757575;
 }
 
@@ -79,8 +80,9 @@ exports[`StatusIndicator should render without failing 1`] = `
 }
 
 .c2 {
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 12px;
+  font-weight: 400;
   color: #757575;
 }
 

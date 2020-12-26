@@ -1,12 +1,7 @@
-import { useContext } from 'react';
+import { useMemo, useContext } from 'react';
 import { useQuery } from '@apollo/client';
 import { restaurantsQuery } from '../graphql/queries/restaurants';
 import { StoreContext } from '../store';
-
-// Mock
-import data from '../graphql/mocks/restaurants.json';
-const fetchMore = () => console.log('FETCHING MORE...');
-const loading = true;
 
 export const useRestaurantsData = () => {
   const [state = {}] = useContext(StoreContext) || [];
@@ -18,8 +13,10 @@ export const useRestaurantsData = () => {
 
   const { business = [] } = data?.search || {};
   const offset = business.length;
-  const onLoadMore = loadMore(fetchMore, offset);
-  const restaurants = reshapeData(business);
+  const onLoadMore = loadMore(fetchMore, offset, filters);
+  const restaurants = useMemo(() => reshapeData(business), [
+    data?.search?.business,
+  ]);
 
   return { restaurants, loading, onLoadMore };
 };

@@ -19,7 +19,7 @@ const XS = css`
 `;
 
 const LG = css`
-  zoom: 1.2;
+  zoom: 1.5;
 `;
 
 Wrapper.displayName = 'Wrapper';

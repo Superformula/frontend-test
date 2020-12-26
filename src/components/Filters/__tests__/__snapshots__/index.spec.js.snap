@@ -232,59 +232,5 @@ exports[`Filters should render without failing 1`] = `
       </RadioSelect>
     </div>
   </FilterWrapper>
-  <FilterWrapper>
-    <div
-      className="c0"
-    >
-      <RadioSelect
-        label="Categories"
-        name="category"
-        onChange={[Function]}
-        options={
-          Array [
-            Object {
-              "label": "Afghan",
-              "value": "afghani",
-            },
-            Object {
-              "label": "African",
-              "value": "african",
-            },
-            Object {
-              "label": "Arabian",
-              "value": "arabian",
-            },
-            Object {
-              "label": "Argentine",
-              "value": "argentine",
-            },
-            Object {
-              "label": "Armenian",
-              "value": "armenian",
-            },
-          ]
-        }
-      >
-        <Wrapper
-          expanded={false}
-        >
-          <div
-            className="c5"
-          >
-            <Trigger
-              onClick={[Function]}
-            >
-              <button
-                className="c6"
-                onClick={[Function]}
-              >
-                Categories
-              </button>
-            </Trigger>
-          </div>
-        </Wrapper>
-      </RadioSelect>
-    </div>
-  </FilterWrapper>
 </Filters>
 `;

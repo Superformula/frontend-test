@@ -18,7 +18,12 @@ exports[`Restaurants View should render with loading cards 1`] = `
       <H2>
         All Restaurants
       </H2>
-      <Component />
+      <Restaurants>
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
+        <RestaurantCardLoader />
+      </Restaurants>
     </GridWrapper>
   </div>
 </Fragment>
@@ -45,7 +50,7 @@ exports[`Restaurants View should render without failing 1`] = `
       <Paragraph
         bottomSpaced={true}
       >
-        Sorry, we didn't find any results for your search. Try changing the selected filters.
+        Sorry, we didn't find any results for your search.
       </Paragraph>
     </GridWrapper>
   </div>

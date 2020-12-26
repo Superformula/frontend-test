@@ -3,7 +3,7 @@
 exports[`Lazy should render without failing 1`] = `
 <Suspense
   component={[Function]}
-  fallback="loading..."
+  fallback={<PageLoader />}
 >
   <Test />
 </Suspense>

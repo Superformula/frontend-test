@@ -4,6 +4,7 @@ import { Filters } from '../';
 
 jest.mock('hooks/useAction');
 jest.mock('hooks/useSelector');
+jest.mock('hooks/useCategoriesData');
 
 describe('Filters', () => {
   it('should render without failing', () => {

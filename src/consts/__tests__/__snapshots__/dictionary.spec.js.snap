@@ -12,11 +12,12 @@ Object {
   "LEARN_MORE": "Learn more",
   "LOAD_MORE": "Load more",
   "MAIN_PAGE_DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "NO_RESULTS": "Sorry, we didn't find any results for your search. Try changing the selected filters.",
+  "NO_RESULTS": "Sorry, we didn't find any results for your search.",
   "OPEN": "open",
   "OPEN_NOW": "open now",
   "PRICE": "Price",
   "RESTAURANTS": "Restaurants",
+  "REVIEWS": "Reviews",
   "SELECT_ONE": "Select One",
   "TOGGLE": "toggle",
 }

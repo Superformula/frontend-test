@@ -10,7 +10,9 @@ export const reducer = (state, action) => {
 
   switch (type) {
     case 'SET_STATE':
-      console.info(`SET_STATE: [${path}]`, { payload });
+      if (process.env.NODE_ENV === 'development') {
+        console.info(`SET_STATE: [${path}]`, { payload });
+      }
       return set({ ...state }, path, payload);
     default:
       throw new Error();

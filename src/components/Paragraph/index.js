@@ -17,6 +17,7 @@ export const Paragraph = styled.p`
   `}
 
   ${({ bottomSpaced }) => bottomSpaced && BOTTOM_SPACED}
+  ${({ extraWeight }) => extraWeight && EXTRA_WEIGHT}
 `;
 
 const BOTTOM_SPACED = css`
@@ -27,8 +28,22 @@ const BOTTOM_SPACED = css`
   `}
 `;
 
+const EXTRA_WEIGHT = css`
+  letter-spacing: 0.8px;
+  line-height: 22px;
+  margin-top: 24px;
+
+  ${MEDIA_MIN.MD`
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+  `}
+`;
+
 Paragraph.displayName = 'Paragraph';
 
 Paragraph.propTypes = {
   bottomSpaced: PropTypes.bool,
+  extraWeight: PropTypes.bool,
 };

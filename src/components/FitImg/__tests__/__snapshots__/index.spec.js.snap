@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FitImg should render without failing 1`] = `
+.c0 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+<FitImg>
+  <img
+    className="c0"
+  />
+</FitImg>
+`;

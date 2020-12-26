@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
+import { PageLoader } from '../PageLoader';
 
 export const Lazy = ({ component: Component }) => (
-  <Suspense fallback={'loading...'}>
+  <Suspense fallback={<PageLoader />}>
     <Component />
   </Suspense>
 );

@@ -19,12 +19,15 @@ exports[`RestaurantCard should render with mobile components 1`] = `
       rating={3}
     />
     <DetailsWrapper>
-      <GenericLabel>
+      <GenericLabel
+        uppercase={true}
+      >
         Thai
          • 
       </GenericLabel>
       <StatusBadge
         isOpen={true}
+        uppercase={true}
       />
     </DetailsWrapper>
     <LearnMoreLink
@@ -55,12 +58,15 @@ exports[`RestaurantCard should render without failing 1`] = `
       rating={3}
     />
     <DetailsWrapper>
-      <GenericLabel>
+      <GenericLabel
+        uppercase={true}
+      >
         Thai
          • 
       </GenericLabel>
       <StatusIndicator
         isOpen={true}
+        uppercase={true}
       />
     </DetailsWrapper>
     <Button

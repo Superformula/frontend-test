@@ -26,22 +26,21 @@ export const Restaurants = () => {
         <FiltersBar />
         <GridWrapper>
           <H2>{DICTIONARY.ALL_RESTAURANTS}</H2>
-          {loading ||
-            (!!filteredRestaurants?.length && (
-              <RestaurantsWrapper>
-                {filteredRestaurants?.map(restaurant => (
-                  <RestaurantCard {...{ key: restaurant.id, ...restaurant }} />
-                ))}
-                {loading && (
-                  <>
-                    <RestaurantCardLoader />
-                    <RestaurantCardLoader />
-                    <RestaurantCardLoader />
-                    <RestaurantCardLoader />
-                  </>
-                )}
-              </RestaurantsWrapper>
-            ))}
+          {(loading || !!filteredRestaurants?.length) && (
+            <RestaurantsWrapper>
+              {filteredRestaurants?.map(restaurant => (
+                <RestaurantCard {...{ key: restaurant.id, ...restaurant }} />
+              ))}
+              {loading && (
+                <>
+                  <RestaurantCardLoader />
+                  <RestaurantCardLoader />
+                  <RestaurantCardLoader />
+                  <RestaurantCardLoader />
+                </>
+              )}
+            </RestaurantsWrapper>
+          )}
           {!loading && !!filteredRestaurants?.length && (
             <LoadMore onClick={onLoadMore} />
           )}
@@ -53,3 +52,5 @@ export const Restaurants = () => {
     </>
   );
 };
+
+export default Restaurants;

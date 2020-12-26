@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { Rating } from '../';
 
 describe('Rating', () => {
@@ -10,6 +10,11 @@ describe('Rating', () => {
 
   it('should render a custom number of stars', () => {
     const wrapper = shallow(<Rating max={2} rating={1} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render a half stars', () => {
+    const wrapper = shallow(<Rating max={2} rating={1.5} />);
     expect(wrapper).toMatchSnapshot();
   });
 

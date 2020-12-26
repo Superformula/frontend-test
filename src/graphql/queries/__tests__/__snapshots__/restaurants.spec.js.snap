@@ -8,7 +8,7 @@ Object {
       "kind": "OperationDefinition",
       "name": Object {
         "kind": "Name",
-        "value": "Restaurants",
+        "value": "GetRestaurants",
       },
       "operation": "query",
       "selectionSet": Object {
@@ -350,7 +350,7 @@ Object {
   ],
   "kind": "Document",
   "loc": Object {
-    "end": 498,
+    "end": 501,
     "start": 0,
   },
 }
