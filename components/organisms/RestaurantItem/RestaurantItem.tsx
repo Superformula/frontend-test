@@ -4,7 +4,6 @@ import Skeleton from 'react-loading-skeleton';
 
 import {
   Button,
-  ButtonProps,
   Cover,
   Typography,
 } from '~/components/atoms';
@@ -21,6 +20,7 @@ import {
 import styles from './RestaurantItem.module.scss';
 
 export interface RestaurantItemProps {
+  id: string;
   category: string;
   imageUrl: string;
   loading?: boolean;
@@ -28,11 +28,11 @@ export interface RestaurantItemProps {
   rating: RatingProps['value'];
   status: OpenStatusProps['status'];
   title: string;
-  onClick: ButtonProps['onClick'];
+  onClick: (id: string) => void;
 }
 
 export const RestaurantItem: FC<RestaurantItemProps> = ({
-  category, imageUrl, price, rating, status, title, onClick, loading,
+  id, category, imageUrl, price, rating, status, title, onClick, loading,
 }) => {
   const elementClass = classNames({
     [styles.item]: true,
@@ -42,16 +42,20 @@ export const RestaurantItem: FC<RestaurantItemProps> = ({
     [styles['item-cover']]: true,
   });
 
+  const containerClass = classNames({
+    [styles['item-container']]: true,
+  });
+
   const headlineClass = classNames({
-    [styles['item-headline']]: true,
+    [styles['item-container-headline']]: true,
   });
 
   const ratingClass = classNames({
-    [styles['item-rating']]: true,
+    [styles['item-container-rating']]: true,
   });
 
   const statusClass = classNames({
-    [styles['item-status']]: true,
+    [styles['item-container-status']]: true,
   });
 
   const buttonClass = classNames({
@@ -65,33 +69,35 @@ export const RestaurantItem: FC<RestaurantItemProps> = ({
         {!loading && <Cover src={imageUrl} alt={title} />}
       </div>
 
-      <div className={headlineClass}>
-        {loading && <Skeleton height={25} />}
-        {!loading && <Typography variant="headline">{title}</Typography>}
-      </div>
+      <div className={containerClass}>
+        <div className={headlineClass}>
+          {loading && <Skeleton height={25} />}
+          {!loading && <Typography variant="headline">{title}</Typography>}
+        </div>
 
-      <div className={ratingClass}>
-        {loading && <Skeleton height={21.3} />}
-        {!loading && <Rating value={rating} />}
-      </div>
+        <div className={ratingClass}>
+          {loading && <Skeleton height={21.3} />}
+          {!loading && <Rating value={rating} />}
+        </div>
 
-      <div className={statusClass}>
-        {loading && <Skeleton height={16} />}
+        <div className={statusClass}>
+          {loading && <Skeleton height={16} />}
 
-        {
-          !loading && (
-            <div>
-              <CategoryStatus category={category} price={price} />
-              <OpenStatus status={status} />
-            </div>
-          )
-        }
+          {
+            !loading && (
+              <div>
+                <CategoryStatus category={category} price={price} />
+                <OpenStatus status={status} />
+              </div>
+            )
+          }
+        </div>
       </div>
 
       <div className={buttonClass}>
         {loading && <Skeleton height={48} />}
 
-        {!loading && <Button size="full-width" color="primary" onClick={onClick}>Learn More</Button>}
+        {!loading && <Button size="full-width" color="primary" onClick={() => onClick(id)}>Learn More</Button>}
       </div>
     </div>
   );

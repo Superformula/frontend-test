@@ -1,5 +1,7 @@
 .item {
-  width: 304px;
+  height: 428px;
+  display: flex;
+  flex-direction: column;
 
   &-cover {
     span > span {
@@ -7,20 +9,24 @@
     }
   }
 
-  &-headline {
-    margin-top: 16px;
-  }
+  &-container {
+    flex-grow: 1;
 
-  &-rating {
-    margin-top: 8px;
-  }
+    &-headline {
+      margin-top: 16px;
+    }
 
-  &-status {
-    margin-top: 14px;
+    &-rating {
+      margin-top: 8px;
+    }
 
-    & > div {
-      display: flex;
-      justify-content: space-between;
+    &-status {
+      margin-top: 14px;
+
+      & > div {
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 
