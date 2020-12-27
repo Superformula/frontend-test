@@ -1,0 +1,31 @@
+.item {
+  width: 304px;
+
+  &-cover {
+    span > span {
+      border-radius: 0;
+    }
+  }
+
+  &-headline {
+    margin-top: 16px;
+  }
+
+  &-rating {
+    margin-top: 8px;
+  }
+
+  &-status {
+    margin-top: 14px;
+
+    & > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &-button {
+    margin-top: 20px;
+  }
+}
+
