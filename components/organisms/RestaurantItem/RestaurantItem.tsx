@@ -62,7 +62,7 @@ export const RestaurantItem: FC<RestaurantItemProps> = ({
     <div className={elementClass}>
       <div className={coverClass}>
         {loading && <Skeleton height={228} />}
-        {!loading && <Cover src={imageUrl} alt="cover" />}
+        {!loading && <Cover src={imageUrl} alt={title} />}
       </div>
 
       <div className={headlineClass}>
