@@ -32,6 +32,8 @@
     );
 
     letter-spacing: $typography-headline-letter-spacing;
+    max-height: $typography-headline-max-height;
+    overflow: hidden;
   }
 
   &--variant-body {
