@@ -73,9 +73,8 @@ export const Select: FC<SelectProps> = ({
 
       <ul ref={ref} className={containerClass}>
         {options.map(({ id, text }) => (
-          <li>
+          <li key={id}>
             <Checkbox
-              key={id}
               checked={value === id}
               onChange={() => handleChange(id)}
             >
