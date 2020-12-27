@@ -3,6 +3,7 @@
 
 .typography {
   @include font-family();
+  margin: 0;
 
   &--variant-title {
     @include typography-settings(
