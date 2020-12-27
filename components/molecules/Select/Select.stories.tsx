@@ -6,29 +6,6 @@ import { Select, SelectOption, SelectProps } from './Select';
 export default {
   title: 'molecules/Select',
   component: Select,
-  argTypes: {
-    options: {
-      table: {
-        disable: true,
-      },
-    },
-    value: {
-      control: {
-        type: 'select',
-        options: [
-          null,
-          'all',
-          'italian',
-          'seafood',
-          'steakhouses',
-          'japanese',
-          'american',
-          'mexican',
-          'thai',
-        ],
-      },
-    },
-  },
 } as Meta;
 
 const options: SelectOption[] = [{
