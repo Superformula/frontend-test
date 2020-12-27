@@ -10,8 +10,10 @@
   letter-spacing: $radio-text-letter-spacing;
   line-height: $radio-text-line-height;
   color: $primary-color;
+  cursor: pointer;
+  padding: $radio-padding;
 
-  input[type="radio"] {
+  input[type="checkbox"] {
     display: none;
   }
 

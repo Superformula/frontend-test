@@ -11,10 +11,8 @@ import radioChecked from './assets/radio-checked.svg';
 import radioUnchecked from './assets/radio-unchecked.svg';
 
 export interface RadioProps {
-  name?: string;
-  value?: string;
   checked?: boolean;
-  onChange?: (value: string) => void;
+  onChange?: (value: boolean) => void;
 }
 
 interface IndicatorProps extends HTMLAttributes<HTMLElement>{
@@ -39,14 +37,14 @@ const Indicator: FC<IndicatorProps> = ({ checked }) => {
 };
 
 export const Radio: FC<RadioProps> = ({
-  children, name = '', value = '', checked = false, onChange,
+  children, checked = false, onChange,
 }) => {
   const elementClass = classNames({
     [styles.radio]: true,
   });
 
-  const handleChange = (newValue: string) => {
-    if (newValue && onChange) onChange(newValue);
+  const handleChange = (value: boolean) => {
+    if (onChange) onChange(value);
   };
 
   return (
@@ -54,11 +52,9 @@ export const Radio: FC<RadioProps> = ({
       <Indicator checked={checked} />
 
       <input
-        type="radio"
-        name={name}
+        type="checkbox"
         checked={checked}
-        value={value}
-        onChange={(event) => handleChange(event.target.value)}
+        onChange={(event) => handleChange(event.target.checked)}
       />
 
       {children}

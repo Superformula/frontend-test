@@ -18,13 +18,11 @@ Default.args = {
 export const Unchecked = Template.bind({});
 Unchecked.args = {
   ...Default.args,
-  value: 'radio1',
   checked: false,
 };
 
 export const Checked = Template.bind({});
 Checked.args = {
   ...Default.args,
-  value: 'radio2',
   checked: true,
 };
