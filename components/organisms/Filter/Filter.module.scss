@@ -1,0 +1,23 @@
+.filter {
+  display: flex;
+  align-items: center;
+
+  &-label {
+    margin-right: 24px;
+  }
+
+  &-price {
+    width: 97px;
+    margin-right: 30px;
+  }
+
+  &-category {
+    width: 193px;
+  }
+
+  &-button {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+}
