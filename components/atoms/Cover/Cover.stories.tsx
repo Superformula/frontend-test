@@ -8,7 +8,11 @@ export default {
   component: Cover,
 } as Meta;
 
-const Template: Story<CoverProps> = (args) => <Cover {...args} />;
+const Template: Story<CoverProps> = (args) => (
+  <div style={{ width: 400 }}>
+    <Cover {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
