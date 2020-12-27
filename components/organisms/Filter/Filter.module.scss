@@ -1,6 +1,14 @@
+@import 'styles/abstracts/_variables';
+
 .filter {
   display: flex;
   align-items: center;
+  user-select: none;
+
+  &-status {
+    margin-right: 33px;
+    border-bottom: 1px solid $light-gray;
+  }
 
   &-label {
     margin-right: 24px;
