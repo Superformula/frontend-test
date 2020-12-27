@@ -1,0 +1,31 @@
+@import 'styles/abstracts/_variables';
+
+.main {
+  margin: 36px 64px 0;
+
+  &-title {
+    margin-bottom: 24px;
+  }
+
+  &-body {
+    margin-bottom: 36px;
+    max-width: 770px;
+  }
+
+  &-filter {
+    margin: 0 -64px;
+    border-top: 1px solid $lighter-gray;
+    border-bottom: 1px solid $lighter-gray;
+    padding: 21px 64px;
+  }
+
+  &-subtitle {
+    margin: 64px 0 43px;
+  }
+
+  &-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 242px;
+  }
+}
