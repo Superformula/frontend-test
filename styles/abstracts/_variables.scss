@@ -34,6 +34,7 @@ $typography-headline-font-size: 20px;
 $typography-headline-line-height: 28px;
 $typography-headline-font-weight: normal;
 $typography-headline-letter-spacing: 1px;
+$typography-headline-max-height: 56px;
 
 // typography-body
 $typography-body-font-size: 22px;
@@ -118,4 +119,4 @@ $select-container-padding: 0 16px;
 
 $select-container-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1), inset 0px -1px 0px $light-gray;
 $select-container-item-padding: 11px;
-$select-container-z-index: 1;
+$select-container-z-index: 2;
