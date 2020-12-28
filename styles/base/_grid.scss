@@ -1,53 +1,26 @@
+html { box-sizing: border-box; }
+*,
+*:before,
+*:after { box-sizing: inherit; }
+
 .grid {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  margin: 0 -1%;
 
   & > .col {
-    flex: 0 0 23.5%;
-    margin-left: 0;
-    margin-right: 0;
+    width: 25%;
+    padding-left: 1%;
+    padding-right: 1%;
     margin-bottom: 4%;
-  }
-
-  & > .col:nth-child(4n-1) {
-    margin-left: 0;
-    margin-right: 2%;
-  }
-
-  & > .col:nth-child(4n-2) {
-    margin-left: 2%;
-    margin-right: 2%;
   }
 }
 
 @media (min-width: 1700px) {
   .grid {
     & > .col {
-      flex: 0 0 18.4%;
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 4%;
-    }
-
-    & > .col:nth-child(4n-2) {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    & > .col:nth-child(5n-1) {
-      margin-right: 2%;
-      margin-left: 0;
-    }
-
-    & > .col:nth-child(5n-2) {
-      margin-left: 2%;
-      margin-right: 2%;
-    }
-
-    & > .col:nth-child(5n-3) {
-      margin-right: 0;
-      margin-left: 2%;
+      width: 20%;
     }
   }
 }
@@ -55,40 +28,7 @@
 @media (min-width: 2000px) {
   .grid {
     & > .col {
-      flex: 0 0 15%;
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 4%;
-    }
-
-    & > .col:nth-child(4n-2) {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    & > .col:nth-child(5n-3) {
-      margin-right: 0;
-      margin-left: 0;
-    }
-
-    & > .col:nth-child(6n-1) {
-      margin-left: 0;
-      margin-right: 2%;
-    }
-
-    & > .col:nth-child(6n-2) {
-      margin-left: 2%;
-      margin-right: 2%;
-    }
-
-    & > .col:nth-child(6n-3) {
-      margin-left: 2%;
-      margin-right: 0;
-    }
-
-    & > .col:nth-child(6n-4) {
-      margin-left: 2%;
-      margin-right: 0;
+      flex: 0 0 16.66%;
     }
   }
 }
