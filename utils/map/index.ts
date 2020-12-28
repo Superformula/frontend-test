@@ -1,6 +1,6 @@
 import { Business, Review } from '~/models';
 
-export const mapBusiness = (data: Business) => {
+export const mapBusinessToDetails = (data: Business) => {
   const {
     name,
     rating,
@@ -28,6 +28,28 @@ export const mapBusiness = (data: Business) => {
     price: price.length,
     address,
   };
+};
+
+export const mapBusinessToMain = (data: Business[]) => {
+  const businesses = data.map(({
+    alias,
+    name,
+    rating,
+    categories,
+    is_closed,
+    price,
+    image_url,
+  }) => ({
+    id: alias,
+    title: name,
+    imageUrl: image_url,
+    category: categories[0].title,
+    price: price.length,
+    rating,
+    status: is_closed ? 'closed' : 'open',
+  }));
+
+  return businesses;
 };
 
 export const mapReviews = (data: Review[]) => {
