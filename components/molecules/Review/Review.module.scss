@@ -1,0 +1,35 @@
+@import 'styles/abstracts/_variables';
+
+.review {
+  display: flex;
+
+  &-user {
+    display: flex;
+    width: 336px;
+    min-width: 336px;
+
+    &-header {
+      margin-left: 32px;
+
+      & > p {
+        margin-bottom: 6px;
+        max-width: 192px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &-text {
+    padding-bottom: 75px;
+
+    & > div {
+      margin-bottom: 20px;
+    }
+  }
+
+  &--separator-visible {
+    border-bottom: 1px solid $lighter-gray;
+  }
+}
