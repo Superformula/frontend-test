@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
-import React, { FC, useEffect, useState } from 'react';
+import { GetStaticProps } from 'next';
+import React, { FC, useState } from 'react';
 
 import {
   FilterData,
@@ -7,14 +8,16 @@ import {
   RestaurantItemData,
   SelectOption,
 } from '~/components';
-import { CategoryService } from '~/services';
+import { BusinessService, CategoryService } from '~/services';
+import { mapBusinessToMain } from '~/utils/map';
 
 interface MainPageProps {
   categoryOptions?: SelectOption[];
+  loadedItems?: RestaurantItemData[];
 }
 
-const MainPage: FC<MainPageProps> = ({ categoryOptions = [] }) => {
-  const [items, setItems] = useState<RestaurantItemData[]>([]);
+const MainPage: FC<MainPageProps> = ({ categoryOptions = [], loadedItems = [] }) => {
+  const [items] = useState<RestaurantItemData[]>(loadedItems);
 
   const priceOptions: SelectOption[] = [{
     id: 'all',
@@ -45,10 +48,6 @@ const MainPage: FC<MainPageProps> = ({ categoryOptions = [] }) => {
     console.log('load more');
   };
 
-  useEffect(() => {
-    setItems([]);
-  }, []);
-
   return (
     <Main
       title="Restaurants"
@@ -63,15 +62,18 @@ const MainPage: FC<MainPageProps> = ({ categoryOptions = [] }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const { categories } = await CategoryService.getAll();
   const categoryOptions = categories.map(({ alias, title }) => ({ id: alias, text: title }));
+
+  const { businesses } = await BusinessService.getAll();
 
   return {
     props: {
       categoryOptions,
+      loadedItems: mapBusinessToMain(businesses),
     },
   };
-}
+};
 
 export default MainPage;
