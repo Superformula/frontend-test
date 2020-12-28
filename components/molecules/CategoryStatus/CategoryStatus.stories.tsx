@@ -29,14 +29,13 @@ export const SizeNormal = Template.bind({});
 SizeNormal.args = {
   ...Default.args,
   price: 1,
-  size: 'normal',
 };
 
 export const SizeLarge = Template.bind({});
 SizeLarge.args = {
   ...Default.args,
   price: 1,
-  size: 'large',
+  large: true,
 };
 
 export const PriceOne = Template.bind({});
