@@ -13,6 +13,14 @@ const Template: Story<StarProps> = (args) => <Star {...args} />;
 export const Default = Template.bind({});
 Default.args = {};
 
+export const SizeNormal = Template.bind({});
+SizeNormal.args = {};
+
+export const SizeLarge = Template.bind({});
+SizeLarge.args = {
+  large: true,
+};
+
 export const Empty = Template.bind({});
 Empty.args = {
   variant: 'empty',

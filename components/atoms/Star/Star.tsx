@@ -11,15 +11,17 @@ import fullStar from './assets/star-full.svg';
 import halfStar from './assets/star-half.svg';
 
 export interface StarProps {
+  large?: boolean;
   variant?: 'empty' | 'full' | 'half';
 }
 
-export const Star: FC<StarProps> = ({ variant = 'empty' }) => {
+export const Star: FC<StarProps> = ({ variant = 'empty', large }) => {
   const [src, setSrc] = useState<string>('');
   const [alt, setAlt] = useState<string>('');
 
   const elementClass = classNames({
     [styles.star]: true,
+    [styles['star--size-large']]: large,
   });
 
   useEffect(() => {

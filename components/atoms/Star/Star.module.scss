@@ -2,4 +2,8 @@
 
 .star {
   height: $star-height;
+
+  &--size-large {
+    height: $star-height-large;
+  }
 }
