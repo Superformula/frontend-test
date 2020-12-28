@@ -53,12 +53,11 @@ const MainPage: FC<MainPageProps> = ({ categoryOptions = [] }) => {
     <Main
       title="Restaurants"
       body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      subtitle="All Restaurants"
       priceOptions={priceOptions}
       categoryOptions={categoryOptions}
       items={items}
       onItemClick={handleItemClick}
-      onChange={handleFilterChange}
+      onFilterChange={handleFilterChange}
       onLoadMoreClick={handleLoadMoreClick}
     />
   );
