@@ -5,11 +5,20 @@ import { Typography } from '~/components/atoms';
 export interface CategoryStatusProps {
   category?: string;
   price?: 1 | 2 | 3 | 4;
+  size?: 'normal' | 'large';
 }
 
-export const CategoryStatus: FC<CategoryStatusProps> = ({ category = '', price = 1 }) => {
+export const CategoryStatus: FC<CategoryStatusProps> = ({ category = '', size = 'normal', price = 1 }) => {
   const [money, setMoney] = useState<string>('');
   const [text, setText] = useState<string>('');
+
+  const getVariant = () => {
+    switch (size) {
+      case 'normal': return 'status';
+      case 'large': return 'status2';
+      default: return 'status';
+    }
+  };
 
   useEffect(() => {
     let value = '';
@@ -31,7 +40,7 @@ export const CategoryStatus: FC<CategoryStatusProps> = ({ category = '', price =
 
   return (
     <div>
-      <Typography variant="status">{text}</Typography>
+      <Typography variant={getVariant()}>{text}</Typography>
     </div>
   );
 };

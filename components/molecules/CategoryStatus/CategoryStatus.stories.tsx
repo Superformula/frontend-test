@@ -22,7 +22,21 @@ const Template: Story<CategoryStatusProps> = (args) => <CategoryStatus {...args}
 
 export const Default = Template.bind({});
 Default.args = {
-  category: 'TESTING CATEGORY',
+  category: 'Testing Category',
+};
+
+export const SizeNormal = Template.bind({});
+SizeNormal.args = {
+  ...Default.args,
+  price: 1,
+  size: 'normal',
+};
+
+export const SizeLarge = Template.bind({});
+SizeLarge.args = {
+  ...Default.args,
+  price: 1,
+  size: 'large',
 };
 
 export const PriceOne = Template.bind({});
@@ -46,28 +60,5 @@ PriceThree.args = {
 export const PriceFour = Template.bind({});
 PriceFour.args = {
   ...Default.args,
-  price: 4,
-};
-
-export const NoCategory = Template.bind({});
-NoCategory.args = {};
-
-export const NoCategoryPriceOne = Template.bind({});
-NoCategoryPriceOne.args = {
-  price: 1,
-};
-
-export const NoCategoryPriceTwo = Template.bind({});
-NoCategoryPriceTwo.args = {
-  price: 2,
-};
-
-export const NoCategoryPriceThree = Template.bind({});
-NoCategoryPriceThree.args = {
-  price: 3,
-};
-
-export const NoCategoryPriceFour = Template.bind({});
-NoCategoryPriceFour.args = {
   price: 4,
 };
