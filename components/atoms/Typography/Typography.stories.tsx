@@ -33,6 +33,12 @@ Headline.args = {
   variant: 'headline',
 };
 
+export const Headline2 = Template.bind({});
+Headline.args = {
+  ...Default.args,
+  variant: 'headline2',
+};
+
 export const Body = Template.bind({});
 Body.args = {
   ...Default.args,

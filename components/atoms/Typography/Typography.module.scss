@@ -36,6 +36,17 @@
     overflow: hidden;
   }
 
+  &--variant-headline2 {
+    @include typography-settings(
+      $typography-headline-color,
+      $typography-headline-font-size,
+      $typography-headline-line-height,
+      $typography-headline-font-weight
+    );
+
+    letter-spacing: $typography-headline-letter-spacing;
+  }
+
   &--variant-body {
     @include typography-settings(
       $typography-body-color,
@@ -96,9 +107,5 @@
     );
 
     letter-spacing: $typography-span-letter-spacing;
-  }
-
-  &--color-black {
-    color: $black;
   }
 }
