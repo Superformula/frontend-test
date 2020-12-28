@@ -9,12 +9,12 @@ import { RatingProps } from '../Rating';
 import styles from './Review.module.scss';
 
 export interface ReviewProps {
-  avatarUrl: string;
-  user: string;
-  date: string;
+  avatarUrl?: string;
+  user?: string;
+  date?: string;
   loading?: boolean;
-  text: string;
-  rating: RatingProps['value'];
+  text?: string;
+  rating?: RatingProps['value'];
   showSeparator?: boolean;
 }
 

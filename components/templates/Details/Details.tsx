@@ -19,11 +19,11 @@ import styles from './Details.module.scss';
 import mapPlaceholder from './assets/map.svg';
 
 export type ReviewData = {
-  avatarUrl: ReviewProps['avatarUrl'];
-  user: ReviewProps['user'];
-  date: ReviewProps['date'];
-  text: ReviewProps['text'];
-  rating: ReviewProps['rating'];
+  avatarUrl?: ReviewProps['avatarUrl'];
+  user?: ReviewProps['user'];
+  date?: ReviewProps['date'];
+  text?: ReviewProps['text'];
+  rating?: ReviewProps['rating'];
 };
 
 export interface DetailsProps {
@@ -37,7 +37,7 @@ export interface DetailsProps {
   status: OpenStatusProps['status'];
   title: string;
   totalReviews: number;
-  reviews: ReviewData[];
+  reviews?: ReviewData[];
 }
 
 export const Details: FC<DetailsProps> = ({
@@ -158,6 +158,7 @@ export const Details: FC<DetailsProps> = ({
         {reviews.map((review, index) => (
           <Review
             {...review}
+            key={index}
             loading={loading}
             showSeparator={index !== reviews.length - 1}
           />
