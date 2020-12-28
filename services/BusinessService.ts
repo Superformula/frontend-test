@@ -9,9 +9,9 @@ interface GetAllProps {
   category: string;
 }
 
-export const getAll = async (props: GetAllProps): Promise<Businesses> => {
+export const getAll = async (props?: GetAllProps): Promise<Businesses> => {
   const params = {
-    categories: props.category,
+    categories: props?.category,
     location: 'Las Vegas',
   };
 
@@ -26,6 +26,7 @@ export const getAll = async (props: GetAllProps): Promise<Businesses> => {
       categories,
       is_closed,
       price,
+      alias,
     } = currentValue;
 
     previousValue.push({
@@ -36,6 +37,7 @@ export const getAll = async (props: GetAllProps): Promise<Businesses> => {
       categories,
       is_closed,
       price,
+      alias,
     });
 
     return previousValue;
