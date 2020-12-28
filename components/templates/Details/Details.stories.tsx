@@ -44,3 +44,9 @@ Default.args = {
   loading: false,
   reviews,
 };
+
+export const Loading = Template.bind({});
+Loading.args = {
+  ...Default.args,
+  loading: true,
+};

@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 import { Cover, Typography } from '~/components/atoms';
 
@@ -90,47 +91,67 @@ export const Details: FC<DetailsProps> = ({
 
   return (
     <div className={elementClass}>
-      <Typography variant="title">{title}</Typography>
+      {loading && <Skeleton height={64} width={500} />}
+      {!loading && <Typography variant="title">{title}</Typography>}
 
       <div className={ratingClass}>
-        <Rating value={rating} large />
+        {loading && <Skeleton height={33} width={150} />}
+        {!loading && <Rating value={rating} large />}
       </div>
 
       <div className={statusClass}>
-        <div>
-          <CategoryStatus
-            large
-            category={category}
-            price={price}
-          />
+        {
+          loading && (
+            <div>
+              <Skeleton height={32} width={250} />
+              <Skeleton height={32} width={150} />
+            </div>
+          )
+        }
 
-          <OpenStatus
-            large
-            status={status}
-          />
-        </div>
+        {
+          !loading && (
+            <div>
+              <CategoryStatus
+                large
+                category={category}
+                price={price}
+              />
+
+              <OpenStatus
+                large
+                status={status}
+              />
+            </div>
+          )
+        }
       </div>
 
       <div className={imagesClass}>
         <div className={mapClass}>
-          <Cover src={mapPlaceholder} alt="map" />
+          {loading && <Skeleton height={228} />}
+          {!loading && <Cover src={mapPlaceholder} alt="map" />}
         </div>
 
         <div className={coverClass}>
-          <Cover src={imageUrl1} alt={`${title} 1`} />
+          {loading && <Skeleton height={228} />}
+          {!loading && <Cover src={imageUrl1} alt={`${title} 1`} />}
         </div>
 
         <div className={coverClass}>
-          <Cover src={imageUrl2} alt={`${title} 2`} />
+          {loading && <Skeleton height={228} />}
+          {!loading && <Cover src={imageUrl2} alt={`${title} 2`} />}
         </div>
       </div>
 
       <div className={addressClass}>
-        <Typography variant="headline">{address}</Typography>
+        {loading && <Skeleton height={28} width={600} />}
+        {!loading && <Typography variant="headline">{address}</Typography>}
       </div>
 
       <div className={counterClass}>
-        <Typography variant="status2">{`${totalReviews} Reviews`}</Typography>
+        {loading && <Skeleton height={32} width={200} />}
+        {!loading && <Typography variant="status2">{`${totalReviews} Reviews`}</Typography>}
       </div>
 
       <div className={reviewsClass}>

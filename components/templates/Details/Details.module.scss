@@ -46,4 +46,8 @@
   &-reviews {
     margin-top: 48px;
   }
+
+  span > span {
+    border-radius: 0;
+  }
 }
