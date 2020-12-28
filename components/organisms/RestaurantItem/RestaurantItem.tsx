@@ -63,7 +63,7 @@ export const RestaurantItem: FC<RestaurantItemProps> = ({
   });
 
   return (
-    <div className={elementClass}>
+    <div className={elementClass} onClick={() => onClick(id)}>
       <div className={coverClass}>
         {loading && <Skeleton height={228} />}
         {!loading && <Cover src={imageUrl} alt={title} />}
