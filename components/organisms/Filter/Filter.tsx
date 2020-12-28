@@ -14,6 +14,7 @@ export type FilterData = {
   price: string | null;
   category: string | null;
   open: boolean;
+  label: string | null;
 }
 
 export interface FilterProps {
@@ -25,6 +26,7 @@ export interface FilterProps {
 export const Filter: FC<FilterProps> = ({ priceOptions, categoryOptions, onChange }) => {
   const [price, setPrice] = useState<string | null>(null);
   const [category, setCategory] = useState<string | null>(null);
+  const [label, setLabel] = useState<string | null>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(true);
 
@@ -54,24 +56,48 @@ export const Filter: FC<FilterProps> = ({ priceOptions, categoryOptions, onChang
 
   const handleStatusChange = (value: boolean) => {
     setOpen(value);
-    onChange({ price, category, open: value });
+    onChange({
+      price,
+      category,
+      label,
+      open: value,
+    });
   };
 
   const handlePriceChange = (value: string) => {
     setPrice(value);
-    onChange({ price: value, category, open });
+    onChange({
+      price: value,
+      category,
+      label,
+      open,
+    });
   };
 
-  const handleCategoryChange = (value: string) => {
+  const handleCategoryChange = (value: string, text: string) => {
     setCategory(value);
-    onChange({ price, category: value, open });
+    setLabel(text);
+    onChange({
+      price,
+      category:
+      value,
+      label:
+      text,
+      open,
+    });
   };
 
   const handleClearClick = () => {
     setPrice(null);
     setCategory(null);
+    setLabel(null);
     setOpen(false);
-    onChange({ price: null, category: null, open: false });
+    onChange({
+      price: null,
+      category: null,
+      label: null,
+      open: false,
+    });
   };
 
   useEffect(() => {
@@ -104,6 +130,7 @@ export const Filter: FC<FilterProps> = ({ priceOptions, categoryOptions, onChang
 
       <div className={categoryClass}>
         <Select
+          enableScroll
           label="Categories"
           value={category}
           options={categoryOptions}

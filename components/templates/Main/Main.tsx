@@ -1,10 +1,11 @@
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 import { Button, Typography } from '~/components/atoms';
 
 import {
   Filter,
+  FilterData,
   FilterProps,
   RestaurantItem,
   RestaurantItemProps,
@@ -22,30 +23,33 @@ export type RestaurantItemData = {
   status: RestaurantItemProps['status'];
 };
 
-export interface MainProps extends FilterProps {
+export interface MainProps {
   title: string;
   body: string;
-  subtitle: string;
   items: RestaurantItemData[];
   loading?: boolean;
   showLoadMore?: boolean;
+  categoryOptions: FilterProps['categoryOptions'];
+  priceOptions: FilterProps['priceOptions'];
   onItemClick: (id: string) => void;
   onLoadMoreClick: () => void;
+  onFilterChange: (value: FilterData) => void;
 }
 
 export const Main: FC<MainProps> = ({
   body,
   title,
-  subtitle,
   items,
   loading,
   showLoadMore,
   categoryOptions,
   priceOptions,
-  onChange,
   onItemClick,
+  onFilterChange,
   onLoadMoreClick,
 }) => {
+  const [subtitle, setSubtitle] = useState<string>('All');
+
   const elementClass = classNames({
     [styles.main]: true,
   });
@@ -70,6 +74,15 @@ export const Main: FC<MainProps> = ({
     [styles['main-button']]: true,
   });
 
+  const handleFilterChange = (value: FilterData) => {
+    const { label } = value;
+
+    if (!label) setSubtitle('All');
+    else setSubtitle(label);
+
+    onFilterChange(value);
+  };
+
   return (
     <div className={elementClass}>
       <div className={titleClass}>
@@ -84,12 +97,12 @@ export const Main: FC<MainProps> = ({
         <Filter
           categoryOptions={categoryOptions}
           priceOptions={priceOptions}
-          onChange={onChange}
+          onChange={handleFilterChange}
         />
       </div>
 
       <div className={subtitleClass}>
-        <Typography variant="subtitle">{subtitle}</Typography>
+        <Typography variant="subtitle">{`${subtitle} Restaurants`}</Typography>
       </div>
 
       <div className="grid">

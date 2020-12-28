@@ -132,7 +132,6 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Restaurants',
   body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  subtitle: 'All Restaurants',
   priceOptions,
   categoryOptions,
   items,
