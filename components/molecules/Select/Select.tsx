@@ -18,11 +18,12 @@ export interface SelectProps {
   label: string;
   options: SelectOption[];
   value: string | null;
-  onChange: (value: string) => void;
+  onChange: (value: string, text: string) => void;
+  enableScroll?: boolean;
 }
 
 export const Select: FC<SelectProps> = ({
-  label, options, value, onChange,
+  label, options, value, onChange, enableScroll,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedText, setSelectedText] = useState<string | null>(null);
@@ -51,10 +52,11 @@ export const Select: FC<SelectProps> = ({
   const containerClass = classNames({
     [styles['dropdown-container']]: true,
     [styles['dropdown-container--open']]: isOpen,
+    [styles['dropdown-container--enable-scrollbar']]: enableScroll,
   });
 
-  const handleChange = (newValue: string) => {
-    onChange(newValue);
+  const handleChange = (newValue: string, newText: string) => {
+    onChange(newValue, newText);
     setIsOpen(false);
   };
 
@@ -76,7 +78,7 @@ export const Select: FC<SelectProps> = ({
           <li key={id}>
             <Checkbox
               checked={value === id}
-              onChange={() => handleChange(id)}
+              onChange={() => handleChange(id, text)}
             >
               {text}
             </Checkbox>

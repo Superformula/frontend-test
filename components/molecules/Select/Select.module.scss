@@ -41,6 +41,10 @@
     width: 100%;
     z-index: $select-container-z-index;
 
+    &--enable-scrollbar {
+      overflow-y: auto;
+    }
+
     &--open {
       border: 1px solid $light-gray;
       box-shadow: $select-container-shadow;

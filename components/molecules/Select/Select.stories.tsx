@@ -41,4 +41,11 @@ Default.args = {
   label: 'Categories',
   value: 'all',
   options,
+  enableScroll: false,
+};
+
+export const Scroll = Template.bind({});
+Scroll.args = {
+  ...Default.args,
+  enableScroll: true,
 };
