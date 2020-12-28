@@ -15,6 +15,17 @@ Default.args = {
   status: 'open',
 };
 
+export const SizeNormal = Template.bind({});
+SizeNormal.args = {
+  ...Default.args,
+};
+
+export const SizeLarge = Template.bind({});
+SizeLarge.args = {
+  ...Default.args,
+  large: true,
+};
+
 export const Open = Template.bind({});
 Open.args = {
   status: 'open',

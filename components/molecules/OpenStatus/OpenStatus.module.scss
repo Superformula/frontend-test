@@ -5,4 +5,12 @@
   img {
     margin-right: 4px;
   }
+
+  &--large {
+    img {
+      height: 22px;
+      width: 22px;
+      margin-right: 8px;
+    }
+  }
 }

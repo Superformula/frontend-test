@@ -6,14 +6,21 @@ import styles from './OpenStatus.module.scss';
 
 export interface OpenStatusProps {
   status?: StatusProps['variant'];
+  large?: boolean;
 }
 
-export const OpenStatus: FC<OpenStatusProps> = ({ status = 'open' }) => {
+export const OpenStatus: FC<OpenStatusProps> = ({ status = 'open', large }) => {
   const [text, setText] = useState<string>('');
 
   const elementClass = classNames({
     [styles['open-status']]: true,
+    [styles['open-status--large']]: large,
   });
+
+  const getVariant = () => {
+    if (large) return 'status2';
+    return 'status';
+  };
 
   useEffect(() => {
     switch (status) {
@@ -33,7 +40,7 @@ export const OpenStatus: FC<OpenStatusProps> = ({ status = 'open' }) => {
   return (
     <div className={elementClass}>
       <Status variant={status} />
-      <Typography variant="status">{text}</Typography>
+      <Typography variant={getVariant()}>{text}</Typography>
     </div>
   );
 };
