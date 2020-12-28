@@ -1,0 +1,49 @@
+@import 'styles/abstracts/_variables';
+
+.details {
+  margin: 36px 64px 0;
+
+  &-rating {
+    margin-top: 16px;
+  }
+
+  &-status {
+    margin-top: 22px;
+
+    & > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &-images {
+    display: flex;
+    margin: 48px -64px 0;
+    padding: 48px 64px 15px;
+    border-top: 1px solid $lighter-gray;
+
+    &-cover {
+      height: 100%;
+      flex-grow: 1;
+      margin-left: 32px;
+    }
+
+    &-map {
+      flex-grow: 2;
+    }
+  }
+
+  &-address {
+    border-bottom: 1px solid $lighter-gray;
+    margin: 0 -64px;
+    padding: 0 64px 48px;
+  }
+
+  &-counter {
+    margin-top: 48px;
+  }
+
+  &-reviews {
+    margin-top: 48px;
+  }
+}
