@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 import { Avatar, Typography } from '~/components/atoms';
 import { Rating } from '~/components/molecules';
@@ -11,6 +12,7 @@ export interface ReviewProps {
   avatarUrl: string;
   user: string;
   date: string;
+  loading?: boolean;
   text: string;
   rating: RatingProps['value'];
   showSeparator?: boolean;
@@ -19,6 +21,7 @@ export interface ReviewProps {
 export const Review: FC<ReviewProps> = ({
   avatarUrl,
   date,
+  loading,
   rating,
   showSeparator,
   text,
@@ -44,17 +47,40 @@ export const Review: FC<ReviewProps> = ({
   return (
     <div className={elementClass}>
       <div className={userClass}>
-        <Avatar src={avatarUrl} />
+        {loading && <Skeleton height={80} width={80} />}
+        {!loading && <Avatar src={avatarUrl} />}
 
         <div className={headerClass}>
-          <Typography variant="body2">{user}</Typography>
-          <Typography variant="label">{date}</Typography>
+          {loading && (
+            <>
+              <Skeleton height={24} width={192} />
+              <Skeleton height={24} width={90} />
+            </>
+          )}
+
+          {!loading && (
+            <>
+              <Typography variant="body2">{user}</Typography>
+              <Typography variant="label">{date}</Typography>
+            </>
+          )}
         </div>
       </div>
 
       <div className={textClass}>
-        <Rating value={rating} />
-        <Typography variant="headline2">{text}</Typography>
+        {loading && (
+          <>
+            <Skeleton height={23.3} width={96.5} />
+            <Skeleton height={56} />
+          </>
+        )}
+
+        {!loading && (
+          <>
+            <Rating value={rating} />
+            <Typography variant="headline2">{text}</Typography>
+          </>
+        )}
       </div>
     </div>
   );

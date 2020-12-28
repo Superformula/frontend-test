@@ -18,18 +18,31 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+
+      & > span > span {
+        margin-bottom: 6px;
+      }
     }
   }
 
   &-text {
     padding-bottom: 75px;
+    flex-grow: 1;
 
     & > div {
+      margin-bottom: 20px;
+    }
+
+    & > span:first-child > span {
       margin-bottom: 20px;
     }
   }
 
   &--separator-visible {
     border-bottom: 1px solid $lighter-gray;
+  }
+
+  span > span {
+    border-radius: 0;
   }
 }
