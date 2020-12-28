@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       ...mapBusinessToDetails(business),
       reviews: mapReviews(reviews),
     },
-    revalidate: 1,
+    revalidate: 60 * 5,
   };
 };
 

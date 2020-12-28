@@ -129,6 +129,7 @@ export const getStaticProps: GetStaticProps = async () => {
       categoryOptions,
       loadedItems: mapBusinessToMain(businesses),
     },
+    revalidate: 60 * 5,
   };
 };
 
