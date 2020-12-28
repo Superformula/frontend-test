@@ -3,10 +3,11 @@ import React, { FC, useEffect, useState } from 'react';
 import { Star, StarProps } from '~/components/atoms';
 
 export interface RatingProps {
+  large?: boolean;
   value?: 0 | 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 4.5 | 5;
 }
 
-export const Rating: FC<RatingProps> = ({ value = 0 }) => {
+export const Rating: FC<RatingProps> = ({ value = 0, large }) => {
   const [stars, setStars] = useState<StarProps['variant'][]>([]);
 
   useEffect(() => {
@@ -24,7 +25,13 @@ export const Rating: FC<RatingProps> = ({ value = 0 }) => {
 
   return (
     <div>
-      {stars.map((variant, index) => <Star key={index} variant={variant} />)}
+      {stars.map((variant, index) => (
+        <Star
+          key={index}
+          variant={variant}
+          large={large}
+        />
+      ))}
     </div>
   );
 };

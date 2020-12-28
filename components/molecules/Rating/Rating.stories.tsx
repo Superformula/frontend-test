@@ -25,6 +25,17 @@ Default.args = {
   value: 0,
 };
 
+export const SizeNormal = Template.bind({});
+SizeNormal.args = {
+  value: 0,
+};
+
+export const SizeLarge = Template.bind({});
+SizeLarge.args = {
+  value: 0,
+  large: true,
+};
+
 export const Zero = Template.bind({});
 Zero.args = {
   value: 0,
