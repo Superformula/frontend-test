@@ -20,7 +20,7 @@ const Text: FC<TextProps> = ({
 }) => createElement(element, props, children);
 
 export interface TypographyProps {
-  variant?: 'title' | 'subtitle' | 'headline' | 'body' | 'body2' | 'status' | 'label' | 'span';
+  variant?: 'title' | 'subtitle' | 'headline' | 'body' | 'body2' | 'status' | 'status2' | 'label' | 'span';
 }
 
 export const Typography: FC<TypographyProps> = ({ variant = 'title', children }) => {

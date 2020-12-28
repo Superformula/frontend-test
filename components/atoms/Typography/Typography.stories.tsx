@@ -51,6 +51,12 @@ Status.args = {
   variant: 'status',
 };
 
+export const Status2 = Template.bind({});
+Status2.args = {
+  ...Default.args,
+  variant: 'status2',
+};
+
 export const Label = Template.bind({});
 Label.args = {
   ...Default.args,

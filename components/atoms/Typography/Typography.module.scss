@@ -67,6 +67,16 @@
     text-transform: $typography-status-text-transform;
   }
 
+  &--variant-status2 {
+    @include typography-settings(
+      $typography-status2-color,
+      $typography-status2-font-size,
+      $typography-status2-line-height
+    );
+
+    letter-spacing: $typography-status2-letter-spacing;
+  }
+
   &--variant-label {
     @include typography-settings(
       $typography-label-color,

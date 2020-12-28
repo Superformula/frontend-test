@@ -18,6 +18,7 @@ $typography-headline-color: $black;
 $typography-body-color: $gray;
 $typography-body2-color: $black;
 $typography-status-color: $dark-gray;
+$typography-status2-color: $dark-gray;
 $typography-label-color: $gray;
 $typography-span-color: $primary-color;
 
@@ -52,6 +53,11 @@ $typography-status-font-size: 12px;
 $typography-status-line-height: 16px;
 $typography-status-letter-spacing: 0.5px;
 $typography-status-text-transform: uppercase;
+
+// typography-status2
+$typography-status2-font-size: 22px;
+$typography-status2-line-height: 32px;
+$typography-status2-letter-spacing: 0.916667px;
 
 // typography-label
 $typography-label-font-size: 16px;
