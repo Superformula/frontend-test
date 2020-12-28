@@ -39,6 +39,12 @@ Body.args = {
   variant: 'body',
 };
 
+export const Body2 = Template.bind({});
+Body2.args = {
+  ...Default.args,
+  variant: 'body2',
+};
+
 export const Status = Template.bind({});
 Status.args = {
   ...Default.args,

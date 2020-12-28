@@ -9,10 +9,6 @@ import React, {
 
 import styles from './Typography.module.scss';
 
-export interface TypographyProps {
-  variant?: 'title' | 'subtitle' | 'headline' | 'body' | 'status' | 'label' | 'span';
-}
-
 interface TextProps extends HTMLAttributes<HTMLElement> {
   element: 'h1' | 'h2' | 'h3' | 'p' | 'span';
 }
@@ -22,6 +18,10 @@ const Text: FC<TextProps> = ({
   children,
   ...props
 }) => createElement(element, props, children);
+
+export interface TypographyProps {
+  variant?: 'title' | 'subtitle' | 'headline' | 'body' | 'body2' | 'status' | 'label' | 'span';
+}
 
 export const Typography: FC<TypographyProps> = ({ variant = 'title', children }) => {
   const [element, setElement] = useState<TextProps['element']>('h1');

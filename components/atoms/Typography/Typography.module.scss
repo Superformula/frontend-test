@@ -46,6 +46,16 @@
     letter-spacing: $typography-body-letter-spacing;
   }
 
+  &--variant-body2 {
+    @include typography-settings(
+      $typography-body2-color,
+      $typography-body2-font-size,
+      $typography-body2-line-height
+    );
+
+    letter-spacing: $typography-body2-letter-spacing;
+  }
+
   &--variant-status {
     @include typography-settings(
       $typography-status-color,
@@ -76,5 +86,9 @@
     );
 
     letter-spacing: $typography-span-letter-spacing;
+  }
+
+  &--color-black {
+    color: $black;
   }
 }
