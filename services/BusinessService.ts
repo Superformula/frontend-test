@@ -7,11 +7,13 @@ export interface Businesses {
 
 interface GetAllProps {
   category: string;
+  offset?: number;
 }
 
 export const getAll = async (props?: GetAllProps): Promise<Businesses> => {
   const params = {
     categories: props?.category,
+    offset: props?.offset,
     location: 'Las Vegas',
   };
 
