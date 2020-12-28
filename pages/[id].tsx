@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 
 import { Details, DetailsProps } from '~/components/templates';
 import { BusinessService, ReviewService } from '~/services';
-import { mapBusiness, mapReviews } from '~/utils/map';
+import { mapBusinessToDetails, mapReviews } from '~/utils/map';
 
 interface DetailsPageProps extends DetailsProps {}
 
@@ -24,12 +24,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params as unknown;
   const { id } = params as { id: string };
 
-  const business = await BusinessService.getOne({ id });
-  const { reviews } = await ReviewService.getOne({ id });
+  const [business, { reviews }] = await Promise.all([
+    BusinessService.getOne({ id }),
+    ReviewService.getOne({ id }),
+  ]);
 
   return {
     props: {
-      ...mapBusiness(business),
+      ...mapBusinessToDetails(business),
       reviews: mapReviews(reviews),
     },
     revalidate: 1,
