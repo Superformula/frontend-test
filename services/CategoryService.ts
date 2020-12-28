@@ -15,5 +15,7 @@ export const getAll = async (): Promise<Categories> => {
     return previousValue;
   }, []);
 
+  categories.unshift({ alias: 'all', title: 'All' } as Category);
+
   return { categories };
 };
