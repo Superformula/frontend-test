@@ -1,3 +1,4 @@
+import { RestaurantItemData } from '~/components';
 import { Business, Review } from '~/models';
 
 export const mapBusinessToDetails = (data: Business) => {
@@ -30,7 +31,7 @@ export const mapBusinessToDetails = (data: Business) => {
   };
 };
 
-export const mapBusinessToMain = (data: Business[]) => {
+export const mapBusinessToMain = (data: Business[]): RestaurantItemData[] => {
   const businesses = data.map(({
     alias,
     name,
@@ -44,9 +45,9 @@ export const mapBusinessToMain = (data: Business[]) => {
     title: name,
     imageUrl: image_url,
     category: categories[0].title,
-    price: price.length,
-    rating,
-    status: is_closed ? 'closed' : 'open',
+    price: (price?.length || 1) as RestaurantItemData['price'],
+    rating: rating as RestaurantItemData['rating'],
+    status: (is_closed ? 'closed' : 'open') as RestaurantItemData['status'],
   }));
 
   return businesses;
