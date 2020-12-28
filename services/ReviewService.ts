@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 import { Review } from '~/models';
 import axios from '~/utils/axios';
 
@@ -27,7 +29,7 @@ export const getOne = async (props: GetOneProps): Promise<Reviews> => {
       id,
       rating,
       text,
-      time_created,
+      time_created: moment(time_created).format('MM/D/YYYY'),
       user: { name, image_url },
     });
 

@@ -15,6 +15,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
+    "moment": "^2.29.1",
     "next": "^10.0.3",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
