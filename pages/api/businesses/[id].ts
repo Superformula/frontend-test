@@ -1,37 +1,17 @@
-import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { Business } from '~/models';
+import { BusinessService } from '~/services';
+
+interface BusinessQuery {
+  id: string;
+}
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { data } = await axios.get<Business>(`/businesses/${req.query.id}`);
-  const {
-    id,
-    name,
-    rating,
-    categories,
-    is_closed,
-    location,
-    coordinates,
-    photos,
-    price,
-    review_count,
-  } = data;
+  const query = req.query as unknown;
+  const { id } = query as BusinessQuery;
+  const data = await BusinessService.getOne({ id });
 
-  const { display_address } = location;
-
-  res.send({
-    id,
-    name,
-    rating,
-    categories,
-    is_closed,
-    coordinates,
-    photos,
-    price,
-    review_count,
-    location: { display_address },
-  });
+  res.send(data);
 };
 
 export default handler;
