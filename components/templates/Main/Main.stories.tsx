@@ -144,3 +144,9 @@ Loading.args = {
   ...Default.args,
   loading: true,
 };
+
+export const Empty = Template.bind({});
+Empty.args = {
+  ...Default.args,
+  items: [],
+};

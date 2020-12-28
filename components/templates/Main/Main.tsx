@@ -117,6 +117,14 @@ export const Main: FC<MainProps> = ({
         ))}
       </div>
 
+      {
+        items.length === 0 && (
+          <div className={bodyClass}>
+            <Typography variant="headline">No items were found.</Typography>
+          </div>
+        )
+      }
+
       <div className={buttonClass}>
         {
           showLoadMore && (
