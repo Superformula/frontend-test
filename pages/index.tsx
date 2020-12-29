@@ -63,7 +63,7 @@ const MainPage: FC<MainPageProps> = ({ categoryOptions = [], loadedItems = [] })
   }, [category]);
 
   const handleItemClick = (id: string) => {
-    Router.push(`/${id}`);
+    Router.push(`/${id}`).then(() => window.scrollTo(0, 0));
   };
 
   const handleFilterChange = (value: FilterData) => {
