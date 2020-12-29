@@ -2,6 +2,12 @@
 
 This app is powered by the Yelp API, and it was done as a technical challenge. Without further ado, let's get to the interesting part.
 
+## Demo
+
+A simple pipeline was made for this project using GitHub and Netlify. The app is hosted [here](https://faster-food.netlify.app/). The docs with all the visual components is also available [here](https://faster-food-docs.netlify.app/).
+
+--------------------------
+
 ## The Stack
 
 Thanks to the fair bit of freedom on stack choices, I could choose each technology used on this project.
@@ -13,8 +19,6 @@ Thanks to the fair bit of freedom on stack choices, I could choose each technolo
 - Cypress, for the unit and integration tests
 
 If this was a big project, I probably would not use SCSS and prefer Styled Components instead, since it fits really well with React/Typescript. But I choose to go the SCSS route, to get a feel about how challenging it would be.
-
---------------------------
 
 ## Architecture
 
