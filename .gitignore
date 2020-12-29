@@ -2,3 +2,5 @@
 /build
 /.next/
 .env
+.nyc_output
+coverage

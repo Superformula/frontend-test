@@ -1,0 +1,9 @@
+{
+  "baseUrl": "http://localhost:3000/",
+  "viewportWidth": 1366,
+  "viewportHeight": 768,
+  "experimentalComponentTesting": true,
+  "componentFolder": "tests",
+  "defaultCommandTimeout": 10000,
+  "video": false
+}
