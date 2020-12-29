@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
+
 import React, {
   FC,
   useCallback,
@@ -9,6 +10,7 @@ import React, {
 
 import { Details, DetailsProps, ReviewData } from '~/components/templates';
 import { Business, Review } from '~/models';
+import { ErrorBoundary } from '~/utils/error';
 import { mapBusinessToDetails, mapReviews } from '~/utils/map';
 
 const DetailsPage: FC = () => {
@@ -66,20 +68,22 @@ const DetailsPage: FC = () => {
   }, [requestBusiness, requestReviews]);
 
   return (
-    <Details
-      loading={loading}
-      loadingReviews={loadingReviews}
-      title={title}
-      rating={rating as DetailsProps['rating']}
-      category={category}
-      imageUrl1={imageUrl1}
-      imageUrl2={imageUrl2}
-      status={status as DetailsProps['status']}
-      totalReviews={totalReviews}
-      price={price as DetailsProps['price']}
-      address={address}
-      reviews={reviews}
-    />
+    <ErrorBoundary>
+      <Details
+        loading={loading}
+        loadingReviews={loadingReviews}
+        title={title}
+        rating={rating as DetailsProps['rating']}
+        category={category}
+        imageUrl1={imageUrl1}
+        imageUrl2={imageUrl2}
+        status={status as DetailsProps['status']}
+        totalReviews={totalReviews}
+        price={price as DetailsProps['price']}
+        address={address}
+        reviews={reviews}
+      />
+    </ErrorBoundary>
   );
 };
 

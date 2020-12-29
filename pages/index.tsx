@@ -18,6 +18,7 @@ import {
 
 import { Business } from '~/models';
 import { BusinessService, CategoryService } from '~/services';
+import { ErrorBoundary } from '~/utils/error';
 import { useIsMount } from '~/utils/hooks';
 import { mapBusinessToMain } from '~/utils/map';
 
@@ -101,18 +102,20 @@ const MainPage: FC<MainPageProps> = ({ categoryOptions = [], loadedItems = [] })
   }, [items, price, openNow]);
 
   return (
-    <Main
-      showLoadMore
-      loading={loading}
-      title="Restaurants"
-      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      priceOptions={priceOptions}
-      categoryOptions={categoryOptions}
-      items={filteredItems}
-      onItemClick={handleItemClick}
-      onFilterChange={handleFilterChange}
-      onLoadMoreClick={handleLoadMoreClick}
-    />
+    <ErrorBoundary>
+      <Main
+        showLoadMore
+        loading={loading}
+        title="Restaurants"
+        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        priceOptions={priceOptions}
+        categoryOptions={categoryOptions}
+        items={filteredItems}
+        onItemClick={handleItemClick}
+        onFilterChange={handleFilterChange}
+        onLoadMoreClick={handleLoadMoreClick}
+      />
+    </ErrorBoundary>
   );
 };
 
