@@ -38,6 +38,7 @@ export interface DetailsProps {
   title: string;
   totalReviews: number;
   reviews?: ReviewData[];
+  loadingReviews?: boolean;
 }
 
 export const Details: FC<DetailsProps> = ({
@@ -52,6 +53,7 @@ export const Details: FC<DetailsProps> = ({
   status,
   title,
   totalReviews,
+  loadingReviews,
 }) => {
   const elementClass = classNames({
     [styles.details]: true,
@@ -159,7 +161,7 @@ export const Details: FC<DetailsProps> = ({
           <Review
             {...review}
             key={index}
-            loading={loading}
+            loading={loadingReviews}
             showSeparator={index !== reviews.length - 1}
           />
         ))}

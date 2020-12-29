@@ -65,7 +65,7 @@ export const mapReviews = (data: Review[]) => {
       user: user.name,
       date: time_created,
       text,
-      rating,
+      rating: rating as any,
     }
   ));
 
