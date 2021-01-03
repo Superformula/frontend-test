@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "build-netlify":"sed -i s/API_KEY/$API_KEY/g netlify.toml yarn build",
+    "build-netlify":"sed -i s/API_KEY/$API_KEY/g netlify.toml && yarn build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
