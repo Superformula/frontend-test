@@ -7,6 +7,6 @@
   headers = {Authorization = "Bearer API_KEY"}
 
 [[redirects]]
-  from = "/*"
+  from = "/"
   to = "/index.html"
 
