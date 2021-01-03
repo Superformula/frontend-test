@@ -1,3 +1,12 @@
+## Use Netlify as proxy for the yelp Api
+[[redirects]]
+  from = "/api"
+  to = "https://api.yelp.com/v3"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {Authorization = "Bearer API_KEY"}
+  signed = "API_SIGNATURE_TOKEN"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
