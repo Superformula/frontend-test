@@ -1,0 +1,8 @@
+.filter-panel {
+    display: grid;
+    grid-template-columns: repeat(4, min-content) 1fr;
+    column-gap: 24px ;
+    :last-child {
+        justify-self: end;
+    }
+}

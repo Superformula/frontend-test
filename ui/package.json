@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "build-netlify":"sed -i s/API_KEY/$API_KEY/g netlify.toml && yarn build",
+    "build-netlify": "sed -i s/API_KEY/$API_KEY/g netlify.toml && yarn build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -18,10 +18,14 @@
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
     "@storybook/react": "^6.1.11",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.1.0"
   },
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-contexify": "^5.0.0",
+    "react-dom": "^17.0.1",
+    "react-select": "^3.1.1"
   }
 }
