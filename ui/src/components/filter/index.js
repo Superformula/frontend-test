@@ -2,39 +2,38 @@ import React from "react";
 import "./styles.scss";
 import Button from "../common/button";
 import Label from "../common/label";
-import Select from 'react-select';
+import { Menu, Item, Separator, Submenu, MenuProvider } from "react-contexify";
+import "react-contexify/dist/ReactContexify.css";
+import Dropdown from "../common/dropdown";
 
-const options = [
-	{ value: 'chocolate', label: 'Chocolate' },
-	{ value: 'strawberry', label: 'Strawberry' },
-	{ value: 'vanilla', label: 'Vanilla' }
-  ]
+const MENU_ID = "blahblah";
 
-  const MyOption = props => {
-	const { innerProps, innerRef } = props;
-	return (
-	  <article ref={innerRef} {...innerProps} className="custom-option">
-		<h4>{props.data.artist}</h4>
-		<div className="sub">{props.data.title} </div>
-	  </article>
-	);
-  };
+const options = ["option 1", "option 2", "option 3", "option 4"];
+
 const OpenNowFilter = () => {
   return <Label>open now</Label>;
 };
 
 const PriceFilter = () => {
-  return <Select
-	options={options}
-	components={{Option: MyOption}}
-  />
+  return  <Dropdown
+  id="dropdown-id"
+  label="Price"
+  options={options}
+  value={""}
+  onChange={() => {}}
+/>
 };
 
 const CategoryFilter = () => {
-  return <Select
-	options={options}
-	components={{Option: MyOption}}
-  />
+  return (
+    <Dropdown
+      id="dropdown-id"
+      label="Category"
+      options={options}
+      value={""}
+      onChange={() => {}}
+    />
+  );
 };
 
 const FilterContainer = props => {
