@@ -3,17 +3,14 @@
     display: flex;
     align-content: center;
     justify-content: space-between;
-    padding: 8px;
-    min-width: 160px;
-    height: 42px;
+    min-width: 100px;
     user-select: none;
     border-color: transparent;
     position: relative;
     cursor: pointer;
-    line-height: 24px;
-    font-size: 14px;
     outline: none;
     border: none;
+    background-color: white;
 
   }
 
@@ -29,20 +26,7 @@
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   opacity: 1;
-  background: linear-gradient(
-      45deg,
-      rgb(255, 0, 0),
-      rgb(255, 115, 0),
-      rgb(255, 251, 0),
-      rgb(72, 255, 0),
-      rgb(0, 255, 213),
-      rgb(122, 0, 255),
-      rgb(255, 0, 200),
-      rgb(255, 0, 0)
-    )
-    0% 0% / 400%;
-  animation: glowingInTheDark 20s linear 0s infinite normal none running;
-  transition: opacity 0.3s ease-in-out 0s;
+  
 }
 
 .dropdown[aria-expanded="true"]::after,

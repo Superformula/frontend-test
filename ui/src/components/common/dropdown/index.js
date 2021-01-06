@@ -17,7 +17,7 @@ export default ({ id, value, options, onChange, label }) => {
 
   function getMenuPosition() {
     const { left, bottom } = triggerRef.current.getBoundingClientRect();
-    MenuPosition.current = { x: left, y: bottom + 8 };
+    MenuPosition.current = { x: left, y: bottom + 1 };
     return MenuPosition.current;
   }
 
@@ -76,7 +76,7 @@ export default ({ id, value, options, onChange, label }) => {
         aria-haspopup="true"
         aria-expanded={isVisible}
       >
-        <Label> {selectedName || label} </Label>
+        <Label className="filter-label"> {selectedName || label} </Label>
       </button>
       <Menu id={id} animation="fade" onHidden={clearVisibility}>
         {options.map(option => (

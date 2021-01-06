@@ -43,7 +43,7 @@ const FilterContainer = props => {
 export default () => {
   return (
     <FilterContainer>
-      <Label> Filter By </Label>
+      <Label className="filter-title"> Filter By: </Label>
       <OpenNowFilter />
       <PriceFilter />
       <CategoryFilter />
