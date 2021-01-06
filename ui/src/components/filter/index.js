@@ -8,7 +8,7 @@ import Dropdown from "../common/dropdown";
 
 const MENU_ID = "blahblah";
 
-const options = ["option 1", "option 2", "option 3", "option 4"];
+const options =   [{id:1, name:"option 1"}, {id:2, name:"option 2"}]
 
 const OpenNowFilter = () => {
   return <Label>open now</Label>;
@@ -30,7 +30,7 @@ const CategoryFilter = () => {
       id="dropdown-id"
       label="Category"
       options={options}
-      value={""}
+      value={1}
       onChange={() => {}}
     />
   );

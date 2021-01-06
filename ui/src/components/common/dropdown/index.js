@@ -6,13 +6,14 @@ import { Item, Menu, useContextMenu } from "react-contexify";
 import cx from "clsx";
 import "./dropdown.scss";
 import Label from "../label";
+import FilterOption from './filter-option.js';
 
 
 export default ({ id, value, options, onChange, label }) => {
   const [isVisible, setVisibility] = useState(false);
   const MenuPosition = useRef();
   const triggerRef = useRef();
-  const { show, hidelAll } = useContextMenu({ id });
+  const { show, hideAll } = useContextMenu({ id });
 
   function getMenuPosition() {
     const { left, bottom } = triggerRef.current.getBoundingClientRect();
@@ -23,7 +24,7 @@ export default ({ id, value, options, onChange, label }) => {
   function handleMenuTrigger(e) {
     if (isVisible) {
       setVisibility(false);
-      hidelAll();
+      hideAll();
       return;
     }
     setVisibility(true);
@@ -59,7 +60,9 @@ export default ({ id, value, options, onChange, label }) => {
     onChange(id, data.value);
   }
 
+  
 
+  const selectedName = value && options.find( o => o.id === value).name;
 
   return (
     <div>
@@ -73,14 +76,12 @@ export default ({ id, value, options, onChange, label }) => {
         aria-haspopup="true"
         aria-expanded={isVisible}
       >
-        <Label> {value || label} </Label>
+        <Label> {selectedName || label} </Label>
       </button>
       <Menu id={id} animation="fade" onHidden={clearVisibility}>
         {options.map(option => (
-          <Item key={option} onClick={handleChange} data={{ value: option }}>
-            <div>
-              <span>{option}</span>
-            </div>
+          <Item key={option.id} onClick={handleChange} data={{ value: option.id }}>
+            <FilterOption isSelected={value === option.id} label={option.name}/>
           </Item>
         ))}
       </Menu>
