@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: repeat(4, min-content) 1fr;
     column-gap: 24px ;
+    place-items: center;
+
     :last-child {
         justify-self: end;
     }
@@ -11,9 +13,11 @@
         padding-bottom: 8px;
         border-bottom: solid 1px #C8C8C8;
         text-transform: capitalize;
-        display: inline-block;
+        display: inline-flex;
         min-width: 100px;
         text-align: left;
+        white-space: nowrap;
+        align-items: center;
     }
 
     .filter-title {

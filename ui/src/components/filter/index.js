@@ -2,16 +2,18 @@ import React from "react";
 import "./styles.scss";
 import Button from "../common/button";
 import Label from "../common/label";
+import Checkbox from '../common/checkbox';
 import { Menu, Item, Separator, Submenu, MenuProvider } from "react-contexify";
 import "react-contexify/dist/ReactContexify.css";
 import Dropdown from "../common/dropdown";
+
 
 const MENU_ID = "blahblah";
 
 const options =   [{id:1, name:"option 1"}, {id:2, name:"option 2"}]
 
 const OpenNowFilter = () => {
-  return <Label>open now</Label>;
+  return <Checkbox label="Open Now"/>;
 };
 
 const PriceFilter = () => {

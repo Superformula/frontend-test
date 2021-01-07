@@ -1,6 +1,6 @@
 import React from 'react';
-import check from './check.svg';
-import nocheck from './no-check.svg';
+import check from '../../assets/check.svg';
+import nocheck from '../../assets/no-check.svg';
 
 export default ({label, isSelected}) => {
     return <div className="filter-option">

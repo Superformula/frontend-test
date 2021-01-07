@@ -1,0 +1,18 @@
+
+.checkbox-container {
+    display: inline-flex;
+    padding-bottom: 8px;
+    border-bottom: solid 1px #C8C8C8;
+    .checkicon {
+        padding-right: calc(1rem/2)
+    }
+    input {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .checkbox-label {
+        white-space: nowrap;
+        color: #002B56;
+    }
+}
