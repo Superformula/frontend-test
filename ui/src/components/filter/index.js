@@ -49,7 +49,7 @@ export default () => {
       <OpenNowFilter />
       <PriceFilter />
       <CategoryFilter />
-      <Button>Clear All</Button>
+      <Button className="primary clear-button">Clear All</Button>
     </FilterContainer>
   );
 };

@@ -4,4 +4,16 @@
     background: white;
     box-sizing: border-box;
     text-align: center;
+    text-transform: uppercase;
+    padding: 11px 16px;
+
+    &.primary {
+        border: 1px solid #002B56;
+        font-size: 12px;
+    }
+
+    &.secondary {
+        color: white;
+        background-color: #002B56;
+    }
 }
