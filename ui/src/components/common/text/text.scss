@@ -1,0 +1,35 @@
+.title {
+    font-size: 54px;
+    font-weight: 300;
+    font-size: 54px;
+    line-height: 64px;
+    letter-spacing: 0.964286px;
+    color: #333333;
+    padding-bottom: 24px;
+}
+
+.header-text{
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 32px;
+    /* or 145% */
+    color: #666666;
+    letter-spacing: 0.916667px;
+}
+
+.item-title-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    color: #000000;
+}
+
+.item-property-text {
+    font-size: 12px;
+    line-height: 16px;
+    color: #757575;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+}

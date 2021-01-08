@@ -12,9 +12,10 @@ export default ({ label, checked, ...rest }) => {
           type="checkbox"
           checked={checked}
           className="checkbox"
+          id={label}
           {...rest}
         />
-        <span className="checkbox-label">{label}</span>
+        <label htmlFor={label} className="checkbox-label">{label}</label>
     </div>
   );
 };

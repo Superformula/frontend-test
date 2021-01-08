@@ -5,7 +5,7 @@ import Filter from "../components/filter";
 import '../styles/base.scss';
 
 export default {
-  title: "UI/Filter",
+  title: "Filter",
   component: Filter,
   argTypes: {}
 };
@@ -16,8 +16,8 @@ const Template = args => (
   </div>
 );
 
-export const FilterContainer = Template.bind({});
-FilterContainer.args = {
+export const FilterAndDropdowns = Template.bind({});
+FilterAndDropdowns.args = {
   primary: true,
   label: "Button"
 };

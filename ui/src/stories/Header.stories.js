@@ -1,18 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import { Header } from './Header';
+
+import HeaderComp from "../components/header";
+import '../styles/base.scss';
 
 export default {
-  title: 'Example/Header',
-  component: Header,
+  title: "Header",
+  component: HeaderComp,
+  argTypes: {}
 };
 
-const Template = (args) => <Header {...args} />;
+const Template = args => (
+  <div className="app-theme">
+    <HeaderComp {...args} />
+  </div>
+);
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
-  user: {},
+export const Header = Template.bind({});
+Header.args = {
 };
-
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {};
