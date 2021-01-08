@@ -5,6 +5,11 @@ export const Title =  ({children, ...rest}) => {
     return <h1 className="title" {...rest}>{children}</h1>
 }
 
+export const SubTitle =  ({children, ...rest}) => {
+    return <h1 className="subtitle" {...rest}>{children}</h1>
+}
+
+
 export const HeaderText =  ({children, ...rest}) => {
     return <p className="header-text">{children}</p>
 }

@@ -13,6 +13,7 @@
 - Setup stack and deployment with Netlify
 - Setup Testing libraries
 - Download sample JSON responses from Yelp's Api.
+- Focus on the UI components, use Storybook stories.
 
 
 ## Setup stack
