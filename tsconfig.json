@@ -9,7 +9,10 @@
     "sourceMap": true,
     "target": "es5",
     "esModuleInterop": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      "design-system/*": ["design-system/*"]
+    }
   },
-  "include": ["src/index.tsx"]
+  "include": ["src/index.tsx", "src/design-system/**/*"]
 }

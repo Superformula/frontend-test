@@ -1,7 +1,17 @@
 import * as React from 'react';
 
+import Filters from './Filters';
+import Header from './Header';
+import Results from './Results';
+
 function List() {
-  return <div>This will be the List of restaurants!</div>;
+  return (
+    <main>
+      <Header />
+      <Filters />
+      <Results />
+    </main>
+  );
 }
 
 export default List;
