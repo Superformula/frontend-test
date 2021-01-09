@@ -9,8 +9,10 @@ declare module 'styled-components' {
       primary: string;
       textPrimary: string;
       textSecondary: string;
+      white: string;
       black: string;
       caption: string;
+      label: string;
       divider1: string;
       divider2: string;
     };
