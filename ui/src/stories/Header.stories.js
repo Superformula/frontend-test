@@ -5,7 +5,7 @@ import HeaderComp from "../components/header";
 import '../styles/base.scss';
 
 export default {
-  title: "Header",
+  title: "Header (Search)",
   component: HeaderComp,
   argTypes: {}
 };

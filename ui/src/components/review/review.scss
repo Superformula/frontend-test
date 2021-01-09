@@ -1,0 +1,9 @@
+.review {
+    display: grid;
+    grid-template-columns: 80px 192px 1fr ;
+    column-gap: 32px;
+    .avatar-img {
+        width: 80px;
+        height: 80px;
+    }
+}
