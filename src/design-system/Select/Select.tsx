@@ -15,6 +15,7 @@ const PopperWrapper = styled.div`
 `;
 
 const Button = styled.button`
+  display: inline-flex;
   height: ${({ theme: { px2rem } }) => px2rem(32)};
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.primary};
@@ -32,6 +33,7 @@ const ButtonTextWrapper = styled.span`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  font-size: 16px;
 `;
 
 const Caret = styled(CaretIcon)<{ isOpen: boolean }>`
@@ -41,10 +43,11 @@ const Caret = styled(CaretIcon)<{ isOpen: boolean }>`
 `;
 
 export type SelectProps = Pick<MenuProps, 'value' | 'options'> & {
+  className?: string;
   onChange: (newOption: string) => void;
 };
 
-function Select({ value, options, onChange }: SelectProps) {
+function Select({ value, options, className, onChange }: SelectProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const selectRef = React.useRef(null);
   const referenceRef = React.useRef(null);
@@ -78,7 +81,7 @@ function Select({ value, options, onChange }: SelectProps) {
   const selection = options.find((option) => option === value);
 
   return (
-    <Wrapper ref={selectRef}>
+    <Wrapper className={className} ref={selectRef}>
       <Button ref={referenceRef} onClick={() => setIsOpen(!isOpen)}>
         <ButtonTextWrapper>
           {selection} <Caret isOpen={isOpen} />
