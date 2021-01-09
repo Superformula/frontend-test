@@ -4,8 +4,8 @@ import clsx from 'clsx'
 import Button from '../common/button'
 import {ItemTitle, ItemPropertyText} from '../common/text'
 import Rating from '../rating';
-import openImage from './dot.svg'
-import closeImage from './dot-closed.svg'
+import OpenIndicator from '../open-indicator';
+
 
 export default ({img, name, rating, category, price, isOpen, onDetailsClick}) => {
   return <article className="search-result-card">
@@ -14,8 +14,7 @@ export default ({img, name, rating, category, price, isOpen, onDetailsClick}) =>
     <Rating value={rating}/>
     <div className="details">
       <ItemPropertyText>{category} • {price}</ItemPropertyText>
-      {isOpen && <ItemPropertyText><img className="open-indicator" src={openImage} />&nbsp;Open Now</ItemPropertyText>}
-      {!isOpen && <ItemPropertyText><img className="closed-indicator" src={closeImage} />&nbsp;Closed</ItemPropertyText>}
+      <OpenIndicator isOpen={isOpen} />
     </div>
     <Button className="secondary item-details-button">Learn More</Button>
   </article>

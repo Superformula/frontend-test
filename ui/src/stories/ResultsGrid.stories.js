@@ -21,6 +21,7 @@ export const Grid = Template.bind({});
 
 const sampleItems = new Array(20).fill(1).map( (_,ix)=>{
   return {
+    id: ix,
     name:"Sample Name",
     isOpen:ix % 2 === 0,
     category: 'some category',

@@ -11,9 +11,9 @@ export default ({ value }) => {
     return <article className="rating">
         {items.map((_,ix)=>{
             if(value > ix) {
-                return Math.abs(value - ix) < 1 ?  <img className="star-item-img" src={half} /> : <img className="star-item-img" src={full} />
+                return Math.abs(value - ix) < 1 ?  <img  key={ix} className="star-item-img" src={half} /> : <img  key={ix} className="star-item-img" src={full} />
             }
-            return <img className="star-item-img" src={empty} />
+            return <img key={ix} className="star-item-img" src={empty} />
         })}
     </article>
 };

@@ -12,7 +12,7 @@ export default ({items}) => {
       <SubTitle>All Restaurants</SubTitle>
       <section className="grid-container">
         {items.map(item => (
-          <Card img={item.img}
+          <Card key={item.id} img={item.img}
           name={item.name}
           rating={item.rating}
           price={item.price}
