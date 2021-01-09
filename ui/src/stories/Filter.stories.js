@@ -16,8 +16,23 @@ const Template = args => (
   </div>
 );
 
-export const FilterAndDropdowns = Template.bind({});
-FilterAndDropdowns.args = {
+export const EmptyFilter = Template.bind({});
+EmptyFilter.args = {
   primary: true,
-  label: "Button"
+  label: "Button",
+  priceOptions:[{id:"$", name:"$"},{id:"$$", name:"$$"}],
+  categoryOptions:[{id:"1", name:"Category 1"},{id:"2", name:"Category 2"}],
+  priceFilterValue:null,
+  categoryFilterValue:null,
+};
+
+
+export const FilterWithValues = Template.bind({});
+FilterWithValues.args = {
+  primary: true,
+  label: "Button",
+  priceOptions:[{id:"$", name:"$"},{id:"$$", name:"$$"}],
+  categoryOptions:[{id:"1", name:"Category 1"},{id:"2", name:"Category 2"}],
+  priceFilterValue:"$$",
+  categoryFilterValue:"2",
 };

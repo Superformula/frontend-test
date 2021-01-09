@@ -6,6 +6,7 @@ import { SubTitle } from "../common/text";
 import Card from '../result-card';
 
 export default ({items}) => {
+
   return (
     <section className="results-grid">
       <SubTitle>All Restaurants</SubTitle>
@@ -18,7 +19,7 @@ export default ({items}) => {
           isOpen={item.isOpen} />
         ))}
       </section>
-      <Button className="primary">Load More</Button>
+      <Button className="primary load-more" >Load More</Button>
     </section>
   );
 };

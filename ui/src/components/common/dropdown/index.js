@@ -61,8 +61,8 @@ export default ({ id, value, options, onChange, label }) => {
   }
 
   
-
-  const selectedName = value && options.find( o => o.id === value).name;
+ console.log('options',options)
+  const selectedName = value && options.find( o => o.id === value)?.name;
 
   return (
     <div>

@@ -3,7 +3,7 @@
     grid-template-columns: repeat(4, min-content) 1fr;
     column-gap: 24px ;
     place-items: center;
-
+    align-items: center;
     :last-child {
         justify-self: end;
     }
@@ -22,6 +22,7 @@
 
     .filter-title {
         color: #606060;
+        padding-bottom: 8px;
     }
 
     .clear-button {

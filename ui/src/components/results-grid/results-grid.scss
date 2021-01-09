@@ -1,8 +1,17 @@
 .results-grid {
+    display: flex;
+    flex-direction: column;
     .grid-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         column-gap: 32px;
         row-gap: 80px;
     }
+
+    .load-more {
+        width: 416px;
+        align-self: center;
+        margin-top: 80px;
+    }
+
 }
