@@ -24,8 +24,8 @@ const defaultTheme: DefaultTheme = {
 };
 
 const GlobalStyle = createGlobalStyle`
-  body {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  body, button {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    font-weight: 300;
   }
 `;
