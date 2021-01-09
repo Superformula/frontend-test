@@ -13,12 +13,13 @@ const defaultTheme: DefaultTheme = {
     primary: '#002B56',
     textPrimary: '#333333',
     textSecondary: '#666666',
-    white: '#FFFFFF',
-    black: '#000000',
     caption: '#757575',
     label: '#606060',
     divider1: '#E6E6E6',
     divider2: '#C8C8C8',
+    gray: '#f2f2f2',
+    white: '#FFFFFF',
+    black: '#000000',
   },
 };
 
