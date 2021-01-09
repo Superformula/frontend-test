@@ -1,0 +1,20 @@
+# dependencies
+/node_modules
+
+# misc
+.DS_Store
+*.pem
+
+# env
+.env
+
+# build
+dist
+
+# debug
+npm-debug.log*
+
+# test
+coverage
+
+.vercel
