@@ -23,8 +23,6 @@ const Container = styled.div`
 function Detail() {
   const { data, loading } = useDetailPageData();
 
-  !loading && console.log({ data });
-
   if (loading) {
     return (
       <Main>
@@ -49,7 +47,12 @@ function Detail() {
         price={data.business.price}
         isClosed={data.business.isClosed}
       />
-      <MediaBanner />
+      <MediaBanner
+        name={data.business.name}
+        address={data.business.location.formattedAddress}
+        coordinates={data.business.coordinates}
+        photos={data.business.photos}
+      />
       <Reviews />
     </Main>
   );

@@ -2,6 +2,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 const proxyConfig = require('./proxyConfig');
 
@@ -44,6 +45,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: './src/yourfile.css',
     }),
+    new webpack.EnvironmentPlugin(['GOOGLE_MAPS_API_KEY']),
   ],
   devServer: {
     historyApiFallback: true,
