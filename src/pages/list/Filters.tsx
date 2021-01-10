@@ -1,8 +1,11 @@
 import Button from 'design-system/Button';
 import Checkbox from 'design-system/Checkbox';
 import Select from 'design-system/Select';
+import { Option } from 'design-system/Select/Menu';
 import * as React from 'react';
 import styled from 'styled-components';
+
+import { FilterValue } from './types';
 
 const FilterWrapper = styled.div`
   padding: ${({ theme: { px2rem } }) => `${px2rem(24)} ${px2rem(64)}`};
@@ -24,18 +27,10 @@ const ClearAllButton = styled(Button)`
   justify-self: end;
 `;
 interface FiltersProps {
-  filters: {
-    openNow: boolean;
-    price: string;
-    category: string;
-  };
-  prices: Array<string>;
-  categories: Array<string>;
-  onChange: (newFilters: {
-    openNow: boolean;
-    price: string;
-    category: string;
-  }) => void;
+  filters: FilterValue;
+  prices: Array<Option>;
+  categories: Array<Option>;
+  onChange: (newFilters: FilterValue) => void;
 }
 
 function Filters({ filters, prices, categories, onChange }: FiltersProps) {
@@ -77,8 +72,8 @@ function Filters({ filters, prices, categories, onChange }: FiltersProps) {
         onClick={() =>
           onChange({
             openNow: false,
-            price: 'All',
-            category: 'All',
+            price: prices[0].value,
+            category: categories[0].value,
           })
         }>
         Clear All

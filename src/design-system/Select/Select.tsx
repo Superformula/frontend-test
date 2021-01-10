@@ -78,13 +78,13 @@ function Select({ value, options, className, onChange }: SelectProps) {
     onChange(newOption);
   };
 
-  const selection = options.find((option) => option === value);
+  const selection = options.find((option) => option.value === value);
 
   return (
     <Wrapper className={className} ref={selectRef}>
       <Button ref={referenceRef} onClick={() => setIsOpen(!isOpen)}>
         <ButtonTextWrapper>
-          {selection} <Caret isOpen={isOpen} />
+          {selection.label} <Caret isOpen={isOpen} />
         </ButtonTextWrapper>
       </Button>
 

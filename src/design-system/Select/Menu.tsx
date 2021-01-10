@@ -23,6 +23,8 @@ const List = styled.ul<{ isVisible: boolean }>`
     `0 ${px2rem(6)} ${px2rem(5)} rgba(0, 0, 0, 0.1), inset 0 -1px 0 ${
       colors.divider2
     }`};
+  max-height: ${({ theme: { px2rem } }) => px2rem(300)};
+  overflow: auto;
 `;
 
 const Item = styled.li`
@@ -39,21 +41,26 @@ const Item = styled.li`
   }
 `;
 
+export interface Option {
+  value: string;
+  label: string;
+}
+
 export interface MenuProps {
   isVisible: boolean;
   value: string | undefined;
-  options: Array<string>;
+  options: Array<Option>;
   onSelect: (newSelection: string) => void;
 }
 
 function Menu({ value, isVisible, options, onSelect }: MenuProps) {
-  const isSelected = (option: string) => option === value;
+  const isSelected = (option: Option) => option.value === value;
 
   return (
     <List isVisible={isVisible}>
       {options.map((option) => (
-        <Item key={option} onClick={() => onSelect(option)}>
-          {isSelected(option) ? <Check /> : <Circle />} {option}
+        <Item key={option.value} onClick={() => onSelect(option.value)}>
+          {isSelected(option) ? <Check /> : <Circle />} {option.label}
         </Item>
       ))}
     </List>
