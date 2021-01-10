@@ -1,21 +1,20 @@
 import React from "react";
-import clsx from "clsx";
-import { Title, HeaderText } from "../common/text";
-import Rating from "../rating";
-import OpenIndicator from "../open-indicator";
-import './header-detail.scss';
+import Review from '../review';
+import './review-list.scss';
 
-export default ({ name, category, rating, price, isOpen }) => {
+export default ({ reviewCount, items }) => {
   return (
-    <section className="header-detail">
-      <Title>{name}</Title>
-      <Rating value={rating} />
-      <div className="sub-details-row">
-        <HeaderText>
-          {category} • {price}
-        </HeaderText>
-        <OpenIndicator isOpen={isOpen} />
-      </div>
+    <section className="review-list-container">
+      <span className="review-count">{reviewCount} Reviews</span>
+      <ul className="review-items">
+        {items.map((review)=>(
+          <Review avatar={review.avatar}
+          name={review.name}
+          date={review.date}
+          rating={review.rating}
+          comment={review.comment} />
+        ))}
+      </ul>
     </section>
   );
 };

@@ -18,5 +18,14 @@ const Template = args => (
 
 export const ReviewList = Template.bind({});
 ReviewList.args = {
-    value: 3.5
+   reviewCount: 10,
+   items: new Array(10).fill(0).map((_, ix)=>{
+    return {
+      avatar:'',
+      name:"Author Name",
+      date:"10/09/2018",
+      rating:Math.abs(Math.random()*6),
+      comment:`Don't be fooled by the French name, this place oozes with Californian flair. Their space is phenomenal: bright, warm colors yet clean and inviting. I've been twice for brunch and both times have been incredible! On our next trip to LA, I should really check out dinner since they seem to do more classic French preparations at that time.`
+    }
+   })
 };

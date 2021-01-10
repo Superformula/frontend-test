@@ -1,0 +1,18 @@
+.review-list-container {
+    .review-count {
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 32px;
+        padding-bottom: 48px;
+        color: #666666;
+        display: block;
+    }
+
+    .review-items {
+        .review {
+          padding-bottom: 73px;  
+          border-bottom: solid 1px #E6E6E6;
+          margin-bottom: 80px;
+        }
+    }
+}

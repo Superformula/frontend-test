@@ -8,14 +8,14 @@ export default ({ avatar, name, date, rating, comment }) => {
   return (
     <section className="review">
       <img className="avatar-img" src={avatar} />
-      <div>
-        {name}
-        {date}
+      <div className="author-details">
+        <span className="reviewer-name">{name}</span>
+        <span className="review-date">{date}</span>
       </div>
 
-      <div>
+      <div className="rating-details">
         <Rating value={rating}/>
-        {comment}
+        <p className="comment">{comment}</p>
       </div>
 
     </section>

@@ -1,9 +1,40 @@
 .review {
-    display: grid;
-    grid-template-columns: 80px 192px 1fr ;
-    column-gap: 32px;
-    .avatar-img {
-        width: 80px;
-        height: 80px;
+  display: grid;
+  grid-template-columns: 80px 192px 1fr;
+  column-gap: 32px;
+  .avatar-img {
+    width: 80px;
+    height: 80px;
+    background-color: lightgray;
+  }
+
+  .author-details {
+    display: flex;
+    flex-direction: column;
+    .reviewer-name {
+      font-size: 22px;
+      line-height: 24px;
+      letter-spacing: 0.91;
     }
+    .review-date {
+      font-size: 16px;
+      line-height: 24px;
+      /* identical to box height, or 150% */
+
+      color: #666666;
+    }
+  }
+  .rating-details {
+    .comment {
+      padding-top: 20px;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 28px;
+      /* or 140% */
+
+      letter-spacing: 1px;
+
+      color: #000000;
+    }
+  }
 }
