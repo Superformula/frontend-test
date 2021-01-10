@@ -1,111 +1,107 @@
 # Superformula Front-end Developer Coding Test
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
+To showcase my skills as a frontend developer, here is an example project used to create a webpage similar to the [mockup](./design/mockup.png) provided.
 
-## Context
+## Usage
+The following are required to run this project:
 
-Use React w/ TypeScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
+- [Node.js](https://nodejs.org/en/)
 
-![Superformula-front-end-test-mockup](./mockup.png)
+### Run the Application (Development Mode)
+To run this application in development mode, it will need access to http://localhost:8080. With 
+`webpack-dev-server`, the application with start in development mode with a server, along with hot
+reloading.
 
-Use this Figma file to see button states, colors, and responsive design.  You should be sure to complete the test to mimic the design as seen.
+<details><summary><b>Show instructions</b></summary>
 
-> [Source Figma file](https://www.figma.com/file/4MqQhKPsnKetTud9tm6kDY/Superformula-FE-test-264388d?node-id=0%3A1)
+1. Install the required packages outlined in `package.json`:
 
-## Requirements
+    ```shell script
+    $ npm install
+    ```
 
-### Yelp API
+2. Run the application in development mode:
 
-You can ask us and we will provide you a Yelp API Key to use for your PR.
+    ```shell script
+    $ npm run start
+    ```
+   
+3. Go to http://localhost:8080 in your web browser.
 
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
+</details>
 
-### Page Structure
+### Build the Application (Production Mode)
+With `webpack`, the application with build in production mode.
 
-```
-Main
-  - Filter navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (navigate to Detail View)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
-```
+<details><summary><b>Show instructions</b></summary>
 
-### Functionality
+1. Install the required packages outlined in `package.json`:
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
+    ```shell script
+    $ npm install
+    ```
 
-### Tech stack
+2. Build the application in production mode:
 
-- TypeScript oriented (JavaScipt can be used, but we strongly prefer TypeScript)
-  - Use **React**.
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor, CSS-in-JS, or JSS tool but _do not_ use any pre-styled frameworks or libraries
-  - The general rule of thumb is: you should write your own styling for your components, do not use "pre-made" tools and utilities
-  - GOOD:
-    - Styled-Components
-    - Emotion
-    - SCSS
-    - SASS
-    - LESS
-    - CSS
-  - BAD:
-    - Tailwind
-    - Bootstrap
-    - Material UI
-    - Semantic UI
+    ```shell script
+    $ npm run build
+    ```
+   
+4. Run the build by opening `dist/index.html` in a web browser.
+   
+</details>
 
-### Bonus
+### Run the Application Tests
 
-- Also create mobile version included in Figma comp.
-- Write clear **documentation** on how the app was designed and how to run the code.
-- Provide proper unit tests.
-- Provide components in [Storybook](https://storybook.js.org) with tests.
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages.
-- Provide an online demo of the application.
-- Include subtle animations to focus attention
-- Describe optimization opportunities when you conclude
+#### Unit Tests
 
-## What We Care About
+This project contains unit tests for the React components. Both snapshot testing and functional 
+tests are run to achieve near full coverage.
 
-Use any libraries that you would normally use if this were a real production App. Please note: we're interested in your code & the way you solve the problem, not how well you can use a particular library or feature.
+<details><summary><b>Show instructions</b></summary>
 
-_We're interested in your method and how you approach the problem just as much as we're interested in the end result._
+1. Install the required packages outlined in `package.json`:
 
-Here's what you should strive for:
+    ```shell script
+    $ npm install
+    ```
 
-- Good use of current TypeScript, HTML, CSS, and performance best practices.
-- Solid testing approach.
-- Extensible code.
+2. Run the application's unit tests without a coverage report:
 
-## Q&A
+    ```shell script
+    $ npm run test
+    ```
+   
+   Or run the application's unit tests with a coverage report:
+   
+   ```shell script
+   $ npm run test:coverage
+   ```
 
-> Where should I send back the result when I'm done?
+</details>
 
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
+#### Code Analysis Tests
 
-> What if I have a question?
+The project also contains code analysis tests through linting. 
 
-Just create a new issue in this repo and we will respond and get back to you quickly.
+<details><summary><b>Show instructions</b></summary>
+
+1. Install the required packages outlined in `package.json`:
+
+    ```shell script
+    $ npm install
+    ```
+
+2. Run `eslint` on the application's source code:
+
+    ```shell script
+    $ npm run lint:src
+    ```
+   
+   Run `eslint` with the `--fix` flag to potentially fix linting issues:
+   
+   ```shell script
+   $ npm run lint:src:fix
+   ```
+
+</details>

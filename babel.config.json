@@ -1,0 +1,18 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    "@babel/proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+  ]
+}
