@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 
-import { Category, FilterValue } from './types';
+import { Category, RestaurantResult, FilterValue } from './types';
 
 const QUERY = gql`
   query GetListPageData($openNow: Boolean, $price: String, $category: String) {
@@ -14,6 +14,7 @@ const QUERY = gql`
     ) {
       total
       business {
+        id
         name
         rating
         categories {
@@ -21,7 +22,8 @@ const QUERY = gql`
           title
         }
         price
-        is_closed
+        isClosed: is_closed
+        photos
       }
     }
 
@@ -29,7 +31,7 @@ const QUERY = gql`
       category {
         title
         alias
-        parent_categories {
+        parentCategories: parent_categories {
           title
           alias
         }
@@ -41,6 +43,10 @@ const QUERY = gql`
 interface QueryResponse {
   categories: {
     category: Array<Category>;
+  };
+  restaurants: {
+    total: number;
+    business: Array<RestaurantResult>;
   };
 }
 

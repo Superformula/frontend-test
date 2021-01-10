@@ -16,6 +16,8 @@ declare module 'styled-components' {
       gray: string;
       white: string;
       black: string;
+      open: string;
+      closed: string;
     };
   }
 }

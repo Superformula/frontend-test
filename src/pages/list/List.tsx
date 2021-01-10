@@ -33,8 +33,8 @@ function getRestaurantCategories(
   categories: Array<Category>
 ): Array<{ label: string; value: string }> {
   const restaurantCategories = categories
-    .filter(({ parent_categories }) =>
-      parent_categories.some(({ alias }) => alias === 'restaurants')
+    .filter(({ parentCategories }) =>
+      parentCategories.some(({ alias }) => alias === 'restaurants')
     )
     .map(({ title, alias }) => ({
       label: title,
@@ -73,6 +73,10 @@ function List() {
     data.categories.category
   );
 
+  const restaurantType = restaurantCategories.find(
+    ({ value }) => value === filters.category
+  ).label;
+
   return (
     <Main>
       <Header />
@@ -82,7 +86,10 @@ function List() {
         categories={restaurantCategories}
         onChange={setFilters}
       />
-      <Results />
+      <Results
+        restaurantType={restaurantType}
+        restaurants={data.restaurants.business}
+      />
     </Main>
   );
 }

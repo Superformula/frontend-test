@@ -20,6 +20,8 @@ const defaultTheme: DefaultTheme = {
     gray: '#f2f2f2',
     white: '#FFFFFF',
     black: '#000000',
+    open: '#00E8A4',
+    closed: '#FF3548',
   },
 };
 
