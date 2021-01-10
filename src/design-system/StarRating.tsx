@@ -12,22 +12,38 @@ const StarsWrapper = styled.div`
 interface StarRatingProps {
   rating: number;
   className?: string;
+  starHeight?: number;
+  starWidth?: number;
 }
 
-function StarRating({ rating, className }: StarRatingProps) {
+function StarRating({
+  rating,
+  starHeight,
+  starWidth,
+  className,
+}: StarRatingProps) {
   const fillStars = Math.floor(rating);
   const halfStars = Math.ceil(rating - fillStars);
   const emptyStars = 5 - fillStars - halfStars;
   const stars = [];
 
   for (let i = 0; i < fillStars; i++) {
-    stars.push(<FillStar key={i} />);
+    stars.push(<FillStar key={i} height={starHeight} width={starWidth} />);
   }
 
-  halfStars === 1 && stars.push(<HalfStar key={fillStars} />);
+  halfStars === 1 &&
+    stars.push(
+      <HalfStar key={fillStars} height={starHeight} width={starWidth} />
+    );
 
   for (let i = 0; i < emptyStars; i++) {
-    stars.push(<EmptyStar key={i + fillStars + 1} />);
+    stars.push(
+      <EmptyStar
+        key={i + fillStars + 1}
+        height={starHeight}
+        width={starWidth}
+      />
+    );
   }
 
   return <StarsWrapper className={className}>{stars}</StarsWrapper>;

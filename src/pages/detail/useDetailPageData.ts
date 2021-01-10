@@ -7,6 +7,7 @@ const QUERY = gql`
   query GetDetailPageData($id: String) {
     business(id: $id) {
       id
+      name
       rating
       categories {
         alias
@@ -38,10 +39,14 @@ const QUERY = gql`
   }
 `;
 
+interface QueryResponse {
+  business: RestaurantDetail;
+}
+
 function useDetailPageData() {
   const { id } = useParams<{ id: string }>();
 
-  return useQuery<RestaurantDetail, { id: string }>(QUERY, {
+  return useQuery<QueryResponse, { id: string }>(QUERY, {
     variables: { id },
     skip: !id,
   });

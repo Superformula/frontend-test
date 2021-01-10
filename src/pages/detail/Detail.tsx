@@ -1,3 +1,4 @@
+import LoadingIndicator from 'design-system/LoadingIndicator';
 import * as React from 'react';
 import styled from 'styled-components';
 
@@ -12,14 +13,42 @@ const Main = styled.main`
   flex-direction: column;
 `;
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+`;
+
 function Detail() {
   const { data, loading } = useDetailPageData();
 
   !loading && console.log({ data });
 
+  if (loading) {
+    return (
+      <Main>
+        <Container>
+          <LoadingIndicator />
+        </Container>
+      </Main>
+    );
+  }
+
+  // Get the first category that it's not restaurants
+  const category = data.business.categories.find(
+    ({ alias }) => alias !== 'restaurants'
+  ).title;
+
   return (
     <Main>
-      <Header />
+      <Header
+        name={data.business.name}
+        rating={data.business.rating}
+        category={category}
+        price={data.business.price}
+        isClosed={data.business.isClosed}
+      />
       <MediaBanner />
       <Reviews />
     </Main>

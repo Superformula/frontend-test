@@ -2,14 +2,16 @@ import * as React from 'react';
 
 export interface FillStarProps {
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-function FillStar({ className }: FillStarProps) {
+function FillStar({ className, width = 20, height = 20 }: FillStarProps) {
   return (
     <svg
       className={className}
-      width="20"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 20 20"
       fill="none">
       <path

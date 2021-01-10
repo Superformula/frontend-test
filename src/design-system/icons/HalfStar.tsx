@@ -2,14 +2,16 @@ import * as React from 'react';
 
 export interface HalfStarProps {
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-function HalfStar({ className }: HalfStarProps) {
+function HalfStar({ className, width = 20, height = 20 }: HalfStarProps) {
   return (
     <svg
       className={className}
-      width="20"
-      height="20"
+      width={width}
+      height={height}
       viewBox="0 0 20 20"
       fill="none">
       <path

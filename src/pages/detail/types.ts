@@ -12,6 +12,7 @@ export interface Review {
 
 export interface RestaurantDetail {
   id: string;
+  name: string;
   rating: number;
   categories: Array<{ alias: string; title: string }>;
   price: string;
@@ -19,7 +20,7 @@ export interface RestaurantDetail {
   location: {
     formattedAddress: string;
   };
-  coordinated: {
+  coordinates: {
     latitude: number;
     longitude: number;
   };
