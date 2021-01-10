@@ -21,7 +21,7 @@ const Container = styled.div`
 `;
 
 function Detail() {
-  const { data, loading } = useDetailPageData();
+  const { data, loading, fetchMore } = useDetailPageData();
 
   if (loading) {
     return (
@@ -56,6 +56,13 @@ function Detail() {
       <Reviews
         reviewCount={data.business.reviewCount}
         reviews={data.business.reviews}
+        onLoadMore={() =>
+          fetchMore({
+            variables: {
+              offset: data.business.reviews.length,
+            },
+          })
+        }
       />
     </Main>
   );

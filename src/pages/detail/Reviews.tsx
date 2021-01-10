@@ -33,9 +33,10 @@ const LoadMoreButton = styled(Button)`
 interface ReviewsProps {
   reviewCount: number;
   reviews: Array<ReviewItem>;
+  onLoadMore: () => void;
 }
 
-function Reviews({ reviewCount, reviews }: ReviewsProps) {
+function Reviews({ reviewCount, reviews, onLoadMore }: ReviewsProps) {
   return (
     <ReviewsWrapper>
       <Caption>{reviewCount} Reviews</Caption>
@@ -44,9 +45,7 @@ function Reviews({ reviewCount, reviews }: ReviewsProps) {
           <Review key={review.id} {...review} />
         ))}
       </List>
-      <LoadMoreButton
-        variant="outlined"
-        onClick={() => console.log('Load more')}>
+      <LoadMoreButton variant="outlined" onClick={onLoadMore}>
         Load more
       </LoadMoreButton>
     </ReviewsWrapper>

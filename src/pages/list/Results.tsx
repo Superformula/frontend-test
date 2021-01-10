@@ -29,9 +29,10 @@ const LoadMoreButton = styled(Button)`
 interface ResultsProps {
   restaurantType: string;
   restaurants: Array<RestaurantResult>;
+  onLoadMore: () => void;
 }
 
-function Results({ restaurantType, restaurants }: ResultsProps) {
+function Results({ restaurantType, restaurants, onLoadMore }: ResultsProps) {
   return (
     <ResultsWrapper>
       <Subtitle>{restaurantType} Restaurants</Subtitle>
@@ -40,9 +41,7 @@ function Results({ restaurantType, restaurants }: ResultsProps) {
           <RestaurantTile key={restaurant.id} {...restaurant} />
         ))}
       </Grid>
-      <LoadMoreButton
-        variant="outlined"
-        onClick={() => console.log('Load more')}>
+      <LoadMoreButton variant="outlined" onClick={onLoadMore}>
         Load more
       </LoadMoreButton>
     </ResultsWrapper>

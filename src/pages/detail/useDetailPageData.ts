@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { RestaurantDetail } from './types';
 
 const QUERY = gql`
-  query GetDetailPageData($id: String) {
+  query GetDetailPageData($id: String, $offset: Int, $limit: Int) {
     business(id: $id) {
       id
       name
@@ -24,7 +24,7 @@ const QUERY = gql`
       }
       photos
       reviewCount: review_count
-      reviews {
+      reviews(offset: $offset, limit: $limit) {
         id
         rating
         user {
@@ -43,11 +43,17 @@ interface QueryResponse {
   business: RestaurantDetail;
 }
 
+interface QueryParameters {
+  id: string;
+  offset: number;
+  limit: number;
+}
+
 function useDetailPageData() {
   const { id } = useParams<{ id: string }>();
 
-  return useQuery<QueryResponse, { id: string }>(QUERY, {
-    variables: { id },
+  return useQuery<QueryResponse, QueryParameters>(QUERY, {
+    variables: { id, offset: 0, limit: 10 },
     skip: !id,
   });
 }

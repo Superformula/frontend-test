@@ -56,7 +56,7 @@ function List() {
     category: '',
   });
 
-  const { data, loading } = useListPageData(filters);
+  const { data, loading, fetchMore } = useListPageData(filters);
 
   if (loading) {
     return (
@@ -89,6 +89,13 @@ function List() {
       <Results
         restaurantType={restaurantType}
         restaurants={data.restaurants.business}
+        onLoadMore={() =>
+          fetchMore({
+            variables: {
+              offset: data.restaurants.business.length,
+            },
+          })
+        }
       />
     </Main>
   );

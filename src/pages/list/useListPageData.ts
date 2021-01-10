@@ -3,7 +3,13 @@ import { useQuery, gql } from '@apollo/client';
 import { Category, RestaurantResult, FilterValue } from './types';
 
 const QUERY = gql`
-  query GetListPageData($openNow: Boolean, $price: String, $category: String) {
+  query GetListPageData(
+    $openNow: Boolean
+    $price: String
+    $category: String
+    $offset: Int
+    $limit: Int
+  ) {
     restaurants: search(
       # Las Vegas coordinates
       latitude: 36.1699
@@ -11,6 +17,8 @@ const QUERY = gql`
       open_now: $openNow
       price: $price
       categories: $category
+      offset: $offset
+      limit: $limit
     ) {
       total
       business {
@@ -50,9 +58,18 @@ interface QueryResponse {
   };
 }
 
+type QueryParameters = FilterValue & {
+  offset: number;
+  limit: number;
+};
+
 function useListPageData(filters: FilterValue) {
-  return useQuery<QueryResponse, FilterValue>(QUERY, {
-    variables: filters,
+  return useQuery<QueryResponse, QueryParameters>(QUERY, {
+    variables: {
+      ...filters,
+      offset: 0,
+      limit: 12,
+    },
   });
 }
 
