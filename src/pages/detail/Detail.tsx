@@ -53,7 +53,10 @@ function Detail() {
         coordinates={data.business.coordinates}
         photos={data.business.photos}
       />
-      <Reviews />
+      <Reviews
+        reviewCount={data.business.reviewCount}
+        reviews={data.business.reviews}
+      />
     </Main>
   );
 }

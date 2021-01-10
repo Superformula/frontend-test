@@ -1,4 +1,4 @@
-export interface Review {
+export interface ReviewItem {
   id: string;
   rating: number;
   user: {
@@ -26,5 +26,5 @@ export interface RestaurantDetail {
   };
   photos: Array<string>;
   reviewCount: number;
-  reviews: Array<Review>;
+  reviews: Array<ReviewItem>;
 }
