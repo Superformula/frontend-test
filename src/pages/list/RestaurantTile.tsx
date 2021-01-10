@@ -1,6 +1,7 @@
 import Button from 'design-system/Button';
 import StarRating from 'design-system/StarRating';
 import * as React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { RestaurantResult } from './types';
@@ -74,6 +75,7 @@ const LearnMoreButton = styled(Button)`
 `;
 
 function RestaurantTile({
+  id,
   name,
   rating,
   categories,
@@ -81,6 +83,7 @@ function RestaurantTile({
   isClosed,
   photos,
 }: RestaurantResult) {
+  const history = useHistory();
   // Get the first category that it's not restaurants
   const category = categories.find(({ alias }) => alias !== 'restaurants')
     .title;
@@ -97,7 +100,7 @@ function RestaurantTile({
       <OpenCaption>{isClosed ? 'Closed' : 'Open now'}</OpenCaption>
       <LearnMoreButton
         variant="filled"
-        onClick={() => console.log('Learn more!')}>
+        onClick={() => history.push(`/restaurant/${id}`)}>
         Learn More
       </LearnMoreButton>
     </Container>

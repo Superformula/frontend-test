@@ -14,7 +14,7 @@ function App() {
         <ThemeProvider>
           <Router>
             <Switch>
-              <Route path="/restaurant">
+              <Route path="/restaurant/:id">
                 <Detail />
               </Route>
               <Route path="/">
