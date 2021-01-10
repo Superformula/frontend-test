@@ -1,0 +1,31 @@
+.location-details {
+    display: grid;
+    column-gap: 32px;
+    grid-template-columns: 640px 1fr;
+
+    .map-container {
+        .map {
+            background-color: lightgray;
+            width: 640px;
+            height: 228px;
+        }
+        .location-label {
+            display: block;
+            padding-top: 15px;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+    }
+
+    .location-images {
+        display: flex;
+     }
+
+     .location-image {
+         width: 304px;
+         height: 228px;
+         margin-left: 32px;
+     }
+}

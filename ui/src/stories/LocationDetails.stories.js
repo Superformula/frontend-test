@@ -1,22 +1,24 @@
 import React from "react";
-
-
-import RatingComp from "../components/rating";
+import LocationDetailsComp from "../components/location-details";
 import '../styles/base.scss';
+import sampleImg from './assets/sample.svg'
 
 export default {
   title: "Location Details",
-  component: RatingComp,
+  component: LocationDetailsComp,
   argTypes: {}
 };
 
 const Template = args => (
   <div className="app-theme">
-    <RatingComp {...args} />
+    <LocationDetailsComp {...args} />
   </div>
 );
 
 export const LocationDetails = Template.bind({});
 LocationDetails.args = {
-    value: 3.5
+   lat: 100,
+   lon: 100,
+   images: [sampleImg,sampleImg],
+   locationLabel:"Address here"
 };

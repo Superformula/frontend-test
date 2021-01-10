@@ -21,6 +21,7 @@ ReviewList.args = {
    reviewCount: 10,
    items: new Array(10).fill(0).map((_, ix)=>{
     return {
+      id: ix, 
       avatar:'',
       name:"Author Name",
       date:"10/09/2018",
