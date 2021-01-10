@@ -18,6 +18,17 @@ const Button = styled.button<{ variant: 'filled' | 'outlined' }>`
     variant === 'filled' ? 'none' : `1px solid ${colors.primary}`};
   text-align: center;
   text-transform: uppercase;
+
+  &:disabled {
+    ${({ variant, theme: { colors } }) =>
+      variant === 'filled'
+        ? `background-color: ${colors.divider2}`
+        : `
+          color: ${colors.divider2};
+          border-color: ${colors.divider2};
+    `}
+  }
+
   &:hover {
     cursor: pointer;
   }

@@ -34,6 +34,11 @@ interface FiltersProps {
 }
 
 function Filters({ filters, prices, categories, onChange }: FiltersProps) {
+  const isClearDisabled =
+    !filters.openNow &&
+    filters.price === prices[0].value &&
+    filters.category === categories[0].value;
+
   return (
     <FilterWrapper>
       <FilterLabel>Filter By:</FilterLabel>
@@ -75,7 +80,8 @@ function Filters({ filters, prices, categories, onChange }: FiltersProps) {
             price: prices[0].value,
             category: categories[0].value,
           })
-        }>
+        }
+        disabled={isClearDisabled}>
         Clear All
       </ClearAllButton>
     </FilterWrapper>
