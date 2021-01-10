@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { RestaurantResult } from './types';
 
-const Container = styled.div`
+const Container = styled.article`
   width: ${({ theme: { px2rem } }) => px2rem(304)};
   display: grid;
   grid-template-columns: 1fr auto auto;

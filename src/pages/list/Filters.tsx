@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 import { FilterValue } from './types';
 
-const FilterWrapper = styled.div`
+const FilterWrapper = styled.section`
   padding: ${({ theme: { px2rem } }) => `${px2rem(24)} ${px2rem(64)}`};
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.divider1};
   display: grid;

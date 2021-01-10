@@ -3,7 +3,7 @@ import WelcomeText from 'design-system/WelcomeText';
 import * as React from 'react';
 import styled from 'styled-components';
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   padding: ${({ theme: { px2rem } }) => `${px2rem(36)} ${px2rem(64)}`};
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.divider1};
 `;
