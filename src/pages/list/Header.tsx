@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
 function Header() {
   return (
     <HeaderWrapper>
-      <Title>Restaurants</Title>
+      <Title data-testid="list-page-title">Restaurants</Title>
       <WelcomeText>
         Welcome to the Resto Explorer! You can use this page to find restaurants
         in the Las Vegas area. Happy exploring!

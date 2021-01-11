@@ -89,9 +89,9 @@ function RestaurantTile({
     .title;
 
   return (
-    <Container>
+    <Container data-testid="restaurant-tile">
       <Img src={photos[0]} alt={name} />
-      <Name>{name}</Name>
+      <Name data-testid="restaurant-name">{name}</Name>
       <Stars rating={rating} />
       <Category>
         {category} &#xB7; {price}
@@ -100,7 +100,8 @@ function RestaurantTile({
       <OpenCaption>{isClosed ? 'Closed' : 'Open now'}</OpenCaption>
       <LearnMoreButton
         variant="filled"
-        onClick={() => history.push(`/restaurant/${id}`)}>
+        onClick={() => history.push(`/restaurant/${id}`)}
+        data-testid="learn-more">
         Learn More
       </LearnMoreButton>
     </Container>
