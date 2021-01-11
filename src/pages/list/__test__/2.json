@@ -1,0 +1,233 @@
+{
+  "restaurants": {
+    "total": 497,
+    "business": [
+      {
+        "id": "-ed0Yc9on37RoIoG2ZgxBA",
+        "name": "Le Thai",
+        "rating": 4,
+        "categories": [
+          {
+            "alias": "thai",
+            "title": "Thai",
+            "__typename": "Category"
+          },
+          {
+            "alias": "beergardens",
+            "title": "Beer Gardens",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media1.fl.yelpcdn.com/bphoto/Scrr9Q0qZYAl9TySlCeNyA/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "v_yCY6NCwxCPIsNZR80UfQ",
+        "name": "Donut Bar",
+        "rating": 4.5,
+        "categories": [
+          {
+            "alias": "donuts",
+            "title": "Donuts",
+            "__typename": "Category"
+          },
+          {
+            "alias": "coffee",
+            "title": "Coffee & Tea",
+            "__typename": "Category"
+          },
+          {
+            "alias": "breakfast_brunch",
+            "title": "Breakfast & Brunch",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media2.fl.yelpcdn.com/bphoto/P20RNrT5sromUiOff0A7Dg/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "5keoVVM81g-nJw0Zdpl1nA",
+        "name": "Evel Pie",
+        "rating": 4.5,
+        "categories": [
+          {
+            "alias": "pizza",
+            "title": "Pizza",
+            "__typename": "Category"
+          },
+          {
+            "alias": "bars",
+            "title": "Bars",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media1.fl.yelpcdn.com/bphoto/v-n3HR_6SYDX5yz77L1-1Q/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "0EgYXYjt2XJL4hlsKnzrcw",
+        "name": "PublicUs",
+        "rating": 4.5,
+        "categories": [
+          {
+            "alias": "cafes",
+            "title": "Cafes",
+            "__typename": "Category"
+          },
+          {
+            "alias": "coffee",
+            "title": "Coffee & Tea",
+            "__typename": "Category"
+          },
+          {
+            "alias": "newamerican",
+            "title": "American (New)",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media2.fl.yelpcdn.com/bphoto/WE66h_vpwGh8R6UMd0KJZw/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "R0iz7n80-mDo2_uL_Q5ANg",
+        "name": "Oak and Ivy",
+        "rating": 4.5,
+        "categories": [
+          {
+            "alias": "cocktailbars",
+            "title": "Cocktail Bars",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media3.fl.yelpcdn.com/bphoto/RnfiK_mR7poe3WzSHsFLxQ/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "VG0nWxGsPixYLsyi49gyxQ",
+        "name": "Hugo's Cellar",
+        "rating": 4,
+        "categories": [
+          {
+            "alias": "tradamerican",
+            "title": "American (Traditional)",
+            "__typename": "Category"
+          },
+          {
+            "alias": "seafood",
+            "title": "Seafood",
+            "__typename": "Category"
+          },
+          {
+            "alias": "steak",
+            "title": "Steakhouses",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media4.fl.yelpcdn.com/bphoto/6Y29shadViPS0tygiCkBaw/o.jpg"
+        ],
+        "__typename": "Business"
+      }
+    ],
+    "__typename": "Businesses"
+  },
+  "categories": {
+    "category": [
+      {
+        "title": "Arabian",
+        "alias": "arabian",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Argentine",
+        "alias": "argentine",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Armenian",
+        "alias": "armenian",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Australian",
+        "alias": "australian",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Austrian",
+        "alias": "austrian",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Bangladeshi",
+        "alias": "bangladeshi",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      }
+    ],
+    "__typename": "Categories"
+  }
+}

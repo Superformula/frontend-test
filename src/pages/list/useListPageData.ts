@@ -2,7 +2,7 @@ import { useQuery, gql } from '@apollo/client';
 
 import { Category, RestaurantResult, FilterValue } from './types';
 
-const QUERY = gql`
+export const QUERY = gql`
   query GetListPageData(
     $openNow: Boolean
     $price: String

@@ -1,0 +1,233 @@
+{
+  "restaurants": {
+    "total": 497,
+    "business": [
+      {
+        "id": "2iTsRqUsPGRH1li1WVRvKQ",
+        "name": "Carson Kitchen",
+        "rating": 4.5,
+        "categories": [
+          {
+            "alias": "newamerican",
+            "title": "American (New)",
+            "__typename": "Category"
+          },
+          {
+            "alias": "desserts",
+            "title": "Desserts",
+            "__typename": "Category"
+          },
+          {
+            "alias": "cocktailbars",
+            "title": "Cocktail Bars",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media4.fl.yelpcdn.com/bphoto/WqBp_Uft4DTNzrRYSS_iEg/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "2sx52lDoiEtef7xgPCaoBw",
+        "name": "VegeNation",
+        "rating": 4.5,
+        "categories": [
+          {
+            "alias": "vegan",
+            "title": "Vegan",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media4.fl.yelpcdn.com/bphoto/xTvpHWC-_AxNciuxwZWaeQ/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "l_GV0hgEoTUf70uJVT0_hg",
+        "name": "Eat.",
+        "rating": 4,
+        "categories": [
+          {
+            "alias": "newamerican",
+            "title": "American (New)",
+            "__typename": "Category"
+          },
+          {
+            "alias": "breakfast_brunch",
+            "title": "Breakfast & Brunch",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media2.fl.yelpcdn.com/bphoto/USHN_KQebFY79O7DyLW-cQ/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "UidEFF1WpnU4duev4fjPlQ",
+        "name": "Therapy",
+        "rating": 4.5,
+        "categories": [
+          {
+            "alias": "newamerican",
+            "title": "American (New)",
+            "__typename": "Category"
+          },
+          {
+            "alias": "tapasmallplates",
+            "title": "Tapas/Small Plates",
+            "__typename": "Category"
+          },
+          {
+            "alias": "cocktailbars",
+            "title": "Cocktail Bars",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media1.fl.yelpcdn.com/bphoto/OYivVr5oex01gt8S9pTRqA/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "3GEEy7RP6e4bT4LAiWFMFQ",
+        "name": "Pizza Rock",
+        "rating": 4,
+        "categories": [
+          {
+            "alias": "pizza",
+            "title": "Pizza",
+            "__typename": "Category"
+          },
+          {
+            "alias": "sportsbars",
+            "title": "Sports Bars",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media4.fl.yelpcdn.com/bphoto/F9HNvpEWEsIKmK2RyLVFmQ/o.jpg"
+        ],
+        "__typename": "Business"
+      },
+      {
+        "id": "eJKnymd0BywNPrJw1IuXVw",
+        "name": "Nacho Daddy Downtown",
+        "rating": 4,
+        "categories": [
+          {
+            "alias": "newamerican",
+            "title": "American (New)",
+            "__typename": "Category"
+          },
+          {
+            "alias": "mexican",
+            "title": "Mexican",
+            "__typename": "Category"
+          },
+          {
+            "alias": "breakfast_brunch",
+            "title": "Breakfast & Brunch",
+            "__typename": "Category"
+          }
+        ],
+        "price": "$$",
+        "isClosed": false,
+        "photos": [
+          "https://s3-media1.fl.yelpcdn.com/bphoto/wceTIo3pRr_-xUTtIJBVdg/o.jpg"
+        ],
+        "__typename": "Business"
+      }
+    ],
+    "__typename": "Businesses"
+  },
+  "categories": {
+    "category": [
+      {
+        "title": "Arabian",
+        "alias": "arabian",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Argentine",
+        "alias": "argentine",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Armenian",
+        "alias": "armenian",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Australian",
+        "alias": "australian",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Austrian",
+        "alias": "austrian",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      },
+      {
+        "title": "Bangladeshi",
+        "alias": "bangladeshi",
+        "parentCategories": [
+          {
+            "title": "Restaurants",
+            "alias": "restaurants",
+            "__typename": "Category"
+          }
+        ],
+        "__typename": "Category"
+      }
+    ],
+    "__typename": "Categories"
+  }
+}
