@@ -9,5 +9,6 @@ module.exports = {
   moduleNameMapper: {
     '^design-system/(.*)': '<rootDir>/src/design-system/$1',
   },
-  testPathIgnorePatterns: ['/node_modules/', '/public/'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  collectCoverageFrom: ['!src/test-utils.tsx', '!src/**/*.json'],
 };

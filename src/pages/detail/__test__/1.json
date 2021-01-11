@@ -1,0 +1,73 @@
+{
+  "business": {
+    "id": "2iTsRqUsPGRH1li1WVRvKQ",
+    "name": "Carson Kitchen",
+    "rating": 3.5,
+    "categories": [
+      {
+        "alias": "newamerican",
+        "title": "American (New)"
+      },
+      {
+        "alias": "desserts",
+        "title": "Desserts",
+        "__typename": "Category"
+      },
+      {
+        "alias": "cocktailbars",
+        "title": "Cocktail Bars"
+      }
+    ],
+    "price": "$$",
+    "isClosed": false,
+    "location": {
+      "formattedAddress": "124 S 6th St\nSte 100\nLas Vegas, NV 89101",
+      "__typename": "Location"
+    },
+    "coordinates": {
+      "latitude": 36.1678783156885,
+      "longitude": -115.140640474856,
+      "__typename": "Coordinates"
+    },
+    "photos": [
+      "https://s3-media4.fl.yelpcdn.com/bphoto/WqBp_Uft4DTNzrRYSS_iEg/o.jpg"
+    ],
+    "reviewCount": 2517,
+    "reviews": [
+      {
+        "id": "8yVE3IWWNdnAFGTrqFGUMQ",
+        "rating": 5,
+        "user": {
+          "id": "OaZjW-nKYEBfqPMvcLzR0A",
+          "imageUrl": "https://s3-media3.fl.yelpcdn.com/photo/GD2h0KsW68ft5UWASvqxkQ/o.jpg",
+          "name": "Kim B."
+        },
+        "text": "I had my wedding reception here and can't even begin to express my gratitude to Cory, Joy, and the entire team. They made my wedding reception dreams come...",
+        "timeCreated": "2020-11-15 12:38:33"
+      },
+      {
+        "id": "SWCVQF3QS_cfikd5Wejgwg",
+        "rating": 5,
+        "user": {
+          "id": "dO_7oulTxFLSlXTkf9Lz9A",
+          "imageUrl": "https://s3-media2.fl.yelpcdn.com/photo/yDNyVPBpQhaSJlbGjw6DTw/o.jpg",
+          "name": "Ashley W."
+        },
+        "text": "The restaurant I love and never take photos at haha. When friends ask me to recommend where to eat, I say Carson's Kitchen! Food so good I just gobble it...",
+        "timeCreated": "2020-10-30 17:00:37"
+      },
+      {
+        "id": "T4HrwOMIBun8lWLMpFjs5A",
+        "rating": 5,
+        "user": {
+          "id": "k_jS6B-QuJsBcxVYHl83sw",
+          "imageUrl": "https://s3-media4.fl.yelpcdn.com/photo/l1XOenVfXvfvV8dzw9PwWA/o.jpg",
+          "name": "Sha A."
+        },
+        "text": "Beyondddddd delicious !! Our server Shanelle was absolutely remarkable. The best service we received while staying in Las Vegas! I greatly appreciate the...",
+        "timeCreated": "2021-01-02 19:27:20"
+      }
+    ],
+    "__typename": "Business"
+  }
+}

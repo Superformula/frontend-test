@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { RestaurantDetail } from './types';
 
-const QUERY = gql`
+export const QUERY = gql`
   query GetDetailPageData($id: String, $offset: Int, $limit: Int) {
     business(id: $id) {
       id
