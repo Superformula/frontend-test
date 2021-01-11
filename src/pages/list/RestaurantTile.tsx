@@ -90,7 +90,7 @@ function RestaurantTile({
 
   return (
     <Container>
-      <Img src={photos[0]} />
+      <Img src={photos[0]} alt={name} />
       <Name>{name}</Name>
       <Stars rating={rating} />
       <Category>

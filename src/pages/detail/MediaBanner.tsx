@@ -53,7 +53,7 @@ function MediaBanner({
           <MapMarker lat={lat} lng={lng} text={name} />
         </StyledMap>
         {photos.map((url) => (
-          <Img key={url} src={url} />
+          <Img key={url} src={url} alt={name} />
         ))}
       </MediaList>
       <Address>{address}</Address>

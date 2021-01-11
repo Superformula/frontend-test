@@ -73,7 +73,7 @@ function Review({
 
   return (
     <ReviewContainer>
-      <Img src={imageUrl} />
+      <Img src={imageUrl} alt={name} />
       <Name>{name}</Name>
       <Date dateTime={timeCreated}>{parsedDate}</Date>
       <Stars rating={rating} />
