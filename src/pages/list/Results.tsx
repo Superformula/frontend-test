@@ -17,6 +17,24 @@ const Grid = styled.div`
   grid-template-columns: repeat(4, auto);
   column-gap: ${({ theme: { px2rem } }) => px2rem(32)};
   row-gap: ${({ theme: { px2rem } }) => px2rem(80)};
+
+  ${({
+    theme: {
+      mediaQueryBreakPoints: { mobile, tablet, laptop },
+    },
+  }) => `
+    @media (max-width: ${laptop}) {
+      grid-template-columns: repeat(3, auto);
+    }
+
+    @media (max-width: ${tablet}) {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @media (max-width: ${mobile}) {
+      grid-template-columns: auto;
+    }
+  `}
 `;
 
 const LoadMoreButton = styled(Button)`

@@ -9,6 +9,11 @@ import { Reset } from 'styled-reset';
 const defaultTheme: DefaultTheme = {
   htmlFontSize: 16,
   px2rem: (size: number) => `${size / defaultTheme.htmlFontSize}rem`,
+  mediaQueryBreakPoints: {
+    mobile: '740px',
+    tablet: '1100px',
+    laptop: '1400px',
+  },
   colors: {
     primary: '#002B56',
     textPrimary: '#333333',

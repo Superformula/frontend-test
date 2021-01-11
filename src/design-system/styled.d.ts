@@ -5,6 +5,11 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     htmlFontSize: number;
     px2rem: (size: number) => string;
+    mediaQueryBreakPoints: {
+      mobile: string;
+      tablet: string;
+      laptop: string;
+    };
     colors: {
       primary: string;
       textPrimary: string;
