@@ -1,10 +1,10 @@
 import React from "react";
-import clsx from "clsx";
 import { Title, HeaderText } from "../common/text";
+import './header.scss';
 
 export default () => {
   return (
-    <section>
+    <section className="search-header">
       <Title>Restaurants</Title>
       <HeaderText>
         Lorem iHeaderTextsum dolor sit amet, consectetur adipiscing elit, sed do

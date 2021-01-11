@@ -18,8 +18,6 @@ const Template = args => (
 
 export const EmptyFilter = Template.bind({});
 EmptyFilter.args = {
-  primary: true,
-  label: "Button",
   priceOptions:[{id:"$", name:"$"},{id:"$$", name:"$$"}],
   categoryOptions:[{id:"1", name:"Category 1"},{id:"2", name:"Category 2"}],
   priceFilterValue:null,
@@ -29,8 +27,6 @@ EmptyFilter.args = {
 
 export const FilterWithValues = Template.bind({});
 FilterWithValues.args = {
-  primary: true,
-  label: "Button",
   priceOptions:[{id:"$", name:"$"},{id:"$$", name:"$$"}],
   categoryOptions:[{id:"1", name:"Category 1"},{id:"2", name:"Category 2"}],
   priceFilterValue:"$$",

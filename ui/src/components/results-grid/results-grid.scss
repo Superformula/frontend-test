@@ -1,6 +1,7 @@
 .results-grid {
     display: flex;
     flex-direction: column;
+    padding-top: 64px;
     .grid-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
