@@ -25,6 +25,8 @@
   "homepage": "https://github.com/surbina/resto-explorer#readme",
   "dependencies": {
     "@apollo/client": "^3.3.6",
+    "@sentry/react": "^5.29.2",
+    "@sentry/tracing": "^5.29.2",
     "cross-fetch": "^3.0.6",
     "date-fns": "^2.16.1",
     "google-map-react": "^2.1.9",

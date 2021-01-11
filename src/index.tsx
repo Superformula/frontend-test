@@ -1,31 +1,15 @@
-import { ApolloProvider } from '@apollo/client';
-import ThemeProvider from 'design-system/theme';
+import * as Sentry from '@sentry/react';
+import { Integrations } from '@sentry/tracing';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import client from './apollo-client';
-import { List, Detail } from './pages';
+import App from './App';
 
-function App() {
-  return (
-    <React.StrictMode>
-      <ApolloProvider client={client}>
-        <ThemeProvider>
-          <Router>
-            <Switch>
-              <Route path="/restaurant/:id">
-                <Detail />
-              </Route>
-              <Route path="/">
-                <List />
-              </Route>
-            </Switch>
-          </Router>
-        </ThemeProvider>
-      </ApolloProvider>
-    </React.StrictMode>
-  );
-}
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  autoSessionTracking: true,
+  integrations: [new Integrations.BrowserTracing()],
+  tracesSampleRate: 1.0,
+});
 
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -45,7 +45,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: './src/yourfile.css',
     }),
-    new webpack.EnvironmentPlugin(['GOOGLE_MAPS_API_KEY']),
+    new webpack.EnvironmentPlugin(['GOOGLE_MAPS_API_KEY', 'SENTRY_DSN']),
   ],
   devServer: {
     historyApiFallback: true,
