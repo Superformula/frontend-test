@@ -44,6 +44,8 @@ function Reviews({
   onLoadMore,
   isLoadingMore,
 }: ReviewsProps) {
+  const disableLoadMore = isLoadingMore || reviews.length >= reviewCount;
+
   return (
     <ReviewsWrapper>
       <Caption>{reviewCount} Reviews</Caption>
@@ -55,7 +57,7 @@ function Reviews({
       <LoadMoreButton
         variant="outlined"
         onClick={onLoadMore}
-        disabled={isLoadingMore}>
+        disabled={disableLoadMore}>
         {isLoadingMore ? (
           <LoadingIndicator size={15} rippleSize={12} />
         ) : (

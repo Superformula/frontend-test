@@ -47,6 +47,7 @@ const LoadMoreButton = styled(Button)`
 
 interface ResultsProps {
   restaurantType: string;
+  restaurantsCount: number;
   restaurants: Array<RestaurantResult>;
   onLoadMore: () => void;
   isLoadingMore: boolean;
@@ -54,10 +55,14 @@ interface ResultsProps {
 
 function Results({
   restaurantType,
+  restaurantsCount,
   restaurants,
   onLoadMore,
   isLoadingMore,
 }: ResultsProps) {
+  const disableLoadMore =
+    isLoadingMore || restaurants.length >= restaurantsCount;
+
   return (
     <ResultsWrapper>
       <Subtitle>{restaurantType} Restaurants</Subtitle>
@@ -69,7 +74,7 @@ function Results({
       <LoadMoreButton
         variant="outlined"
         onClick={onLoadMore}
-        disabled={isLoadingMore}>
+        disabled={disableLoadMore}>
         {isLoadingMore ? (
           <LoadingIndicator size={15} rippleSize={12} />
         ) : (

@@ -89,6 +89,7 @@ function List() {
       />
       <Results
         restaurantType={restaurantType}
+        restaurantsCount={data.restaurants.total}
         restaurants={data.restaurants.business}
         onLoadMore={() =>
           fetchMore({
