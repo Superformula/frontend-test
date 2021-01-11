@@ -1,3 +1,4 @@
+import { NetworkStatus } from '@apollo/client';
 import LoadingIndicator from 'design-system/LoadingIndicator';
 import * as React from 'react';
 import styled from 'styled-components';
@@ -56,9 +57,9 @@ function List() {
     category: '',
   });
 
-  const { data, loading, fetchMore } = useListPageData(filters);
+  const { data, loading, fetchMore, networkStatus } = useListPageData(filters);
 
-  if (loading) {
+  if (loading && networkStatus !== NetworkStatus.fetchMore) {
     return (
       <Main>
         <Header />
@@ -96,6 +97,7 @@ function List() {
             },
           })
         }
+        isLoadingMore={networkStatus === NetworkStatus.fetchMore}
       />
     </Main>
   );

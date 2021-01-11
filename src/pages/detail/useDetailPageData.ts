@@ -55,6 +55,7 @@ function useDetailPageData() {
   return useQuery<QueryResponse, QueryParameters>(QUERY, {
     variables: { id, offset: 0, limit: 10 },
     skip: !id,
+    notifyOnNetworkStatusChange: true,
   });
 }
 

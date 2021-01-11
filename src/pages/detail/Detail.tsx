@@ -1,3 +1,4 @@
+import { NetworkStatus } from '@apollo/client';
 import LoadingIndicator from 'design-system/LoadingIndicator';
 import * as React from 'react';
 import styled from 'styled-components';
@@ -21,9 +22,9 @@ const Container = styled.div`
 `;
 
 function Detail() {
-  const { data, loading, fetchMore } = useDetailPageData();
+  const { data, loading, fetchMore, networkStatus } = useDetailPageData();
 
-  if (loading) {
+  if (loading && networkStatus !== NetworkStatus.fetchMore) {
     return (
       <Main>
         <Container>
@@ -63,6 +64,7 @@ function Detail() {
             },
           })
         }
+        isLoadingMore={networkStatus === NetworkStatus.fetchMore}
       />
     </Main>
   );

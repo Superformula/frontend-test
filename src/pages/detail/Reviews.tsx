@@ -1,4 +1,5 @@
 import Button from 'design-system/Button';
+import LoadingIndicator from 'design-system/LoadingIndicator';
 import * as React from 'react';
 import styled from 'styled-components';
 
@@ -34,9 +35,15 @@ interface ReviewsProps {
   reviewCount: number;
   reviews: Array<ReviewItem>;
   onLoadMore: () => void;
+  isLoadingMore: boolean;
 }
 
-function Reviews({ reviewCount, reviews, onLoadMore }: ReviewsProps) {
+function Reviews({
+  reviewCount,
+  reviews,
+  onLoadMore,
+  isLoadingMore,
+}: ReviewsProps) {
   return (
     <ReviewsWrapper>
       <Caption>{reviewCount} Reviews</Caption>
@@ -45,8 +52,15 @@ function Reviews({ reviewCount, reviews, onLoadMore }: ReviewsProps) {
           <Review key={review.id} {...review} />
         ))}
       </List>
-      <LoadMoreButton variant="outlined" onClick={onLoadMore}>
-        Load more
+      <LoadMoreButton
+        variant="outlined"
+        onClick={onLoadMore}
+        disabled={isLoadingMore}>
+        {isLoadingMore ? (
+          <LoadingIndicator size={15} rippleSize={12} />
+        ) : (
+          'Load more'
+        )}
       </LoadMoreButton>
     </ReviewsWrapper>
   );

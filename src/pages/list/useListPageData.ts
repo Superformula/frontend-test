@@ -70,6 +70,7 @@ function useListPageData(filters: FilterValue) {
       offset: 0,
       limit: 12,
     },
+    notifyOnNetworkStatusChange: true,
   });
 }
 

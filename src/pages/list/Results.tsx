@@ -1,4 +1,5 @@
 import Button from 'design-system/Button';
+import LoadingIndicator from 'design-system/LoadingIndicator';
 import Subtitle from 'design-system/Subtitle';
 import * as React from 'react';
 import styled from 'styled-components';
@@ -48,9 +49,15 @@ interface ResultsProps {
   restaurantType: string;
   restaurants: Array<RestaurantResult>;
   onLoadMore: () => void;
+  isLoadingMore: boolean;
 }
 
-function Results({ restaurantType, restaurants, onLoadMore }: ResultsProps) {
+function Results({
+  restaurantType,
+  restaurants,
+  onLoadMore,
+  isLoadingMore,
+}: ResultsProps) {
   return (
     <ResultsWrapper>
       <Subtitle>{restaurantType} Restaurants</Subtitle>
@@ -59,8 +66,15 @@ function Results({ restaurantType, restaurants, onLoadMore }: ResultsProps) {
           <RestaurantTile key={restaurant.id} {...restaurant} />
         ))}
       </Grid>
-      <LoadMoreButton variant="outlined" onClick={onLoadMore}>
-        Load more
+      <LoadMoreButton
+        variant="outlined"
+        onClick={onLoadMore}
+        disabled={isLoadingMore}>
+        {isLoadingMore ? (
+          <LoadingIndicator size={15} rippleSize={12} />
+        ) : (
+          'Load more'
+        )}
       </LoadMoreButton>
     </ResultsWrapper>
   );
