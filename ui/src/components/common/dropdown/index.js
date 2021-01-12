@@ -7,6 +7,8 @@ import cx from "clsx";
 import "./dropdown.scss";
 import Label from "../label";
 import FilterOption from './filter-option.js';
+import caret from './caret.svg';
+import caretOpen from './caret-open.svg';
 
 
 export default ({ id, value, options, onChange, label }) => {
@@ -60,8 +62,6 @@ export default ({ id, value, options, onChange, label }) => {
     onChange(id, data.value);
   }
 
-  
- console.log('options',options)
   const selectedName = value && options.find( o => o.id === value)?.name;
 
   return (
@@ -77,6 +77,8 @@ export default ({ id, value, options, onChange, label }) => {
         aria-expanded={isVisible}
       >
         <Label className="filter-label"> {selectedName || label} </Label>
+        {!isVisible && <img src={caret} alt="caret" /> }
+        {isVisible && <img src={caretOpen} alt="caret" />} 
       </button>
       <Menu id={id} animation="fade" onHidden={clearVisibility}>
         {options.map(option => (
