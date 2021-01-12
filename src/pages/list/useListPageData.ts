@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 
-import { Category, RestaurantResult, FilterValue } from './types';
+import { RestaurantResult, FilterValue } from './types';
 
 export const QUERY = gql`
   query GetListPageData(
@@ -34,24 +34,10 @@ export const QUERY = gql`
         photos
       }
     }
-
-    categories(country: "US") {
-      category {
-        title
-        alias
-        parentCategories: parent_categories {
-          title
-          alias
-        }
-      }
-    }
   }
 `;
 
 interface QueryResponse {
-  categories: {
-    category: Array<Category>;
-  };
   restaurants: {
     total: number;
     business: Array<RestaurantResult>;

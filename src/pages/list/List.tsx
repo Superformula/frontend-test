@@ -6,7 +6,8 @@ import styled from 'styled-components';
 import Filters from './Filters';
 import Header from './Header';
 import Results from './Results';
-import { Category, FilterValue } from './types';
+import restaurantCategories from './restaurantCategories.json';
+import { FilterValue } from './types';
 import useListPageData from './useListPageData';
 
 const PRICES = [
@@ -30,26 +31,6 @@ const Container = styled.div`
   flex: 1;
 `;
 
-function getRestaurantCategories(
-  categories: Array<Category>
-): Array<{ label: string; value: string }> {
-  const restaurantCategories = categories
-    .filter(({ parentCategories }) =>
-      parentCategories.some(({ alias }) => alias === 'restaurants')
-    )
-    .map(({ title, alias }) => ({
-      label: title,
-      value: alias,
-    }));
-
-  restaurantCategories.unshift({
-    label: 'All',
-    value: '',
-  });
-
-  return restaurantCategories;
-}
-
 function List() {
   const [filters, setFilters] = React.useState<FilterValue>({
     openNow: false,
@@ -69,10 +50,6 @@ function List() {
       </Main>
     );
   }
-
-  const restaurantCategories = getRestaurantCategories(
-    data.categories.category
-  );
 
   const restaurantType = restaurantCategories.find(
     ({ value }) => value === filters.category

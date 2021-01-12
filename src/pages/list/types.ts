@@ -1,14 +1,13 @@
 export interface Category {
   alias: string;
   title: string;
-  parentCategories: Array<Category>;
 }
 
 export interface RestaurantResult {
   id: string;
   name: string;
   rating: number;
-  categories: Array<Pick<Category, 'alias' | 'title'>>;
+  categories: Array<Category>;
   price: string;
   isClosed: boolean;
   photos: Array<string>;

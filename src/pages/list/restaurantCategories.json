@@ -1,0 +1,510 @@
+[
+  {
+    "label": "All",
+    "value": ""
+  },
+  {
+    "label": "Afghan",
+    "value": "afghani"
+  },
+  {
+    "label": "African",
+    "value": "african"
+  },
+  {
+    "label": "Arabian",
+    "value": "arabian"
+  },
+  {
+    "label": "Argentine",
+    "value": "argentine"
+  },
+  {
+    "label": "Armenian",
+    "value": "armenian"
+  },
+  {
+    "label": "Asian Fusion",
+    "value": "asianfusion"
+  },
+  {
+    "label": "Australian",
+    "value": "australian"
+  },
+  {
+    "label": "Austrian",
+    "value": "austrian"
+  },
+  {
+    "label": "Bangladeshi",
+    "value": "bangladeshi"
+  },
+  {
+    "label": "Basque",
+    "value": "basque"
+  },
+  {
+    "label": "Barbeque",
+    "value": "bbq"
+  },
+  {
+    "label": "Belgian",
+    "value": "belgian"
+  },
+  {
+    "label": "Brasseries",
+    "value": "brasseries"
+  },
+  {
+    "label": "Brazilian",
+    "value": "brazilian"
+  },
+  {
+    "label": "Breakfast & Brunch",
+    "value": "breakfast_brunch"
+  },
+  {
+    "label": "British",
+    "value": "british"
+  },
+  {
+    "label": "Buffets",
+    "value": "buffets"
+  },
+  {
+    "label": "Bulgarian",
+    "value": "bulgarian"
+  },
+  {
+    "label": "Burgers",
+    "value": "burgers"
+  },
+  {
+    "label": "Burmese",
+    "value": "burmese"
+  },
+  {
+    "label": "Cafes",
+    "value": "cafes"
+  },
+  {
+    "label": "Cafeteria",
+    "value": "cafeteria"
+  },
+  {
+    "label": "Cajun/Creole",
+    "value": "cajun"
+  },
+  {
+    "label": "Cambodian",
+    "value": "cambodian"
+  },
+  {
+    "label": "Caribbean",
+    "value": "caribbean"
+  },
+  {
+    "label": "Catalan",
+    "value": "catalan"
+  },
+  {
+    "label": "Cheesesteaks",
+    "value": "cheesesteaks"
+  },
+  {
+    "label": "Chicken Wings",
+    "value": "chicken_wings"
+  },
+  {
+    "label": "Chicken Shop",
+    "value": "chickenshop"
+  },
+  {
+    "label": "Chinese",
+    "value": "chinese"
+  },
+  {
+    "label": "Comfort Food",
+    "value": "comfortfood"
+  },
+  {
+    "label": "Creperies",
+    "value": "creperies"
+  },
+  {
+    "label": "Cuban",
+    "value": "cuban"
+  },
+  {
+    "label": "Czech",
+    "value": "czech"
+  },
+  {
+    "label": "Delis",
+    "value": "delis"
+  },
+  {
+    "label": "Diners",
+    "value": "diners"
+  },
+  {
+    "label": "Dinner Theater",
+    "value": "dinnertheater"
+  },
+  {
+    "label": "Eritrean",
+    "value": "eritrean"
+  },
+  {
+    "label": "Ethiopian",
+    "value": "ethiopian"
+  },
+  {
+    "label": "Filipino",
+    "value": "filipino"
+  },
+  {
+    "label": "Fish & Chips",
+    "value": "fishnchips"
+  },
+  {
+    "label": "Fondue",
+    "value": "fondue"
+  },
+  {
+    "label": "Food Court",
+    "value": "food_court"
+  },
+  {
+    "label": "Food Stands",
+    "value": "foodstands"
+  },
+  {
+    "label": "French",
+    "value": "french"
+  },
+  {
+    "label": "Game Meat",
+    "value": "gamemeat"
+  },
+  {
+    "label": "Gastropubs",
+    "value": "gastropubs"
+  },
+  {
+    "label": "Georgian",
+    "value": "georgian"
+  },
+  {
+    "label": "German",
+    "value": "german"
+  },
+  {
+    "label": "Gluten-Free",
+    "value": "gluten_free"
+  },
+  {
+    "label": "Greek",
+    "value": "greek"
+  },
+  {
+    "label": "Guamanian",
+    "value": "guamanian"
+  },
+  {
+    "label": "Halal",
+    "value": "halal"
+  },
+  {
+    "label": "Hawaiian",
+    "value": "hawaiian"
+  },
+  {
+    "label": "Himalayan/Nepalese",
+    "value": "himalayan"
+  },
+  {
+    "label": "Hong Kong Style Cafe",
+    "value": "hkcafe"
+  },
+  {
+    "label": "Honduran",
+    "value": "honduran"
+  },
+  {
+    "label": "Hot Dogs",
+    "value": "hotdog"
+  },
+  {
+    "label": "Fast Food",
+    "value": "hotdogs"
+  },
+  {
+    "label": "Hot Pot",
+    "value": "hotpot"
+  },
+  {
+    "label": "Hungarian",
+    "value": "hungarian"
+  },
+  {
+    "label": "Iberian",
+    "value": "iberian"
+  },
+  {
+    "label": "Indonesian",
+    "value": "indonesian"
+  },
+  {
+    "label": "Indian",
+    "value": "indpak"
+  },
+  {
+    "label": "Irish",
+    "value": "irish"
+  },
+  {
+    "label": "Italian",
+    "value": "italian"
+  },
+  {
+    "label": "Japanese",
+    "value": "japanese"
+  },
+  {
+    "label": "Kebab",
+    "value": "kebab"
+  },
+  {
+    "label": "Korean",
+    "value": "korean"
+  },
+  {
+    "label": "Kosher",
+    "value": "kosher"
+  },
+  {
+    "label": "Laotian",
+    "value": "laotian"
+  },
+  {
+    "label": "Latin American",
+    "value": "latin"
+  },
+  {
+    "label": "Malaysian",
+    "value": "malaysian"
+  },
+  {
+    "label": "Mediterranean",
+    "value": "mediterranean"
+  },
+  {
+    "label": "Mexican",
+    "value": "mexican"
+  },
+  {
+    "label": "Middle Eastern",
+    "value": "mideastern"
+  },
+  {
+    "label": "Modern European",
+    "value": "modern_european"
+  },
+  {
+    "label": "Mongolian",
+    "value": "mongolian"
+  },
+  {
+    "label": "Moroccan",
+    "value": "moroccan"
+  },
+  {
+    "label": "American (New)",
+    "value": "newamerican"
+  },
+  {
+    "label": "New Mexican Cuisine",
+    "value": "newmexican"
+  },
+  {
+    "label": "Nicaraguan",
+    "value": "nicaraguan"
+  },
+  {
+    "label": "Noodles",
+    "value": "noodles"
+  },
+  {
+    "label": "Pakistani",
+    "value": "pakistani"
+  },
+  {
+    "label": "Pan Asian",
+    "value": "panasian"
+  },
+  {
+    "label": "Persian/Iranian",
+    "value": "persian"
+  },
+  {
+    "label": "Peruvian",
+    "value": "peruvian"
+  },
+  {
+    "label": "Pizza",
+    "value": "pizza"
+  },
+  {
+    "label": "Polish",
+    "value": "polish"
+  },
+  {
+    "label": "Polynesian",
+    "value": "polynesian"
+  },
+  {
+    "label": "Pop-Up Restaurants",
+    "value": "popuprestaurants"
+  },
+  {
+    "label": "Portuguese",
+    "value": "portuguese"
+  },
+  {
+    "label": "Poutineries",
+    "value": "poutineries"
+  },
+  {
+    "label": "Live/Raw Food",
+    "value": "raw_food"
+  },
+  {
+    "label": "Russian",
+    "value": "russian"
+  },
+  {
+    "label": "Salad",
+    "value": "salad"
+  },
+  {
+    "label": "Sandwiches",
+    "value": "sandwiches"
+  },
+  {
+    "label": "Scandinavian",
+    "value": "scandinavian"
+  },
+  {
+    "label": "Scottish",
+    "value": "scottish"
+  },
+  {
+    "label": "Seafood",
+    "value": "seafood"
+  },
+  {
+    "label": "Singaporean",
+    "value": "singaporean"
+  },
+  {
+    "label": "Slovakian",
+    "value": "slovakian"
+  },
+  {
+    "label": "Somali",
+    "value": "somali"
+  },
+  {
+    "label": "Soul Food",
+    "value": "soulfood"
+  },
+  {
+    "label": "Soup",
+    "value": "soup"
+  },
+  {
+    "label": "Southern",
+    "value": "southern"
+  },
+  {
+    "label": "Spanish",
+    "value": "spanish"
+  },
+  {
+    "label": "Sri Lankan",
+    "value": "srilankan"
+  },
+  {
+    "label": "Steakhouses",
+    "value": "steak"
+  },
+  {
+    "label": "Supper Clubs",
+    "value": "supperclubs"
+  },
+  {
+    "label": "Sushi Bars",
+    "value": "sushi"
+  },
+  {
+    "label": "Syrian",
+    "value": "syrian"
+  },
+  {
+    "label": "Taiwanese",
+    "value": "taiwanese"
+  },
+  {
+    "label": "Tapas Bars",
+    "value": "tapas"
+  },
+  {
+    "label": "Tapas/Small Plates",
+    "value": "tapasmallplates"
+  },
+  {
+    "label": "Tex-Mex",
+    "value": "tex-mex"
+  },
+  {
+    "label": "Thai",
+    "value": "thai"
+  },
+  {
+    "label": "American (Traditional)",
+    "value": "tradamerican"
+  },
+  {
+    "label": "Turkish",
+    "value": "turkish"
+  },
+  {
+    "label": "Ukrainian",
+    "value": "ukrainian"
+  },
+  {
+    "label": "Uzbek",
+    "value": "uzbek"
+  },
+  {
+    "label": "Vegan",
+    "value": "vegan"
+  },
+  {
+    "label": "Vegetarian",
+    "value": "vegetarian"
+  },
+  {
+    "label": "Vietnamese",
+    "value": "vietnamese"
+  },
+  {
+    "label": "Waffles",
+    "value": "waffles"
+  },
+  {
+    "label": "Wraps",
+    "value": "wraps"
+  }
+]
