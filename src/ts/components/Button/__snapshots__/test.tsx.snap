@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/ts/components/Button Rendering disabled renders true correctly 1`] = `
+<button
+  className="base primary small disabled"
+  onClick={[Function]}
+>
+  Testing
+</button>
+`;
+
+exports[`src/ts/components/Button Rendering renders default correctly 1`] = `
+<button
+  className="base primary small "
+  onClick={[Function]}
+>
+  Testing
+</button>
+`;
+
+exports[`src/ts/components/Button Rendering size renders "large" correctly 1`] = `
+<button
+  className="base primary large "
+  onClick={[Function]}
+>
+  Testing
+</button>
+`;
+
+exports[`src/ts/components/Button Rendering tier renders "secondary" correctly 1`] = `
+<button
+  className="base secondary small "
+  onClick={[Function]}
+>
+  Testing
+</button>
+`;

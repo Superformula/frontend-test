@@ -1,0 +1,46 @@
+.base {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: normal;
+    border-radius: 2px;
+    height: 48px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-in;
+    position: relative;
+}
+
+.primary {
+    color: #fff;
+    background-color: #002b56;
+}
+
+.secondary {
+    color: #002b56;
+    background-color: #fff;
+    border: #002b56 1px solid;
+    font-weight: bold;
+}
+
+.small {
+    height: 38px;
+    width: 151px;
+}
+
+.large {
+    width: 416px;
+}
+
+.full {
+    width: 100%;
+}
+
+.disabled {
+    background-color: #fff;
+    border: #e6e6e6 1px solid;
+    color: #c8c8c8;
+    cursor: unset;
+    font-weight: bold;
+}

@@ -1,0 +1,11 @@
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    color: #002B56;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.icon {
+    margin-right: 8px;
+}

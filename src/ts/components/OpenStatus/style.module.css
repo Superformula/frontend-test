@@ -1,0 +1,16 @@
+.openStatus {
+    display: flex;
+    align-items: center;
+}
+
+.small {
+    height: 8px;
+    width: 8px;
+    margin-right: 4px;
+}
+
+.large {
+    height: 22px;
+    width: 22px;
+    margin-right: 8px;
+}
