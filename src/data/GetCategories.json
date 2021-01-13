@@ -1,0 +1,67 @@
+{
+  "categories": {
+    "__typename": "Categories",
+    "category": [
+      {
+        "__typename": "Category",
+        "alias": "afghani",
+        "title": "Afghan",
+        "parent_categories": [
+          {
+            "__typename": "Category",
+            "alias": "restaurants",
+            "title": "Restaurants"
+          }
+        ]
+      },
+      {
+        "__typename": "Category",
+        "alias": "african",
+        "title": "African",
+        "parent_categories": [
+          {
+            "__typename": "Category",
+            "alias": "restaurants",
+            "title": "Restaurants"
+          }
+        ]
+      },
+      {
+        "__typename": "Category",
+        "alias": "arabian",
+        "title": "Arabian",
+        "parent_categories": [
+          {
+            "__typename": "Category",
+            "alias": "restaurants",
+            "title": "Restaurants"
+          }
+        ]
+      },
+      {
+        "__typename": "Category",
+        "alias": "argentine",
+        "title": "Argentine",
+        "parent_categories": [
+          {
+            "__typename": "Category",
+            "alias": "restaurants",
+            "title": "Restaurants"
+          }
+        ]
+      },
+      {
+        "__typename": "Category",
+        "alias": "armenian",
+        "title": "Armenian",
+        "parent_categories": [
+          {
+            "__typename": "Category",
+            "alias": "restaurants",
+            "title": "Restaurants"
+          }
+        ]
+      }
+    ]
+  }
+}
