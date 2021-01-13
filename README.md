@@ -7,6 +7,15 @@ The following are required to run this project:
 
 - [Node.js](https://nodejs.org/en/)
 
+## Prequisite
+
+To run the application properly, make sure to set the appropriate environment vairables before proceeding in the `.env` file:
+
+- `API_URL`: Your client-side API endpoint (for Yelp).
+- `YELP_API_KEY`: Your Yelp API key.
+- `YELP_URL`: The Yelp API endpoint.
+- `USE_MOCK_DATA`: Whether you wish to use data from Yelp or bundled JSON.
+
 ### Run the Application (Development Mode)
 To run this application in development mode, it will need access to http://localhost:8080. With 
 `webpack-dev-server`, the application with start in development mode with a server, along with hot

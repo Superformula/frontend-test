@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/ts/components/Checkbox Rendering renders default correctly 1`] = `
+<label
+  className="checkbox"
+>
+  <img
+    alt="Test "
+    className="icon"
+    src="emptyCheckbox.svg"
+  />
+  Test
+</label>
+`;

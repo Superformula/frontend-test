@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/ts/components/CategoriesDropDown Rendering renders default correctly 1`] = `
+<DropDownMenu
+  dimensions={
+    Object {
+      "height": 32,
+      "width": 244,
+    }
+  }
+  onClick={[Function]}
+  selected={false}
+  text="Categories"
+>
+  Cat1
+  Cat2
+  Cat3
+</DropDownMenu>
+`;

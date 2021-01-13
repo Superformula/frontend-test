@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src/js/App Rendering renders default correctly 1`] = `
-<div>
-  Hello World
+exports[`src/ts/components/OpenStatus Rendering renders default correctly 1`] = `
+<div
+  className="openStatus"
+>
+  <img
+    alt="open"
+    className="small"
+    src="openIcon.svg"
+  />
+  Open Now
 </div>
 `;

@@ -3,11 +3,12 @@
 
 // Libraries
 import React from 'react';
+// Components
+import Checkbox from '../Checkbox';
 // Images
 import carat from '../../../img/carat.svg';
 // Style
 import style from './style.module.css';
-import Checkbox from "../Checkbox";
 
 // Internal
 // --------

@@ -5,7 +5,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 // Components
-import Button from './';
+import Button from './index';
 
 // Internal
 // --------

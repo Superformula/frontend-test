@@ -1,7 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src/js/App Rendering renders default correctly 1`] = `
-<div>
-  Hello World
+exports[`src/ts/components/DropDownMenu Rendering renders default correctly 1`] = `
+<div
+  className="dropDownMenu"
+  onClick={[Function]}
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="selectedText"
+  >
+    <span>
+      
+    </span>
+    <img
+      alt="dropdown button"
+      className="carat "
+      src="carat.svg"
+    />
+  </div>
+  <ul
+    className="dropDownMenuList "
+  >
+    <li>
+      <Checkbox
+        checked={false}
+        onClick={[Function]}
+      >
+        Opt1
+      </Checkbox>
+    </li>
+    <li>
+      <Checkbox
+        checked={false}
+        onClick={[Function]}
+      >
+        Opt2
+      </Checkbox>
+    </li>
+    <li>
+      <Checkbox
+        checked={false}
+        onClick={[Function]}
+      >
+        Opt3
+      </Checkbox>
+    </li>
+  </ul>
 </div>
 `;

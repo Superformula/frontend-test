@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src/js/App Rendering renders default correctly 1`] = `
+exports[`src/ts/components/DetailView Rendering renders default correctly 1`] = `
 <div>
-  Hello World
+  <Hero
+    title="Restaurants"
+  />
 </div>
 `;

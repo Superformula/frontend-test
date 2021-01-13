@@ -1,7 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src/js/App Rendering renders default correctly 1`] = `
-<div>
-  Hello World
+exports[`src/ts/components/CardGallery Rendering renders default correctly 1`] = `
+<div
+  className="cardGallery"
+>
+  <div
+    className="cardGalleryItem"
+  >
+    <Card
+      category="American"
+      id="Id"
+      imgSrc="ImageSrc"
+      price={3}
+      rating={3}
+      status="open"
+      title="Title"
+    />
+  </div>
+  <div
+    className="cardGalleryItem"
+  >
+    <Card
+      category="Mexican"
+      id="Id2"
+      imgSrc="ImageSrc2"
+      price={2}
+      rating={4}
+      status="closed"
+      title="Title2"
+    />
+  </div>
 </div>
 `;

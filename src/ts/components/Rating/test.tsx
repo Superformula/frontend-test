@@ -5,19 +5,30 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 // Components
-import App from './';
+import Rating from './index';
+
+// Mocks
+// -----
+
+jest.mock("../../../img/emptyStar.svg", () => 'emptyStar.svg');
+jest.mock("../../../img/halfStar.svg", () => 'halfStar.svg');
+jest.mock("../../../img/fullStar.svg", () => 'fullStar.svg');
 
 // Internal
 // --------
 
+const defaultProps = {
+    value: 3
+};
+
 const getComponent = (props = {}) => renderer.create(
-    <App {...props} />,
+    <Rating {...defaultProps} {...props} />,
 );
 
 // Tests
 // -----
 
-describe('src/js/App', () => {
+describe('src/ts/components/Rating', () => {
     let component;
 
     describe('Rendering', () => {

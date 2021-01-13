@@ -5,24 +5,30 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 // Components
-import DetailView from './index';
+import Checkbox from './index';
 
 // Mocks
 // -----
 
-jest.mock("../Hero", () => 'Hero');
+jest.mock('../../../img/checkedCheckbox.svg', () => 'checkedCheckbox.svg');
+jest.mock('../../../img/emptyCheckbox.svg', () => 'emptyCheckbox.svg');
+jest.mock('../../../img/filledCheckbox.svg', () => 'filledCheckbox.svg');
 
 // Internal
 // --------
 
+const children = "Test";
+
 const getComponent = (props = {}) => renderer.create(
-    <DetailView {...props} />,
+    <Checkbox {...props} >
+        { children }
+    </Checkbox>,
 );
 
 // Tests
 // -----
 
-describe('src/ts/components/DetailView', () => {
+describe('src/ts/components/Checkbox', () => {
     let component;
 
     describe('Rendering', () => {

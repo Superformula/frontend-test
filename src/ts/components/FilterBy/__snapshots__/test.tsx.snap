@@ -1,7 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src/js/App Rendering renders default correctly 1`] = `
-<div>
-  Hello World
+exports[`src/ts/components/FilterBy Rendering renders default correctly 1`] = `
+<div
+  className="filterBy"
+>
+  <div
+    className="filterByText"
+  >
+    Filter By:
+  </div>
+  <div
+    className="filterByOption"
+  >
+    Text
+  </div>
+  <div
+    className="clearAllButton"
+  >
+    <Button
+      disabled={false}
+      onClick={[Function]}
+      text="Clear All"
+      tier="secondary"
+    />
+  </div>
 </div>
 `;

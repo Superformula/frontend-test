@@ -9,10 +9,10 @@ import Hero from '../Hero';
 // Internal
 // --------
 
-export interface AppProps {
+export interface DetailViewProps {
 }
 
-const App = ({}: AppProps) => {
+const DetailView: React.FC<DetailViewProps> = ({}) => {
     //
     // Render
 
@@ -26,4 +26,4 @@ const App = ({}: AppProps) => {
 // Exports
 // -------
 
-export default App;
+export default DetailView;

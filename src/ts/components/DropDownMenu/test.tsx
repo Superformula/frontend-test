@@ -5,19 +5,29 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 // Components
-import App from './';
+import DropDownMenu from './index';
+
+// Mocks
+// -----
+
+jest.mock("../Checkbox", () => 'Checkbox');
+jest.mock('../../../img/carat.svg', () => 'carat.svg');
 
 // Internal
 // --------
 
+const children = ['Opt1', 'Opt2', 'Opt3'];
+
 const getComponent = (props = {}) => renderer.create(
-    <App {...props} />,
+    <DropDownMenu {...props}>
+        { children }
+    </DropDownMenu>,
 );
 
 // Tests
 // -----
 
-describe('src/js/App', () => {
+describe('src/ts/components/DropDownMenu', () => {
     let component;
 
     describe('Rendering', () => {

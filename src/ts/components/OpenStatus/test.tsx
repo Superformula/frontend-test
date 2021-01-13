@@ -5,19 +5,25 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 // Components
-import App from './';
+import OpenStatus from './index';
+
+// Mocks
+// -----
+
+jest.mock("../../../img/closedIcon.svg", () => 'closedIcon.svg');
+jest.mock("../../../img/openIcon.svg", () => 'openIcon.svg');
 
 // Internal
 // --------
 
 const getComponent = (props = {}) => renderer.create(
-    <App {...props} />,
+    <OpenStatus {...props} />,
 );
 
 // Tests
 // -----
 
-describe('src/js/App', () => {
+describe('src/ts/components/OpenStatus', () => {
     let component;
 
     describe('Rendering', () => {

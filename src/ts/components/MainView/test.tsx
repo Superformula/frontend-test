@@ -5,19 +5,30 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 // Components
-import App from './';
+import MainView from './index';
+
+// Mocks
+// -----
+
+jest.mock("../CardGallery", () => 'CardGallery');
+jest.mock('../CategoriesDropDown', () => 'CategoriesDropDown');
+jest.mock("../Hero", () => 'Hero');
+jest.mock('../FilterBy', () => 'FilterBy');
+jest.mock("../Checkbox", () => 'Checkbox');
+jest.mock('../DropDownMenu', () => 'DropDownMenu');
+jest.mock('../Button', () => 'Button');
 
 // Internal
 // --------
 
 const getComponent = (props = {}) => renderer.create(
-    <App {...props} />,
+    <MainView {...props} />,
 );
 
 // Tests
 // -----
 
-describe('src/js/App', () => {
+describe('src/ts/components/MainView', () => {
     let component;
 
     describe('Rendering', () => {

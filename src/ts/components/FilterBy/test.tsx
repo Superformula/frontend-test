@@ -5,19 +5,28 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 // Components
-import App from './';
+import FilterBy from './index';
+
+// Mocks
+// -----
+
+jest.mock('../Button', () => 'Button');
 
 // Internal
 // --------
 
+const children = "Text"
+
 const getComponent = (props = {}) => renderer.create(
-    <App {...props} />,
+    <FilterBy {...props} >
+        { children }
+    </FilterBy>,
 );
 
 // Tests
 // -----
 
-describe('src/js/App', () => {
+describe('src/ts/components/FilterBy', () => {
     let component;
 
     describe('Rendering', () => {

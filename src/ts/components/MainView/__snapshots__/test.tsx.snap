@@ -1,7 +1,121 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src/js/App Rendering renders default correctly 1`] = `
+exports[`src/ts/components/MainView Rendering renders default correctly 1`] = `
 <div>
-  Hello World
+  <Hero
+    title="Restaurants"
+  />
+  <div
+    className="filterSection"
+  >
+    <FilterBy
+      clearAll={[Function]}
+      disableClearAll={true}
+    >
+      <Checkbox
+        checked={false}
+        onClick={[Function]}
+        role="radiobutton"
+      >
+        Open Now
+      </Checkbox>
+      <DropDownMenu
+        dimensions={
+          Object {
+            "height": 32,
+            "width": 97,
+          }
+        }
+        onClick={[Function]}
+        option={null}
+        selected={false}
+        setOption={[Function]}
+        text="Price"
+      >
+        All
+        $
+        $$
+        $$$
+        $$$$
+      </DropDownMenu>
+      <CategoriesDropDown
+        categorySelected={null}
+        categorySelectedCallback={[Function]}
+        setCategories={[Function]}
+      />
+    </FilterBy>
+  </div>
+  <h1>
+    All Restaurants
+  </h1>
+  <CardGallery
+    data={
+      Array [
+        Object {
+          "category": "seafood",
+          "id": "id",
+          "imgSrc": "http://via.placeholder.com/500",
+          "price": 2,
+          "rating": 2,
+          "status": "open",
+          "title": "Title",
+        },
+        Object {
+          "category": "seafood",
+          "id": "id",
+          "imgSrc": "http://via.placeholder.com/500",
+          "price": 2,
+          "rating": 2.5,
+          "status": "open",
+          "title": "Title",
+        },
+        Object {
+          "category": "seafood",
+          "id": "id",
+          "imgSrc": "http://via.placeholder.com/500",
+          "price": 2,
+          "rating": 3,
+          "status": "open",
+          "title": "Title",
+        },
+        Object {
+          "category": "seafood",
+          "id": "id",
+          "imgSrc": "http://via.placeholder.com/500",
+          "price": 2,
+          "rating": 2,
+          "status": "open",
+          "title": "Title",
+        },
+        Object {
+          "category": "seafood",
+          "id": "id",
+          "imgSrc": "http://via.placeholder.com/500",
+          "price": 2,
+          "rating": 2,
+          "status": "open",
+          "title": "Title",
+        },
+        Object {
+          "category": "seafood",
+          "id": "id",
+          "imgSrc": "http://via.placeholder.com/500",
+          "price": 2,
+          "rating": 2,
+          "status": "open",
+          "title": "Title",
+        },
+      ]
+    }
+  />
+  <div
+    className="loadMoreButton"
+  >
+    <Button
+      size="large"
+      text="Load More"
+      tier="secondary"
+    />
+  </div>
 </div>
 `;

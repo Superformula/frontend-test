@@ -1,7 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`src/js/App Rendering renders default correctly 1`] = `
+exports[`src/ts/components/Rating Rendering renders default correctly 1`] = `
 <div>
-  Hello World
+  <img
+    alt="fullStar.svg"
+    className="small"
+    src="fullStar.svg"
+  />
+  <img
+    alt="fullStar.svg"
+    className="small"
+    src="fullStar.svg"
+  />
+  <img
+    alt="fullStar.svg"
+    className="small"
+    src="fullStar.svg"
+  />
+  <img
+    alt="emptyStar.svg"
+    className="small"
+    src="emptyStar.svg"
+  />
+  <img
+    alt="emptyStar.svg"
+    className="small"
+    src="emptyStar.svg"
+  />
 </div>
 `;
