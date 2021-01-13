@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.html",
   "license": "MIT",
+  "browserslist": [
+    "since 2017-06"
+  ],
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
@@ -26,7 +29,9 @@
     "sass-loader": "^10.1.0"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "clsx": "^1.1.1",
+    "node-sass": "^5.0.0",
     "postcss-modules": "^4.0.0",
     "react": "^17.0.1",
     "react-contexify": "^5.0.0",

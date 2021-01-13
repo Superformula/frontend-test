@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import ReactDOM from "react-dom";
+import App from './app'
 
-class App extends React.Component {
+class AppContainer extends React.Component {
+
     render() {
-        return <div>React working Ok</div>;
+        return <App/>
+
     }
 }
 
 let root = document.getElementById("app");
 
-ReactDOM.render(<App />, root);
+ReactDOM.render(<AppContainer />, root);
