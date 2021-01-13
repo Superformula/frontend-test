@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiURL = 'https://frontend-test-sup.netlify.app/api';
+const apiURL = '/api';
 
 export default {
     search: () => {
