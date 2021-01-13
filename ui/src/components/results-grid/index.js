@@ -5,7 +5,7 @@ import Button from "../common/button";
 import { SubTitle } from "../common/text";
 import Card from "../result-card";
 
-export default ({ items }) => {
+export default ({ items, onLoadMore }) => {
   return (
     <section className="results-grid">
       <SubTitle>All Restaurants</SubTitle>
@@ -22,7 +22,7 @@ export default ({ items }) => {
           />
         ))}
       </section>
-      <Button className="primary load-more">Load More</Button>
+      <Button onClick={onLoadMore} className="primary load-more">Load More</Button>
     </section>
   );
 };

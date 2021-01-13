@@ -8,9 +8,9 @@ const categoriesURL = `${apiPrefix}/categories`;
 
 export default {
     /* Get search results and normalize */
-    search: (categories) => {
+    search: (categories, offset=0) => {
         return axios.get(searchURL, {
-            params: { categories: categories.join(','), location: "Las Vegas" },
+            params: {offset, categories: categories.join(','), location: "Las Vegas" },
         }).then(resp => {
             return {
                 count: resp.data.total,
@@ -50,3 +50,9 @@ export const priceOptions = new Array(4).fill(1).map((_, ix) => {
         name: value
     }
 });
+
+/* Add "All" filter which is the same as having selected none */
+priceOptions.unshift({
+    id:null,
+    name:"All"
+})

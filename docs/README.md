@@ -4,6 +4,7 @@
 - react-testing-library and jest for tests
 - Storybook for quick component tests
 - Netlify for deploying
+- local-cors-proxy for local testing
 
 # Workflow
 

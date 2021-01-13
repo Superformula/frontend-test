@@ -4,6 +4,7 @@ import SearchPage from "./pages/search";
 import "./styles/base.scss";
 
 export default () => {
+    const [offset, setOffset] = useState(0);
     const [serverResults, setServerResults] = useState([]);
     const [categories, setCategories] = useState([]);
     const [openNowFilterValue, setOpenNowFilterValue] = useState(true);
@@ -24,47 +25,73 @@ export default () => {
     useEffect(() => {
         (async () => {
             //TODO: support more than one category as a filter
-            const {count, items} = await Api.search([categoryFilterValue]);
+            const { count, items } = await Api.search([categoryFilterValue], 0);
+            setOffset(0);
             setServerResults(items);
         })();
     }, [categoryFilterValue]);
+
+    /* When the offset changes to 1 or more, request again and append results */
+    useEffect(() => {
+        (async () => {
+            if (offset > 0) {
+                const { count, items } = await Api.search(
+                    [categoryFilterValue],
+                    offset
+                );
+                setServerResults([...serverResults, ...items]);
+            }
+        })();
+    }, [offset]);
 
     /* Client side filtering triggered when price or isOpen changes */
     useEffect(() => {
         let items = [...serverResults];
         //Use Open now filter?
-        if(openNowFilterValue){
-            items = items.filter( item => item.isOpen)
+        if (openNowFilterValue) {
+            items = items.filter((item) => item.isOpen);
         }
         //Filter by price
-        if(priceFilterValue){
-            items = items.filter( item => item.price === priceFilterValue)
+        if (priceFilterValue) {
+            items = items.filter((item) => item.price === priceFilterValue);
         }
-       
+
         setFilteredItems(items);
-    }, [serverResults,openNowFilterValue, categoryFilterValue, priceFilterValue]);
+    }, [
+        serverResults,
+        openNowFilterValue,
+        categoryFilterValue,
+        priceFilterValue,
+    ]);
 
     const onPriceSelected = (value) => {
-        console.log('price:', value)
-        setPriceFilterValue(value)
-    }
+        console.log("price:", value);
+        setPriceFilterValue(value);
+    };
 
     const onCategorySelected = (value) => {
-        setCategoryFilterValue(value)
-    }
+        setCategoryFilterValue(value);
+    };
 
     const onOpenNowChange = (value) => {
-        setOpenNowFilterValue(value)
-    }
+        setOpenNowFilterValue(value);
+    };
+
+    const onLoadMoreResults = () => {
+        setOffset(offset + 20);
+    };
 
     const onClearFilter = () => {
-        console.log('on clear')
+        console.log("on clear");
         setPriceFilterValue(null);
         setCategoryFilterValue(null);
         setOpenNowFilterValue(false);
-    }
+    };
 
-    const searchResultsProps = { items: filteredItems };
+    const searchResultsProps = {
+        items: filteredItems,
+        onLoadMore: onLoadMoreResults,
+    };
     const filterProps = {
         priceOptions: priceOptions,
         categoryOptions: categories,
@@ -74,11 +101,11 @@ export default () => {
         openNowSelected: openNowFilterValue,
         priceFilterValue,
         categoryFilterValue,
-        onClearFilter
+        onClearFilter,
     };
 
-    console.log(filterProps)
-  
+    console.log(filterProps);
+
     return (
         <SearchPage
             searchResultsProps={searchResultsProps}
