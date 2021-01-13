@@ -23,9 +23,9 @@ const config = merge(common, {
             template: "./src/index.html",
             favicon: "./src/favicon.ico",
             filename: "./index.html",
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true,
+            minifyJS: false,
+            minifyCSS: false,
+            minifyURLs: false,
         })
     ],
 });

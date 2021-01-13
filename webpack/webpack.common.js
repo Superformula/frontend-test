@@ -3,6 +3,9 @@
 
 // Libraries
 const path = require('path');
+const dotenv = require('dotenv').config({
+    path: path.resolve(__dirname, '../.env'),
+});
 const webpack = require('webpack');
 // Plugins
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -16,7 +19,16 @@ const config = {
     devServer: {
         index: 'index.html',
         contentBase: path.join(__dirname, './dist'),
-        hot: true
+        historyApiFallback: true,
+        hot: true,
+        proxy: {
+            [process.env.API_URL]: {
+                target: process.env.YELP_URL,
+                pathRewrite: { [`^${process.env.API_URL}`]: '' },
+                secure: false,
+                changeOrigin: true
+            }
+        },
     },
     entry: {
         app: './src/ts/index.tsx'
@@ -27,8 +39,10 @@ const config = {
             filename: 'css/styles.css',
             chunkFilename: 'css/styles.css'
         }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(dotenv.parsed),
+        }),
         new webpack.ProgressPlugin(),
-
     ],
     module: {
         rules: [
