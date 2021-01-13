@@ -1,0 +1,19 @@
+.filterBy {
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.filterByText {
+    margin-right: 24px;
+}
+
+.filterByOption {
+    margin-right: 33px;
+}
+
+.clearAllButton {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}

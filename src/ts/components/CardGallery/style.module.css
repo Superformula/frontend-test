@@ -1,0 +1,14 @@
+.cardGallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin: 0 -1%;
+}
+
+.cardGalleryItem {
+    width: 25%;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-bottom: 4%;
+    box-sizing: inherit;
+}

@@ -1,0 +1,45 @@
+.dropDownMenu {
+    position: relative;
+    user-select: none;
+}
+
+.selectedText {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.dropDownMenuList {
+    background: #fff;
+    border: 1px solid #C8C8C8;
+    border-top-width: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 16px;
+    position: absolute;
+    transition-duration: .4s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+    width: 100%;
+    z-index: 2;
+}
+
+.show {
+    border: 1px solid #C8C8C8;
+    box-shadow: 0 6px 5px rgba(0,0,0,0.1), inset 0 -1px 0 #C8C8C8;
+    max-height: 300px;
+}
+
+.carat {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.rotate {
+    transform: rotate(-180deg);
+}
