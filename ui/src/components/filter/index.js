@@ -9,37 +9,7 @@ import "react-contexify/dist/ReactContexify.css";
 import "./styles.scss";
 import clsx from "clsx";
 
-
-
-const OpenNowFilter = () => {
-  return <Checkbox label="Open Now" />;
-};
-
-const PriceFilter = () => {
-  return (
-    <Dropdown
-      id="dropdown-id"
-      label="Price"
-      options={options}
-      value={""}
-      onChange={() => {}}
-    />
-  );
-};
-
-const CategoryFilter = () => {
-  return (
-    <Dropdown
-      id="dropdown-id"
-      label="Category"
-      options={options}
-      value={1}
-      onChange={() => {}}
-    />
-  );
-};
-
-const FilterContainer = props => {
+const FilterContainer = (props) => {
   return <div className="filter-panel" {...props} />;
 };
 
@@ -47,31 +17,60 @@ export default ({
   priceOptions,
   categoryOptions,
   openNowSelected,
-  priceFilterValue,
-  categoryFilterValue,
-  onClearClicked
+  priceFilterValue = "",
+  categoryFilterValue = "",
+  onPriceSelected,
+  onCategorySelected,
+  onClearFilter,
+  onOpenNowChange,
 }) => {
+  const clearButtonDisabled = !(
+    openNowSelected ||
+    priceFilterValue ||
+    categoryFilterValue
+  );
+  const handlePriceChange = (id, value) => {
+    onPriceSelected(value);
+  };
+  const handleCategorySelected = (id, value) => {
+    onCategorySelected(value);
+  };
 
-  const clearButtonDisabled = !(openNowSelected || priceFilterValue || categoryFilterValue);
+  const handleOpenNowChange = (ev) => {
+    onOpenNowChange(ev.target.checked);
+  };
   return (
     <FilterContainer>
       <Label className="filter-title"> Filter By: </Label>
-      <OpenNowFilter />
+      <Checkbox
+        label="Open Now"
+        onChange={handleOpenNowChange}
+        checked={openNowSelected}
+      />
+
       <Dropdown
-      id="price-filter"
-      label="Price"
-      options={priceOptions}
-      value={priceFilterValue}
-      onChange={() => {}}
-    />
+        id="price-filter"
+        label="Price"
+        options={priceOptions}
+        value={priceFilterValue}
+        onChange={handlePriceChange}
+      />
       <Dropdown
-      id="category-filter"
-      label="Category"
-      options={categoryOptions}
-      value={categoryFilterValue}
-      onChange={() => {}}
-    />
-      <Button className={clsx("primary clear-button", clearButtonDisabled && 'disabled')}>Clear All</Button>
+        id="category-filter"
+        label="Category"
+        options={categoryOptions}
+        value={categoryFilterValue}
+        onChange={handleCategorySelected}
+      />
+      <Button
+        onClick={onClearFilter}
+        className={clsx(
+          "primary clear-button",
+          clearButtonDisabled && "disabled"
+        )}
+      >
+        Clear All
+      </Button>
     </FilterContainer>
   );
 };

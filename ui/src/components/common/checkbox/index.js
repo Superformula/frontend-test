@@ -1,13 +1,13 @@
 import React from "react";
 import "./checkbox.scss";
-import checked from "../../assets/check.svg";
-import nochecked from "../../assets/no-check.svg";
+import checkOn from "../../assets/check.svg";
+import checkOff from "../../assets/no-check.svg";
 
 export default ({ label, checked, ...rest }) => {
   return (
     <div className="checkbox-container">
-         {checked && <img className="checkicon" alt="Checked" src={checked} />}
-         {!checked && <img className="checkicon" alt="Not Checked" src={nochecked} />}
+         {checked && <img className="checkicon" alt="Checked" src={checkOn} />}
+         {!checked && <img className="checkicon" alt="Not Checked" src={checkOff} />}
         <input
           type="checkbox"
           checked={checked}
