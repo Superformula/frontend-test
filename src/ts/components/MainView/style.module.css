@@ -1,0 +1,16 @@
+.filterSection {
+    margin: 0 -64px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 21px 64px;
+}
+
+.loadMoreButton {
+    display: flex;
+    justify-items: center;
+    text-align: center;
+}
+
+.loadMoreButton button {
+    margin: 0 auto;
+}
