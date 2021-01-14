@@ -5,13 +5,14 @@ import Button from "../common/button";
 import { SubTitle } from "../common/text";
 import Card from "../result-card";
 
-export default ({ items, onLoadMore }) => {
+export default ({ items, onLoadMore, onDetailsClick }) => {
   return (
     <section className="results-grid">
       <SubTitle>All Restaurants</SubTitle>
       <section className="grid-container">
         {items.map((item) => (
           <Card
+            id={item.id}
             key={item.id}
             img={item.img}
             name={item.name}
@@ -19,6 +20,7 @@ export default ({ items, onLoadMore }) => {
             price={item.price}
             isOpen={item.isOpen}
             category={item.category}
+            onDetailsClick={onDetailsClick}
           />
         ))}
       </section>
