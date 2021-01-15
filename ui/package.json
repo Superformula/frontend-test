@@ -11,7 +11,8 @@
     "build": "parcel build index.html",
     "build-netlify": "sed -i s/API_KEY/$API_KEY/g netlify.toml && yarn build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "jest src/tests"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -21,7 +22,11 @@
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
     "@storybook/react": "^6.1.11",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
     "autoprefixer": "9",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
     "parcel-bundler": "^1.12.4",
     "postcss": "^8.2.2",
     "postcss-loader": "^4.1.0",
