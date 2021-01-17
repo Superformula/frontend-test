@@ -1,37 +1,46 @@
-# Stack
+# Solution Notes
 
-- Parcel for bundling the web app
-- react-testing-library and jest for tests
-- Storybook for quick component tests
-- Netlify for deploying
-- local-cors-proxy for local testing
+Component catalog: [https://frontend-test-storybook.netlify.app/](https://frontend-test-storybook.netlify.app/)
 
-# Workflow
+App demo: [https://frontend-test-sup.netlify.app/](https://frontend-test-sup.netlify.app/index.html)
 
 
-## Strategy
+## Component driven Approach.
 
-- Setup stack and deployment with Netlify
-- Setup Testing libraries
-- Download sample JSON responses from Yelp's Api.
-- Focus on the UI components, use Storybook stories.
+The test was done in a "component-driven" way. First, I created all UI components and tested them in Storybook. When the presentation components were mostly ready I proceeded to compose the pages using them as building blocks.
 
+The components catalog can be seen [here](https://frontend-test-storybook.netlify.app/)
 
-## Setup stack
+## Deployment
 
-As a first step I focused on setting up the tools, libraries and deployment details before moving to implementation. 
+Demo URL: [https://frontend-test-sup.netlify.app/](https://frontend-test-sup.netlify.app/index.html)
 
-This includes initializing the project, setting up Parcerl and Storybook, and testing that it works on Netlify for automatic deploys.
+To have automatic deployment a Netlify site was connected to the Github repository. To overcome the CORSS limitation, Netlify provides proxy redirection rules (setup in the netlify.toml file)
 
-Key points:
+## Component tests
 
-- Using Netlify as proxy for CORS requests
+Besides Storybook I setup react-testing-library and added a sample test for the filter component that emulates user interaction and checks the DOM against expected values. 
 
-Netlify supports redirection of specific paths. This is useful to overcome the CORS limitation with the Yelp Api. The redirection rules can be found in the netlify.toml file. The Api key was added as environment variable in the Netlify deploy settings.
+## Styles
 
+Because of the CSS library restriction I used normal SASS in a modular way (Each component as its companion .scss file). 
 
-- Store sample JSON responses for quick local iterations
+## State management
 
-As a testing utility, sample JSON responses were saved into the tests/responses folder.
+For this excercise, state was handled with the React useState hook. With a more complex state I would have used something like Redux or MobX.
 
+## Local testing
+
+When testing locally I used a local proxy (https://www.npmjs.com/package/local-cors-proxy). The api checks the NODE_ENV variable and uses the local url when in development mode.
+
+# Pending tasks
+
+A list of things that were not included due to lack of time:
+
+- Modify the dropdown component to allow multi-select.
+- More cross-browser compatibility (Only tested on Chrome and Safari)
+- Use of CSS base variables for values instead of hardcoded ones.
+- A Map component (The skeleton is ready but didn't include any 3rd party map component)
+- Add Aria roles and other accessibility improvements.
+- Responsiveness: Even though the grid adjusts correctly, there are other elements that need some adjustments to behave well on mobile.
 

@@ -3,6 +3,8 @@ import React from "react";
 import SearchPageComp from "../pages/search/";
 import "../styles/base.scss";
 import sampleImg from "./assets/sample.svg";
+import {MemoryRouter} from 'react-router-dom'
+
 
 export default {
   title: "Pages/Search",
@@ -12,7 +14,9 @@ export default {
 
 const Template = args => (
   <div className="app-theme">
-    <SearchPageComp {...args} />
+    <MemoryRouter>
+      <SearchPageComp {...args} />
+    </MemoryRouter>
   </div>
 );
 

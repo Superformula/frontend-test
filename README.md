@@ -1,3 +1,5 @@
+Solution notes [here](../docs/README.md)
+
 # Superformula Front-end Developer Coding Test
 
 Be sure to read **all** of this document carefully, and follow the guidelines within.

@@ -4,6 +4,7 @@ import React from "react";
 import ResultsGrid from "../components/results-grid";
 import '../styles/base.scss';
 import sampleImg from './assets/sample.svg'
+import {MemoryRouter} from 'react-router-dom'
 
 export default {
   title: "Results Grid",
@@ -13,7 +14,9 @@ export default {
 
 const Template = args => (
   <div className="app-theme">
-    <ResultsGrid {...args} />
+    <MemoryRouter>
+      <ResultsGrid {...args} />
+    </MemoryRouter>
   </div>
 );
 

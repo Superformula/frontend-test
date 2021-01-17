@@ -4,6 +4,7 @@ import React from "react";
 import ResultCard from "../components/result-card";
 import '../styles/base.scss';
 import sampleImg from './assets/sample.svg'
+import {MemoryRouter} from 'react-router-dom'
 
 export default {
   title: "Result Card",
@@ -13,12 +14,15 @@ export default {
 
 const Template = args => (
   <div className="app-theme">
-    <ResultCard {...args} />
+    <MemoryRouter>
+      <ResultCard {...args} />
+    </MemoryRouter>
   </div>
 );
 
 export const Card = Template.bind({});
 Card.args = {
+    id:'1',
     img:sampleImg,
     name:"The item name",
     rating: 4.5,
