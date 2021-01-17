@@ -1,4 +1,4 @@
-Solution notes [here](../docs/README.md)
+Solution notes [here](./docs/README.md)
 
 # Superformula Front-end Developer Coding Test
 
