@@ -1,0 +1,20 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-typescript",
+    "@babel/preset-react",
+    "next/babel"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-do-expressions",
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "@components": "./components",
+        "@pages": "./pages"
+      }
+    }]
+  ]
+}
