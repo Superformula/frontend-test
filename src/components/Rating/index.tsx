@@ -2,11 +2,14 @@ import * as React from 'react'
 import { Tag } from './styles'
 import Star from './Star'
 
-const Rating = (props: { value: number }) => {
-  const { value } = props
+interface RatingProps {
+  readonly value: number
+}
+
+const Rating: React.FunctionComponent<RatingProps> = ({ value }) => {
 
   return (
-    <Tag data-value={value}>
+    <Tag value={value}>
       <Star />
       <Star />
       <Star />

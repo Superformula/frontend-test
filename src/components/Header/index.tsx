@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Tag, Env, Title, Description } from './styles'
 
-const Header = () => (
+const Header: React.FunctionComponent = () => (
   <Tag>
     <Env>
       <Title>

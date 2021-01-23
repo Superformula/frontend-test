@@ -1,9 +1,19 @@
 import * as React from 'react'
 import Rating from '@components/Rating'
-import { Tag, Mask, Description, Image, Name, Info, Small, Status, More } from './styles'
+import Status from '@components/Status'
+import { Tag, Mask, Description, Image, Name, Info, Small, More } from './styles'
 
-const Item = () => {
-  const starsNumber = 5;
+const Item: React.FunctionComponent = () => {
+  const statusList = [
+    {
+      id: "open",
+      text: "Open Now"
+    },
+    {
+      id: "closed",
+      text: "Closed"
+    }
+  ]
 
   return (
     <Tag>
@@ -19,9 +29,10 @@ const Item = () => {
           <Small>
             Thai • $$$$
           </Small>
-          <Status data-is-open="true">
-            Open now
-          </Status>
+          <Status 
+            list={statusList}
+            active="open"
+          />
         </Info>
       </Description>
       <More>

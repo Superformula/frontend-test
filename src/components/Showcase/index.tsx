@@ -2,9 +2,12 @@ import * as React from 'react'
 import { Tag, Env, Title, List } from './styles'
 import Item from './Item'
 
-const Showcase = (props: { title: string }) => {
-  const { title } = props
-  const list = [1, 2, 3, 4, 5, 6, 7, 8]
+interface ShowcaseProps {
+  readonly title: string,
+  list: Array<Number>
+}
+
+const Showcase: React.FunctionComponent<ShowcaseProps> = ({ title, list }) => {
   
   return (
     <Tag>

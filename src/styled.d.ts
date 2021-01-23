@@ -7,14 +7,18 @@ declare module 'styled-components' {
       white: string,
       black: string,
       offblack: string,
+      darkgray: string,
+      arrowgray: string,
       gray: string,
       offgray: string,
       lightgray: string,
+      darkwhite: string,
       offwhite: string,
       blue: string,
       hoverBlue: string,
       green: string,
       red: string
-    }
+    },
+    transition: string
   }
 }

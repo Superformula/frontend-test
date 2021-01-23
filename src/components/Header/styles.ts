@@ -26,5 +26,6 @@ export const Description = styled.p`
   font-size: ${rem(22)};
   font-weight: 300;
   line-height: ${rem(32)};
+  margin: 0;
   max-width: ${rem(752)};
 `
