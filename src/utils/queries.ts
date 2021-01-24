@@ -17,7 +17,6 @@ export const GET_RESTAURANTS = gql`
   query GetRestaurants($term: String!, $location: String!) {
     search(term: $term, location: $location) {
       business{
-        alias,
         name,
         is_closed,
         rating,
@@ -59,6 +58,7 @@ export const GET_RESTAURANT = `
         reviews{
           rating,
           text,
+          time_created,
           user {
             image_url,
             name

@@ -47,7 +47,6 @@ export interface RatingProps {
 }
 
 export type RestaurantItemType = {
-  alias: string,
   name: string,
   is_closed: boolean,
   rating: number,
@@ -80,6 +79,7 @@ export interface StatusProps {
 export type ReviewsType = {
   rating: number
   text: string
+  time_created: string
   user: {
     image_url: string
     name: string
@@ -117,4 +117,20 @@ export interface RestaurantHeaderProps {
   is_closed: boolean
   price: string
   category: string
+}
+
+export interface PhotosProps {
+  photos: Array<string>
+  coordinates: {
+    latitude: number
+    longitude: number
+  }
+  location: {
+    formatted_address: string
+  }
+}
+
+export interface ReviewsProps {
+  review_count: number
+  reviews: Array<ReviewsType>
 }

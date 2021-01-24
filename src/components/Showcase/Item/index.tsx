@@ -6,12 +6,12 @@ import { Tag, Mask, Description, Image, Name, Info, Small, More } from './styles
 import { ShowcaseItemProps } from '@utils/types'
 
 const Item: React.FunctionComponent<ShowcaseItemProps> = ({ item }) => {
-  const { alias, name, is_closed, rating, price, categories, photos } = item
+  const { name, is_closed, rating, price, categories, photos } = item
   const type = categories[0].title
-
+  const id = name.toLowerCase().replace(/ /g, '-')
   return (
     <Tag>
-      <Link href={`/restaurants/${alias}`}>
+      <Link href={`/restaurants/${id}`}>
         <Mask>
           <Image src={photos[0]} alt={name} />
         </Mask>
@@ -30,7 +30,7 @@ const Item: React.FunctionComponent<ShowcaseItemProps> = ({ item }) => {
           />
         </Info>
       </Description>
-      <Link href={`/restaurants/${alias}`}>
+      <Link href={`/restaurants/${id}`}>
         <More>
           Learn More
         </More>
