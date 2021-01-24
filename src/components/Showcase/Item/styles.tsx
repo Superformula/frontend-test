@@ -6,16 +6,20 @@ export const Tag = styled.li`
   flex-flow: column nowrap;
   flex: 1 1 ${rem(250)};
   margin: ${rem(40)} ${rem(16)};
+  overflow: hidden;
 `
 
 export const Mask = styled.span`
   align-items: center;
   background-color: ${props => props.theme.colors.offwhite};
+  cursor: pointer;
   display: inline-flex;
   flex: 0 0 auto;
   height: ${rem(228)};
   justify-content: center;
   margin: 0 0 ${rem(16)};
+  max-width: 100%;
+  width: 100%;
   overflow: hidden;
 `
 
@@ -24,13 +28,12 @@ export const Description = styled.div`
 `
 
 export const Image = styled.img`
+  object-fit: cover;
   border: 0 none;
   display: block;
-  min-height: 100%;
-  height: auto;
+  height: ${rem(228)};
   margin: 0;
-  min-width: 100%;
-  width: auto;
+  width: 100%;
 `
 
 export const Name = styled.h3`

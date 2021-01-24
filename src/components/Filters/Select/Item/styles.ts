@@ -30,6 +30,7 @@ export const Tag = styled.li<ItemProps>`
   list-style: none;
   padding: ${rem(5)} ${rem(16)};
   transition: ${props => props.theme.transition};
+  white-space: nowrap;
   width: 100%;
 
   &:hover {

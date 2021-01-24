@@ -1,12 +1,8 @@
 import * as React from 'react'
 import { Tag, Check } from './styles'
+import { CheckboxItemProps } from '@utils/types'
 
-interface ItemProps {
-  id: String
-  text: String
-}
-
-const Item: React.FunctionComponent<ItemProps> = ({ id, text }) => {
+const Item: React.FunctionComponent<CheckboxItemProps> = ({ id, text }) => {
   const [isActive, setIsActive] = React.useState<Boolean>(false)
   
   return (

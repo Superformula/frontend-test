@@ -32,7 +32,8 @@ export const List = styled.ul`
   box-shadow: 0 ${rem(6)} ${rem(5)} rgba(0, 0, 0, 0.1), inset 0 ${rem(-1)} 0 ${props => props.theme.colors.darkwhite};
   display: block;
   margin: ${rem(-10)} 0 0;
-  overflow: hidden;
+  max-height: ${rem(250)};
+  overflow: auto;
   padding: ${rem(5)} 0;
   position: absolute;
   left: 0;

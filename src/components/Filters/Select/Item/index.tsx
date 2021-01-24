@@ -1,22 +1,15 @@
 import * as React from 'react'
 import { Tag, Icon, Check } from './styles'
+import { SelectItemProps } from '@utils/types'
 
-interface ItemProps {
-  id: String
-  text: String
-  activesList: Array<String>,
-  isActive?: Boolean,
-  handleSelect: (id: String, isActive: Boolean) => void
-}
-
-const Item: React.FunctionComponent<ItemProps> = ({ id, text, activesList, isActive: active, handleSelect }) => {
-  const filteredList = activesList.filter((item) => item === id)
+const Item: React.FunctionComponent<SelectItemProps> = ({ alias, title, activesList, isActive: active, handleSelect }) => {
+  const filteredList = activesList.filter((item) => item === alias)
   const initialActive = (active || filteredList.length > 0) ? true : false
   const [isActive, setIsActive] = React.useState<Boolean>(initialActive)
   
   const handleClick = () => {
     setIsActive(!isActive)
-    handleSelect(id, !isActive)
+    handleSelect(alias, !isActive)
   } 
 
   return (
@@ -26,7 +19,7 @@ const Item: React.FunctionComponent<ItemProps> = ({ id, text, activesList, isAct
           <use xlinkHref="#selected" />
         </Icon>
       </Check>
-      { text }
+      { title }
     </Tag>
   )
 }

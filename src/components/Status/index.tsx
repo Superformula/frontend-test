@@ -1,17 +1,18 @@
 import * as React from 'react'
 import { Tag } from './styles'
+import { StatusProps } from '@utils/types'
 
-type StatusList = {
-  id: String,
-  text: String
-}
-
-interface StatusProps {
-  readonly list: Array<StatusList>,
-  readonly active: String
-}
-
-const Status: React.FunctionComponent<StatusProps> = ({ list, active }) => {
+const Status: React.FunctionComponent<StatusProps> = ({ active }) => {
+  const list = [
+    {
+      id: "open",
+      text: "Open Now"
+    },
+    {
+      id: "closed",
+      text: "Closed"
+    }
+  ]
   const { text } = list.filter((item) => item.id === active)[0]
 
   return (

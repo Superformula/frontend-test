@@ -1,35 +1,18 @@
 import * as React from 'react'
 import Item from './Item'
 import { Tag, Arrow, Title, List } from './styles'
-
-type SelectList = {
-  id: String
-  text: String,
-  isActive?: Boolean
-}
-
-interface SelectProps {
-  readonly id: String,
-  readonly text: String,
-  readonly list: Array<SelectList>,
-  readonly minWidth?: number
-}
+import { SelectProps } from '@utils/types'
 
 const Select: React.FunctionComponent<SelectProps> = ({ id, text, list, minWidth }) => {
   const [activesList, setActivesList] = React.useState<Array<String>>([])
   const [isOpen, setIsOpen] = React.useState<Boolean>(false);
 
-  const checkIsActive = (id: String): Boolean => {
-    const item = activesList.filter((item) => item === id)
-    return (item.length > 0) ? true : false
-  }
-
-  const handleSelect = (id: String, isActive: boolean) => {
+  const handleSelect = (alias: String, isActive: boolean) => {
     if(isActive) {
-      setActivesList([... activesList, id])
+      setActivesList([... activesList, alias])
     } else {
-      const filteredList = list.filter(({ id }) => id !== id)
-      const newActivesList = filteredList.map(({ id }) => id)
+      const filteredList = list.filter(({ alias }) => alias !== alias)
+      const newActivesList = filteredList.map(({ alias }) => alias)
       setActivesList(newActivesList)
     }
   }
@@ -43,8 +26,8 @@ const Select: React.FunctionComponent<SelectProps> = ({ id, text, list, minWidth
         { text }
       </Title>
       <List>
-        { list.map(({id: itemID, text, isActive}, key) => (
-          <Item key={key} id={itemID} text={text} activesList={activesList} isActive={isActive} handleSelect={handleSelect}>
+        { list.map(({alias: itemID, title, isActive}, key) => (
+          <Item key={key} alias={itemID} title={title} activesList={activesList} isActive={isActive} handleSelect={handleSelect}>
             { text }
           </Item>
         ))}

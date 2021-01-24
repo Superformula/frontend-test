@@ -1,10 +1,7 @@
 import * as React from 'react'
 import { Tag } from './styles'
 import Star from './Star'
-
-interface RatingProps {
-  readonly value: number
-}
+import { RatingProps } from '@utils/types'
 
 const Rating: React.FunctionComponent<RatingProps> = ({ value }) => {
 
