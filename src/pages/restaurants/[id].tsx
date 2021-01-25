@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { useRouter } from 'next/router'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import { GET_RESTAURANT } from '@utils/queries'
 import { axiosYelpAPI } from '@utils/api'
 import { RestaurantProps } from '@utils/types'
@@ -6,8 +8,15 @@ import RestaurantHeader from '@components/RestaurantHeader'
 import Photos from '@components/Photos'
 import Reviews from '@components/Reviews'
 
-const Retaurant: React.FunctionComponent<RestaurantProps> = ({ restaurant }) => {
-  const { name, is_closed, rating, price, photos, review_count, categories, coordinates, location, reviews } = restaurant
+const Retaurant = ({ restaurant }) => {
+  const router = useRouter()
+  if(restaurant.length === 0)
+    return <div>404!</div>
+  const { name, is_closed, rating, price, photos, review_count, categories, coordinates, location, reviews } = restaurant[0]
+
+  if(router.isFallback) {
+    return <div>loading...</div>
+  }
 
   return (
     <>
@@ -31,25 +40,52 @@ const Retaurant: React.FunctionComponent<RestaurantProps> = ({ restaurant }) => 
   )
 }
 
-export async function getServerSideProps(ctx) {
-  const { id } = ctx.params
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 
-  const { data } = await axiosYelpAPI.post('', {
-    operationName: "GetRestaurant",
-    query: GET_RESTAURANT,
-    variables: {
-      term: id,
-      location: process.env.DEFAULT_LOCATION,
-      limit: 1
-    }
-  })
+  const { id } = params
+  
+  try {
+    const { data } = await axiosYelpAPI.post('', {
+      operationName: "GetRestaurant",
+      query: GET_RESTAURANT,
+      variables: {
+        term: id,
+        location: process.env.DEFAULT_LOCATION,
+        limit: 1
+      }
+    })
+    const restaurant = data?.data.search.business
 
-  const restaurant = data?.data.search.business[0]
+    return {
+      props: {
+        restaurant
+      }
+    };
+  } catch(err) {
+    throw err
+  }
+}
 
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    props: {
-      restaurant
-    }
+    paths: [
+      { 
+        params: {
+          id: 'bacchanal-buffet'
+        } 
+      },
+      { 
+        params: {
+          id: `gordon-ramsay-hell's-kitchen`
+        } 
+      },
+      { 
+        params: {
+          id: 'yardbird-southern-table-&-bar'
+        } 
+      }
+    ],
+    fallback: 'blocking'
   };
 }
 
