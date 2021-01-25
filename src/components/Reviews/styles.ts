@@ -29,6 +29,7 @@ export const Item = styled.li`
   align-items: flex-start;
   border-top: ${rem(1)} solid ${props => props.theme.colors.lightgray};
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: ${rem(80)} 0;
 
@@ -36,10 +37,19 @@ export const Item = styled.li`
     border-top: 0 none;
     padding-top: 0;
   }
+
+  @media(min-width: ${props => props.theme.media.lg}) {
+    flex-wrap: nowrap;
+  }
 `
 
 export const Left = styled.div`
   flex: 1 1 ${rem(336)};
+  margin-bottom: ${rem(30)};
+
+  @media(min-width: ${props => props.theme.media.lg}) {
+    margin-bottom: 0;
+  }
 `
 
 export const User = styled.div`

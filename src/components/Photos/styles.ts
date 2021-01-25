@@ -4,24 +4,33 @@ import { rem } from '@utils/tools'
 
 export const Tag = styled.section`
   border-bottom: ${rem(1)} solid ${props => props.theme.colors.lightgray};
-  padding: ${rem(48)} 0;
+  padding: ${rem(32)} 0;
+  overflow: hidden;
 `
 
 export const Env = styled(Center)`
   align-items: stretch;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 ${rem(-16)};
+  width: calc(100% + ${rem(32)});
+
+  @media(min-width: ${props => props.theme.media.lg}) {
+    flex-wrap: nowrap;
+  }
 `
 
 export const Map = styled.div`
   flex: 1 1 50%;
   height: auto;
-  margin-right: ${rem(32)};
+  margin: ${rem(16)};
 `
 
 export const List = styled.ul`
   display: flex;
   flex: 1 1 50%;
-  margin: 0;
+  margin: ${rem(16)};
   padding: 0;
   overflow: auto;
 `

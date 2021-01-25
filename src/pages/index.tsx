@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Filters from '@components/Filters'
 import Showcase from '@components/Showcase'
+import Loading from '@components/Loading'
 import LoadMore from '@components/Showcase/LoadMore'
 import { useQuery } from '@apollo/client'
 import { getFiltersList } from '@utils/filters'
@@ -59,10 +60,13 @@ const HomePage: React.FunctionComponent = () => {
     setOffset(offset + limit)
   }
 
+  if(categoriesLoading && restaurantsLoading)
+    return (<Loading />)
+
   return (
     <>
       <Head>
-        <title>Homepage</title>
+        <title>Homepage | Frontend Test - Frederico Soares</title>
       </Head>
       <Header />
       <Filters 
@@ -71,8 +75,9 @@ const HomePage: React.FunctionComponent = () => {
       <Showcase 
         title="All Restaurants"
         list={restaurantsList}
+        isLoading={restaurantsLoading}
       />
-      <LoadMore onClick={handleLoadMore} />
+      <LoadMore onClick={handleLoadMore} isLoading={restaurantsLoading} />
     </>
   )
 }

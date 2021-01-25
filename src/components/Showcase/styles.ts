@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import { Center } from '@components/Layout/utils'
 import { rem } from '@utils/tools'
 
@@ -23,5 +23,6 @@ export const List = styled.ul`
   flex-flow: row wrap;
   margin: 0 ${rem(-16)};
   padding: 0;
+  position: relative;
   width: calc(100% + ${rem(32)});
 `

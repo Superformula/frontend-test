@@ -66,6 +66,7 @@ export interface ShowcaseItemProps {
 export interface ShowcaseProps {
   readonly title: string,
   list: Array<RestaurantItemType>
+  isLoading: boolean
 }
 
 export type StatusType = {
@@ -147,4 +148,5 @@ export type RestaurantsContextType = {
 
 export type LoadMoreProps = {
   onClick: MouseEventHandler
+  isLoading: boolean
 }

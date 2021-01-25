@@ -1,7 +1,14 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { Center } from '@components/Layout/utils'
 import { rem } from '@utils/tools'
 
-export const Tag = styled.button`
+interface TagProps {
+  isLoading: boolean
+}
+
+export const Env = styled(Center)``
+
+export const Tag = styled.button<TagProps>`
   background: ${props => props.theme.colors.background};
   border: ${rem(1)} solid ${props => props.theme.colors.blue};
   color: ${props => props.theme.colors.blue};
@@ -17,6 +24,7 @@ export const Tag = styled.button`
   outline: none;
   text-transform: uppercase;
   transition: ${props => props.theme.transition};
+  user-select: none;
   width: 100%;
 
   &:active,
@@ -28,4 +36,9 @@ export const Tag = styled.button`
     background-color: ${props => props.theme.colors.blue};
     color: white;
   }
+
+  ${props => props.isLoading && css`
+    pointer-events: none;
+    opacity: .6;
+  `}
 `

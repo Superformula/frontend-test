@@ -1,16 +1,6 @@
 import styled, { css } from 'styled-components'
 import { rem } from '@utils/tools'
 
-export const Tag = styled.li`
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 1 1 ${rem(250)};
-  margin: ${rem(40)} ${rem(16)};
-  max-width: ${rem(598)};
-  padding-bottom: ${rem(40)};
-  overflow: hidden;
-`
-
 export const Mask = styled.span`
   align-items: center;
   background-color: ${props => props.theme.colors.offwhite};
@@ -36,6 +26,7 @@ export const Image = styled.img`
   height: ${rem(228)};
   margin: 0;
   width: 100%;
+  transition: all 150ms ease-in-out;
 `
 
 export const Name = styled.h3`
@@ -85,5 +76,21 @@ export const More = styled.span`
 
   &:hover {
     background-color: ${props => props.theme.colors.hoverBlue};
+  }
+`
+
+export const Tag = styled.li`
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 ${rem(250)};
+  margin: ${rem(40)} ${rem(16)};
+  max-width: ${rem(598)};
+  padding-bottom: ${rem(40)};
+  overflow: hidden;
+
+  &:hover {
+    ${Image} {
+      transform: scale(1.1)
+    }
   }
 `
