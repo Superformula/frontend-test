@@ -10,13 +10,16 @@ import Reviews from '@components/Reviews'
 
 const Retaurant = ({ restaurant }) => {
   const router = useRouter()
+  if(router.isFallback)
+    return <div>loading...</div>
+
   if(restaurant.length === 0)
     return <div>404!</div>
+  
+
   const { name, is_closed, rating, price, photos, review_count, categories, coordinates, location, reviews } = restaurant[0]
 
-  if(router.isFallback) {
-    return <div>loading...</div>
-  }
+  
 
   return (
     <>
@@ -54,11 +57,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         limit: 1
       }
     })
+    console.log('data', data)
     const restaurant = data?.data.search.business
 
     return {
       props: {
-        restaurant
+        restaurant: restaurant
       }
     };
   } catch(err) {
@@ -85,7 +89,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         } 
       }
     ],
-    fallback: 'blocking'
+    fallback: true
   };
 }
 
