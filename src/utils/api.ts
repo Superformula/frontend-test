@@ -2,7 +2,7 @@ import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { setup } from 'axios-cache-adapter'
 
-const yelpURI = (process.env.NODE_ENV === 'production') ? process.env.YELP_API_BASEURL : process.env.WEBSITE_API_BASEURL
+const yelpURI = process.env.WEBSITE_API_BASEURL
 const yelpHttpLink = createHttpLink({
   uri: yelpURI
 })
