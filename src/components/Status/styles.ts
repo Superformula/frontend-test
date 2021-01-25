@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { rem } from '@utils/tools'
 
 interface StatusTagProps {
-  readonly status: String
+  readonly status: string
 }
 
 export const Tag = styled.div<StatusTagProps>`

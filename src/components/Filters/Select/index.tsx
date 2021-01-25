@@ -15,7 +15,7 @@ const Select: React.FunctionComponent<SelectProps> = ({ id, text, list, minWidth
       return priceFilter
   }
 
-  const handleSelect = (alias: String, isActive: boolean) => {
+  const handleSelect = (alias: string, isActive: boolean) => {
     if(isActive) {
       setFilter(id, [... getList(id), alias])
     } else {

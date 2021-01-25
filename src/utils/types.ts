@@ -2,39 +2,39 @@ import { MouseEventHandler } from "react"
 
 
 export interface CheckboxItemProps {
-  id: String
-  text: String
+  id: string
+  text: string
 }
 
 export interface SelectItemProps {
-  parentID: String,
-  alias: String
-  title: String
+  parentID: string,
+  alias: string
+  title: string
   isActive?: Boolean,
-  handleSelect: (id: String, isActive: Boolean) => void
+  handleSelect: (id: string, isActive: Boolean) => void
 }
 
 export type SelectListType = {
-  alias: String
-  title: String,
+  alias: string
+  title: string,
   isActive?: Boolean
 }
 
 export interface SelectProps {
-  readonly id: String,
-  readonly text: String,
+  readonly id: string,
+  readonly text: string,
   readonly list: Array<SelectListType>,
   readonly minWidth?: number
 }
 
 export type FilterType = {
-  alias: String
-  title: String
+  alias: string
+  title: string
 }
 
 export type FiltersListType = {
-  id: String
-  text: String
+  id: string
+  text: string
   values: Array<FilterType>,
   minWidth?: number
 }
@@ -69,12 +69,12 @@ export interface ShowcaseProps {
 }
 
 export type StatusType = {
-  id: String,
-  text: String
+  id: string,
+  text: string
 }
 
 export interface StatusProps {
-  readonly active: String
+  readonly active: string
 }
 
 export type ReviewsType = {
