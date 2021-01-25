@@ -32,7 +32,7 @@ export const Image = styled.img`
 export const Name = styled.h3`
   color: ${props => props.theme.colors.black};
   font-size: ${rem(20)};
-  font-weight: 300;
+  font-weight: 400;
   line-height: ${rem(28)};
   letter-spacing: ${rem(1)};
   display: block;
