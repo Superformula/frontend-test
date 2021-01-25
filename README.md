@@ -1,117 +1,131 @@
 # Superformula Front-end Developer Coding Test
 
-Be sure to read **all** of this document carefully, and follow the guidelines within.
+This project is a coding test created by Superformula developed by Frederico Soares.
 
-## Context
+## Project Requirements
+- [Node.js](https://nodejs.org/en/)
 
-Use React w/ TypeScript to implement the following mock-up. You will need to leverage an open API for restaurant data to fill in the details and functionality as described below. You are only required to complete the desktop views, unless otherwise instructed.
+## Environment Variables
+Brief description of each variable listed in the file:
 
-![Superformula-front-end-test-mockup](./mockup.png)
+- `YELP_API_BASEURL`: Yelp's graphql endpoint
+- `YELP_API_CLIENT_ID`: Yelp's client id (not required for this project)
+- `YELP_API_KEY`: Yelp's API key.
+- `WEBSITE_API_BASEURL`: Website's proxy URL.
+- `DEFAULT_LOCATION`: Default restaurants location.
+- `GOOGLEMAPS_API_KEY`: Google Maps API key.
 
-Use this Figma file to see button states, colors, and responsive design.  You should be sure to complete the test to mimic the design as seen.
 
-> [Source Figma file](https://www.figma.com/file/4MqQhKPsnKetTud9tm6kDY/Superformula-FE-test-264388d?node-id=0%3A1)
+## Run the Application (Development Mode)
+This application uses Next.js to handle routes, styling SSR, and proxy configuration. 
+Follow the instructions below to run it locally.
 
-## Requirements
+<details><summary><b>Show instructions</b></summary>
 
-### Yelp API
+1. Install required packages as described in `package.json`:
 
-You can ask us and we will provide you a Yelp API Key to use for your PR.
+    ```shell script
+    $ yarn
+    ```
 
-> NOTE: Yelp's API does not allow CORS. To get around this, you will need to setup a local proxy with CORS support and proxy your requets to Yelp's endpoints.
+2. Run application in development mode:
 
-### Page Structure
+    ```shell script
+    $ yarn dev
+    ```
+   
+3. Go to http://localhost:3000.
 
-```
-Main
-  - Filter navigation
-    - Open now (client side filter)
-    - Price (client side filter)
-    - Categories/Cuisines (server side search filter)
-  - Section
-    - Restaurant item
-      - Image (use first item in `photos`)
-      - Cuisine / Categories (use first item in `categories`)
-      - Rating
-      - Price range
-      - Open / Closed
-      - Restaurant name
-      - Learn more (navigate to Detail View)
-Detail View
-  - Restaurant Name & Rating
-  - Map (optional, if time allows)
-  - Section
-    - Review item
-      - Image
-      - Name
-      - Rating
-      - Text
-```
+</details>
 
-### Functionality
 
-- The filter navigation needs to be able to perform real time filtering on both client side data, as well as server side queries.
-- Yelp's `/businesses/search` endpoint requires a `location`, please use `Las Vegas`
-- `Categories` can be pre-filled from the [Categories endpoint](https://www.yelp.com/developers/documentation/v3/all_categories)
-- The items should always show 4-6 items per row depending on viewport size. Use your own judgement for when to change per breakpoints.
-- Please see the [Yelp documentation](https://www.yelp.com/developers/documentation/v3) for more details.
+## Run the Application (Test Mode)
+Cypress is the end-to-end testing tool used in this project. It simulates real user interactions and returns precious test feedback.
 
-### Tech stack
+Run Cypress in dev mode:
+  ```shell script
+  $ yarn cypress:open
+  ```
 
-- TypeScript oriented (JavaScipt can be used, but we strongly prefer TypeScript)
-  - Use **React**
-  - _Do not_ use any React boilerplate, such as Create React App
-- Feel free to use a preprocessor, CSS-in-JS, or JSS tool but _do not_ use any pre-styled frameworks or libraries
-  - The general rule of thumb is: you should write your own styling for your components, do not use "pre-made" tools and utilities
-  - There are a few reasons we do this:
-    - we care about pixel perfect implementation
-    - we want to see your understanding of CSS and styling practices
-  - USE:
-    - Styled-Components
-    - Emotion
-    - SCSS
-    - SASS
-    - LESS
-    - CSS
-  - AVOID:
-    - Tailwind
-    - Bootstrap
-    - Material UI
-    - Semantic UI
+Run Cypress in test mode:
+  ```shell script
+  $ yarn test
+  ```
 
-### Bonus
+**PS:** By running Cypress in the test mode, it will provide you videos and screenshots of the whole test flow.
 
-- Make the application accessible
-- Also create mobile version included in Figma comp
-- Write clear **documentation** on how the app was designed and how to run the code
-- Implement useful testing
-- Provide components in [Storybook](https://storybook.js.org) (we use Storybook, buy any component display tool of your choice if fine!)
-- Use Yelp's [Graph QL](https://www.yelp.com/developers/graphql/guides/intro) endpoint
-- Write concise and clear commit messages
-- Provide an online demo of the application
-- Include subtle animations to focus attention
-- Describe improvement opportunities when you conclude
+## Build the Application (Production Mode)
+To create an optimized and bundled version of the project, follow the instructions below.
 
-## What We Care About
+<details><summary><b>Show instructions</b></summary>
 
-Use any libraries that you would normally use if this were a real production App. Be prepared to justify those choices.
-Please note: _we care more about how you approach the problem than the end result. Code cleanliness and design
-are more important than using the "right" library._
+1. Install the required packages as described in `package.json`:
 
-Here's what you should strive for:
+    ```shell script
+    $ yarn
+    ```
 
-- Good use of current TypeScript, HTML, CSS, and performance best practices
-- Solid testing approach
-- Extensible code
-- Mobile support and accessibility
-- Thorough explanation of decisions and tradeoffs
+2. Build the application in production mode:
 
-## Q&A
+    ```shell script
+    $ yarn build
+    ```
 
-> Where should I send back the result when I'm done?
+2. Run build files locally
 
-Fork this repo and send us a pull request when you think you are done. There is no deadline for this task unless otherwise noted to you directly.
+    ```shell script
+    $ yarn start
+    ```
+</details>
 
-> What if I have a question?
+## Components Library (Storybook Mode)
+This project contains a components library created with Storybook to test components with mock data.
+To run Storybook, follow the instructions below:
 
-Just create a new issue in this repo and we will respond and get back to you quickly.
+1. Run storybook script:
+
+    ```shell script
+    $ yarn storybook
+    ```
+2. A new window should open with your IP address accessed by port 6006. There you can test all components and change their status and props.
+
+## Technology decisions
+
+### Typescript
+Typescript helps us creating a strongly typed code, robust code base, reduces static type erroring, and improves scalability.
+
+### Babel
+A must nowadays, it compiles ES6+ in ES5 or lowers compatible specs to ensure browser compatibility. It also has some great plugins for SSR and alias.
+
+### GraphQL
+Query language to fetch only the necessary data from an API. Super helpful during this project since Yelps API returns tons of unused data.
+### Apollo Client
+Apollo Client handles GraphQL requests. It provides a straightforward interface to work with.
+
+### TSLint
+TSLint is used to improve code quality.
+
+### Axios
+Axios is used to handle server-side requests in this project since Apollo HOOKS are not available in such instances.
+
+### Styled-Components
+A CSS-in-JS approach, chose over Emotion by personal preference and project requirements matter; both are great.
+
+### Google Maps React
+A simple google maps component to render the map inside the Restaurants page.
+
+## Accomplishments
+- Application deployed and optimized on Vercel.
+- All desktop designs.
+- Multiple filtering feature (categories on the server-side, price, and "Open Now" on the client-side).
+- Include Maps API on the Restaurant page.
+- End-to-end testing with all functionalities covered.
+- Commit messages convention.
+- Loading, hover, and click animations.
+
+## Future Improvements
+- Add Husky to handle CLI commands to run tests.
+- Add Jest to handle some unit testing.
+- Change the mobile experience to match the designed version.
+- Add all possible requests to SSR.
+- Load more restaurants by scroll.
