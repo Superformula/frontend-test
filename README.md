@@ -42,6 +42,11 @@ Follow the instructions below to run it locally.
 ## Run the Application (Test Mode)
 Cypress is the end-to-end testing tool used in this project. It simulates real user interactions and returns precious test feedback.
 
+Make sure your server is running locally first:
+  ```shell script
+  $ yarn dev
+  ```
+  
 Run Cypress in dev mode:
   ```shell script
   $ yarn cypress:open
