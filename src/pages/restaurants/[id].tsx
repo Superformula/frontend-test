@@ -74,4 +74,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 }
 
+export const config = {
+  api: {
+    bodyParser: false,
+    externalResolver: true,
+  },
+}
+
 export default Retaurant
