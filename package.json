@@ -4,13 +4,14 @@
   "description": "Frederico's test",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "start-server-and-test start http://localhost:3000 cypress:run",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next build && next start -p 3000",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -65,6 +66,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sb": "^6.1.14",
+    "start-server-and-test": "^1.11.7",
     "style-loader": "^2.0.0",
     "styled-components": "^5.2.1",
     "tslint": "^6.1.3",

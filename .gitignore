@@ -5,6 +5,7 @@
 /cypress/fixtures
 /cypress/plugins
 /cypress/support
+/cypress/screenshots
 
 # next.js
 /.next/
