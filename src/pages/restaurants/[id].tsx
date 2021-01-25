@@ -15,11 +15,8 @@ const Retaurant = ({ restaurant }) => {
 
   if(restaurant.length === 0)
     return <div>404!</div>
-  
 
   const { name, is_closed, rating, price, photos, review_count, categories, coordinates, location, reviews } = restaurant[0]
-
-  
 
   return (
     <>
@@ -44,7 +41,6 @@ const Retaurant = ({ restaurant }) => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-
   const { id } = params
   
   try {
@@ -57,7 +53,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         limit: 1
       }
     })
-    console.log('data', data)
     const restaurant = data?.data.search.business
 
     return {
@@ -73,23 +68,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
-      { 
-        params: {
-          id: 'bacchanal-buffet'
-        } 
-      },
-      { 
-        params: {
-          id: `gordon-ramsay-hell's-kitchen`
-        } 
-      },
-      { 
-        params: {
-          id: 'yardbird-southern-table-&-bar'
-        } 
-      }
+     
     ],
-    fallback: true
+    fallback: 'blocking'
   };
 }
 
