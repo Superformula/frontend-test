@@ -8,13 +8,27 @@ import RestaurantHeader from '@components/RestaurantHeader'
 import Photos from '@components/Photos'
 import Reviews from '@components/Reviews'
 
-const Retaurant = ({ restaurant }) => {
+const Retaurant = () => {
+  const [restaurant, setRestaurant] = React.useState([])
   const router = useRouter()
-  if(router.isFallback)
-    return <div>loading...</div>
+  const { id } = router.query
 
+  React.useEffect(() => {
+    axiosYelpAPI.post('', {
+      operationName: "GetRestaurant",
+      query: GET_RESTAURANT,
+      variables: {
+        term: id,
+        location: process.env.DEFAULT_LOCATION,
+        limit: 1
+      }
+    }).then(({ data }) => {
+      setRestaurant(data.data.search.business)
+    })
+  }, [])
+  
   if(restaurant.length === 0)
-    return <div>404!</div>
+    return <div>loading...</div>
 
   const { name, is_closed, rating, price, photos, review_count, categories, coordinates, location, reviews } = restaurant[0]
 
@@ -38,47 +52,6 @@ const Retaurant = ({ restaurant }) => {
       />
     </>
   )
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { id } = params
-  
-  try {
-    const { data } = await axiosYelpAPI.post('', {
-      operationName: "GetRestaurant",
-      query: GET_RESTAURANT,
-      variables: {
-        term: id,
-        location: process.env.DEFAULT_LOCATION,
-        limit: 1
-      }
-    })
-    const restaurant = data?.data.search.business
-
-    return {
-      props: {
-        restaurant: restaurant
-      }
-    };
-  } catch(err) {
-    throw err
-  }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [
-     
-    ],
-    fallback: true
-  };
-}
-
-export const config = {
-  api: {
-    bodyParser: false,
-    externalResolver: true,
-  },
 }
 
 export default Retaurant
