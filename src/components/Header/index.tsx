@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Tag, Env, Title, Description } from './styles'
 
 const Header: React.FunctionComponent = () => (
-  <Tag>
+  <Tag data-testid="header">
     <Env>
       <Title>
         Restaurants

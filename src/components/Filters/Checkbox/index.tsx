@@ -16,7 +16,7 @@ const Item: React.FunctionComponent<CheckboxItemProps> = ({ id, text }) => {
   }, [openFilter])
 
   return (
-    <Tag isActive={isActive} onClick={() => { handleClick(!isActive)}}>
+    <Tag isActive={isActive} onClick={() => { handleClick(!isActive)}} data-testid={`checkbox-filter-${id}`}>
       <Check />
       { text }
     </Tag>

@@ -10,9 +10,9 @@ const Photos: React.FunctionComponent<PhotosProps> = ({ photos, coordinates, loc
   }
 
   return (
-    <Tag>
+    <Tag data-testid="photos">
       <Env>
-        <Map>
+        <Map data-testid="map">
           <GoogleMap
             pointer={pointer}
           />
