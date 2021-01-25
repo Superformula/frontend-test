@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { rem } from '@utils/tools'
 
 interface ClearProps {
-  readonly isActive: boolean;
+  isActive: boolean;
 };
 
 export const Tag = styled.button<ClearProps>`

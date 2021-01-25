@@ -6,9 +6,9 @@ export interface CheckboxItemProps {
 }
 
 export interface SelectItemProps {
+  parentID: String,
   alias: String
   title: String
-  activesList: Array<String>,
   isActive?: Boolean,
   handleSelect: (id: String, isActive: Boolean) => void
 }
@@ -133,4 +133,13 @@ export interface PhotosProps {
 export interface ReviewsProps {
   review_count: number
   reviews: Array<ReviewsType>
+}
+
+export type RestaurantsContextType = {
+  restaurantsList: Array<RestaurantItemType>,
+  setRestaurantsList: Function,
+  categoriesFilter: Array<string>,
+  priceFilter: Array<string>,
+  openFilter: boolean,
+  setFilter: Function
 }

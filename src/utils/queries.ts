@@ -14,8 +14,8 @@ export const GET_CATEGORIES = gql`
 `
 
 export const GET_RESTAURANTS = gql`
-  query GetRestaurants($term: String!, $location: String!) {
-    search(term: $term, location: $location) {
+  query GetRestaurants($term: String!, $location: String!, $limit: Int, $offset: Int, $categories: String) {
+    search(term: $term, location: $location, limit: $limit, offset: $offset, categories: $categories) {
       business{
         name,
         is_closed,

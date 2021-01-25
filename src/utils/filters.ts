@@ -1,3 +1,18 @@
+export const defaultFilterList = [
+  {
+    id: "open",
+    value: false
+  },
+  {
+    id: "price",
+    value: []
+  },
+  {
+    id: "categories",
+    value: []
+  }
+]
+
 
 export const getFiltersList = (categoriesData) => {
   const categories = getCategoriesList(categoriesData)
@@ -8,25 +23,20 @@ export const getFiltersList = (categoriesData) => {
       text: "Price",
       values: [
         {
-          id: "all",
-          text: "All",
-          isActive: true
+          alias: "$",
+          title: "$"
         },
         {
-          id: "$",
-          text: "$"
+          alias: "$$",
+          title: "$$"
         },
         {
-          id: "$$",
-          text: "$$"
+          alias: "$$$",
+          title: "$$$"
         },
         {
-          id: "$$$",
-          text: "$$$"
-        },
-        {
-          id: "$$$$",
-          text: "$$$$",
+          alias: "$$$$",
+          title: "$$$$",
         }
       ]
     },

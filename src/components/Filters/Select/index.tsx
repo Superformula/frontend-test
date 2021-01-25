@@ -1,19 +1,26 @@
 import * as React from 'react'
+import { RestaurantsContext } from '@providers/Restaurants'
 import Item from './Item'
 import { Tag, Arrow, Title, List } from './styles'
 import { SelectProps } from '@utils/types'
 
 const Select: React.FunctionComponent<SelectProps> = ({ id, text, list, minWidth }) => {
-  const [activesList, setActivesList] = React.useState<Array<String>>([])
   const [isOpen, setIsOpen] = React.useState<Boolean>(false);
+  const { setFilter, categoriesFilter, priceFilter } = React.useContext(RestaurantsContext)
+
+  const getList = (id) => {
+    if(id === 'categories')
+      return categoriesFilter
+    if(id === 'price')
+      return priceFilter
+  }
 
   const handleSelect = (alias: String, isActive: boolean) => {
     if(isActive) {
-      setActivesList([... activesList, alias])
+      setFilter(id, [... getList(id), alias])
     } else {
-      const filteredList = list.filter(({ alias }) => alias !== alias)
-      const newActivesList = filteredList.map(({ alias }) => alias)
-      setActivesList(newActivesList)
+      const newActivesList = getList(id).filter((item) => (item !== alias))
+      setFilter(id, newActivesList || [])
     }
   }
 
@@ -27,7 +34,7 @@ const Select: React.FunctionComponent<SelectProps> = ({ id, text, list, minWidth
       </Title>
       <List>
         { list.map(({alias: itemID, title, isActive}, key) => (
-          <Item key={key} alias={itemID} title={title} activesList={activesList} isActive={isActive} handleSelect={handleSelect}>
+          <Item parentID={id} key={key} alias={itemID} title={title} isActive={isActive} handleSelect={handleSelect}>
             { text }
           </Item>
         ))}
