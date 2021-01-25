@@ -1,36 +1,26 @@
 import * as React from 'react'
+import { RestaurantsContext } from '@providers/Restaurants'
 import Item from './Item'
 import { Tag, Arrow, Title, List } from './styles'
-
-type SelectList = {
-  id: String
-  text: String,
-  isActive?: Boolean
-}
-
-interface SelectProps {
-  readonly id: String,
-  readonly text: String,
-  readonly list: Array<SelectList>,
-  readonly minWidth?: number
-}
+import { SelectProps } from '@utils/types'
 
 const Select: React.FunctionComponent<SelectProps> = ({ id, text, list, minWidth }) => {
-  const [activesList, setActivesList] = React.useState<Array<String>>([])
   const [isOpen, setIsOpen] = React.useState<Boolean>(false);
+  const { setFilter, categoriesFilter, priceFilter } = React.useContext(RestaurantsContext)
 
-  const checkIsActive = (id: String): Boolean => {
-    const item = activesList.filter((item) => item === id)
-    return (item.length > 0) ? true : false
+  const getList = (id) => {
+    if(id === 'categories')
+      return categoriesFilter
+    if(id === 'price')
+      return priceFilter
   }
 
-  const handleSelect = (id: String, isActive: boolean) => {
+  const handleSelect = (alias: string, isActive: boolean) => {
     if(isActive) {
-      setActivesList([... activesList, id])
+      setFilter(id, [... getList(id), alias])
     } else {
-      const filteredList = list.filter(({ id }) => id !== id)
-      const newActivesList = filteredList.map(({ id }) => id)
-      setActivesList(newActivesList)
+      const newActivesList = getList(id).filter((item) => (item !== alias))
+      setFilter(id, newActivesList || [])
     }
   }
 
@@ -43,8 +33,8 @@ const Select: React.FunctionComponent<SelectProps> = ({ id, text, list, minWidth
         { text }
       </Title>
       <List>
-        { list.map(({id: itemID, text, isActive}, key) => (
-          <Item key={key} id={itemID} text={text} activesList={activesList} isActive={isActive} handleSelect={handleSelect}>
+        { list.map(({alias: itemID, title, isActive}, key) => (
+          <Item parentID={id} key={key} alias={itemID} title={title} isActive={isActive} handleSelect={handleSelect}>
             { text }
           </Item>
         ))}

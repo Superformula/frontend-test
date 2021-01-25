@@ -19,6 +19,12 @@ declare module 'styled-components' {
       green: string,
       red: string
     },
-    transition: string
+    transition: string,
+    media: {
+      sm: string,
+      md: string,
+      lg: string,
+      xl: string
+    }
   }
 }

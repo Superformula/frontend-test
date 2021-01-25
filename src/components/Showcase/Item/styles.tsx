@@ -1,21 +1,17 @@
 import styled, { css } from 'styled-components'
 import { rem } from '@utils/tools'
 
-export const Tag = styled.li`
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 1 1 ${rem(250)};
-  margin: ${rem(40)} ${rem(16)};
-`
-
 export const Mask = styled.span`
   align-items: center;
   background-color: ${props => props.theme.colors.offwhite};
+  cursor: pointer;
   display: inline-flex;
   flex: 0 0 auto;
   height: ${rem(228)};
   justify-content: center;
   margin: 0 0 ${rem(16)};
+  max-width: 100%;
+  width: 100%;
   overflow: hidden;
 `
 
@@ -24,19 +20,19 @@ export const Description = styled.div`
 `
 
 export const Image = styled.img`
+  object-fit: cover;
   border: 0 none;
   display: block;
-  min-height: 100%;
-  height: auto;
+  height: ${rem(228)};
   margin: 0;
-  min-width: 100%;
-  width: auto;
+  width: 100%;
+  transition: all 150ms ease-in-out;
 `
 
 export const Name = styled.h3`
   color: ${props => props.theme.colors.black};
   font-size: ${rem(20)};
-  font-weight: 300;
+  font-weight: 400;
   line-height: ${rem(28)};
   letter-spacing: ${rem(1)};
   display: block;
@@ -80,5 +76,21 @@ export const More = styled.span`
 
   &:hover {
     background-color: ${props => props.theme.colors.hoverBlue};
+  }
+`
+
+export const Tag = styled.li`
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 ${rem(250)};
+  margin: ${rem(40)} ${rem(16)};
+  max-width: ${rem(598)};
+  padding-bottom: ${rem(40)};
+  overflow: hidden;
+
+  &:hover {
+    ${Image} {
+      transform: scale(1.1)
+    }
   }
 `

@@ -1,23 +1,34 @@
 import * as React from 'react'
 import { Tag, Icon, Check } from './styles'
+import { SelectItemProps } from '@utils/types'
+import { RestaurantsContext } from '@providers/Restaurants'
 
-interface ItemProps {
-  id: String
-  text: String
-  activesList: Array<String>,
-  isActive?: Boolean,
-  handleSelect: (id: String, isActive: Boolean) => void
-}
-
-const Item: React.FunctionComponent<ItemProps> = ({ id, text, activesList, isActive: active, handleSelect }) => {
-  const filteredList = activesList.filter((item) => item === id)
+const Item: React.FunctionComponent<SelectItemProps> = ({ parentID, alias, title, isActive: active, handleSelect }) => {
+  const { priceFilter, categoriesFilter } = React.useContext(RestaurantsContext)
+  const getList = (id) => {
+    if(id === 'categories')
+      return categoriesFilter
+    if(id === 'price')
+      return priceFilter
+  }
+  
+  const filteredList = getList(parentID).filter((item) => item === alias)
   const initialActive = (active || filteredList.length > 0) ? true : false
   const [isActive, setIsActive] = React.useState<Boolean>(initialActive)
+
   
   const handleClick = () => {
-    setIsActive(!isActive)
-    handleSelect(id, !isActive)
-  } 
+    handleSelect(alias, !isActive)
+  }
+
+  React.useEffect(() => {
+    if(parentID === 'categories') {
+      setIsActive(categoriesFilter.includes(alias))
+    }
+    if(parentID === 'price') {
+      setIsActive(priceFilter.includes(alias))
+    }
+  }, [priceFilter, categoriesFilter])
 
   return (
     <Tag onClick={handleClick} isActive={isActive}>
@@ -26,7 +37,7 @@ const Item: React.FunctionComponent<ItemProps> = ({ id, text, activesList, isAct
           <use xlinkHref="#selected" />
         </Icon>
       </Check>
-      { text }
+      { title }
     </Tag>
   )
 }

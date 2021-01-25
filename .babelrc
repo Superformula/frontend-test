@@ -10,12 +10,14 @@
     "@babel/proposal-class-properties",
     "@babel/proposal-object-rest-spread",
     "@babel/plugin-transform-runtime",
+    ["styled-components", { "ssr": true }],
     ["module-resolver", {
       "root": ["./"],
       "alias": {
         "@components": "./src/components",
         "@pages": "./src/pages",
-        "@utils": "./src/utils"
+        "@utils": "./src/utils",
+        "@providers": "./src/providers"
       }
     }]
   ]

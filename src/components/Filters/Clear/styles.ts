@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { rem } from '@utils/tools'
 
 interface ClearProps {
-  readonly isActive: boolean;
+  isActive: boolean;
 };
 
 export const Tag = styled.button<ClearProps>`
@@ -19,6 +19,7 @@ export const Tag = styled.button<ClearProps>`
   line-height: ${rem(16)};
   justify-content: center;
   height: ${rem(38)};
+  margin: ${rem(10)} 0;
   padding: ${rem(5)} ${rem(15)};
   outline: none;
   transition: ${props => props.theme.transition};
@@ -26,6 +27,7 @@ export const Tag = styled.button<ClearProps>`
   user-select: none;
   pointer-events: none;
   width: ${rem(151)};
+  white-space: nowrap;
 
   ${props => props.isActive && css`
     border-color: ${props => props.theme.colors.blue};

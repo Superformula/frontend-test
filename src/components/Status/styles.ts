@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { rem } from '@utils/tools'
 
 interface StatusTagProps {
-  readonly status: String
+  readonly status: string
 }
 
 export const Tag = styled.div<StatusTagProps>`
@@ -14,6 +14,7 @@ export const Tag = styled.div<StatusTagProps>`
   line-height: ${rem(16)};
   letter-spacing: ${rem(0.5)};
   text-transform: uppercase;
+  white-space: nowrap;
 
   &:before {
     background-color: ${props => props.theme.colors.red};
