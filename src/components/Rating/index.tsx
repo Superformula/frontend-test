@@ -6,7 +6,7 @@ import { RatingProps } from '@utils/types'
 const Rating: React.FunctionComponent<RatingProps> = ({ value }) => {
 
   return (
-    <Tag value={value}>
+    <Tag value={value} data-testid="rating">
       <Star />
       <Star />
       <Star />

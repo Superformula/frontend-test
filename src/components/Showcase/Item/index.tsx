@@ -10,9 +10,9 @@ const Item: React.FunctionComponent<ShowcaseItemProps> = ({ item }) => {
   const type = categories[0].title
   const id = name.toLowerCase().replace(/ /g, '-')
   return (
-    <Tag>
+    <Tag data-testid={`showcase-item-${id}`}>
       <Link href={`/restaurants/${id}`}>
-        <Mask>
+        <Mask data-testid={`showcase-mask-${id}`}>
           { photos[0] &&
             <Image src={photos[0]} alt={name} />
           }
@@ -33,7 +33,7 @@ const Item: React.FunctionComponent<ShowcaseItemProps> = ({ item }) => {
         </Info>
       </Description>
       <Link href={`/restaurants/${id}`}>
-        <More>
+        <More data-testid={`showcase-learn-more-${id}`}>
           Learn More
         </More>
       </Link>

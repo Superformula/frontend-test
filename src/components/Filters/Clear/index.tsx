@@ -18,7 +18,7 @@ const Clear: React.FunctionComponent = ({ children }) => {
   }
 
   return (
-    <Tag isActive={isActive} onClick={handleClick}>
+    <Tag isActive={isActive} onClick={handleClick} data-testid="clear-button">
       { children }
     </Tag>
   )

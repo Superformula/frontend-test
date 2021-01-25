@@ -31,7 +31,7 @@ const Item: React.FunctionComponent<SelectItemProps> = ({ parentID, alias, title
   }, [priceFilter, categoriesFilter])
 
   return (
-    <Tag onClick={handleClick} isActive={isActive}>
+    <Tag onClick={handleClick} isActive={isActive} data-testid={`filter-${parentID}-item-${alias}`}>
       <Check>
         <Icon>
           <use xlinkHref="#selected" />

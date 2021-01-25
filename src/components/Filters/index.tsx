@@ -8,7 +8,7 @@ import { FiltersProps } from '@utils/types'
 const Filters: React.FunctionComponent<FiltersProps> = ({ list }) => {
 
   return (
-    <Tag>
+    <Tag data-testid="filters">
       <Env>
         <List>
           <Title>

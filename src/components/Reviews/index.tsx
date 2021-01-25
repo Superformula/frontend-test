@@ -6,7 +6,7 @@ import { Tag, Env, Total, List, Item, Left, User, Mask, Image, Info, Name, Creat
 const Reviews: React.FunctionComponent<ReviewsProps> = ({ review_count, reviews }) => {
 
   return (
-    <Tag>
+    <Tag data-testid="reviews">
       <Env>
         <Total>
           { review_count } { (review_count === 1 ? 'Review' : 'Reviews')}

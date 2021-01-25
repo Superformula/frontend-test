@@ -9,7 +9,7 @@ const Showcase: React.FunctionComponent<ShowcaseProps> = ({ title, list, isLoadi
   const { priceFilter, openFilter } = React.useContext(RestaurantsContext)
 
   return (
-    <Tag>
+    <Tag data-testid="showcase">
       <Env>
         <Title>
           { title }

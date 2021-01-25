@@ -25,7 +25,7 @@ const Select: React.FunctionComponent<SelectProps> = ({ id, text, list, minWidth
   }
 
   return (
-    <Tag minWidth={minWidth} isOpen={isOpen} onClick={() => { setIsOpen(!isOpen)}}>
+    <Tag minWidth={minWidth} isOpen={isOpen} onClick={() => { setIsOpen(!isOpen)}} data-testid={`select-filter-${id}`}>
       <Arrow>
         <use xlinkHref="#arrow" />
       </Arrow>

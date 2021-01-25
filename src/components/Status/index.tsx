@@ -16,7 +16,7 @@ const Status: React.FunctionComponent<StatusProps> = ({ active }) => {
   const { text } = list.filter((item) => item.id === active)[0]
 
   return (
-    <Tag status={active}>
+    <Tag status={active} data-testid="status">
       { text }
     </Tag>
   )
