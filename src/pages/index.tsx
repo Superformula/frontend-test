@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Header from '@components/Header'
 import Filters from '@components/Filters'
 import Showcase from '@components/Showcase'
+import LoadMore from '@components/Showcase/LoadMore'
 import { useQuery } from '@apollo/client'
 import { getFiltersList } from '@utils/filters'
 import { GET_CATEGORIES, GET_RESTAURANTS } from '@utils/queries'
@@ -11,6 +12,9 @@ import { GET_CATEGORIES, GET_RESTAURANTS } from '@utils/queries'
 const HomePage: React.FunctionComponent = () => {
   const { restaurantsList, setRestaurantsList, categoriesFilter } = React.useContext(RestaurantsContext)
   const [filtersList, setFiltersList] = React.useState([])
+  const [offset, setOffset] = React.useState<number>(0)
+  const [shouldConcat, setShouldConcat] = React.useState<Boolean>(false)
+  const limit = 8
   const { loading: categoriesLoading, error: categoriesError, data: categoriesData } = useQuery(GET_CATEGORIES, {
     variables: {
       term: "restaurants",
@@ -23,7 +27,8 @@ const HomePage: React.FunctionComponent = () => {
       term: "restaurants",
       location: process.env.DEFAULT_LOCATION,
       categories: categoriesFilter.join(','),
-      limit: 8
+      limit,
+      offset
     }
   })
 
@@ -35,9 +40,24 @@ const HomePage: React.FunctionComponent = () => {
 
   React.useEffect(() => {
     if(!restaurantsLoading && restaurantsData) {
-      setRestaurantsList(restaurantsData?.search.business)
+      if(shouldConcat && restaurantsList.length > 0) {
+        setRestaurantsList([...restaurantsList, restaurantsData?.search.business].flat())
+        setShouldConcat(false)
+      } else {
+        setRestaurantsList(restaurantsData?.search.business)
+      }
     }
   }, [restaurantsLoading, restaurantsError, restaurantsData])
+
+  React.useEffect(() => {
+    if(offset > 0) {
+      setShouldConcat(true)
+    }
+  }, [offset])
+
+  const handleLoadMore = () => {
+    setOffset(offset + limit)
+  }
 
   return (
     <>
@@ -52,6 +72,7 @@ const HomePage: React.FunctionComponent = () => {
         title="All Restaurants"
         list={restaurantsList}
       />
+      <LoadMore onClick={handleLoadMore} />
     </>
   )
 }

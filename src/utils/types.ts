@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react"
 
 
 export interface CheckboxItemProps {
@@ -142,4 +143,8 @@ export type RestaurantsContextType = {
   priceFilter: Array<string>,
   openFilter: boolean,
   setFilter: Function
+}
+
+export type LoadMoreProps = {
+  onClick: MouseEventHandler
 }

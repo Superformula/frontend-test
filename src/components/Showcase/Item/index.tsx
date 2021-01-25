@@ -13,7 +13,9 @@ const Item: React.FunctionComponent<ShowcaseItemProps> = ({ item }) => {
     <Tag>
       <Link href={`/restaurants/${id}`}>
         <Mask>
-          <Image src={photos[0]} alt={name} />
+          { photos[0] &&
+            <Image src={photos[0]} alt={name} />
+          }
         </Mask>
       </Link>
       <Description>

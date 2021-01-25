@@ -6,6 +6,7 @@ export const Tag = styled.li`
   flex-flow: column nowrap;
   flex: 1 1 ${rem(250)};
   margin: ${rem(40)} ${rem(16)};
+  padding-bottom: ${rem(40)};
   overflow: hidden;
 `
 
