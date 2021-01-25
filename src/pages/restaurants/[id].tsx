@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { useRouter } from 'next/router'
-import { GetStaticProps, GetStaticPaths } from 'next'
 import { GET_RESTAURANT } from '@utils/queries'
 import { axiosYelpAPI } from '@utils/api'
-import { RestaurantProps } from '@utils/types'
 import RestaurantHeader from '@components/RestaurantHeader'
 import Photos from '@components/Photos'
 import Reviews from '@components/Reviews'
@@ -28,7 +26,7 @@ const Retaurant = () => {
   }, [])
   
   if(restaurant.length === 0)
-    return <div>loading...</div>
+    return <></>
 
   const { name, is_closed, rating, price, photos, review_count, categories, coordinates, location, reviews } = restaurant[0]
 
