@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 
 export const GET_CATEGORIES = gql`
-  query GetCategories($term: string!, $location: string!) {
+  query GetCategories($term: String!, $location: String!) {
     search(term: $term, location: $location) {
       business {
         categories {
@@ -14,7 +14,7 @@ export const GET_CATEGORIES = gql`
 `
 
 export const GET_RESTAURANTS = gql`
-  query GetRestaurants($term: string!, $location: string!, $limit: Int, $offset: Int, $categories: string) {
+  query GetRestaurants($term: String!, $location: String!, $limit: Int, $offset: Int, $categories: String) {
     search(term: $term, location: $location, limit: $limit, offset: $offset, categories: $categories) {
       business{
         name,
@@ -32,7 +32,7 @@ export const GET_RESTAURANTS = gql`
 `
 
 export const GET_RESTAURANT = `
-  query GetRestaurant($term: string!, $location: string!, $limit: Int!) {
+  query GetRestaurant($term: String!, $location: String!, $limit: Int!) {
     search(term: $term, location: $location, limit: $limit) {
       business{
         name,
