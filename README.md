@@ -9,9 +9,8 @@ This project is a coding test created by Superformula developed by Frederico Soa
 Brief description of each variable listed in the file:
 
 - `YELP_API_BASEURL`: Yelp's graphql endpoint
-- `YELP_API_CLIENT_ID`: Yelp's client id (not required for this project)
 - `YELP_API_KEY`: Yelp's API key.
-- `WEBSITE_API_BASEURL`: Website's proxy URL.
+- `WEBSITE_API_BASEURL`: Website's proxy URL. (`${localhostURL}/api/graphql`)
 - `DEFAULT_LOCATION`: Default restaurants location.
 - `GOOGLEMAPS_API_KEY`: Google Maps API key.
 
@@ -39,25 +38,29 @@ Follow the instructions below to run it locally.
 </details>
 
 
-## Run the Application (Test Mode)
+## Run Cypress (Dev Mode)
 Cypress is the end-to-end testing tool used in this project. It simulates real user interactions and returns precious test feedback.
 
 Make sure your server is running locally first:
   ```shell script
   $ yarn dev
   ```
-  
+
 Run Cypress in dev mode:
   ```shell script
   $ yarn cypress:open
   ```
 
+
+## Run Cypress (Test Mode)
+By running Cypress in the test mode, it will provide you videos and screenshots of the whole test flow.
+
+Make sure to stop your local server (`yarn dev`) first.
+
 Run Cypress in test mode:
   ```shell script
   $ yarn test
   ```
-
-**PS:** By running Cypress in the test mode, it will provide you videos and screenshots of the whole test flow.
 
 ## Build the Application (Production Mode)
 To create an optimized and bundled version of the project, follow the instructions below.
@@ -122,7 +125,8 @@ A simple google maps component to render the map inside the Restaurants page.
 ## Accomplishments
 - Application deployed and optimized on Vercel.
 - All desktop designs.
-- Multiple filtering feature (categories on the server-side, price, and "Open Now" on the client-side).
+- Multiple filtering feature for each filter
+- Client side and server side filtering (categories on the server-side, price, and "Open Now" on the client-side).
 - Include Maps API on the Restaurant page.
 - End-to-end testing with all functionalities covered.
 - Commit messages convention.
