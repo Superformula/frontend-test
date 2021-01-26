@@ -9,6 +9,9 @@ export const Tag = styled.section`
 `
 
 export const Env = styled(Center)`
+`
+
+export const Details = styled.div`
   align-items: stretch;
   display: flex;
   flex-wrap: wrap;
