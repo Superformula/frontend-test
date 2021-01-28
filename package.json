@@ -11,7 +11,8 @@
     "format": "yarn run prettier --write",
     "test:format": "yarn run prettier --check",
     "test:lint": "eslint \"{pages,src}/**/*.{ts,tsx}\"",
-    "test:unit": "jest"
+    "test:unit": "jest",
+    "test": "yarn typecheck && yarn test:format && yarn test:lint && yarn test:unit"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
