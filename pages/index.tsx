@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
+import Button from "../src/components/Button";
 
 const query = gql`
   query {
@@ -14,5 +15,10 @@ export default function Home() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  return <div className="container">{JSON.stringify(data)}</div>;
+  return (
+    <div className="container">
+      <Button>RAINBOwS</Button>
+      {JSON.stringify(data)}
+    </div>
+  );
 }
