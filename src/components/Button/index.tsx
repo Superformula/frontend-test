@@ -1,7 +1,10 @@
 import styled from "@emotion/styled";
 
+export interface IProps {}
+
 const Button = styled.button`
-  background: ${(p) => p.theme.backgroundColor};
+  background-color: ${(p) => p.theme.backgroundColor};
+  width: 300px;
 `;
 
 export default Button;
