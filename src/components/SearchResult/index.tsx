@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { RestaurantFragmentFragment } from "../../generated/graphql";
+import { SearchRestaurantFragmentFragment } from "../../generated/graphql";
 import * as Text from "../Text";
 import Rating from "../Rating";
 import VenueStatus, { EVenueStatus } from "../VenueStatus";
 import Button from "../Button";
 
 export interface IProps {
-  restaurant?: RestaurantFragmentFragment | null;
+  restaurant?: SearchRestaurantFragmentFragment | null;
 }
 
 //<div>
@@ -38,23 +38,33 @@ export default function SearchResult(props: IProps) {
       <div>
         <Rating score={score} />
       </div>
-      <div>
-        <span>
-          {cat}•{restaurant.price}
-        </span>
+      <SpreadContainer>
+        <CatAndPrice>{`${cat} • ${restaurant.price}`}</CatAndPrice>
         <VenueStatus
           status={
             restaurant.is_closed ? EVenueStatus.closed : EVenueStatus.open
           }
         />
-      </div>
+      </SpreadContainer>
 
       <Button type="button">Learn more</Button>
     </Container>
   );
 }
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & > * + * {
+    margin-bottom: 16px;
+  }
+
+  & > ${Button} {
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+`;
 
 export const ImgContainer = styled.div`
   position: relative;
@@ -66,4 +76,16 @@ export const ImgContainer = styled.div`
 export const Img = styled.img`
   max-width: 300px;
   height: 228px;
+`;
+
+export const CatAndPrice = styled.span`
+  font-size: ${({ theme }) => theme.fontSize.x300};
+  color: ${({ theme }) => theme.colors.grey500};
+  text-transform: uppercase;
+`;
+
+export const SpreadContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 `;

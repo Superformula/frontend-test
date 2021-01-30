@@ -7,7 +7,7 @@ import SelectPrice from "../SelectPrice";
 import Checkbox from "../Checkbox";
 import Button from "../Button";
 import { containerStyles } from "../../styles";
-import { useGetRestaurantsQuery } from "../../dal/restaurant";
+import { useSearchRestaurantsQuery } from "../../dal/restaurant";
 import { IForm } from "../SearchFilter";
 import * as Text from "../Text";
 import SearchResult from "../SearchResult";
@@ -19,7 +19,7 @@ export interface IProps {
 }
 
 export default function SearchResultContainer({ filter }: IProps) {
-  const { loading, error, data } = useGetRestaurantsQuery({
+  const { loading, error, data } = useSearchRestaurantsQuery({
     variables: {
       location: LOCATION,
       openNow: filter.isOpen,
@@ -61,6 +61,10 @@ export default function SearchResultContainer({ filter }: IProps) {
 
 export const Container = styled.div`
   ${containerStyles}
+
+  & > ${Text.H2} {
+    margin-bottom: 42px;
+  }
 `;
 
 export const Grid = styled.div`
