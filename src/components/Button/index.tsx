@@ -4,6 +4,7 @@ export interface IProps {
   fullWidth: boolean;
   inverse: boolean;
   disabled: boolean;
+  children: React.ReactNode;
 }
 
 const Button = styled.button<IProps>(

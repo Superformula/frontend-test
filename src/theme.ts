@@ -16,9 +16,16 @@ export const theme = {
   borderRadius: {
     small: "2px",
   },
+  // Im not super in love with this
+  // strategy, we could potentially
+  // switch everything to relative
+  // sizes and proportionals but
+  // given the spec I didn't want to
+  // got that far at this stage
   fontSize: {
     x300: "12px",
     x400: "14px",
+    x600: "16px",
   },
   backgroundColor: "green",
 };
