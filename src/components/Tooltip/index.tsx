@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled from "@emotion/styled";
+import TooltipPortal from "./TooltipPortal";
 
 export interface IRenderChildrenProps {
   // TODO improve this typing
@@ -23,36 +23,12 @@ export default function Tooltip(props: IProps) {
     setTriggerBoundingRect(rect);
   }, []);
 
-  let tooltip = null;
-  if (props.open) {
-    tooltip = (
-      <ContentContainer
-        style={{ "--triggerHeight": `${triggerBoundingRect?.height}px` } as any}
-      >
-        {props.renderContent()}
-      </ContentContainer>
-    );
-  }
-
   return (
-    <Container>
+    <>
       {props.children({ ref })}
-      {tooltip}
-    </Container>
+      <TooltipPortal open={props.open} triggerRect={triggerBoundingRect}>
+        {props.renderContent()}
+      </TooltipPortal>
+    </>
   );
 }
-
-export const ContentContainer = styled.div`
-  border: 1px solid grey;
-  position: absolute;
-  left: 0;
-  top: var(--triggerHeight);
-`;
-
-export const Container = styled.div`
-  position: relative;
-  display: inline;
-  padding: 0;
-  border: 0;
-  margin: 0;
-`;
