@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import CheckMark from "../Icons/CheckMark.svg";
+import { Label } from "../Text";
 
 // if we need super extra flexibilty we could
 // accept a prop called inputProps of the type
@@ -9,29 +10,36 @@ import CheckMark from "../Icons/CheckMark.svg";
 // component but Im going to take a more minimalistic
 // approach of only accepting the needed props
 export interface IProps {
+  name: string;
   value: string;
+  checked?: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   /* specify the label */
   children: React.ReactNode;
 }
 
 // TODO check comments in Checkbox
+// TODO this thing resembles a lot to what we do in
+// Radio, it would be nice to unify and abstract
+// the common parts away but at this point I don't
+// feel confortable with that because they might be
+// just coincidentally similar and might evolve apart
 export default function Radio(props: IProps) {
   return (
     <LabelStyled>
-      <RadioStyled type="radio" value={props.value} onChange={props.onChange} />
+      <RadioStyled
+        type="radio"
+        value={props.value}
+        onChange={props.onChange}
+        checked={props.checked}
+      />
       <FakeRadio />
-      <InputLabel>{props.children}</InputLabel>
+      <Label as="span">{props.children}</Label>
     </LabelStyled>
   );
 }
 
 export const CIRCLE_SIZE_PX = 16;
-
-export const InputLabel = styled.span`
-  color: ${({ theme }) => theme.colors.grey400};
-  font-size: ${({ theme }) => theme.fontSize.x600};
-`;
 
 export const FakeRadio = styled.span`
   position: absolute;

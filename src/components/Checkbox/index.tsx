@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Label } from "../Text";
 
 // if we need super extra flexibilty we could
 // accept a prop called inputProps of the type
@@ -29,17 +30,12 @@ export default function Checkbox(props: IProps) {
         onChange={props.onChange}
       />
       <FakeCheckbox />
-      <InputLabel>{props.children}</InputLabel>
+      <Label as="span">{props.children}</Label>
     </LabelStyled>
   );
 }
 
 export const CIRCLE_SIZE_PX = 16;
-
-export const InputLabel = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.fontSize.x600};
-`;
 
 export const FakeCheckbox = styled.span`
   position: absolute;
