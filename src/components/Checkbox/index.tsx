@@ -49,7 +49,7 @@ export const FakeCheckbox = styled.span`
   height: ${CIRCLE_SIZE_PX}px;
   width: ${CIRCLE_SIZE_PX}px;
   background-color: white;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.grey200};
   border-radius: 50%;
 
   /* Create the checkmark/indicator (hidden when not checked) */
