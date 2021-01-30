@@ -14,7 +14,10 @@
     "test:unit": "jest",
     "test": "yarn typecheck && yarn test:format && yarn test:lint && yarn test:unit",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build:gql-schema": "ts-node -r dotenv/config ./fetchSchema.ts dotenv_config_path=.env.local",
+    "build:gql-codegen": "graphql-codegen --config codegen.yml",
+    "build:gql": "yarn build:gql-schema && yarn build:gql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
@@ -29,10 +32,19 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@emotion/babel-plugin": "^11.1.2",
+    "@graphql-codegen/cli": "1.20.1",
+    "@graphql-codegen/introspection": "1.18.1",
+    "@graphql-codegen/typescript": "1.20.2",
+    "@graphql-codegen/typescript-document-nodes": "1.17.9",
+    "@graphql-codegen/typescript-graphql-files-modules": "1.18.1",
+    "@graphql-codegen/typescript-operations": "^1.17.14",
+    "@graphql-codegen/typescript-react-apollo": "2.2.1",
     "@storybook/addon-actions": "^6.1.15",
     "@storybook/addon-essentials": "^6.1.15",
     "@storybook/addon-links": "^6.1.15",
     "@storybook/react": "^6.1.15",
+    "@svgr/webpack": "^5.5.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",

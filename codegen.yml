@@ -1,0 +1,14 @@
+overwrite: true
+schema: schema.json
+documents: "src/dal/**/*.ts"
+require:
+  - ts-node/register
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
