@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import CheckMark from "../Icons/CheckMark.svg";
 
 // if we need super extra flexibilty we could
 // accept a prop called inputProps of the type
@@ -8,27 +9,18 @@ import styled from "@emotion/styled";
 // component but Im going to take a more minimalistic
 // approach of only accepting the needed props
 export interface IProps {
-  checked: boolean;
+  value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   /* specify the label */
   children: React.ReactNode;
 }
 
-// TODO improve the internal layout so that it is
-// probably relative and avoids using so many hardcoded values.
-// The approach I am taking is similar to that which Ant design
-// uses and a lot of resources in the internet point out as the
-// main way of achieving this, but with more time I would attempt
-// to rely more on relative values and avoid harcoded values.
-export default function Checkbox(props: IProps) {
+// TODO check comments in Checkbox
+export default function Radio(props: IProps) {
   return (
     <LabelStyled>
-      <CheckboxStyled
-        type="checkbox"
-        checked={props.checked}
-        onChange={props.onChange}
-      />
-      <FakeCheckbox />
+      <RadioStyled type="radio" value={props.value} onChange={props.onChange} />
+      <FakeRadio />
       <InputLabel>{props.children}</InputLabel>
     </LabelStyled>
   );
@@ -37,11 +29,11 @@ export default function Checkbox(props: IProps) {
 export const CIRCLE_SIZE_PX = 16;
 
 export const InputLabel = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.grey400};
   font-size: ${({ theme }) => theme.fontSize.x600};
 `;
 
-export const FakeCheckbox = styled.span`
+export const FakeRadio = styled.span`
   position: absolute;
   left: 0px;
   // TODO I don't live this hardcoded pixels
@@ -54,9 +46,12 @@ export const FakeCheckbox = styled.span`
 
   /* Create the checkmark/indicator (hidden when not checked) */
   &:after {
-    content: "";
+    content: url(${CheckMark});
     position: absolute;
     display: none;
+    text-align: center;
+    // TODO avoid magic constants
+    line-height: 12px;
   }
 `;
 
@@ -68,7 +63,6 @@ export const LabelStyled = styled.label`
   padding-left: ${CIRCLE_SIZE_PX + 8}px;
   padding-top: 8px;
   padding-bottom: 8px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey200};
   cursor: pointer;
   font-size: ${({ theme }) => theme.fontSize.x600};
   -webkit-user-select: none;
@@ -77,31 +71,32 @@ export const LabelStyled = styled.label`
   user-select: none;
 
   /* On mouse-over, add a grey background color */
-  &:hover input ~ ${FakeCheckbox} {
+  &:hover input ~ ${FakeRadio} {
     background-color: #ccc;
   }
 
+  /* When the checkbox is checked, add a blue background */
+  & input:checked ~ ${FakeRadio} {
+  }
+
   /* Show the checkmark when checked */
-  & input:checked ~ ${FakeCheckbox}:after {
+  & input:checked ~ ${FakeRadio}:after {
     display: block;
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: #000000;
   }
 
   /* Style the checkmark/indicator */
-  & ${FakeCheckbox}:after {
+  & ${FakeRadio}:after {
     // TODO more magic constants!
-    left: 1px;
-    top: 1px;
-    width: 8px;
-    height: 8px;
-    border: solid white;
+    width: ${CIRCLE_SIZE_PX}px;
+    height: ${CIRCLE_SIZE_PX}px;
     border-radius: 50%;
   }
 `;
 
 // Hide the real checkbox and only rely
 // on it's internal state
-export const CheckboxStyled = styled.input`
+export const RadioStyled = styled.input`
   position: absolute;
   opacity: 0;
   cursor: pointer;
