@@ -45,5 +45,6 @@ export const Container = styled.div`
   left: var(--left);
   top: var(--top);
   // TODO make this part of the theme
-  z-index: 1000px;
+  z-index: 1000;
+  background: ${({ theme }) => theme.colors.white};
 `;
