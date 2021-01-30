@@ -10,6 +10,7 @@ import Select from "../Select";
 export interface IProps {
   value: Category | undefined;
   onChange: (newCategory: Category | undefined) => any;
+  className?: string;
 }
 
 export default function SelectCategories(props: IProps) {
@@ -32,6 +33,7 @@ export default function SelectCategories(props: IProps) {
 
   return (
     <Select
+      className={props.className}
       name="select_categories"
       value={props.value?.alias || ""}
       onChange={(e) => {

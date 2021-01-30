@@ -6,13 +6,14 @@ export interface IProps {
   fullWidth?: boolean;
   inverse?: boolean;
   disabled?: boolean;
-  type?: string;
+  variant?: "small" | "medium" | "large";
+  type?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
   children: React.ReactNode;
 }
 
 const Button = styled.button<IProps>(
-  ({ theme, fullWidth, inverse, disabled }) => {
+  ({ theme, fullWidth, inverse, disabled, variant }) => {
     // TODO extract this into a function that
     // can be super easily be unit tested
     let bgColor = theme.colors.primary;
@@ -37,12 +38,19 @@ const Button = styled.button<IProps>(
       }
     }
 
+    let padding = "16px";
+    switch (variant) {
+      case "small": {
+        padding = "10px";
+      }
+    }
+
     return `
     background-color: ${bgColor};
     color: ${fgColor};
     border: 1px solid ${borderColor};
     border-radius: ${theme.borderRadius.small};
-    padding: 16px;
+    padding: ${padding};
     text-align: center;
     font-size: ${theme.fontSize.x400};
     text-transform: uppercase;

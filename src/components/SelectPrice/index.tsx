@@ -11,11 +11,13 @@ const OPTIONS = [
 export interface IProps {
   value: string;
   onChange: (newPrice: string) => any;
+  className?: string;
 }
 
 export default function SelectCategories(props: IProps) {
   return (
     <Select
+      className={props.className}
       name="select_categories"
       value={props.value}
       onChange={(e) => {

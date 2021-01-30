@@ -3,6 +3,7 @@ import { ApolloProvider } from "@apollo/client";
 import { ThemeProvider, withTheme } from "@emotion/react";
 import { getClient } from "../src/dal/apollo";
 import { theme } from "../src/theme";
+import GlobalStyles from "../src/components/GlobalStyles";
 
 export interface IProps {
   Component: React.ComponentType<any>;
@@ -15,9 +16,8 @@ export default function App({ Component, pageProps }: IProps) {
   return (
     <ApolloProvider client={apolloClient}>
       <ThemeProvider theme={theme}>
-        <div style={{ margin: "20px" }}>
-          <Component {...pageProps} />
-        </div>
+        <GlobalStyles />
+        <Component {...pageProps} />
       </ThemeProvider>
     </ApolloProvider>
   );

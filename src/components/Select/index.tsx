@@ -18,6 +18,7 @@ export interface IProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   label: React.ReactNode;
   options: Array<IOption>;
+  className?: string;
 }
 
 export default function Select(props: IProps) {
@@ -46,7 +47,11 @@ export default function Select(props: IProps) {
       }}
     >
       {({ ref }) => (
-        <Container onClick={() => setIsOpen((isOpen) => !isOpen)} ref={ref}>
+        <Container
+          className={props.className}
+          onClick={() => setIsOpen((isOpen) => !isOpen)}
+          ref={ref}
+        >
           <Label>
             {props.label}
             <IconContainer src={isOpen ? CaretUp : CaretDown} />

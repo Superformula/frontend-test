@@ -6,6 +6,7 @@ import SelectCategories from "../SelectCategories";
 import SelectPrice from "../SelectPrice";
 import Checkbox from "../Checkbox";
 import Button from "../Button";
+import { containerStyles } from "../../styles";
 
 export interface IForm {
   /**
@@ -60,26 +61,66 @@ export default function SearchFilter(props: IProps) {
 
   return (
     <FormStyled>
+      <Label>Filter By:</Label>
       <Checkbox
         checked={props.value.isOpen}
         onChange={(e) => handleChange({ isOpen: e.target.checked })}
       >
         Open Now
       </Checkbox>
-      <SelectPrice
+      <SelectPriceStyled
         value={props.value.price}
         onChange={(price) => handleChange({ price })}
       />
-      <SelectCategories
+      <SelectCategoriesStyled
         value={props.value.category}
         onChange={(category) => handleChange({ category })}
       />
 
-      <Button type="button" inverse disabled={!meta.dirty} onClick={clear}>
+      <Button
+        type="button"
+        variant="small"
+        inverse
+        disabled={!meta.dirty}
+        onClick={clear}
+      >
         Clear All
       </Button>
     </FormStyled>
   );
 }
 
-export const FormStyled = styled.form``;
+export const FormStyled = styled.form`
+  ${containerStyles}
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey100};
+  border-top: 1px solid ${({ theme }) => theme.colors.grey100};
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  & > * + * {
+    margin-left: 32px;
+  }
+
+  && > ${Button} {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 150px;
+    margin-left: auto;
+  }
+`;
+
+export const SelectPriceStyled = styled(SelectPrice)`
+  width: 96px;
+`;
+
+export const SelectCategoriesStyled = styled(SelectCategories)`
+  width: 192px;
+`;
+
+export const Label = styled.span`
+  font-size: ${({ theme }) => theme.fontSize.x600};
+  color: ${({ theme }) => theme.colors.grey400};
+`;

@@ -6,6 +6,8 @@ export default function GlobalStyles() {
       styles={css`
         body {
           font-family: HelveticaNeue;
+          margin: 0;
+          padding: 0px;
         }
       `}
     />

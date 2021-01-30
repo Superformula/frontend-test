@@ -1,41 +1,42 @@
 import React, { useState } from "react";
-import { useGetRestaurantsQuery } from "../src/dal/restaurant";
-import { Category } from "../src/dal/categories";
+import styled from "@emotion/styled";
 import SearchFilter, {
   IForm,
   INITIAL_VALUES,
 } from "../src/components/SearchFilter";
-
-export const LOCATION = "Las Vegas";
+import * as Text from "../src/components/Text";
+import { containerStyles } from "../src/styles";
+import SearchResultContainer from "../src/components/SearchResultContainer";
 
 export default function Home() {
   const [filter, setFilter] = useState<IForm>(INITIAL_VALUES);
-  const { loading, error, data } = useGetRestaurantsQuery({
-    variables: {
-      location: LOCATION,
-      openNow: filter.isOpen,
-      categories: filter.category?.alias,
-      price: filter.price,
-    },
-  });
-
-  //if (loading) return <p>Loading...</p>;
-  //if (error) return <p>Error :(</p>;
-
-  const business = data?.search?.business || [];
 
   return (
     <div className="container">
+      <Header>
+        <Text.H1>Restaurants</Text.H1>
+        <SubtitleStyled>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </SubtitleStyled>
+      </Header>
+
       <SearchFilter value={filter} onChange={(filter) => setFilter(filter)} />
-      {business.map((business, index) => (
-        <div key={index}>
-          <h3>{business?.name}</h3>
-          <p>{business?.price}</p>
-          <p>{business?.rating}</p>
-          <p>{business?.is_closed}</p>
-          <p>{JSON.stringify(business?.categories)}</p>
-        </div>
-      ))}
+
+      <SearchResultContainer filter={filter} />
     </div>
   );
 }
+
+export const Header = styled.header`
+  ${containerStyles}
+
+  // trick for extra specifity without important
+  && > * + * {
+    margin-top: 24px;
+  }
+`;
+
+export const SubtitleStyled = styled(Text.Subtitle)`
+  max-width: 752px;
+`;
