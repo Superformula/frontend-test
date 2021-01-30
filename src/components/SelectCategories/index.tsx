@@ -23,6 +23,13 @@ export default function SelectCategories(props: IProps) {
   }
   const categories = getUniqueCategories(data);
 
+  const options = Object.values(categories).map((cat) => ({
+    value: cat.alias || "",
+    label: cat.title,
+  }));
+  // Push the default option
+  options.unshift({ value: "", label: "All" });
+
   return (
     <Select
       name="select_categories"
@@ -33,10 +40,7 @@ export default function SelectCategories(props: IProps) {
         props.onChange(cat);
       }}
       label="Categories"
-      options={Object.values(categories).map((cat) => ({
-        value: cat.alias || "",
-        label: cat.title,
-      }))}
+      options={options}
     />
   );
 }
