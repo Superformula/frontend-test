@@ -499,30 +499,36 @@ export type GetRestaurantsQuery = { __typename?: "Query" } & {
   search?: Maybe<
     { __typename?: "Businesses" } & {
       business?: Maybe<
-        Array<
-          Maybe<
-            { __typename?: "Business" } & Pick<
-              Business,
-              "name" | "is_closed" | "rating" | "price" | "photos"
-            > & {
-                categories?: Maybe<
-                  Array<
-                    Maybe<
-                      { __typename?: "Category" } & Pick<
-                        Category,
-                        "alias" | "title"
-                      >
-                    >
-                  >
-                >;
-              }
-          >
-        >
+        Array<Maybe<{ __typename?: "Business" } & RestaurantFragmentFragment>>
       >;
     }
   >;
 };
 
+export type RestaurantFragmentFragment = { __typename?: "Business" } & Pick<
+  Business,
+  "name" | "is_closed" | "rating" | "price" | "photos"
+> & {
+    categories?: Maybe<
+      Array<
+        Maybe<{ __typename?: "Category" } & Pick<Category, "alias" | "title">>
+      >
+    >;
+  };
+
+export const RestaurantFragmentFragmentDoc = gql`
+  fragment RestaurantFragment on Business {
+    name
+    is_closed
+    rating
+    price
+    photos
+    categories {
+      alias
+      title
+    }
+  }
+`;
 export const GetCategoriesDocument = gql`
   query GetCategories($location: String!) {
     search(term: "restaurants", location: $location) {
@@ -602,18 +608,11 @@ export const GetRestaurantsDocument = gql`
       price: $price
     ) {
       business {
-        name
-        is_closed
-        rating
-        price
-        photos
-        categories {
-          alias
-          title
-        }
+        ...RestaurantFragment
       }
     }
   }
+  ${RestaurantFragmentFragmentDoc}
 `;
 
 /**

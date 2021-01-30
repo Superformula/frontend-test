@@ -10,6 +10,7 @@ import { containerStyles } from "../../styles";
 import { useGetRestaurantsQuery } from "../../dal/restaurant";
 import { IForm } from "../SearchFilter";
 import * as Text from "../Text";
+import SearchResult from "../SearchResult";
 
 export const LOCATION = "Las Vegas";
 
@@ -49,19 +50,21 @@ export default function SearchResultContainer({ filter }: IProps) {
     <Container>
       <Text.H2>All Restaurants</Text.H2>
 
-      {business.map((business, index) => (
-        <div key={index}>
-          <h3>{business?.name}</h3>
-          <p>{business?.price}</p>
-          <p>{business?.rating}</p>
-          <p>{business?.is_closed}</p>
-          <p>{JSON.stringify(business?.categories)}</p>
-        </div>
-      ))}
+      <Grid>
+        {business.map((business, index) => (
+          <SearchResult key={index} restaurant={business} />
+        ))}
+      </Grid>
     </Container>
   );
 }
 
 export const Container = styled.div`
   ${containerStyles}
+`;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 32px;
 `;

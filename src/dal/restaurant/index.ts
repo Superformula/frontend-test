@@ -23,16 +23,22 @@ export const GET_RESTAURANTS = gql`
       price: $price
     ) {
       business {
-        name
-        is_closed
-        rating
-        price
-        photos
-        categories {
-          alias
-          title
-        }
+        ...RestaurantFragment
       }
+    }
+  }
+`;
+
+export const GET_RESTAURANTS_FRAGMET = gql`
+  fragment RestaurantFragment on Business {
+    name
+    is_closed
+    rating
+    price
+    photos
+    categories {
+      alias
+      title
     }
   }
 `;
