@@ -1,37 +1,32 @@
 import React, { useState } from "react";
 import { useGetRestaurantsQuery } from "../src/dal/restaurant";
 import { Category } from "../src/dal/categories";
-import SelectCategories from "../src/components/SelectCategories";
-import SelectPrice from "../src/components/SelectPrice";
-import Checkbox from "../src/components/Checkbox";
+import SearchFilter, {
+  IForm,
+  INITIAL_VALUES,
+} from "../src/components/SearchFilter";
 
 export const LOCATION = "Las Vegas";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [cat, setCat] = useState<Category | undefined>();
-  const [price, setPrice] = useState<string>("");
+  const [filter, setFilter] = useState<IForm>(INITIAL_VALUES);
   const { loading, error, data } = useGetRestaurantsQuery({
     variables: {
       location: LOCATION,
-      openNow: isOpen,
-      categories: cat?.alias,
-      price,
+      openNow: filter.isOpen,
+      categories: filter.category?.alias,
+      price: filter.price,
     },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  //if (loading) return <p>Loading...</p>;
+  //if (error) return <p>Error :(</p>;
 
   const business = data?.search?.business || [];
 
   return (
     <div className="container">
-      <Checkbox checked={isOpen} onChange={(e) => setIsOpen(e.target.checked)}>
-        Open Now
-      </Checkbox>
-      <SelectPrice value={price} onChange={(price) => setPrice(price)} />
-      <SelectCategories value={cat} onChange={(cat) => setCat(cat)} />
+      <SearchFilter value={filter} onChange={(filter) => setFilter(filter)} />
       {business.map((business, index) => (
         <div key={index}>
           <h3>{business?.name}</h3>

@@ -1,9 +1,13 @@
 import styled from "@emotion/styled";
 
+// TODO probably this should expand
+// the native button props
 export interface IProps {
   fullWidth?: boolean;
   inverse?: boolean;
   disabled?: boolean;
+  type?: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
   children: React.ReactNode;
 }
 

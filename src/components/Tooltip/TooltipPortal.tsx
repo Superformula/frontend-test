@@ -11,6 +11,18 @@ export interface IProps {
 export default function TooltipPortal(props: IProps) {
   let tooltip = null;
 
+  const isBrowser = !!(
+    typeof window !== "undefined" &&
+    window.document &&
+    window.document.createElement
+  );
+
+  // Since we are using React Portals we must avoid
+  // rendering this in the server
+  if (!isBrowser) {
+    return null;
+  }
+
   if (props.open) {
     // In here we do all the calculations to find out
     // what is the bottom of the Trigger element,
