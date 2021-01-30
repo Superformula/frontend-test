@@ -12,6 +12,9 @@ export default function TooltipPortal(props: IProps) {
   let tooltip = null;
 
   if (props.open) {
+    // In here we do all the calculations to find out
+    // what is the bottom of the Trigger element,
+    // TODO this should refresh when the screen adjusts
     const triggerY = props.triggerRect?.y || 0;
     const triggerHeight = props.triggerRect?.height || 0;
     // TODO abstract the "-1" somehow,

@@ -10,6 +10,7 @@ import { Label } from "../Text";
 // component but Im going to take a more minimalistic
 // approach of only accepting the needed props
 export interface IProps {
+  id?: string;
   name: string;
   value: string;
   checked?: boolean;
@@ -26,8 +27,9 @@ export interface IProps {
 // just coincidentally similar and might evolve apart
 export default function Radio(props: IProps) {
   return (
-    <LabelStyled>
+    <LabelStyled htmlFor={props.id}>
       <RadioStyled
+        id={props.id}
         type="radio"
         value={props.value}
         onChange={props.onChange}
