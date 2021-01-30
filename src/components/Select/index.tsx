@@ -21,7 +21,7 @@ export interface IProps {
 }
 
 export default function Select(props: IProps) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Tooltip
       open={isOpen}
