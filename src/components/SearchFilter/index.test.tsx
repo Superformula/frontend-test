@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, screen } from "../../testUtils";
+import { render, screen } from "../../testUtils";
 import {
   useGetCategoriesQuery,
   getUniqueCategories,
