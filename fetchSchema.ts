@@ -40,4 +40,7 @@ export default async function fetchSchema(): Promise<GraphQLSchema> {
   return schema;
 }
 
-fetchSchema().then(console.log, console.error);
+fetchSchema().then(console.log, (err: any) => {
+  console.warn("Error while refetching the schema, skipping");
+  console.warn(err);
+});
