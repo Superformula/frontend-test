@@ -19,7 +19,7 @@ export default function SelectCategories(props: IProps): JSX.Element {
   return (
     <Select
       className={props.className}
-      name="select_categories"
+      name="select_price"
       value={props.value}
       onChange={(e) => {
         const { value } = e.target;

@@ -37,6 +37,7 @@ export default function TooltipPortal(props: IProps): JSX.Element | null {
 
     tooltip = (
       <Container
+        role="listbox"
         // This any is needed because emotion complains about
         // custom variables
         style={

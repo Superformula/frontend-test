@@ -21,6 +21,8 @@ export interface IForm {
   price: string;
 }
 
+// TODO this should probably be defined elsewhere
+// and passed as prop
 export const INITIAL_VALUES: IForm = {
   isOpen: false,
   category: undefined,

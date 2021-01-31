@@ -38,6 +38,7 @@ export default function Select(props: IProps): JSX.Element {
                   value={option.value}
                   checked={props.value === option.value}
                   onChange={props.onChange}
+                  aria-selected={props.value === option.value}
                 >
                   {option.label}
                 </Radio>
@@ -49,13 +50,19 @@ export default function Select(props: IProps): JSX.Element {
     >
       {({ ref }) => (
         <Container
+          role="button"
+          aria-label={props.name}
+          aria-expanded={isOpen}
           className={props.className}
           onClick={() => setIsOpen((isOpen) => !isOpen)}
           ref={ref}
         >
           <Label>
             {props.label}
-            <IconContainer src={isOpen ? CaretUp : CaretDown} />
+            <IconContainer
+              src={isOpen ? CaretUp : CaretDown}
+              alt="caret-decoration"
+            />
           </Label>
         </Container>
       )}

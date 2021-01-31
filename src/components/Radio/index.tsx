@@ -14,6 +14,7 @@ export interface IProps {
   name: string;
   value: string;
   checked?: boolean;
+  ["aria-selected"]?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   /* specify the label */
@@ -35,6 +36,7 @@ export default function Radio(props: IProps): JSX.Element {
         value={props.value}
         onChange={props.onChange}
         checked={props.checked}
+        aria-checked={props.checked}
       />
       <FakeRadio />
       <Label as="span">{props.children}</Label>

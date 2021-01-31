@@ -26,8 +26,10 @@ export default function Checkbox(props: IProps): JSX.Element {
   return (
     <LabelStyled>
       <CheckboxStyled
+        role="checkbox"
         type="checkbox"
         checked={props.checked}
+        aria-checked={props.checked}
         onChange={props.onChange}
       />
       <FakeCheckbox />

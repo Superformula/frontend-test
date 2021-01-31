@@ -2,6 +2,11 @@
 
 ![Node.js CI](https://github.com/franleplant/frontend-test/workflows/Node.js%20CI/badge.svg)
 
+## TODOs
+
+- improve Apollo isomorphic features to allow certain data to be fetched in the sever
+- improve A11y support via eslint analyzers (tried a few but were confused by emotion)
+
 # OLD DOCS BELOW
 
 # Superformula Front-end Developer Coding Test
