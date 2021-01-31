@@ -22,7 +22,31 @@ export function getClient(): ApolloClient<NormalizedCacheObject> {
       link: new HttpLink({
         uri: isSsr ? ssrUri : clientUri,
       }),
-      cache: new InMemoryCache(),
+      cache: new InMemoryCache({
+        typePolicies: {
+          Query: {
+            fields: {
+              search: {
+                // Specify all the keys of "search" query that
+                // make up a unique query, we are doing all this
+                // to avoid generating a new cache object when offset and limit change
+                keyArgs: ["location", "categories", "open_now", "price"],
+                // Concatenate the incoming list items with
+                // the existing list items.
+                // TODO this is super naive, do better
+                merge(existing = {}, incoming = {}) {
+                  const oldBusiness = existing?.business || [];
+                  const newBusiness = incoming?.business || [];
+                  return {
+                    ...incoming,
+                    business: [...oldBusiness, ...newBusiness],
+                  };
+                },
+              },
+            },
+          },
+        },
+      }),
     });
   }
 

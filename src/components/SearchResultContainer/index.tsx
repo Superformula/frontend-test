@@ -13,22 +13,36 @@ import * as Text from "../Text";
 import SearchResult from "../SearchResult";
 
 export const LOCATION = "Las Vegas";
+export const LIMIT = 20;
 
 export interface IProps {
   filter: IForm;
 }
 
 export default function SearchResultContainer({ filter }: IProps) {
-  const { loading, error, data } = useSearchRestaurantsQuery({
+  const [offset, setOffset] = useState(LIMIT);
+  const { loading, error, data, fetchMore } = useSearchRestaurantsQuery({
     variables: {
       location: LOCATION,
       openNow: filter.isOpen,
       categories: filter.category?.alias,
       price: filter.price,
+      limit: LIMIT,
     },
   });
 
-  if (loading) {
+  function loadMore() {
+    fetchMore({
+      variables: {
+        limit: LIMIT,
+        offset: offset,
+      },
+    });
+
+    setOffset((offset) => offset + LIMIT);
+  }
+
+  if (!data && loading) {
     return (
       <Container>
         <p>Loading...</p>
@@ -55,6 +69,12 @@ export default function SearchResultContainer({ filter }: IProps) {
           <SearchResult key={index} restaurant={business} />
         ))}
       </Grid>
+
+      <LoadMore>
+        <Button inverse onClick={() => loadMore()}>
+          Load More
+        </Button>
+      </LoadMore>
     </Container>
   );
 }
@@ -71,4 +91,14 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 32px;
+`;
+
+export const LoadMore = styled.div`
+  ${containerStyles}
+  text-align: center;
+
+  & > ${Button} {
+    margin-top: 80px;
+    width: 400px;
+  }
 `;
