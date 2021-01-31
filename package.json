@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn build:gql && next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "prettier": "prettier \"{pages,src}/**/*.{js,jsx,css,ts,tsx}\"",
@@ -12,7 +12,7 @@
     "test:format": "yarn run prettier --check",
     "test:lint": "eslint \"{pages,src}/**/*.{ts,tsx}\"",
     "test:unit": "jest",
-    "test": "yarn typecheck && yarn test:format && yarn test:lint && yarn test:unit",
+    "test": "yarn build:gql && yarn typecheck && yarn test:format && yarn test:lint && yarn test:unit",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build:gql-schema": "ts-node -r dotenv/config ./fetchSchema.ts dotenv_config_path=.env.local",
