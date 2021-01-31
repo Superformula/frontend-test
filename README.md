@@ -1,3 +1,9 @@
+# A coding challenge
+
+![Node.js CI](https://github.com/franleplant/frontend-test/workflows/Node.js%20CI/badge.svg)
+
+# OLD DOCS BELOW
+
 # Superformula Front-end Developer Coding Test
 
 Be sure to read **all** of this document carefully, and follow the guidelines within.
@@ -8,7 +14,7 @@ Use React w/ TypeScript to implement the following mock-up. You will need to lev
 
 ![Superformula-front-end-test-mockup](./mockup.png)
 
-Use this Figma file to see button states, colors, and responsive design.  You should be sure to complete the test to mimic the design as seen.
+Use this Figma file to see button states, colors, and responsive design. You should be sure to complete the test to mimic the design as seen.
 
 > [Source Figma file](https://www.figma.com/file/4MqQhKPsnKetTud9tm6kDY/Superformula-FE-test-264388d?node-id=0%3A1)
 
