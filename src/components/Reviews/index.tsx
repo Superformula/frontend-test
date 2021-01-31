@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { containerStyles } from "../../styles";
 import { RestaurantFragmentFragment } from "../../generated/graphql";
-import * as Text from "../Text";
 import Review from "./Review";
 
 export interface IProps {
   resto?: RestaurantFragmentFragment | null;
 }
 
-export default function Reviews(props: IProps) {
+export default function Reviews(props: IProps): JSX.Element {
   const { resto } = props;
 
   const reviews = resto?.reviews || [];

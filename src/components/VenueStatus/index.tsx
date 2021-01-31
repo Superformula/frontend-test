@@ -15,7 +15,7 @@ export interface IProps {
   className?: string;
 }
 
-export default function VenueStatus(props: IProps) {
+export default function VenueStatus(props: IProps): JSX.Element {
   return (
     <Container className={props.className}>
       <Circle status={props.status} size={props.size} />
@@ -55,30 +55,30 @@ export const Circle = styled.span<{ status: EVenueStatus; size?: Size }>`
   border-radius: 50%;
   background-color: ${({ theme, status }) => mapStatusToColor(status, theme)};
 
-  ${({ theme, size }) => {
+  ${({ size }) => {
     switch (size) {
       case "large": {
         return `
-  width: 22px;
-  height: 22px;
-  margin-right: 11px;
-    `;
+          width: 22px;
+          height: 22px;
+          margin-right: 11px;
+        `;
       }
       case "medium": {
         //TODO
         return `
-  width: 8px;
-  height: 8px;
-  margin-right: 4px;
-    `;
+          width: 8px;
+          height: 8px;
+          margin-right: 4px;
+        `;
       }
 
       default: {
         return `
-  width: 8px;
-  height: 8px;
-  margin-right: 4px;
-    `;
+          width: 8px;
+          height: 8px;
+          margin-right: 4px;
+        `;
       }
     }
   }}

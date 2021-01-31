@@ -1,4 +1,4 @@
-import { gql, QueryResult } from "@apollo/client";
+import { gql } from "@apollo/client";
 import { GetCategoriesQuery, Category } from "../../generated/graphql";
 
 export { useGetCategoriesQuery } from "../../generated/graphql";

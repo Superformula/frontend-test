@@ -14,6 +14,7 @@ export interface IProps {
   name: string;
   value: string;
   checked?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   /* specify the label */
   children: React.ReactNode;
@@ -25,7 +26,7 @@ export interface IProps {
 // the common parts away but at this point I don't
 // feel confortable with that because they might be
 // just coincidentally similar and might evolve apart
-export default function Radio(props: IProps) {
+export default function Radio(props: IProps): JSX.Element {
   return (
     <LabelStyled htmlFor={props.id}>
       <RadioStyled

@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 
-import { Category } from "../../dal/categories";
-import SelectCategories from "../SelectCategories";
-import SelectPrice from "../SelectPrice";
-import Checkbox from "../Checkbox";
 import Button from "../Button";
 import { containerStyles } from "../../styles";
 import { useSearchRestaurantsQuery } from "../../dal/restaurant";
@@ -19,7 +15,7 @@ export interface IProps {
   filter: IForm;
 }
 
-export default function SearchResultContainer({ filter }: IProps) {
+export default function SearchResultContainer({ filter }: IProps): JSX.Element {
   const [offset, setOffset] = useState(LIMIT);
   const { loading, error, data, fetchMore } = useSearchRestaurantsQuery({
     variables: {

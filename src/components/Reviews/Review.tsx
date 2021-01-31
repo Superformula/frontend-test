@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { containerStyles } from "../../styles";
 import { ReviewFragmentFragment } from "../../generated/graphql";
 import Rating from "../Rating";
 
@@ -10,7 +9,7 @@ export interface IProps {
 
 const dateFormatter = new Intl.DateTimeFormat("en-US");
 
-export default function Review(props: IProps) {
+export default function Review(props: IProps): JSX.Element {
   const review = props.review;
   const date = dateFormatter.format(new Date(review?.time_created as string));
   // TODO abstract this away and reuse
@@ -19,7 +18,7 @@ export default function Review(props: IProps) {
   return (
     <Container>
       <Left>
-        <Avatar src={review?.user?.image_url!} />
+        <Avatar src={review?.user?.image_url || ""} />
         <NameAndDate>
           <Name>{review?.user?.name}</Name>
           <DateStyled>{date}</DateStyled>

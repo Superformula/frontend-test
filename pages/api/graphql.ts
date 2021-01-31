@@ -4,7 +4,7 @@ import got from "got";
 export default async function graphlProxy(
   req: NextApiRequest,
   res: NextApiResponse
-) {
+): Promise<void> {
   const url = process.env.YELP_GRAPHQL_URI;
 
   const response = await got(url!, {

@@ -10,11 +10,12 @@ const OPTIONS = [
 
 export interface IProps {
   value: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (newPrice: string) => any;
   className?: string;
 }
 
-export default function SelectCategories(props: IProps) {
+export default function SelectCategories(props: IProps): JSX.Element {
   return (
     <Select
       className={props.className}

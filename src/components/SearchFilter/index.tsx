@@ -37,6 +37,7 @@ export const INITIAL_META: IMeta = {
 
 export interface IProps {
   value: IForm;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (newValues: IForm) => any;
 }
 
@@ -46,7 +47,7 @@ export interface IProps {
  * because nobody should re build an ad hoc form library everytime
  * and formik is good enough
  */
-export default function SearchFilter(props: IProps) {
+export default function SearchFilter(props: IProps): JSX.Element {
   const [meta, setMeta] = useState<IMeta>(INITIAL_META);
 
   function handleChange(newForm: Partial<IForm>): void {

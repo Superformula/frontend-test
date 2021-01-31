@@ -15,13 +15,14 @@ export interface IOption {
 export interface IProps {
   name: string;
   value: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   label: React.ReactNode;
   options: Array<IOption>;
   className?: string;
 }
 
-export default function Select(props: IProps) {
+export default function Select(props: IProps): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Tooltip

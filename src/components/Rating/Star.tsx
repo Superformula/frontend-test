@@ -20,7 +20,7 @@ function useGetGrad(fullness: number): [grad: React.ReactNode, gradId: number] {
   return [grad, Math.floor(fullness)];
 }
 
-export default function Star(props: IProps) {
+export default function Star(props: IProps): JSX.Element {
   const theme = useTheme();
 
   // Ensure the fullness is between 0 and 100

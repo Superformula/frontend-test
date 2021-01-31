@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import styled from "@emotion/styled";
 import { useGetRestaurantQuery } from "../../src/dal/restaurant";
@@ -9,9 +9,7 @@ import VenueStatus, { EVenueStatus } from "../../src/components/VenueStatus";
 import PhotosAndMap from "../../src/components/PhotosAndMap";
 import Reviews from "../../src/components/Reviews";
 
-export interface IProps {}
-
-export default function RestaurantPage(props: IProps) {
+export default function RestaurantPage(): JSX.Element {
   const router = useRouter();
   const businessId = router.query.id;
   // TODO fetch this data from the server

@@ -30,7 +30,7 @@ export interface IProps {
  *
  *
  */
-export default function Tooltip(props: IProps) {
+export default function Tooltip(props: IProps): JSX.Element {
   const [triggerBoundingRect, setTriggerBoundingRect] = useState<
     DOMRect | undefined
   >();

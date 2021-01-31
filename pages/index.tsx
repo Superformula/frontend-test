@@ -8,7 +8,7 @@ import * as Text from "../src/components/Text";
 import { containerStyles } from "../src/styles";
 import SearchResultContainer from "../src/components/SearchResultContainer";
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const [filter, setFilter] = useState<IForm>(INITIAL_VALUES);
 
   return (

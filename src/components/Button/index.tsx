@@ -9,6 +9,7 @@ export interface IProps {
   variant?: "small" | "medium" | "large";
   type?: "button" | "submit" | "reset";
   href?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
   children: React.ReactNode;
 }

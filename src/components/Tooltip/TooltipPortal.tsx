@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 
 export interface IProps {
@@ -8,7 +8,7 @@ export interface IProps {
   children: React.ReactNode;
 }
 
-export default function TooltipPortal(props: IProps) {
+export default function TooltipPortal(props: IProps): JSX.Element | null {
   let tooltip = null;
 
   const isBrowser = !!(
@@ -37,7 +37,10 @@ export default function TooltipPortal(props: IProps) {
 
     tooltip = (
       <Container
+        // This any is needed because emotion complains about
+        // custom variables
         style={
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           { "--top": `${triggerBottom}px`, "--left": `${triggerLeft}px` } as any
         }
       >

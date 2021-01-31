@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { containerStyles } from "../../styles";
 // TODO tell codegen not to suffix fragments with "Fragments"
 // so that we can avoid this double fragme suffix
 import { RestaurantFragmentFragment } from "../../generated/graphql";
-import * as Text from "../Text";
 
 export interface IProps {
   resto?: RestaurantFragmentFragment | null;
 }
 
-export default function PhotosAndMap(props: IProps) {
+export default function PhotosAndMap(props: IProps): JSX.Element {
   const { resto } = props;
 
   const photos = resto?.photos || [];
@@ -19,7 +18,7 @@ export default function PhotosAndMap(props: IProps) {
     <Container>
       <Grid>
         {photos.map((url, index) => (
-          <Img key={index} src={url!} />
+          <Img key={index} src={url || ""} />
         ))}
       </Grid>
       <p>{resto?.location?.formatted_address}</p>

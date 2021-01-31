@@ -10,6 +10,7 @@ import { Label } from "../Text";
 // approach of only accepting the needed props
 export interface IProps {
   checked: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
   /* specify the label */
   children: React.ReactNode;
@@ -21,7 +22,7 @@ export interface IProps {
 // uses and a lot of resources in the internet point out as the
 // main way of achieving this, but with more time I would attempt
 // to rely more on relative values and avoid harcoded values.
-export default function Checkbox(props: IProps) {
+export default function Checkbox(props: IProps): JSX.Element {
   return (
     <LabelStyled>
       <CheckboxStyled

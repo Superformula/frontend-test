@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { SearchRestaurantFragmentFragment } from "../../generated/graphql";
@@ -11,7 +11,7 @@ export interface IProps {
   restaurant?: SearchRestaurantFragmentFragment | null;
 }
 
-export default function SearchResult(props: IProps) {
+export default function SearchResult(props: IProps): JSX.Element | null {
   const { restaurant } = props;
   // Very edge case
   if (!restaurant) {
@@ -26,7 +26,7 @@ export default function SearchResult(props: IProps) {
   return (
     <Container>
       <ImgContainer>
-        <Img src={image!} />
+        <Img src={image || ""} />
       </ImgContainer>
       <Text.H3>{restaurant?.name}</Text.H3>
       <div>

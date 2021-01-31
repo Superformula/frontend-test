@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "@emotion/styled";
 import Star from "./Star";
 
@@ -6,7 +7,7 @@ export interface IProps {
 }
 
 // TODO make it scalable in size
-export default function Rating(props: IProps) {
+export default function Rating(props: IProps): JSX.Element {
   // ensure score is between 0 and 100
   const score = Math.max(0, Math.min(100, props.score));
   const starCount = 5;

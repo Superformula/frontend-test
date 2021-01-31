@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "@emotion/styled";
 import {
   useGetCategoriesQuery,
   getUniqueCategories,
@@ -9,12 +8,13 @@ import Select from "../Select";
 
 export interface IProps {
   value: Category | undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange: (newCategory: Category | undefined) => any;
   className?: string;
 }
 
-export default function SelectCategories(props: IProps) {
-  const { data, loading, error } = useGetCategoriesQuery({
+export default function SelectCategories(props: IProps): JSX.Element {
+  const { data, error } = useGetCategoriesQuery({
     variables: { location: "LAS VEGAS" },
   });
   if (error) {
