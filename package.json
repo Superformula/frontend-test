@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "yarn build:gql && next build",
+    "build": "yarn build:gql-codegen && next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "prettier": "prettier \"{pages,src}/**/*.{js,jsx,css,ts,tsx}\"",
