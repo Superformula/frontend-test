@@ -17,6 +17,10 @@ module.exports = {
   ],
 
   rules: {
+    // Need to manually disable this one
+    // because we are using typescript
+    "react/prop-types": 0,
+
     "@typescript-eslint/triple-slash-reference": 0,
 
     "@typescript-eslint/naming-convention": [

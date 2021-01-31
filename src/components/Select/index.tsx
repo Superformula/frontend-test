@@ -27,6 +27,7 @@ export default function Select(props: IProps): JSX.Element {
   return (
     <Tooltip
       open={isOpen}
+      onClose={() => setIsOpen(false)}
       renderContent={() => {
         return (
           <>
@@ -37,8 +38,12 @@ export default function Select(props: IProps): JSX.Element {
                   name={props.name}
                   value={option.value}
                   checked={props.value === option.value}
-                  onChange={props.onChange}
                   aria-selected={props.value === option.value}
+                  onChange={(e) => {
+                    props.onChange(e);
+                    // close tooltip when selecting
+                    setIsOpen(false);
+                  }}
                 >
                   {option.label}
                 </Radio>
