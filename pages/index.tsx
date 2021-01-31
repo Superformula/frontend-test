@@ -12,7 +12,7 @@ export default function Home() {
   const [filter, setFilter] = useState<IForm>(INITIAL_VALUES);
 
   return (
-    <div className="container">
+    <>
       <Header>
         <Text.H1>Restaurants</Text.H1>
         <SubtitleStyled>
@@ -24,7 +24,7 @@ export default function Home() {
       <SearchFilter value={filter} onChange={(filter) => setFilter(filter)} />
 
       <SearchResultContainer filter={filter} />
-    </div>
+    </>
   );
 }
 

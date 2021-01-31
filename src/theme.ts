@@ -27,6 +27,9 @@ export const theme = {
     x300: "12px",
     x400: "14px",
     x600: "16px",
+    x700: "18px",
+    x800: "20px",
+    x900: "22px",
   },
   backgroundColor: "green",
 };

@@ -5,6 +5,7 @@ export interface IProps {
   score: number;
 }
 
+// TODO make it scalable in size
 export default function Rating(props: IProps) {
   // ensure score is between 0 and 100
   const score = Math.max(0, Math.min(100, props.score));

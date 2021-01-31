@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import Link from "next/link";
 import { SearchRestaurantFragmentFragment } from "../../generated/graphql";
 import * as Text from "../Text";
 import Rating from "../Rating";
@@ -10,13 +11,6 @@ export interface IProps {
   restaurant?: SearchRestaurantFragmentFragment | null;
 }
 
-//<div>
-//<h3>{business?.name}</h3>
-//<p>{business?.price}</p>
-//<p>{business?.rating}</p>
-//<p>{business?.is_closed}</p>
-//<p>{JSON.stringify(business?.categories)}</p>
-//</div>
 export default function SearchResult(props: IProps) {
   const { restaurant } = props;
   // Very edge case
@@ -47,7 +41,11 @@ export default function SearchResult(props: IProps) {
         />
       </SpreadContainer>
 
-      <Button type="button">Learn more</Button>
+      <Link href={`/restaurants/${restaurant.id}`} passHref>
+        <Button type="button" as="a">
+          Learn more
+        </Button>
+      </Link>
     </Container>
   );
 }

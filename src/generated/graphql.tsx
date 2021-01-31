@@ -509,7 +509,10 @@ export type SearchRestaurantsQuery = { __typename?: "Query" } & {
 
 export type SearchRestaurantFragmentFragment = {
   __typename?: "Business";
-} & Pick<Business, "name" | "is_closed" | "rating" | "price" | "photos"> & {
+} & Pick<
+  Business,
+  "id" | "name" | "is_closed" | "rating" | "price" | "photos"
+> & {
     categories?: Maybe<
       Array<
         Maybe<{ __typename?: "Category" } & Pick<Category, "alias" | "title">>
@@ -517,8 +520,50 @@ export type SearchRestaurantFragmentFragment = {
     >;
   };
 
+export type GetRestaurantQueryVariables = Exact<{
+  id?: Maybe<Scalars["String"]>;
+}>;
+
+export type GetRestaurantQuery = { __typename?: "Query" } & {
+  business?: Maybe<{ __typename?: "Business" } & RestaurantFragmentFragment>;
+};
+
+export type RestaurantFragmentFragment = { __typename?: "Business" } & Pick<
+  Business,
+  "name" | "is_closed" | "rating" | "price" | "photos" | "review_count"
+> & {
+    hours?: Maybe<
+      Array<Maybe<{ __typename?: "Hours" } & Pick<Hours, "is_open_now">>>
+    >;
+    categories?: Maybe<
+      Array<
+        Maybe<{ __typename?: "Category" } & Pick<Category, "alias" | "title">>
+      >
+    >;
+    coordinates?: Maybe<
+      { __typename?: "Coordinates" } & Pick<
+        Coordinates,
+        "latitude" | "longitude"
+      >
+    >;
+    location?: Maybe<
+      { __typename?: "Location" } & Pick<Location, "formatted_address">
+    >;
+    reviews?: Maybe<
+      Array<Maybe<{ __typename?: "Review" } & ReviewFragmentFragment>>
+    >;
+  };
+
+export type ReviewFragmentFragment = { __typename?: "Review" } & Pick<
+  Review,
+  "rating" | "text" | "time_created"
+> & {
+    user?: Maybe<{ __typename?: "User" } & Pick<User, "image_url" | "name">>;
+  };
+
 export const SearchRestaurantFragmentFragmentDoc = gql`
   fragment SearchRestaurantFragment on Business {
+    id
     name
     is_closed
     rating
@@ -529,6 +574,45 @@ export const SearchRestaurantFragmentFragmentDoc = gql`
       title
     }
   }
+`;
+export const ReviewFragmentFragmentDoc = gql`
+  fragment ReviewFragment on Review {
+    rating
+    text
+    time_created
+    user {
+      image_url
+      name
+    }
+  }
+`;
+export const RestaurantFragmentFragmentDoc = gql`
+  fragment RestaurantFragment on Business {
+    name
+    is_closed
+    rating
+    price
+    photos
+    review_count
+    hours {
+      is_open_now
+    }
+    categories {
+      alias
+      title
+    }
+    coordinates {
+      latitude
+      longitude
+    }
+    location {
+      formatted_address
+    }
+    reviews {
+      ...ReviewFragment
+    }
+  }
+  ${ReviewFragmentFragmentDoc}
 `;
 export const GetCategoriesDocument = gql`
   query GetCategories($location: String!) {
@@ -668,4 +752,61 @@ export type SearchRestaurantsLazyQueryHookResult = ReturnType<
 export type SearchRestaurantsQueryResult = Apollo.QueryResult<
   SearchRestaurantsQuery,
   SearchRestaurantsQueryVariables
+>;
+export const GetRestaurantDocument = gql`
+  query GetRestaurant($id: String) {
+    business(id: $id) {
+      ...RestaurantFragment
+    }
+  }
+  ${RestaurantFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetRestaurantQuery__
+ *
+ * To run a query within a React component, call `useGetRestaurantQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetRestaurantQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetRestaurantQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetRestaurantQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetRestaurantQuery,
+    GetRestaurantQueryVariables
+  >
+) {
+  return Apollo.useQuery<GetRestaurantQuery, GetRestaurantQueryVariables>(
+    GetRestaurantDocument,
+    baseOptions
+  );
+}
+export function useGetRestaurantLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetRestaurantQuery,
+    GetRestaurantQueryVariables
+  >
+) {
+  return Apollo.useLazyQuery<GetRestaurantQuery, GetRestaurantQueryVariables>(
+    GetRestaurantDocument,
+    baseOptions
+  );
+}
+export type GetRestaurantQueryHookResult = ReturnType<
+  typeof useGetRestaurantQuery
+>;
+export type GetRestaurantLazyQueryHookResult = ReturnType<
+  typeof useGetRestaurantLazyQuery
+>;
+export type GetRestaurantQueryResult = Apollo.QueryResult<
+  GetRestaurantQuery,
+  GetRestaurantQueryVariables
 >;

@@ -8,6 +8,7 @@ export interface IProps {
   disabled?: boolean;
   variant?: "small" | "medium" | "large";
   type?: "button" | "submit" | "reset";
+  href?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
   children: React.ReactNode;
 }
@@ -46,6 +47,7 @@ const Button = styled.button<IProps>(
     }
 
     return `
+    text-decoration: none;
     background-color: ${bgColor};
     color: ${fgColor};
     border: 1px solid ${borderColor};
